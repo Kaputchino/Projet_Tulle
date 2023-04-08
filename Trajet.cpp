@@ -74,4 +74,22 @@ void Trajet::setStatuts(int statuts) {
     }
 }
 
+bool Trajet::ajouterColis(Colis colis) {
+    double prochainPoid = (colis.getPoid() + getPoidEnCharge());
+    if (prochainPoid <= poids) {
+         this->listeColis.push_back(colis);
+         return true;
+    }
+
+    return false;
+}
+
+double Trajet::getPoidEnCharge() {
+    double poids = 0;
+    for (Colis colis : listeColis) {
+        poids += colis.getPoid();
+    }
+
+    return poids;
+}
 

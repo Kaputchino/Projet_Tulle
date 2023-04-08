@@ -1,6 +1,7 @@
 #ifndef PROJET_TULLE_TRAJET_H
 #define PROJET_TULLE_TRAJET_H
 #include "string"
+#include "Colis.h"
 
 using namespace std;
 class Trajet {
@@ -16,6 +17,7 @@ private:
     double poids;
     double prix;
     int statuts;
+    vector<Colis> listeColis;
 public:
     int getIdTrajet() const;
 
@@ -50,6 +52,10 @@ public:
     int getStatuts() const;
 
     void setStatuts(int statuts);
+
+    double getPoidEnCharge();
+
+    bool ajouterColis(Colis colis);
 };
 
 
