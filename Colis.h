@@ -4,7 +4,7 @@
 using namespace std;
 class Colis {
 public:
-    Colis();
+    Colis(string &villeArrivee, double poid);
 
     int getIdColis() const;
 
@@ -30,8 +30,10 @@ private:
     int poid;
     string dateAjoutColis;
     int statut;
+    static int nbColisTotal;
 
 };
 
+int Colis::nbColisTotal = 0;
 
 #endif //PROJET_TULLE_COLIS_H

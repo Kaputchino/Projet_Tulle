@@ -3,12 +3,11 @@
 using namespace std;
 
 Personne::Personne(string nom, string prenom, string adresse, string telephone) {
-    this->idPersonne = totalPersonne;
+    this->idPersonne = totalPersonne++;
     this->setAdresse(adresse);
     this->setPrenom(adresse);
     this->setNom(adresse);
     this->setTelephone(adresse);
-    totalPersonne++;
 }
 
 void Personne::setAdresse(string adresse) {

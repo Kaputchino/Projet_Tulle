@@ -35,11 +35,11 @@ class Personne {
         void setTelephone(string telephone);
 
         void afficherPersonne();
-        
+
         static int getTotalPersonne();
 };
 
-int Personne::totalPersonne = 1;
+int Personne::totalPersonne = 0;
 
 
 #endif //PROJET_TULLE_PERSONNE_H
