@@ -85,6 +85,12 @@ build CMakeFiles/Projet_Tulle.dir/Trajet.cpp.obj: CXX_COMPILER__Projet_Tulle_Deb
   OBJECT_DIR = CMakeFiles\Projet_Tulle.dir
   OBJECT_FILE_DIR = CMakeFiles\Projet_Tulle.dir
 
+build CMakeFiles/Projet_Tulle.dir/Colis.cpp.obj: CXX_COMPILER__Projet_Tulle_Debug C$:/Users/andre/OneDrive/Documents/devoir/fac/Licence$ Info/info/projet/Projet_Tulle/Colis.cpp || cmake_object_order_depends_target_Projet_Tulle
+  DEP_FILE = CMakeFiles\Projet_Tulle.dir\Colis.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Projet_Tulle.dir
+  OBJECT_FILE_DIR = CMakeFiles\Projet_Tulle.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Projet_Tulle
@@ -93,7 +99,7 @@ build CMakeFiles/Projet_Tulle.dir/Trajet.cpp.obj: CXX_COMPILER__Projet_Tulle_Deb
 #############################################
 # Link the executable Projet_Tulle.exe
 
-build Projet_Tulle.exe: CXX_EXECUTABLE_LINKER__Projet_Tulle_Debug CMakeFiles/Projet_Tulle.dir/main.cpp.obj CMakeFiles/Projet_Tulle.dir/Personne.cpp.obj CMakeFiles/Projet_Tulle.dir/Chauffeur.cpp.obj CMakeFiles/Projet_Tulle.dir/Admin.cpp.obj CMakeFiles/Projet_Tulle.dir/Dispatcher.cpp.obj CMakeFiles/Projet_Tulle.dir/Trajet.cpp.obj
+build Projet_Tulle.exe: CXX_EXECUTABLE_LINKER__Projet_Tulle_Debug CMakeFiles/Projet_Tulle.dir/main.cpp.obj CMakeFiles/Projet_Tulle.dir/Personne.cpp.obj CMakeFiles/Projet_Tulle.dir/Chauffeur.cpp.obj CMakeFiles/Projet_Tulle.dir/Admin.cpp.obj CMakeFiles/Projet_Tulle.dir/Dispatcher.cpp.obj CMakeFiles/Projet_Tulle.dir/Trajet.cpp.obj CMakeFiles/Projet_Tulle.dir/Colis.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Projet_Tulle.dir
