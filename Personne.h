@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #ifndef PROJET_TULLE_PERSONNE_H
 #define PROJET_TULLE_PERSONNE_H
 
