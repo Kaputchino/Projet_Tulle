@@ -4,7 +4,6 @@ int Colis::getIdColis() const {
     return idColis;
 }
 
-
 const string &Colis::getVilleArrivee() const {
     return villeArrivee;
 }
