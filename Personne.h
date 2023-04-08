@@ -1,12 +1,13 @@
 #include <string>
+#include <iostream>
 #ifndef PROJET_TULLE_PERSONNE_H
 #define PROJET_TULLE_PERSONNE_H
 
 using namespace std;
 
 class Personne {
-    static int totalPersonnes;
     private:
+        static int totalPersonne;
         int idPersonne;
         string nom;
         string premom;
@@ -18,13 +19,16 @@ class Personne {
         string getPrenom();
         string getAdresse();
         string getTelephone();
+        int getIdPersonne();
         void setNom(string nom);
         void setPrenom(string prenom);
         void setAdresse(string adresse);
         void setTelephone(string telephone);
+        void afficherPersonne();
+        static int getTotalPersonne();
 };
 
-int Personne::totalPersonnes = 1;
+int Personne::totalPersonne = 1;
 
 
 #endif //PROJET_TULLE_PERSONNE_H
