@@ -69,7 +69,9 @@ int Trajet::getStatuts() const {
 }
 
 void Trajet::setStatuts(int statuts) {
-    Trajet::statuts = statuts;
+    if(statuts > -1 && statuts < 5){
+        Trajet::statuts = statuts;
+    }
 }
 
 
