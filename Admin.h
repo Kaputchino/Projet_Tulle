@@ -6,7 +6,7 @@
 
 class Admin : public Personne{
 public:
-    Admin();
+    Admin(string nom, string prenom, string adresse, string telephone);
 };
 
 
