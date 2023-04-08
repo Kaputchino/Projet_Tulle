@@ -55,7 +55,9 @@ public:
 
     double getPoidEnCharge();
 
-    bool ajouterColis(Colis colis);
+    void ajouterColis(Colis colis);
+
+    bool colieAjoutable(Colis colis);
 };
 
 

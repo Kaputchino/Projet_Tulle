@@ -74,10 +74,13 @@ void Trajet::setStatuts(int statuts) {
     }
 }
 
-bool Trajet::ajouterColis(Colis colis) {
+void Trajet::ajouterColis(Colis colis) {
+    this->listeColis.push_back(colis);
+}
+
+bool Trajet::colieAjoutable(Colis colis) {
     double prochainPoid = (colis.getPoid() + getPoidEnCharge());
     if (prochainPoid <= poids) {
-         this->listeColis.push_back(colis);
          return true;
     }
 
