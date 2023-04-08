@@ -20,9 +20,14 @@ public:
 
     void setStatut(int statut);
 
+    int getPoid() const;
+
+    void setPoid(int poid);
+
 private:
     int idColis;
     string villeArrivee;
+    int poid;
     string dateAjoutColis;
     int statut;
 
