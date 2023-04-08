@@ -1,7 +1,3 @@
-//
-// Created by andre on 08/04/2023.
-//
-
 #include "Colis.h"
 
 int Colis::getIdColis() const {

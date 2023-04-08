@@ -8,7 +8,7 @@
 using namespace std;
 class Dispatcher : public Personne{
 public:
-    Dispatcher();
+    Dispatcher(string nom, string prenom, string adresse, string telephone);
     bool remplir(int n);
     bool dispatch();
 private:

@@ -1,7 +1,3 @@
-//
-// Created by andre on 08/04/2023.
-//
-
 #include "Chauffeur.h"
 
 bool Chauffeur::ajoutTrajet(Trajet t) {
@@ -18,7 +14,7 @@ Chauffeur::modifierTrajet(Trajet t, string villeDepart, string villeArrive, stri
     return false;
 }
 
-Chauffeur::Chauffeur() {
+Chauffeur::Chauffeur(string nom, string prenom, string adresse, string telephone) : Personne(nom, prenom, adresse, telephone) {
 
 }
 

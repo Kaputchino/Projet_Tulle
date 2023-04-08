@@ -1,13 +1,12 @@
-//
-// Created by andre on 08/04/2023.
-//
-
 #include "Trajet.h"
+
+Trajet::Trajet() {
+
+}
 
 int Trajet::getIdTrajet() const {
     return idTrajet;
 }
-
 
 int Trajet::getIdChauffeur() const {
     return idChauffeur;
@@ -72,3 +71,5 @@ int Trajet::getStatuts() const {
 void Trajet::setStatuts(int statuts) {
     Trajet::statuts = statuts;
 }
+
+
