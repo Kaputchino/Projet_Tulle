@@ -9,7 +9,8 @@
 #include "Personne.h"
 
 class Admin : public Personne{
-
+public:
+    Admin();
 };
 
 
