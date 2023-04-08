@@ -35,3 +35,10 @@ int Colis::getPoid() const {
 void Colis::setPoid(int poid) {
     Colis::poid = poid;
 }
+
+Colis::Colis(string &villeArrivee, double poid) {
+    this->villeArrivee = villeArrivee;
+    this->poid = poid;
+    this->idColis = nbColisTotal++;
+    this->statut = 0;
+}
