@@ -30,17 +30,5 @@ bool Dispatcher::dispatch() {
         }
     }
 
-
-    for (Chauffeur ch : listeChauffeur) {
-
-        if ( ch.getIndexTrajet() )
-        
-        // je demande l'index.
-        // si index...
-        // rajouter liste de colie dans trajet
-        // rajouter methode poid en cours du trajet
-        // index trajet methode a faire.
-    }
-
     return false;
 }
