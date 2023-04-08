@@ -15,16 +15,27 @@ class Personne {
         string telephone;
     public:
         Personne(string nom, string prenom, string adresse, string telephone);
+
         string getNom();
+
         string getPrenom();
+
         string getAdresse();
+
         string getTelephone();
+
         int getIdPersonne();
+
         void setNom(string nom);
+
         void setPrenom(string prenom);
+
         void setAdresse(string adresse);
+
         void setTelephone(string telephone);
+
         void afficherPersonne();
+        
         static int getTotalPersonne();
 };
 

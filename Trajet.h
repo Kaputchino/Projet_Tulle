@@ -19,7 +19,6 @@ private:
 public:
     int getIdTrajet() const;
 
-
     int getIdChauffeur() const;
 
     void setIdChauffeur(int idChauffeur);
