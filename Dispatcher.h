@@ -12,7 +12,7 @@ public:
     bool remplir(int n);
     bool dispatch();
 private:
-    vector<Colis> listColis;
+    vector<Colis> listeColis;
 };
 
 

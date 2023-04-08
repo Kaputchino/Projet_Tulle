@@ -7,6 +7,9 @@
 class Admin : public Personne{
 public:
     Admin();
+
+    Admin(string nom, string prenom, string adresse, string telephone);
+
     double gainChauffeur(Chauffeur c);
     int trajetChauffeur(Chauffeur c);
     int coliesLivree(Chauffeur c);
