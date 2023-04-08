@@ -22,6 +22,10 @@ int Chauffeur::getIdChauffeur() const {
     return idChauffeur;
 }
 
+Trajet Chauffeur::getTrajetByIndex(int index) {
+    return listeTrajet.at(index);
+}
+
 int Chauffeur::getIndexTrajet(string villeArrivee) {
     for (int i = 0; i < listeTrajet.size(); i++)
     {

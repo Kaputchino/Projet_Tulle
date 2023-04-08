@@ -17,7 +17,24 @@ bool Dispatcher::remplir(int n) {
 }
 
 bool Dispatcher::dispatch() {
+    for(Colis colis : listeColis) {
+        for (Chauffeur ch : listeChauffeur) {
+            int indexTrajet = ch.getIndexTrajet(colis.getVilleArrivee());
+            if (indexTrajet != -1) {
+                Trajet trajet = ch.getTrajetByIndex(indexTrajet);
+                if (trajet.colieAjoutable(colis)) {
+                    trajet.ajouterColis(colis);
+                    break;
+                }
+            }
+        }
+    }
+
+
     for (Chauffeur ch : listeChauffeur) {
+
+        if ( ch.getIndexTrajet() )
+        
         // je demande l'index.
         // si index...
         // rajouter liste de colie dans trajet

@@ -14,6 +14,7 @@ public:
     bool supprimerTrajet(Trajet t);
     bool modifierTrajet(Trajet t, string villeDepart, string villeArrivee, string horaireDepart, string horaireArrivee, double poids, double prix);
     int getIndexTrajet(string villeArrivee);
+    Trajet getTrajetByIndex(int index);
 private:
     vector<Trajet> listeTrajet;
     int idChauffeur;
