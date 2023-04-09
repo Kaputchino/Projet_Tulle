@@ -1,7 +1,7 @@
 #include "Trajet.h"
 
 Trajet::Trajet(int idChauffeur, const string &VilleDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix) {
-    this->idTrajet = totalTrajets++;
+    this->idTrajet = ++totalTrajets;
     this->idChauffeur= idChauffeur;
     this->villeDepart = villeDepart;
     this->villeArrivee = villeArrivee;

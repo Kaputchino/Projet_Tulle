@@ -3,7 +3,7 @@
 using namespace std;
 
 Personne::Personne(const string& nom, const string& prenom, const string& adresse, const string& telephone) {
-    this->idPersonne = totalPersonne++;
+    this->idPersonne = ++totalPersonne;
     this->adresse = adresse;
     this->prenom = prenom;
     this->nom = nom;
