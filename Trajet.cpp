@@ -104,7 +104,7 @@ double Trajet::getPoidEnCharge() {
     return poids;
 }
 
-v
+
 int Trajet::nbColis() {
     return listeColis.size();
 }
