@@ -10,13 +10,13 @@ public:
 
     Admin(string nom, string prenom, string adresse, string telephone);
 
-    double gainChauffeur(Chauffeur c);
+    static double gainChauffeur(Chauffeur *c);
     int trajetChauffeur(Chauffeur c);
     int coliesLivree(Chauffeur c);
     int coliesEnCours(Chauffeur c);
     int coliesEnAttente(Chauffeur c);
     int coliesEnValidation(Chauffeur c);
-    int nombreTrajets(Chauffeur c);
+    static int nombreTrajets(Chauffeur* c);
 };
 
 
