@@ -1,7 +1,7 @@
 #include "Trajet.h"
 
 Trajet::Trajet() {
-
+    this->idTrajet = totalTrajets++;
 }
 
 int Trajet::getIdTrajet() const {
@@ -95,4 +95,11 @@ double Trajet::getPoidEnCharge() {
 
     return poids;
 }
+
+int main(int argc, char const *argv[])
+{
+    /* code */
+    return 0;
+}
+
 

@@ -18,6 +18,7 @@ private:
     double prix;
     int statuts;
     vector<Colis> listeColis;
+    static int totalTrajets;
 public:
     int getIdTrajet() const;
 
@@ -59,6 +60,8 @@ public:
 
     bool colieAjoutable(Colis colis);
 };
+
+int Trajet::totalTrajets = 0;
 
 
 #endif //PROJET_TULLE_TRAJET_H
