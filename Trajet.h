@@ -18,6 +18,7 @@ private:
     double prix;
     int statuts;
     vector<Colis> listeColis;
+    static int totalTrajets;
 public:
     int getIdTrajet() const;
 
@@ -62,6 +63,8 @@ public:
     int nbColis();
 
 };
+
+int Trajet::totalTrajets = 0;
 
 
 #endif //PROJET_TULLE_TRAJET_H

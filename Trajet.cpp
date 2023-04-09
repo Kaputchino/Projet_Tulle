@@ -1,7 +1,7 @@
 #include "Trajet.h"
 
 Trajet::Trajet() {
-
+    this->idTrajet = totalTrajets++;
 }
 
 int Trajet::getIdTrajet() const {
@@ -80,7 +80,7 @@ void Trajet::ajouterColis(Colis colis) {
 
 bool Trajet::colieAjoutable(Colis colis) {
     double prochainPoid = (colis.getPoid() + getPoidEnCharge());
-    if (prochainPoid <= poids) {
+    if (prochainPoid <= poids && this->statuts == 0) {
          return true;
     }
 
@@ -96,7 +96,16 @@ double Trajet::getPoidEnCharge() {
     return poids;
 }
 
+v
 int Trajet::nbColis() {
     return listeColis.size();
 }
+
+
+int main(int argc, char const *argv[])
+{
+    /* code */
+    return 0;
+}
+
 
