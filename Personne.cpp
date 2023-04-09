@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Personne::Personne(string nom, string prenom, string adresse, string telephone) {
+Personne::Personne(const string& nom, const string& prenom, const string& adresse, const string& telephone) {
     this->idPersonne = totalPersonne++;
     this->setAdresse(adresse);
     this->setPrenom(adresse);

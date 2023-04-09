@@ -54,7 +54,7 @@ Chauffeur::modifierTrajet(const Trajet& t, const string& villeDepart, const stri
     return true;
 }
 
-Chauffeur::Chauffeur(string nom, string prenom, string adresse, string telephone) : Personne(nom, prenom, adresse, telephone) {
+Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
 
 }
 
