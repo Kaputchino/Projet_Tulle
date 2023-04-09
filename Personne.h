@@ -7,7 +7,7 @@ using namespace std;
 
 class Personne {
     private:
-        static int totalPersonne;
+        static inline  int totalPersonne = 0;
         int idPersonne;
         string nom;
         string prenom;
@@ -38,7 +38,5 @@ class Personne {
 
         static int getTotalPersonne();
 };
-
-int Personne::totalPersonne = 0;
 
 #endif //PROJET_TULLE_PERSONNE_H

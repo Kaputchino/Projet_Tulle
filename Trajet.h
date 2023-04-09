@@ -16,7 +16,7 @@ private:
     double prix;
     int statuts;
     vector<Colis> listeColis;
-    static int totalTrajets;
+    static inline  int totalTrajets = 0;
 public:
     Trajet(int idChauffeur, const string &VilleDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix);
 
@@ -63,8 +63,5 @@ public:
     int nbColis();
 
 };
-
-int Trajet::totalTrajets = 0;
-
 
 #endif //PROJET_TULLE_TRAJET_H

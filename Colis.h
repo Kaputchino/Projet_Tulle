@@ -30,10 +30,8 @@ private:
     int poid;
     string dateAjoutColis;
     int statut;
-    static int nbColisTotal;
+    static inline int nbColisTotal = 0;
 
 };
-
-int Colis::nbColisTotal = 0;
 
 #endif //PROJET_TULLE_COLIS_H
