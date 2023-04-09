@@ -1,7 +1,7 @@
-#include <string>
-#include <iostream>
 #ifndef PROJET_TULLE_PERSONNE_H
 #define PROJET_TULLE_PERSONNE_H
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -40,6 +40,5 @@ class Personne {
 };
 
 int Personne::totalPersonne = 0;
-
 
 #endif //PROJET_TULLE_PERSONNE_H

@@ -1,7 +1,6 @@
 #ifndef PROJET_TULLE_CHAUFFEUR_H
 #define PROJET_TULLE_CHAUFFEUR_H
 
-
 #include "Personne.h"
 #include "Trajet.h"
 #include <string>
@@ -27,6 +26,5 @@ private:
     vector<Trajet> listeTrajet;
     int idChauffeur;
 };
-
 
 #endif //PROJET_TULLE_CHAUFFEUR_H
