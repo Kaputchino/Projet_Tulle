@@ -1,7 +1,15 @@
 #include "Trajet.h"
 
-Trajet::Trajet() {
+Trajet::Trajet(int idChauffeur, string VilleDepart, string villeArrivee, string horaireDepart, string horaireArrivee, double poids, double prix) {
     this->idTrajet = totalTrajets++;
+    this->idChauffeur= idChauffeur;
+    this->villeDepart = villeDepart;
+    this->villeArrivee = villeArrivee;
+    this->horaireDepart = horaireDepart;
+    this->horaireArrivee = horaireArrivee;
+    this->poids = poids;
+    this->prix = prix;
+    this->statuts = 0;
 }
 
 int Trajet::getIdTrajet() const {
@@ -96,16 +104,8 @@ double Trajet::getPoidEnCharge() {
     return poids;
 }
 
-v
+
 int Trajet::nbColis() {
     return listeColis.size();
 }
-
-
-int main(int argc, char const *argv[])
-{
-    /* code */
-    return 0;
-}
-
 
