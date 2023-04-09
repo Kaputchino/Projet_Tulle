@@ -109,12 +109,3 @@ int Trajet::nbColis() {
     return listeColis.size();
 }
 
-
-int main(int argc, char const *argv[])
-{
-    Trajet trajetA = Trajet();
-    trajetA.setHoraireArrivee("10h15");
-    return 0;
-}
-
-
