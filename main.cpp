@@ -28,7 +28,7 @@ int main() {
     Colis colisBB = Colis(villeArriveeB, 1.2);
 
     Trajet trajetA = Trajet(chauffeurA.getIdChauffeur(), "Orlean", villeArriveeA, "12h20", "15h20", 20, 150);
-    Trajet trajetA = Trajet(chauffeurB.getIdChauffeur(), "Rouen", villeArriveeB, "10h20", "14h40", 34, 500);
+    Trajet trajetB = Trajet(chauffeurB.getIdChauffeur(), "Rouen", villeArriveeB, "10h20", "14h40", 34, 500);
 
     return 0;
 }
