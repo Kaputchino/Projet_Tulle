@@ -80,7 +80,7 @@ void Trajet::ajouterColis(Colis colis) {
 
 bool Trajet::colieAjoutable(Colis colis) {
     double prochainPoid = (colis.getPoid() + getPoidEnCharge());
-    if (prochainPoid <= poids) {
+    if (prochainPoid <= poids && this->statuts == 0) {
          return true;
     }
 
