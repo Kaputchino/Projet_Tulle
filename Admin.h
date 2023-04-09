@@ -8,7 +8,7 @@ class Admin : public Personne{
 public:
     Admin();
 
-    Admin(string nom, string prenom, string adresse, string telephone);
+    Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone);
 
     static double gainChauffeur(Chauffeur *c);
     int coliesLivree(Chauffeur c);

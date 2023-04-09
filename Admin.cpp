@@ -1,6 +1,8 @@
 #include "Admin.h"
 
-Admin::Admin(string nom, string prenom, string adresse, string telephone) : Personne(nom, prenom, adresse, telephone) {
+#include <utility>
+
+Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
 
 }
 
