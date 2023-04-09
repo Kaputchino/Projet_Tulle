@@ -77,3 +77,31 @@ int Chauffeur::getIndexTrajet(string villeArrivee) {
     return -1;
 }
 
+int Chauffeur::getNbTrajet() {
+    return listeTrajet.size();
+}
+
+double Chauffeur::gain() {
+    double ammount = 0;
+    for(int i = 0; i < listeTrajet.size(); i++){
+        ammount += listeTrajet.at(i).getPrix();
+    }
+    return ammount;
+}
+
+int Chauffeur::nbColis() {
+    int ammount = 0;
+    for(int i = 0; i < listeTrajet.size(); i++){
+        ammount += listeTrajet.at(i).nbColis();
+    }
+    return ammount;
+}
+
+double Chauffeur::poidTotal() {
+    double ammount = 0;
+    for(int i = 0; i < listeTrajet.size(); i++){
+        ammount += listeTrajet.at(i).getPoidEnCharge();
+    }
+    return ammount;
+}
+

@@ -96,6 +96,12 @@ double Trajet::getPoidEnCharge() {
     return poids;
 }
 
+v
+int Trajet::nbColis() {
+    return listeColis.size();
+}
+
+
 int main(int argc, char const *argv[])
 {
     /* code */
