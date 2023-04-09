@@ -16,9 +16,9 @@ private:
     double prix;
     int statuts;
     vector<Colis> listeColis;
-    static inline  int totalTrajets = 0;
+    static inline int totalTrajets = 0;
 public:
-    Trajet(int idChauffeur, const string &VilleDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix);
+    Trajet(int idChauffeur, const string &VilleDepart, const string &villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix);
 
     int getIdTrajet() const;
 
