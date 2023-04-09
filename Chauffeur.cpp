@@ -1,17 +1,57 @@
 #include "Chauffeur.h"
 
 bool Chauffeur::ajoutTrajet(Trajet t) {
-    return false;
+    for(int i = 0; i < listeTrajet.size(); i++){
+        if(listeTrajet.at(i).getIdTrajet() == t.getIdTrajet()){
+            return false;
+        }
+    }
+    listeTrajet.push_back(t);
+    return true;
 }
 
 bool Chauffeur::supprimerTrajet(Trajet t) {
+    for(int i = 0; i < listeTrajet.size(); i++){
+        if(listeTrajet.at(i).getIdTrajet() == t.getIdTrajet()){
+            listeTrajet.erase(listeTrajet.begin() + i);
+            return true;
+        }
+    }
     return false;
 }
 
 bool
-Chauffeur::modifierTrajet(Trajet t, string villeDepart, string villeArrivee, string horaireDepart, string horaireArrivee,
+Chauffeur::modifierTrajet(const Trajet& t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee,
                           double poids, double prix) {
-    return false;
+    int index = -1;
+    for(int i = 0; i < listeTrajet.size(); i++){
+        if(listeTrajet.at(i).getIdTrajet() == t.getIdTrajet()){
+            index = i;
+        }
+    }
+    if(index == -1){
+        return false;
+    }
+    Trajet* trajetPtr = &listeTrajet.at(index);
+    if(!villeDepart.empty()){
+        trajetPtr->setVilleDepart(villeDepart);
+    }
+    if(!villeArrivee.empty()){
+        trajetPtr->setVilleArrivee(villeArrivee);
+    }
+    if(!horaireArrivee.empty()){
+        trajetPtr->setHoraireArrivee(horaireArrivee);
+    }
+    if(!horaireDepart.empty()){
+        trajetPtr->setHoraireDepart(horaireDepart);
+    }
+    if(poids > 0){
+        trajetPtr->setPoids(poids);
+    }
+    if(prix >= 0){
+        trajetPtr->setPrix(prix);
+    }
+    return true;
 }
 
 Chauffeur::Chauffeur(string nom, string prenom, string adresse, string telephone) : Personne(nom, prenom, adresse, telephone) {

@@ -12,7 +12,7 @@ public:
     Chauffeur(string nom, string prenom, string adresse, string telephone);
     bool ajoutTrajet(Trajet t);
     bool supprimerTrajet(Trajet t);
-    bool modifierTrajet(Trajet t, string villeDepart, string villeArrivee, string horaireDepart, string horaireArrivee, double poids, double prix);
+    bool modifierTrajet(const Trajet& t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee, double poids, double prix);
     int getIndexTrajet(string villeArrivee);
     Trajet getTrajetByIndex(int index);
 private:
