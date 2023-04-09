@@ -5,16 +5,17 @@
 #include "Dispatcher.h"
 #include "Trajet.h"
 #include "Colis.h"
+#include "sharedVariables.h"
 using namespace std;
 
-static vector<string> listeVille;
-static vector<Dispatcher> listeDispatcher;
-static vector<Chauffeur> listeChauffeur;
+vector<string> listeVille;
+vector<Dispatcher> listeDispatcher;
+vector<Chauffeur> listeChauffeur;
 
 int main(int argc, char const *argv[]) {
     string villeArriveeA = "Tours";
     string villeArriveeB = "Paris";
-    
+
     listeVille.push_back(villeArriveeA);
     listeVille.push_back(villeArriveeB);
     
