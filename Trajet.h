@@ -5,8 +5,6 @@
 #include "vector"
 using namespace std;
 class Trajet {
-public:
-    Trajet();
 private:
     int idTrajet;
     int idChauffeur;
@@ -20,6 +18,8 @@ private:
     vector<Colis> listeColis;
     static int totalTrajets;
 public:
+    Trajet(int idChauffeur, string VilleDepart, string villeArrivee, string horaireDepart, string horaireArrivee, double poids, double prix);
+
     int getIdTrajet() const;
 
     int getIdChauffeur() const;
