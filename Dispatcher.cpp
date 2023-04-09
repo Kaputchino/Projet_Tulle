@@ -14,6 +14,8 @@ bool Dispatcher::remplir(int n) {
             Colis(listeVille.at(indexVille), poidsRand)
         );
     }
+
+    return true;
 }
 
 bool Dispatcher::dispatch() {
