@@ -12,10 +12,11 @@ public:
     Chauffeur(string nom, string prenom, string adresse, string telephone);
     bool ajoutTrajet(Trajet t);
     bool supprimerTrajet(Trajet t);
-    bool modifierTrajet(Trajet t, string villeDepart, string villeArrive, string horaireDepart, string horaireArrivee, double poids, double prix);
-    int getIndexTrajet(string str);
+    bool modifierTrajet(Trajet t, string villeDepart, string villeArrivee, string horaireDepart, string horaireArrivee, double poids, double prix);
+    int getIndexTrajet(string villeArrivee);
+    Trajet getTrajetByIndex(int index);
 private:
-    vector<Trajet> listTrajet;
+    vector<Trajet> listeTrajet;
     int idChauffeur;
 public:
     int getIdChauffeur() const;

@@ -9,7 +9,7 @@ bool Chauffeur::supprimerTrajet(Trajet t) {
 }
 
 bool
-Chauffeur::modifierTrajet(Trajet t, string villeDepart, string villeArrive, string horaireDepart, string horaireArrivee,
+Chauffeur::modifierTrajet(Trajet t, string villeDepart, string villeArrivee, string horaireDepart, string horaireArrivee,
                           double poids, double prix) {
     return false;
 }
@@ -22,7 +22,18 @@ int Chauffeur::getIdChauffeur() const {
     return idChauffeur;
 }
 
-int Chauffeur::getIndexTrajet(string str) {
-    return 0;
+Trajet Chauffeur::getTrajetByIndex(int index) {
+    return listeTrajet.at(index);
+}
+
+int Chauffeur::getIndexTrajet(string villeArrivee) {
+    for (int i = 0; i < listeTrajet.size(); i++)
+    {
+        if (listeTrajet.at(i).getVilleArrivee() == villeArrivee) {
+            return i;
+        }
+    }
+
+    return -1;
 }
 
