@@ -4,25 +4,25 @@ using namespace std;
 
 Personne::Personne(const string& nom, const string& prenom, const string& adresse, const string& telephone) {
     this->idPersonne = totalPersonne++;
-    this->setAdresse(adresse);
-    this->setPrenom(adresse);
-    this->setNom(adresse);
-    this->setTelephone(adresse);
+    this->adresse = adresse;
+    this->prenom = prenom;
+    this->nom = nom;
+    this->telephone = telephone;
 }
 
-void Personne::setAdresse(string adresse) {
+void Personne::setAdresse(const string &adresse) {
     this->adresse = adresse;
 }
 
-void Personne::setPrenom(string premom) {
-    this->premom = premom;
+void Personne::setPrenom(const string &premom) {
+    this->prenom = premom;
 }
 
-void Personne::setNom(string nom) {
+void Personne::setNom(const string &nom) {
     this->nom = nom;
 }
 
-void Personne::setTelephone(string telephone) {
+void Personne::setTelephone(const string &telephone) {
     this->telephone = telephone;
 }
 
@@ -39,7 +39,7 @@ string Personne::getAdresse() {
 }
 
 string Personne::getPrenom() {
-    return this->premom;
+    return this->prenom;
 }
 
 string Personne::getNom() {
@@ -52,7 +52,7 @@ string Personne::getTelephone() {
 
 void Personne::afficherPersonne() {
     cout << "Nom: " << this->nom << endl;
-    cout << "Prenom: " << this->premom <<endl;
+    cout << "Prenom: " << this->prenom <<endl;
     cout << "Adresse: " << this->adresse << endl;
     cout << "Telephone: " << this->telephone << endl;
     cout << "idPersonne: " << this->idPersonne << endl;

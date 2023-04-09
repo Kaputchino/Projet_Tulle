@@ -10,7 +10,7 @@ class Personne {
         static int totalPersonne;
         int idPersonne;
         string nom;
-        string premom;
+        string prenom;
         string adresse;
         string telephone;
     public:
@@ -26,13 +26,13 @@ class Personne {
 
         int getIdPersonne();
 
-        void setNom(string nom);
+        void setNom(const string &nom);
 
-        void setPrenom(string prenom);
+        void setPrenom(const string &prenom);
 
-        void setAdresse(string adresse);
+        void setAdresse(const string &adresse);
 
-        void setTelephone(string telephone);
+        void setTelephone(const string &telephone);
 
         void afficherPersonne();
 
