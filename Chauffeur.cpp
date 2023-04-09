@@ -89,3 +89,19 @@ double Chauffeur::gain() {
     return ammount;
 }
 
+int Chauffeur::nbColis() {
+    int ammount = 0;
+    for(int i = 0; i < listeTrajet.size(); i++){
+        ammount += listeTrajet.at(i).nbColis();
+    }
+    return ammount;
+}
+
+double Chauffeur::poidTotal() {
+    double ammount = 0;
+    for(int i = 0; i < listeTrajet.size(); i++){
+        ammount += listeTrajet.at(i).getPoidEnCharge();
+    }
+    return ammount;
+}
+

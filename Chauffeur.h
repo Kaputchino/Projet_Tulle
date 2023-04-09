@@ -18,6 +18,8 @@ public:
     int getIdChauffeur() const;
     int getNbTrajet();
     double gain();
+    int nbColis();
+    double poidTotal();
 
 private:
     vector<Trajet> listeTrajet;

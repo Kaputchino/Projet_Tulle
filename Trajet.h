@@ -58,6 +58,9 @@ public:
     void ajouterColis(Colis colis);
 
     bool colieAjoutable(Colis colis);
+
+    int nbColis();
+
 };
 
 
