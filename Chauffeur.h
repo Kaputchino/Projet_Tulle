@@ -3,10 +3,12 @@
 
 
 #include "Personne.h"
-#include "vector"
 #include "Trajet.h"
-#include "string"
+#include <string>
+#include <vector>
+
 using namespace std;
+
 class Chauffeur : public Personne{
 public:
     Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& telephone);
