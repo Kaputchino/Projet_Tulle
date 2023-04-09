@@ -14,7 +14,7 @@ class Personne {
         string adresse;
         string telephone;
     public:
-        Personne(string nom, string prenom, string adresse, string telephone);
+        Personne(const string& nom, const string& prenom, const string& adresse, const string& telephone);
 
         string getNom();
 

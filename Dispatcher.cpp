@@ -1,7 +1,7 @@
 #include "Dispatcher.h"
 #include "main.cpp"
 
-Dispatcher::Dispatcher(string nom, string prenom, string adresse, string telephone) : Personne(nom, prenom, adresse, telephone) {
+Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
 
 }
 

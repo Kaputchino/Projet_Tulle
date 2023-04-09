@@ -9,7 +9,7 @@
 using namespace std;
 class Chauffeur : public Personne{
 public:
-    Chauffeur(string nom, string prenom, string adresse, string telephone);
+    Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& telephone);
     bool ajoutTrajet(Trajet t);
     bool supprimerTrajet(Trajet t);
     bool modifierTrajet(const Trajet& t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee, double poids, double prix);
