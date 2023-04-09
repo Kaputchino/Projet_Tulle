@@ -18,7 +18,7 @@ private:
     vector<Colis> listeColis;
     static int totalTrajets;
 public:
-    Trajet(int idChauffeur, string VilleDepart, string villeArrivee, string horaireDepart, string horaireArrivee, double poids, double prix);
+    Trajet(int idChauffeur, const string &VilleDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix);
 
     int getIdTrajet() const;
 
