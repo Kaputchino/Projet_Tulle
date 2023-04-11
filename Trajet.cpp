@@ -1,6 +1,7 @@
 #include "Trajet.h"
+#include <iostream>
 
-Trajet::Trajet(int idChauffeur, const string &VilleDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix) {
+Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix) {
     this->idTrajet = ++totalTrajets;
     this->idChauffeur= idChauffeur;
     this->villeDepart = villeDepart;
@@ -21,7 +22,7 @@ int Trajet::getIdChauffeur() const {
 }
 
 void Trajet::setIdChauffeur(int idChauffeur) {
-    Trajet::idChauffeur = idChauffeur;
+    this->idChauffeur = idChauffeur;
 }
 
 const string &Trajet::getVilleDepart() const {
@@ -29,7 +30,7 @@ const string &Trajet::getVilleDepart() const {
 }
 
 void Trajet::setVilleDepart(const string &villeDepart) {
-    Trajet::villeDepart = villeDepart;
+    this->villeDepart = villeDepart;
 }
 
 const string &Trajet::getVilleArrivee() const {
@@ -37,7 +38,7 @@ const string &Trajet::getVilleArrivee() const {
 }
 
 void Trajet::setVilleArrivee(const string &villeArrivee) {
-    Trajet::villeArrivee = villeArrivee;
+    this->villeArrivee = villeArrivee;
 }
 
 const string &Trajet::getHoraireDepart() const {
@@ -45,7 +46,7 @@ const string &Trajet::getHoraireDepart() const {
 }
 
 void Trajet::setHoraireDepart(const string &horaireDepart) {
-    Trajet::horaireDepart = horaireDepart;
+    this->horaireDepart = horaireDepart;
 }
 
 const string &Trajet::getHoraireArrivee() const {
@@ -53,7 +54,7 @@ const string &Trajet::getHoraireArrivee() const {
 }
 
 void Trajet::setHoraireArrivee(const string &horaireArrivee) {
-    Trajet::horaireArrivee = horaireArrivee;
+    this->horaireArrivee = horaireArrivee;
 }
 
 double Trajet::getPoids() const {
@@ -61,7 +62,7 @@ double Trajet::getPoids() const {
 }
 
 void Trajet::setPoids(double poids) {
-    Trajet::poids = poids;
+    this->poids = poids;
 }
 
 double Trajet::getPrix() const {
@@ -69,7 +70,7 @@ double Trajet::getPrix() const {
 }
 
 void Trajet::setPrix(double prix) {
-    Trajet::prix = prix;
+    this->prix = prix;
 }
 
 int Trajet::getStatuts() const {
@@ -78,16 +79,16 @@ int Trajet::getStatuts() const {
 
 void Trajet::setStatuts(int statuts) {
     if(statuts > -1 && statuts < 5){
-        Trajet::statuts = statuts;
+        this->statuts = statuts;
     }
 }
 
-void Trajet::ajouterColis(Colis colis) {
+void Trajet::ajouterColis(Colis *colis) {
     this->listeColis.push_back(colis);
 }
 
-bool Trajet::colieAjoutable(Colis colis) {
-    double prochainPoid = (colis.getPoid() + getPoidEnCharge());
+bool Trajet::colieAjoutable(Colis *colis) {
+    double prochainPoid = (colis->getPoid() + getPoidEnCharge());
     if (prochainPoid <= poids && this->statuts == 0) {
          return true;
     }
@@ -97,8 +98,8 @@ bool Trajet::colieAjoutable(Colis colis) {
 
 double Trajet::getPoidEnCharge() {
     double poids = 0;
-    for (Colis colis : listeColis) {
-        poids += colis.getPoid();
+    for (Colis * colis : listeColis) {
+        poids += colis->getPoid();
     }
 
     return poids;
@@ -109,3 +110,18 @@ int Trajet::nbColis() {
     return listeColis.size();
 }
 
+void Trajet::afficherTrajet() {
+    cout << "idTrajet: " << this->idTrajet << endl;
+    cout << "idChauffeur: " << this->idChauffeur << endl;
+    cout << "poids: " << this->poids << endl;
+    cout << "statuts: " << this->statuts << endl;
+    cout << "villeDepart: " << this->villeDepart << endl;
+    cout << "villeArrivee: " << this->villeArrivee << endl;
+    cout << "horaireDepart: " << this->horaireDepart << endl;
+    cout << "horaireArrivee: " << this->horaireArrivee << endl;
+    cout << "prix: " << this->prix << endl;
+}
+
+vector<Colis *> Trajet::getListeColis() {
+    return listeColis;
+}

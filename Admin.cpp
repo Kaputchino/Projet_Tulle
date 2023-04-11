@@ -3,7 +3,11 @@
 #include <utility>
 
 Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
+    this->idAdmin = getIdPersonne();
+}
 
+int Admin::getIdAdmin() {
+    return idAdmin;
 }
 
 int Admin::nombreTrajets(Chauffeur *c) {
@@ -45,3 +49,48 @@ double Admin::poidMoyenParTrajet(Chauffeur *c) {
     }
     return 0;
 }
+
+int Admin::coliesLivree(Chauffeur *c) {
+    int sum = 0;
+    for (Colis * colis : c->getAllColis()) {
+        if (colis->getStatut() == 4) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
+int Admin::coliesEnCoursLibraison(Chauffeur *c) {
+    int sum = 0;
+    for (Colis * colis : c->getAllColis()) {
+        if (colis->getStatut() == 3) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
+int Admin::coliesEnAttenteLivraison(Chauffeur *c) {
+    int sum = 0;
+    for (Colis * colis : c->getAllColis()) {
+        if (colis->getStatut() == 2) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
+int Admin::coliesEnValidationLivraison(Chauffeur *c) {
+    int sum = 0;
+    for (Colis * colis : c->getAllColis()) {
+        if (colis->getStatut() == 1s) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
