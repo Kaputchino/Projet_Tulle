@@ -1,5 +1,5 @@
-#ifndef PROJET_TULLE_SHAREDVARIABLES_H
-#define PROJET_TULLE_SHAREDVARIABLES_H
+#ifndef PROJET_TULLE_COMMON_H
+#define PROJET_TULLE_COMMON_H
 
 #include <string>
 #include <vector>
@@ -10,4 +10,4 @@ extern vector<string> listeVille;
 extern vector<Dispatcher *> listeDispatcher;
 extern vector<Chauffeur *> listeChauffeur;
 
-#endif //PROJET_TULLE_SHAREDVARIABLES_H
+#endif //PROJET_TULLE_COMMON_H

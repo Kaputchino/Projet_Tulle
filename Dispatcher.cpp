@@ -1,5 +1,5 @@
 #include "Dispatcher.h"
-#include "sharedVariables.h"
+#include "common.h"
 
 Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
 
@@ -7,7 +7,7 @@ Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& ad
 
 bool Dispatcher::remplir(int n) {
     for (size_t i = 0; i < n; i++) {
-        int indexVille = rand() % listeVille.size(); 
+        int indexVille = rand() % listeVille.size();
         int poidsRand = rand() % 16;
         Colis * colis = new Colis(listeVille.at(indexVille), poidsRand);
 

@@ -5,7 +5,7 @@
 #include "Dispatcher.h"
 #include "Trajet.h"
 #include "Colis.h"
-#include "sharedVariables.h"
+#include "common.h"
 using namespace std;
 
 // vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","Nouméa","Arachon","Casablanca","Bonifacio","Colmar","Montparnasse","Narbonne","Strasbourg","Brumath","Hoerdt","Haguenau","Mulhouse","Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Breuschwickersheim","Geispolsheim","Agullana","Lake Mary","Milwaukee"};
@@ -51,10 +51,10 @@ int main(int argc, char const *argv[]) {
     Colis colisBB = Colis(villeArriveeB, 1.2);
 
     Dispatcher dispatcherA = Dispatcher("Jean", "Pierre", "32 rue esquimot", "09879809");
-    dispatcherA.remplir(15);
+    dispatcherA.remplir(50);
     dispatcherA.dispatch();
     Dispatcher dispatcherB = Dispatcher("Jean2", "Pierre2", "322 rue esquimot2", "02379509");
-    dispatcherB.remplir(15);
+    dispatcherB.remplir(50);
     dispatcherB.dispatch();
 
     cout << "Poids en charge trajet A: " << trajetA.getPoidEnCharge() << endl;
