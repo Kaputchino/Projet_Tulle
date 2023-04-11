@@ -1,8 +1,8 @@
 #include "Chauffeur.h"
 
-bool Chauffeur::ajoutTrajet(Trajet t) {
+bool Chauffeur::ajoutTrajet(Trajet *t) {
     for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i).getIdTrajet() == t.getIdTrajet()){
+        if(listeTrajet.at(i)->getIdTrajet() == t->getIdTrajet()){
             return false;
         }
     }
@@ -12,7 +12,7 @@ bool Chauffeur::ajoutTrajet(Trajet t) {
 
 bool Chauffeur::supprimerTrajet(Trajet t) {
     for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i).getIdTrajet() == t.getIdTrajet()){
+        if(listeTrajet.at(i)->getIdTrajet() == t.getIdTrajet()){
             listeTrajet.erase(listeTrajet.begin() + i);
             return true;
         }
@@ -25,14 +25,14 @@ Chauffeur::modifierTrajet(const Trajet& t, const string& villeDepart, const stri
                           double poids, double prix) {
     int index = -1;
     for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i).getIdTrajet() == t.getIdTrajet()){
+        if(listeTrajet.at(i)->getIdTrajet() == t.getIdTrajet()){
             index = i;
         }
     }
     if(index == -1){
         return false;
     }
-    Trajet* trajetPtr = &listeTrajet.at(index);
+    Trajet* trajetPtr = listeTrajet.at(index);
     if(!villeDepart.empty()){
         trajetPtr->setVilleDepart(villeDepart);
     }
@@ -55,21 +55,21 @@ Chauffeur::modifierTrajet(const Trajet& t, const string& villeDepart, const stri
 }
 
 Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
-
+    this->idChauffeur = getIdPersonne();
 }
 
 int Chauffeur::getIdChauffeur() const {
     return idChauffeur;
 }
 
-Trajet Chauffeur::getTrajetByIndex(int index) {
+Trajet * Chauffeur::getTrajetByIndex(int index) {
     return listeTrajet.at(index);
 }
 
 int Chauffeur::getIndexTrajet(string villeArrivee) {
     for (int i = 0; i < listeTrajet.size(); i++)
     {
-        if (listeTrajet.at(i).getVilleArrivee() == villeArrivee) {
+        if (listeTrajet.at(i)->getVilleArrivee() == villeArrivee) {
             return i;
         }
     }
@@ -84,7 +84,7 @@ int Chauffeur::getNbTrajet() {
 double Chauffeur::gain() {
     double ammount = 0;
     for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i).getPrix();
+        ammount += listeTrajet.at(i)->getPrix();
     }
     return ammount;
 }
@@ -92,7 +92,7 @@ double Chauffeur::gain() {
 int Chauffeur::nbColis() {
     int ammount = 0;
     for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i).nbColis();
+        ammount += listeTrajet.at(i)->nbColis();
     }
     return ammount;
 }
@@ -100,8 +100,20 @@ int Chauffeur::nbColis() {
 double Chauffeur::poidTotal() {
     double ammount = 0;
     for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i).getPoidEnCharge();
+        ammount += listeTrajet.at(i)->getPoidEnCharge();
     }
     return ammount;
 }
 
+vector<Colis *> Chauffeur::getAllColis() {
+
+    vector<Colis *> listeColis;
+
+    for(Trajet * tr : listeTrajet) {
+        for (Colis * colie : tr->getListeColis()) {
+            listeColis.push_back(colie);
+        }
+    }
+
+    return listeColis;
+}

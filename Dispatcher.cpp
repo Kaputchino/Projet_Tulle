@@ -1,5 +1,5 @@
 #include "Dispatcher.h"
-#include "sharedVariables.h"
+#include "common.h"
 
 Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
 
@@ -7,11 +7,12 @@ Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& ad
 
 bool Dispatcher::remplir(int n) {
     for (size_t i = 0; i < n; i++) {
-        int indexVille = rand() % listeVille.size(); 
-        int poidsRand = rand() % 16; 
-
+        int indexVille = rand() % listeVille.size();
+        int poidsRand = rand() % 16;
+        Colis * colis = new Colis(listeVille.at(indexVille), poidsRand);
+        colis->setStatut(1);
         listeColis.push_back(
-            Colis(listeVille.at(indexVille), poidsRand)
+                colis
         );
     }
 
@@ -19,18 +20,28 @@ bool Dispatcher::remplir(int n) {
 }
 
 bool Dispatcher::dispatch() {
-    for(Colis colis : listeColis) {
-        for (Chauffeur ch : listeChauffeur) {
-            int indexTrajet = ch.getIndexTrajet(colis.getVilleArrivee());
+    vector<Colis *> unattributed;
+    for(Colis * colis : listeColis) {
+        unattributed.push_back(colis);
+        for (Chauffeur * ch : listeChauffeur) {
+            int indexTrajet = ch->getIndexTrajet(colis->getVilleArrivee());
+
             if (indexTrajet != -1) {
-                Trajet trajet = ch.getTrajetByIndex(indexTrajet);
-                if (trajet.colieAjoutable(colis)) {
-                    trajet.ajouterColis(colis);
+                Trajet * trajet = ch->getTrajetByIndex(indexTrajet);
+                if (trajet->colieAjoutable(colis)) {
+                    colis->setStatut(2);
+                    trajet->ajouterColis(colis);
+                    unattributed.pop_back();
                     break;
                 }
             }
         }
     }
 
-    return false;
+    return unattributed.empty();
+}
+
+void Dispatcher::attribueColis(Colis *c) {
+    c->setStatut(1);
+    listeColis.push_back(c);
 }
