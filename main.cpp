@@ -5,6 +5,7 @@
 #include "Dispatcher.h"
 #include "Trajet.h"
 #include "Colis.h"
+#include "Admin.h"
 #include "common.h"
 using namespace std;
 
@@ -46,10 +47,6 @@ int main(int argc, char const *argv[]) {
     chauffeurA.modifierTrajet(trajetA, "Blois", listeVille.at(0), "13h10", "16h20", 50, 250);
     trajetA.afficherTrajet();
 
-    Colis colisA = Colis(villeArriveeA, 10.2);
-    Colis colisB = Colis(villeArriveeB, 2.7);
-    Colis colisBA = Colis(villeArriveeB, 3.1);
-    Colis colisBB = Colis(villeArriveeB, 1.2);
 
     Dispatcher dispatcherA = Dispatcher("Jean", "Pierre", "32 rue esquimot", "09879809");
     dispatcherA.remplir(50);
@@ -60,6 +57,15 @@ int main(int argc, char const *argv[]) {
 
     cout << "Poids en charge trajet A: " << trajetA.getPoidEnCharge() << endl;
     cout << "Poids en charge trajet B: " << trajetB.getPoidEnCharge() << endl;
+    cout << "Colis chauffeur A: " << Admin::nombreColis(&chauffeurA) << endl;
 
+    Colis colisA = Colis(listeVille.at(0), 10.2);
+    dispatcherA.attribueColis(&colisA);
+    cout << "Colis Dispatcher A avant ajout: " << Admin::coliesEnDemandeLivraison(&dispatcherA) << endl;
+    dispatcherA.attribueColis(&colisA);
+    cout << "Colis Dispatcher A apres ajout: " << Admin::coliesEnDemandeLivraison(&dispatcherA) << endl;
+    dispatcherA.dispatch();
+    cout << "Colis chauffeur A apres nouveau dispatchage: " << Admin::nombreColis(&chauffeurA) << endl;
+    cout << "Colis Dispatcher A apres nouveau dispatchage: " << Admin::coliesEnDemandeLivraison(&dispatcherA) << endl;
     return 0;
 }

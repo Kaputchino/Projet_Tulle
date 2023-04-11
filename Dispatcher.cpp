@@ -38,10 +38,15 @@ bool Dispatcher::dispatch() {
         }
     }
 
+    listeColis = unattributed;
     return unattributed.empty();
 }
 
 void Dispatcher::attribueColis(Colis *c) {
     c->setStatut(1);
     listeColis.push_back(c);
+}
+
+vector<Colis *> Dispatcher::getListeColis() {
+    return listeColis;
 }

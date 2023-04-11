@@ -3,6 +3,7 @@
 
 #include "Personne.h"
 #include "Chauffeur.h"
+#include "Dispatcher.h"
 
 class Admin : public Personne{
 public:
@@ -12,7 +13,7 @@ public:
     static int coliesLivree(Chauffeur* c);
     static int coliesEnCoursLibraison(Chauffeur* c);
     static int coliesEnAttenteLivraison(Chauffeur* c);
-    static int coliesEnValidationLivraison(Chauffeur* c);
+    static int coliesEnDemandeLivraison(Dispatcher * d);
     int getIdAdmin();
     static int nombreTrajets(Chauffeur* c);
     static double gainMoyenParTrajet(Chauffeur* c);

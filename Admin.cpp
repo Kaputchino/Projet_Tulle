@@ -83,10 +83,10 @@ int Admin::coliesEnAttenteLivraison(Chauffeur *c) {
     return sum;
 }
 
-int Admin::coliesEnValidationLivraison(Chauffeur *c) {
+int Admin::coliesEnDemandeLivraison(Dispatcher * d) {
     int sum = 0;
-    for (Colis * colis : c->getAllColis()) {
-        if (colis->getStatut() == 1s) {
+    for (Colis * colis : d->getListeColis()) {
+        if (colis->getStatut() == 1) {
             sum++;
         }
     }

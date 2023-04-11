@@ -12,6 +12,7 @@ public:
     bool dispatch();
     void attribueColis(Colis *c);
     int getIdDispatcher();
+    vector<Colis *> getListeColis();
 private:
     vector<Colis *> listeColis;
     int idDispatcher;
