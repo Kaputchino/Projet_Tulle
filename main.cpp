@@ -26,16 +26,34 @@ int main(int argc, char const *argv[]) {
     Chauffeur chauffeurA = Chauffeur(nomA, prenomA, addrA, telepA);
     Chauffeur chauffeurB = Chauffeur("Benito", "Benoit", "3 place Vandome", "0909997867");
 
-    chauffeurA.afficherPersonne();
-    chauffeurB.afficherPersonne();
+    listeChauffeur.push_back(chauffeurA);
+    listeChauffeur.push_back(chauffeurB);
+
+    Trajet trajetA = Trajet(chauffeurA.getIdChauffeur(), "Orlean", listeVille.at(0), "12h20", "15h20", 20, 150);
+    Trajet trajetB = Trajet(chauffeurB.getIdChauffeur(), "Rouen", listeVille.at(1), "10h20", "14h40", 34, 500);
+    chauffeurA.ajoutTrajet(trajetA);
+    chauffeurA.ajoutTrajet(trajetB);
+    cout << "Apres addition de 2 trajets chauffeurA possede " << chauffeurA.getNbTrajet() << " trajets" << endl;
+    chauffeurA.supprimerTrajet(trajetB);
+    cout << "Apres suppression de 1 trajets chauffeurA possede " << chauffeurA.getNbTrajet() << " trajet" << endl;
+    chauffeurB.ajoutTrajet(trajetB);
+    cout << "\nAvant modification du trajetA: " << endl;
+    trajetA.afficherTrajet();
+
+    cout << "\nApres modification du trajetA: " << endl;
+    chauffeurA.modifierTrajet(trajetA, "Blois", listeVille.at(0), "13h10", "16h20", 50, 250);
+    trajetA.afficherTrajet();
 
     Colis colisA = Colis(villeArriveeA, 10.2);
     Colis colisB = Colis(villeArriveeB, 2.7);
     Colis colisBA = Colis(villeArriveeB, 3.1);
     Colis colisBB = Colis(villeArriveeB, 1.2);
 
-    Trajet trajetA = Trajet(chauffeurA.getIdChauffeur(), "Orlean", villeArriveeA, "12h20", "15h20", 20, 150);
-    Trajet trajetB = Trajet(chauffeurB.getIdChauffeur(), "Rouen", villeArriveeB, "10h20", "14h40", 34, 500);
+    Dispatcher dispatcherA = Dispatcher("Jean", "Pierre", "32 rue esquimot", "09879809");
+    dispatcherA.remplir(10);
+    dispatcherA.dispatch();
 
+    cout << "Poids en charge trajet A: " << trajetA.getPoidEnCharge() << endl;
+    cout << "Poids en charge trajet B: " << trajetB.getPoidEnCharge() << endl;
     return 0;
 }

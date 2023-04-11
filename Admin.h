@@ -7,20 +7,21 @@
 class Admin : public Personne{
 public:
     Admin();
-
     Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone);
-
     static double gainChauffeur(Chauffeur *c);
     int coliesLivree(Chauffeur c);
     int coliesEnCours(Chauffeur c);
     int coliesEnAttente(Chauffeur c);
     int coliesEnValidation(Chauffeur c);
+    int getIdAdmin();
     static int nombreTrajets(Chauffeur* c);
     static double gainMoyenParTrajet(Chauffeur* c);
     static int nombreColis(Chauffeur* c);
     static double colisMoyenParTrajet(Chauffeur* c);
     static double poidTotal(Chauffeur* c);
     static double poidMoyenParTrajet(Chauffeur* c);
+private:
+    int idAdmin;
 };
 
 

@@ -62,6 +62,8 @@ public:
 
     int nbColis();
 
+    void afficherTrajet();
+
 };
 
 #endif //PROJET_TULLE_TRAJET_H

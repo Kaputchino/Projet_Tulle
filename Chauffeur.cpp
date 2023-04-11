@@ -55,7 +55,7 @@ Chauffeur::modifierTrajet(const Trajet& t, const string& villeDepart, const stri
 }
 
 Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
-
+    this->idChauffeur = getIdPersonne();
 }
 
 int Chauffeur::getIdChauffeur() const {

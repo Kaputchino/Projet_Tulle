@@ -3,7 +3,11 @@
 #include <utility>
 
 Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
+    this->idAdmin = getIdPersonne();
+}
 
+int Admin::getIdAdmin() {
+    return idAdmin;
 }
 
 int Admin::nombreTrajets(Chauffeur *c) {
