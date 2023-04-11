@@ -30,9 +30,9 @@ bool Dispatcher::dispatch() {
         for (Chauffeur ch : listeChauffeur) {
             int indexTrajet = ch.getIndexTrajet(colis.getVilleArrivee());
             if (indexTrajet != -1) {
-                Trajet trajet = ch.getTrajetByIndex(indexTrajet);
-                if (trajet.colieAjoutable(colis)) {
-                    trajet.ajouterColis(colis);
+                Trajet * trajet = ch.getTrajetByIndex(indexTrajet);
+                if (trajet->colieAjoutable(colis)) {
+                    trajet->ajouterColis(colis);
                     unattributed.pop_back();
                     break;
                 }

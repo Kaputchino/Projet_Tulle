@@ -31,12 +31,12 @@ int main(int argc, char const *argv[]) {
 
     Trajet trajetA = Trajet(chauffeurA.getIdChauffeur(), "Orlean", listeVille.at(0), "12h20", "15h20", 20, 150);
     Trajet trajetB = Trajet(chauffeurB.getIdChauffeur(), "Rouen", listeVille.at(1), "10h20", "14h40", 34, 500);
-    chauffeurA.ajoutTrajet(trajetA);
-    chauffeurA.ajoutTrajet(trajetB);
+    chauffeurA.ajoutTrajet(&trajetA);
+    chauffeurA.ajoutTrajet(&trajetB);
     cout << "Apres addition de 2 trajets chauffeurA possede " << chauffeurA.getNbTrajet() << " trajets" << endl;
     chauffeurA.supprimerTrajet(trajetB);
     cout << "Apres suppression de 1 trajets chauffeurA possede " << chauffeurA.getNbTrajet() << " trajet" << endl;
-    chauffeurB.ajoutTrajet(trajetB);
+    chauffeurB.ajoutTrajet(&trajetB);
     cout << "\nAvant modification du trajetA: " << endl;
     trajetA.afficherTrajet();
 
@@ -55,5 +55,6 @@ int main(int argc, char const *argv[]) {
 
     cout << "Poids en charge trajet A: " << trajetA.getPoidEnCharge() << endl;
     cout << "Poids en charge trajet B: " << trajetB.getPoidEnCharge() << endl;
+
     return 0;
 }
