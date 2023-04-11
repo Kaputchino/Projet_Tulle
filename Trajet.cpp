@@ -122,3 +122,6 @@ void Trajet::afficherTrajet() {
     cout << "prix: " << this->prix << endl;
 }
 
+vector<Colis *> Trajet::getListeColis() {
+    return listeColis;
+}

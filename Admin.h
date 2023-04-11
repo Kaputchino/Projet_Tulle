@@ -9,10 +9,10 @@ public:
     Admin();
     Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone);
     static double gainChauffeur(Chauffeur *c);
-    int coliesLivree(Chauffeur c);
-    int coliesEnCours(Chauffeur c);
-    int coliesEnAttente(Chauffeur c);
-    int coliesEnValidation(Chauffeur c);
+    static int coliesLivree(Chauffeur* c);
+    static int coliesEnCoursLibraison(Chauffeur* c);
+    static int coliesEnAttenteLivraison(Chauffeur* c);
+    static int coliesEnValidationLivraison(Chauffeur* c);
     int getIdAdmin();
     static int nombreTrajets(Chauffeur* c);
     static double gainMoyenParTrajet(Chauffeur* c);

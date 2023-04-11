@@ -64,6 +64,8 @@ public:
 
     void afficherTrajet();
 
+    vector<Colis *> getListeColis();
+
 };
 
 #endif //PROJET_TULLE_TRAJET_H

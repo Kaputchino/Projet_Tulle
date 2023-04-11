@@ -105,3 +105,15 @@ double Chauffeur::poidTotal() {
     return ammount;
 }
 
+vector<Colis *> Chauffeur::getAllColis() {
+
+    vector<Colis *> listeColis;
+
+    for(Trajet * tr : listeTrajet) {
+        for (Colis * colie : tr->getListeColis()) {
+            listeColis.push_back(colie);
+        }
+    }
+
+    return listeColis;
+}

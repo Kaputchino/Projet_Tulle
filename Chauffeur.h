@@ -3,6 +3,7 @@
 
 #include "Personne.h"
 #include "Trajet.h"
+#include "Colis.h"
 #include <string>
 #include <vector>
 
@@ -21,6 +22,7 @@ public:
     double gain();
     int nbColis();
     double poidTotal();
+    vector<Colis *> getAllColis();
 
 private:
     vector<Trajet *> listeTrajet;
