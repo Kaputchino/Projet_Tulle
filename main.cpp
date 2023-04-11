@@ -9,7 +9,7 @@
 using namespace std;
 
 // vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","Nouméa","Arachon","Casablanca","Bonifacio","Colmar","Montparnasse","Narbonne","Strasbourg","Brumath","Hoerdt","Haguenau","Mulhouse","Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Breuschwickersheim","Geispolsheim","Agullana","Lake Mary","Milwaukee"};
-vector<string> listeVille = {"Tours","St-Pierre-Des-Corps"};
+vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","Nouméa"};
 vector<Dispatcher *> listeDispatcher;
 vector<Chauffeur *> listeChauffeur;
 
