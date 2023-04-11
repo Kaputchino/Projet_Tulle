@@ -10,7 +10,7 @@ bool Dispatcher::remplir(int n) {
         int indexVille = rand() % listeVille.size();
         int poidsRand = rand() % 16;
         Colis * colis = new Colis(listeVille.at(indexVille), poidsRand);
-
+        colis->setStatut(1);
         listeColis.push_back(
                 colis
         );
@@ -29,6 +29,7 @@ bool Dispatcher::dispatch() {
             if (indexTrajet != -1) {
                 Trajet * trajet = ch->getTrajetByIndex(indexTrajet);
                 if (trajet->colieAjoutable(colis)) {
+                    colis->setStatut(2);
                     trajet->ajouterColis(colis);
                     unattributed.pop_back();
                     break;
@@ -41,5 +42,6 @@ bool Dispatcher::dispatch() {
 }
 
 void Dispatcher::attribueColis(Colis *c) {
+    c->setStatut(1);
     listeColis.push_back(c);
 }
