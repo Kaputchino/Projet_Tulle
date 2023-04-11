@@ -10,10 +10,10 @@ public:
     Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& telephone);
     bool remplir(int n);
     bool dispatch();
-    void attribueColis(Colis c);
+    void attribueColis(Colis *c);
     int getIdDispatcher();
 private:
-    vector<Colis> listeColis;
+    vector<Colis *> listeColis;
     int idDispatcher;
 };
 

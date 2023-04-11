@@ -15,7 +15,7 @@ private:
     double poids;
     double prix;
     int statuts;
-    vector<Colis> listeColis;
+    vector<Colis *> listeColis;
     static inline int totalTrajets = 0;
 public:
     Trajet(int idChauffeur, const string &VilleDepart, const string &villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix);
@@ -56,9 +56,9 @@ public:
 
     double getPoidEnCharge();
 
-    void ajouterColis(Colis colis);
+    void ajouterColis(Colis *colis);
 
-    bool colieAjoutable(Colis colis);
+    bool colieAjoutable(Colis *colis);
 
     int nbColis();
 

@@ -5,12 +5,13 @@
 #include "Dispatcher.h"
 #include "Trajet.h"
 #include "Colis.h"
-//#include "sharedVariables.h"
+#include "sharedVariables.h"
 using namespace std;
 
-vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","Nouméa","Arachon","Casablanca","Bonifacio","Colmar","Montparnasse","Narbonne","Strasbourg","Brumath","Hoerdt","Haguenau","Mulhouse","Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Breuschwickersheim","Geispolsheim","Agullana","Lake Mary","Milwaukee"};
-vector<Dispatcher> listeDispatcher;
-vector<Chauffeur> listeChauffeur;
+// vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","Nouméa","Arachon","Casablanca","Bonifacio","Colmar","Montparnasse","Narbonne","Strasbourg","Brumath","Hoerdt","Haguenau","Mulhouse","Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Breuschwickersheim","Geispolsheim","Agullana","Lake Mary","Milwaukee"};
+vector<string> listeVille = {"Tours","St-Pierre-Des-Corps"};
+vector<Dispatcher *> listeDispatcher;
+vector<Chauffeur *> listeChauffeur;
 
 int main(int argc, char const *argv[]) {
     string villeArriveeA = "Tours";
@@ -26,10 +27,10 @@ int main(int argc, char const *argv[]) {
     Chauffeur chauffeurA = Chauffeur(nomA, prenomA, addrA, telepA);
     Chauffeur chauffeurB = Chauffeur("Benito", "Benoit", "3 place Vandome", "0909997867");
 
-    listeChauffeur.push_back(chauffeurA);
-    listeChauffeur.push_back(chauffeurB);
+    listeChauffeur.push_back(&chauffeurA);
+    listeChauffeur.push_back(&chauffeurB);
 
-    Trajet trajetA = Trajet(chauffeurA.getIdChauffeur(), "Orlean", listeVille.at(0), "12h20", "15h20", 20, 150);
+    Trajet trajetA = Trajet(chauffeurA.getIdChauffeur(), "Orlean", listeVille.at(1), "12h20", "15h20", 20, 150);
     Trajet trajetB = Trajet(chauffeurB.getIdChauffeur(), "Rouen", listeVille.at(1), "10h20", "14h40", 34, 500);
     chauffeurA.ajoutTrajet(&trajetA);
     chauffeurA.ajoutTrajet(&trajetB);
@@ -50,8 +51,11 @@ int main(int argc, char const *argv[]) {
     Colis colisBB = Colis(villeArriveeB, 1.2);
 
     Dispatcher dispatcherA = Dispatcher("Jean", "Pierre", "32 rue esquimot", "09879809");
-    dispatcherA.remplir(10);
+    dispatcherA.remplir(15);
     dispatcherA.dispatch();
+    Dispatcher dispatcherB = Dispatcher("Jean2", "Pierre2", "322 rue esquimot2", "02379509");
+    dispatcherB.remplir(15);
+    dispatcherB.dispatch();
 
     cout << "Poids en charge trajet A: " << trajetA.getPoidEnCharge() << endl;
     cout << "Poids en charge trajet B: " << trajetB.getPoidEnCharge() << endl;
