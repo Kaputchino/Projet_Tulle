@@ -22,14 +22,17 @@ public:
     double gain();
     int nbColis();
     double poidTotal();
-    vector<Colis *> getAllColis();
     bool validerTrajet(Trajet *t);
     bool delancheLivraison(Trajet *t);
     int  indexTrajetDansListe(int idTrajet);
+    int getNbcoliesLivree();
+    int getNbColiesEnCoursLivraison();
+    int getNbColiesEnAttenteLivraison();
 
 private:
     vector<Trajet *> listeTrajet;
     int idChauffeur;
+    vector <Colis *> getAllColis();
 };
 
 #endif //PROJET_TULLE_CHAUFFEUR_H

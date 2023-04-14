@@ -55,10 +55,6 @@ bool Dispatcher::attribueColis(Colis *c) {
     return true;
 }
 
-vector<Colis *> Dispatcher::getListeColis() {
-    return listeColis;
-}
-
-int Dispatcher::getNombreColis() {
+int Dispatcher::getNombreColisDispatchable() {
     return listeColis.size();
 }

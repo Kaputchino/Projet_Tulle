@@ -65,25 +65,25 @@ int main(int argc, char const *argv[]) {
     cout << "Status colisA: " << colisA.getStatut()  << endl;
     dispatcherA.attribueColis(&colisA);
     cout << "Status colisA apres attribution au dispatcherA: " << colisA.getStatut()  << endl;
-    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColis()  << endl;
+    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColisDispatchable()  << endl;
     dispatcherB.attribueColis(&colisA);
-    cout << "Taille lise colis du dispatcherB apres attribution d'un coli qui est deja dans le dispatcher A: " << dispatcherB.getNombreColis() << endl;
+    cout << "Taille lise colis du dispatcherB apres attribution d'un coli qui est deja dans le dispatcher A: " << dispatcherB.getNombreColisDispatchable() << endl;
     cout << "\n------------\n" << endl;
 
-    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColis() << endl;
-    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColis() << endl;
+    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColisDispatchable() << endl;
+    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColisDispatchable() << endl;
     cout << "Creation aleatoire de 50 colis pour le dispatcher A et B" << endl;
     dispatcherA.remplir(50);
     dispatcherB.remplir(50);
-    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColis() << endl;
-    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColis() << endl;
+    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColisDispatchable() << endl;
+    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColisDispatchable() << endl;
     cout << "\n------------\n" << endl;
 
     cout << "Dispatchage automatique des colis en fonction des poids, destinations et statuts." << endl;
     dispatcherA.dispatch();
     dispatcherB.dispatch();
-    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColis() << endl;
-    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColis() << endl;
+    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColisDispatchable() << endl;
+    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColisDispatchable() << endl;
     cout << "Poids en charge trajetA: " << trajetA.getPoidEnCharge() << endl;
     cout << "Poids en charge trajetB: " << trajetB.getPoidEnCharge() << endl;
 

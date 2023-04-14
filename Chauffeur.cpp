@@ -112,19 +112,6 @@ double Chauffeur::poidTotal() {
     return ammount;
 }
 
-vector<Colis *> Chauffeur::getAllColis() {
-
-    vector<Colis *> listeColis;
-
-    for(Trajet * tr : listeTrajet) {
-        for (Colis * colie : tr->getListeColis()) {
-            listeColis.push_back(colie);
-        }
-    }
-
-    return listeColis;
-}
-
 bool Chauffeur::validerTrajet(Trajet *t) {
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
         t->setStatuts(3);
@@ -153,4 +140,50 @@ int Chauffeur::indexTrajetDansListe(int idTrajet) {
 
     return -1;
 }
+
+int Chauffeur::getNbcoliesLivree() {
+    int sum = 0;
+    for (Colis * colis : this->getAllColis()) {
+        if (colis->getStatut() == 4) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
+vector<Colis *> Chauffeur::getAllColis() {
+    vector<Colis *> resultat;
+
+    for (Trajet * tr : listeTrajet) {
+        for (Colis * colis : tr->getListeColis()) {
+            resultat.push_back(colis);
+        }
+    }
+
+    return resultat;
+}
+
+int Chauffeur::getNbColiesEnCoursLivraison() {
+    int sum = 0;
+    for (Colis * colis : this->getAllColis()) {
+        if (colis->getStatut() == 3) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
+int Chauffeur::getNbColiesEnAttenteLivraison() {
+    int sum = 0;
+    for (Colis * colis : this->getAllColis()) {
+        if (colis->getStatut() == 2) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
 

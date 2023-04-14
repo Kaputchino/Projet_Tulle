@@ -11,8 +11,7 @@ public:
     bool remplir(int n);
     bool dispatch();
     bool attribueColis(Colis *c);
-    vector<Colis *> getListeColis();
-    int getNombreColis();
+    int getNombreColisDispatchable();
 private:
     vector<Colis *> listeColis;
     int idDispatcher;

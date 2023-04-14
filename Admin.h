@@ -11,7 +11,7 @@ public:
     Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone);
     static double gainChauffeur(Chauffeur *c);
     static int coliesLivree(Chauffeur* c);
-    static int coliesEnCoursLibraison(Chauffeur* c);
+    static int coliesEnCoursLivraison(Chauffeur* c);
     static int coliesEnAttenteLivraison(Chauffeur* c);
     static int coliesEnDemandeLivraison(Dispatcher * d);
     int getIdAdmin();

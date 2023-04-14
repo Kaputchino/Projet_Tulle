@@ -51,46 +51,18 @@ double Admin::poidMoyenParTrajet(Chauffeur *c) {
 }
 
 int Admin::coliesLivree(Chauffeur *c) {
-    int sum = 0;
-    for (Colis * colis : c->getAllColis()) {
-        if (colis->getStatut() == 4) {
-            sum++;
-        }
-    }
-
-    return sum;
+    return c->getNbcoliesLivree();
 }
 
-int Admin::coliesEnCoursLibraison(Chauffeur *c) {
-    int sum = 0;
-    for (Colis * colis : c->getAllColis()) {
-        if (colis->getStatut() == 3) {
-            sum++;
-        }
-    }
-
-    return sum;
+int Admin::coliesEnCoursLivraison(Chauffeur *c) {
+    return c->getNbColiesEnCoursLivraison();
 }
 
 int Admin::coliesEnAttenteLivraison(Chauffeur *c) {
-    int sum = 0;
-    for (Colis * colis : c->getAllColis()) {
-        if (colis->getStatut() == 2) {
-            sum++;
-        }
-    }
-
-    return sum;
+    return c->getNbColiesEnAttenteLivraison();
 }
 
 int Admin::coliesEnDemandeLivraison(Dispatcher * d) {
-    int sum = 0;
-    for (Colis * colis : d->getListeColis()) {
-        if (colis->getStatut() == 1) {
-            sum++;
-        }
-    }
-
-    return sum;
+    return d->getNombreColisDispatchable();
 }
 
