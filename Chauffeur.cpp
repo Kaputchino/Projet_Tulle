@@ -89,27 +89,27 @@ int Chauffeur::getNbTrajet() {
 }
 
 double Chauffeur::gain() {
-    double ammount = 0;
-    for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i)->getPrix();
+    double amount = 0;
+    for(Trajet * tr : listeTrajet){
+        amount += tr->getPrix();
     }
-    return ammount;
+    return amount;
 }
 
 int Chauffeur::nbColis() {
-    int ammount = 0;
-    for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i)->nbColis();
+    int amount = 0;
+    for(Trajet * tr : listeTrajet){
+        amount += tr->nbColis();
     }
-    return ammount;
+    return amount;
 }
 
 double Chauffeur::poidTotal() {
-    double ammount = 0;
-    for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i)->getPoidEnCharge();
+    double amount = 0;
+    for(Trajet * tr : listeTrajet){
+        amount += tr->getPoidEnCharge();
     }
-    return ammount;
+    return amount;
 }
 
 bool Chauffeur::validerTrajet(Trajet *t) {

@@ -32,7 +32,7 @@ int Colis::getPoid() const {
     return poid;
 }
 
-void Colis::setPoid(int poid) {
+void Colis::setPoid(double poid) {
     Colis::poid = poid;
 }
 

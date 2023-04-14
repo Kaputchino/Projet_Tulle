@@ -1,12 +1,10 @@
 #include "Admin.h"
 
-#include <utility>
-
 Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
     this->idAdmin = getIdPersonne();
 }
 
-int Admin::getIdAdmin() {
+int Admin::getIdAdmin() const {
     return idAdmin;
 }
 
@@ -33,7 +31,7 @@ int Admin::nombreColis(Chauffeur *c) {
 double Admin::colisMoyenParTrajet(Chauffeur *c) {
     int nbTrajet = c->getNbTrajet();
     if(nbTrajet > 0){
-        return c->nbColis()/nbTrajet;
+        return (double) c->nbColis()/nbTrajet;
     }
     return 0;
 }

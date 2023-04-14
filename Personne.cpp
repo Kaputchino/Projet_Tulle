@@ -30,7 +30,7 @@ int Personne::getTotalPersonne() {
     return totalPersonne;
 }
 
-int Personne::getIdPersonne() {
+int Personne::getIdPersonne() const {
     return this->idPersonne;
 }
 

@@ -12,8 +12,6 @@ vector<Dispatcher *> listeDispatcher;
 vector<Chauffeur *> listeChauffeur;
 
 int main(int argc, char const *argv[]) {
-    srand((unsigned) time(0)); // seeding for random number generation
-
     string villeArriveeA = "Tours";
     string villeArriveeB = "Paris";
 

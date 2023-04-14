@@ -14,7 +14,7 @@ public:
     static int coliesEnCoursLivraison(Chauffeur* c);
     static int coliesEnAttenteLivraison(Chauffeur* c);
     static int coliesEnDemandeLivraison(Dispatcher * d);
-    int getIdAdmin();
+    int getIdAdmin() const;
     static int nombreTrajets(Chauffeur* c);
     static double gainMoyenParTrajet(Chauffeur* c);
     static int nombreColis(Chauffeur* c);
