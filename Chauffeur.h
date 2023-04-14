@@ -13,8 +13,8 @@ class Chauffeur : public Personne{
 public:
     Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& telephone);
     bool ajoutTrajet(Trajet *t);
-    bool supprimerTrajet(Trajet t);
-    bool modifierTrajet(const Trajet& t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee, double poids, double prix);
+    bool supprimerTrajet(Trajet *t);
+    bool modifierTrajet(const Trajet* t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee, double poids, double prix);
     int getIndexTrajet(string villeArrivee);
     Trajet * getTrajetByIndex(int index);
     int getIdChauffeur() const;
@@ -24,6 +24,8 @@ public:
     double poidTotal();
     vector<Colis *> getAllColis();
     bool validerTrajet(Trajet *t);
+    bool delancheLivraison(Trajet *t);
+    int  indexTrajetDansListe(int idTrajet);
 
 private:
     vector<Trajet *> listeTrajet;

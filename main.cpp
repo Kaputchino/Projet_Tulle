@@ -26,39 +26,66 @@ int main(int argc, char const *argv[]) {
     string telepA = "0103040506";
     Chauffeur chauffeurA = Chauffeur(nomA, prenomA, addrA, telepA);
     Chauffeur chauffeurB = Chauffeur("Benito", "Benoit", "3 place Vandome", "0909997867");
-
     listeChauffeur.push_back(&chauffeurA);
     listeChauffeur.push_back(&chauffeurB);
 
+    cout << "Chauffeur A: " << endl;
+    chauffeurA.afficherPersonne();
+    cout << "\nChauffeur B: " << endl;
+    chauffeurB.afficherPersonne();
+
+    cout << "\n------------\n" << endl;
+
     Trajet trajetA = Trajet(chauffeurA.getIdChauffeur(), "Orlean", listeVille.at(1), "12h20", "15h20", 20, 150);
     Trajet trajetB = Trajet(chauffeurB.getIdChauffeur(), "Rouen", listeVille.at(1), "10h20", "14h40", 34, 500);
+    Trajet trajetC = Trajet(chauffeurA.getIdChauffeur(), "Charleroi", listeVille.at(2), "2h10", "5h34", 45, 1312);
     chauffeurA.ajoutTrajet(&trajetA);
+    chauffeurA.ajoutTrajet(&trajetC);
+    cout << "Addition de 2 trajets, chauffeurA a " << chauffeurA.getNbTrajet() << " trajets" << endl;
+    chauffeurA.supprimerTrajet(&trajetC);
+    cout << "Suppression de 1 trajets, chauffeurA a " << chauffeurA.getNbTrajet() << " trajet" << endl;
     chauffeurA.ajoutTrajet(&trajetB);
-    cout << "Apres addition de 2 trajets chauffeurA possede " << chauffeurA.getNbTrajet() << " trajets" << endl;
-    chauffeurA.supprimerTrajet(trajetB);
-    cout << "Apres suppression de 1 trajets chauffeurA possede " << chauffeurA.getNbTrajet() << " trajets" << endl;
+    cout << "Ajout d'un trajet qui ne lui appartient pas, chauffeurA a tjrs  " << chauffeurA.getNbTrajet() << " trajet" << endl;
+    chauffeurA.supprimerTrajet(&trajetB);
+    cout << "Deletion d'un trajet qui n'est pas dans sa liste, chauffeurA a tjrs " << chauffeurA.getNbTrajet() << " trajet" << endl;
     chauffeurB.ajoutTrajet(&trajetB);
+
+    cout << "\n------------\n" << endl;
+
     cout << "\nAvant modification du trajetA: " << endl;
     trajetA.afficherTrajet();
-
     cout << "\nApres modification du trajetA: " << endl;
-    chauffeurA.modifierTrajet(trajetA, "Blois", listeVille.at(0), "13h10", "16h20", 50, 250);
+    chauffeurA.modifierTrajet(&trajetA, "Blois", listeVille.at(0), "13h10", "16h20", 50, 250);
     trajetA.afficherTrajet();
 
-    Colis colisA = Colis(villeArriveeA, 10.2);
-    Colis colisB = Colis(villeArriveeB, 2.7);
-    Colis colisBA = Colis(villeArriveeB, 3.1);
-    Colis colisBB = Colis(villeArriveeB, 1.2);
-
+    cout << "\n------------\n" << endl;
     Dispatcher dispatcherA = Dispatcher("Jean", "Pierre", "32 rue esquimot", "09879809");
-    dispatcherA.remplir(50);
-    dispatcherA.dispatch();
     Dispatcher dispatcherB = Dispatcher("Jean2", "Pierre2", "322 rue esquimot2", "02379509");
-    dispatcherB.remplir(50);
-    dispatcherB.dispatch();
+    Colis colisA = Colis(villeArriveeA, 10.2);
+    cout << "Status colisA: " << colisA.getStatut()  << endl;
+    dispatcherA.attribueColis(&colisA);
+    cout << "Status colisA apres attribution au dispatcherA: " << colisA.getStatut()  << endl;
+    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColis()  << endl;
+    dispatcherB.attribueColis(&colisA);
+    cout << "Taille lise colis du dispatcherB apres attribution d'un coli qui est deja dans le dispatcher A: " << dispatcherB.getNombreColis() << endl;
+    cout << "\n------------\n" << endl;
 
-    cout << "Poids en charge trajet A: " << trajetA.getPoidEnCharge() << endl;
-    cout << "Poids en charge trajet B: " << trajetB.getPoidEnCharge() << endl;
+    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColis() << endl;
+    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColis() << endl;
+    cout << "Creation aleatoire de 50 colis pour le dispatcher A et B" << endl;
+    dispatcherA.remplir(50);
+    dispatcherB.remplir(50);
+    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColis() << endl;
+    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColis() << endl;
+    cout << "\n------------\n" << endl;
+
+    cout << "Dispatchage automatique des colis en fonction des poids, destinations et statuts." << endl;
+    dispatcherA.dispatch();
+    dispatcherB.dispatch();
+    cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColis() << endl;
+    cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColis() << endl;
+    cout << "Poids en charge trajetA: " << trajetA.getPoidEnCharge() << endl;
+    cout << "Poids en charge trajetB: " << trajetB.getPoidEnCharge() << endl;
 
     return 0;
 }

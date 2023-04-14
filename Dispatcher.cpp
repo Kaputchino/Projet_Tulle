@@ -43,11 +43,22 @@ bool Dispatcher::dispatch() {
     return unattributed.empty();
 }
 
-void Dispatcher::attribueColis(Colis *c) {
+bool Dispatcher::attribueColis(Colis *c) {
+
+    if (c->getStatut() != 0) {
+        return false;
+    }
+
     c->setStatut(1);
     listeColis.push_back(c);
+
+    return true;
 }
 
 vector<Colis *> Dispatcher::getListeColis() {
     return listeColis;
+}
+
+int Dispatcher::getNombreColis() {
+    return listeColis.size();
 }

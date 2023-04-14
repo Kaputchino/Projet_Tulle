@@ -2,46 +2,43 @@
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
 
-    if (t->getIdChauffeur() != getIdChauffeur()) {
+    if (t->getIdChauffeur() != getIdChauffeur()) {\
         return false;
     }
 
-    for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i)->getIdTrajet() == t->getIdTrajet()){
-            return false;
-        }
+    if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
+        return false;
     }
+
     listeTrajet.push_back(t);
     return true;
 }
 
-bool Chauffeur::supprimerTrajet(Trajet t) {
-    for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i)->getIdTrajet() == t.getIdTrajet()){
-            listeTrajet.erase(listeTrajet.begin() + i);
-            return true;
-        }
+bool Chauffeur::supprimerTrajet(Trajet *t) {
+
+    int indexTrajet = indexTrajetDansListe(t->getIdTrajet());
+
+    if (indexTrajet != -1) {
+        listeTrajet.erase(listeTrajet.begin() + indexTrajet);
+        return true;
     }
+
     return false;
 }
 
 bool
-Chauffeur::modifierTrajet(const Trajet& t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee,
+Chauffeur::modifierTrajet(const Trajet* t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee,
                           double poids, double prix) {
 
-    if (t.getIdChauffeur() != getIdChauffeur()) {
+    if (t->getIdChauffeur() != getIdChauffeur()) {
         return false;
     }
 
-    int index = -1;
-    for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i)->getIdTrajet() == t.getIdTrajet()){
-            index = i;
-        }
-    }
-    if(index == -1){
+    int index = indexTrajetDansListe(t->getIdTrajet());
+    if (index == -1) {
         return false;
     }
+
     Trajet* trajetPtr = listeTrajet.at(index);
     if(!villeDepart.empty()){
         trajetPtr->setVilleDepart(villeDepart);
@@ -129,17 +126,31 @@ vector<Colis *> Chauffeur::getAllColis() {
 }
 
 bool Chauffeur::validerTrajet(Trajet *t) {
-    bool estDansSaListe = false;
-    int i = 0;
-    while (!estDansSaListe && i < listeTrajet.size()) {
-        if (listeTrajet.at(i) == t) {
-            estDansSaListe = true;
+    if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
+        t->setStatuts(3);
+        return true;
+    }
+
+    return false;
+}
+
+bool Chauffeur::delancheLivraison(Trajet *t) {
+
+    if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
+        t->setStatuts(3);
+        return true;
+    }
+
+    return false;
+}
+
+int Chauffeur::indexTrajetDansListe(int idTrajet) {
+    for(int i = 0; i < listeTrajet.size(); i++){
+        if(listeTrajet.at(i)->getIdTrajet() == idTrajet){
+            return i;
         }
     }
 
-    if (estDansSaListe) {
-        t->setStatuts(2);
-    }
-
-    return estDansSaListe;
+    return -1;
 }
+
