@@ -21,6 +21,7 @@ bool Dispatcher::remplir(int n) {
 
 bool Dispatcher::dispatch() {
     vector<Colis *> unattributed;
+    vector<Trajet *> solicited;
     for(Colis * colis : listeColis) {
         unattributed.push_back(colis);
         for (Chauffeur * ch : listeChauffeur) {

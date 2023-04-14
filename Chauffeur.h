@@ -23,6 +23,7 @@ public:
     int nbColis();
     double poidTotal();
     vector<Colis *> getAllColis();
+    bool validerTrajet(Trajet *t);
 
 private:
     vector<Trajet *> listeTrajet;

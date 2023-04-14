@@ -1,6 +1,11 @@
 #include "Chauffeur.h"
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
+
+    if (t->getIdChauffeur() != getIdChauffeur()) {
+        return false;
+    }
+
     for(int i = 0; i < listeTrajet.size(); i++){
         if(listeTrajet.at(i)->getIdTrajet() == t->getIdTrajet()){
             return false;
@@ -23,6 +28,11 @@ bool Chauffeur::supprimerTrajet(Trajet t) {
 bool
 Chauffeur::modifierTrajet(const Trajet& t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee,
                           double poids, double prix) {
+
+    if (t.getIdChauffeur() != getIdChauffeur()) {
+        return false;
+    }
+
     int index = -1;
     for(int i = 0; i < listeTrajet.size(); i++){
         if(listeTrajet.at(i)->getIdTrajet() == t.getIdTrajet()){
@@ -116,4 +126,20 @@ vector<Colis *> Chauffeur::getAllColis() {
     }
 
     return listeColis;
+}
+
+bool Chauffeur::validerTrajet(Trajet *t) {
+    bool estDansSaListe = false;
+    int i = 0;
+    while (!estDansSaListe && i < listeTrajet.size()) {
+        if (listeTrajet.at(i) == t) {
+            estDansSaListe = true;
+        }
+    }
+
+    if (estDansSaListe) {
+        t->setStatuts(2);
+    }
+
+    return estDansSaListe;
 }
