@@ -1,12 +1,10 @@
 #include "Admin.h"
 
-#include <utility>
-
 Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
     this->idAdmin = getIdPersonne();
 }
 
-int Admin::getIdAdmin() {
+int Admin::getIdAdmin() const {
     return idAdmin;
 }
 
@@ -33,7 +31,7 @@ int Admin::nombreColis(Chauffeur *c) {
 double Admin::colisMoyenParTrajet(Chauffeur *c) {
     int nbTrajet = c->getNbTrajet();
     if(nbTrajet > 0){
-        return c->nbColis()/nbTrajet;
+        return (double) c->nbColis()/nbTrajet;
     }
     return 0;
 }
@@ -51,46 +49,18 @@ double Admin::poidMoyenParTrajet(Chauffeur *c) {
 }
 
 int Admin::coliesLivree(Chauffeur *c) {
-    int sum = 0;
-    for (Colis * colis : c->getAllColis()) {
-        if (colis->getStatut() == 4) {
-            sum++;
-        }
-    }
-
-    return sum;
+    return c->getNbcoliesLivree();
 }
 
-int Admin::coliesEnCoursLibraison(Chauffeur *c) {
-    int sum = 0;
-    for (Colis * colis : c->getAllColis()) {
-        if (colis->getStatut() == 3) {
-            sum++;
-        }
-    }
-
-    return sum;
+int Admin::coliesEnCoursLivraison(Chauffeur *c) {
+    return c->getNbColiesEnCoursLivraison();
 }
 
 int Admin::coliesEnAttenteLivraison(Chauffeur *c) {
-    int sum = 0;
-    for (Colis * colis : c->getAllColis()) {
-        if (colis->getStatut() == 2) {
-            sum++;
-        }
-    }
-
-    return sum;
+    return c->getNbColiesEnAttenteLivraison();
 }
 
-int Admin::coliesEnValidationLivraison(Chauffeur *c) {
-    int sum = 0;
-    for (Colis * colis : c->getAllColis()) {
-        if (colis->getStatut() == 1s) {
-            sum++;
-        }
-    }
-
-    return sum;
+int Admin::coliesEnDemandeLivraison(Dispatcher * d) {
+    return d->getNombreColisDispatchable();
 }
 

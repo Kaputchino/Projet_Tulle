@@ -24,7 +24,7 @@ class Personne {
 
         string getTelephone();
 
-        int getIdPersonne();
+        int getIdPersonne() const;
 
         void setNom(const string &nom);
 

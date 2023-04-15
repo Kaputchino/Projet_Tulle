@@ -22,7 +22,7 @@ public:
 
     int getPoid() const;
 
-    void setPoid(int poid);
+    void setPoid(double poid);
 
 private:
     int idColis;

@@ -1,37 +1,44 @@
 #include "Chauffeur.h"
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
-    for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i)->getIdTrajet() == t->getIdTrajet()){
-            return false;
-        }
+
+    if (t->getIdChauffeur() != getIdChauffeur()) {\
+        return false;
     }
+
+    if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
+        return false;
+    }
+
     listeTrajet.push_back(t);
     return true;
 }
 
-bool Chauffeur::supprimerTrajet(Trajet t) {
-    for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i)->getIdTrajet() == t.getIdTrajet()){
-            listeTrajet.erase(listeTrajet.begin() + i);
-            return true;
-        }
+bool Chauffeur::supprimerTrajet(Trajet *t) {
+
+    int indexTrajet = indexTrajetDansListe(t->getIdTrajet());
+
+    if (indexTrajet != -1) {
+        listeTrajet.erase(listeTrajet.begin() + indexTrajet);
+        return true;
     }
+
     return false;
 }
 
 bool
-Chauffeur::modifierTrajet(const Trajet& t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee,
+Chauffeur::modifierTrajet(const Trajet* t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee,
                           double poids, double prix) {
-    int index = -1;
-    for(int i = 0; i < listeTrajet.size(); i++){
-        if(listeTrajet.at(i)->getIdTrajet() == t.getIdTrajet()){
-            index = i;
-        }
-    }
-    if(index == -1){
+
+    if (t->getIdChauffeur() != getIdChauffeur()) {
         return false;
     }
+
+    int index = indexTrajetDansListe(t->getIdTrajet());
+    if (index == -1) {
+        return false;
+    }
+
     Trajet* trajetPtr = listeTrajet.at(index);
     if(!villeDepart.empty()){
         trajetPtr->setVilleDepart(villeDepart);
@@ -82,38 +89,101 @@ int Chauffeur::getNbTrajet() {
 }
 
 double Chauffeur::gain() {
-    double ammount = 0;
-    for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i)->getPrix();
+    double amount = 0;
+    for(Trajet * tr : listeTrajet){
+        amount += tr->getPrix();
     }
-    return ammount;
+    return amount;
 }
 
 int Chauffeur::nbColis() {
-    int ammount = 0;
-    for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i)->nbColis();
+    int amount = 0;
+    for(Trajet * tr : listeTrajet){
+        amount += tr->nbColis();
     }
-    return ammount;
+    return amount;
 }
 
 double Chauffeur::poidTotal() {
-    double ammount = 0;
-    for(int i = 0; i < listeTrajet.size(); i++){
-        ammount += listeTrajet.at(i)->getPoidEnCharge();
+    double amount = 0;
+    for(Trajet * tr : listeTrajet){
+        amount += tr->getPoidEnCharge();
     }
-    return ammount;
+    return amount;
 }
 
-vector<Colis *> Chauffeur::getAllColis() {
+bool Chauffeur::validerTrajet(Trajet *t) {
+    if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
+        t->setStatuts(3);
+        return true;
+    }
 
-    vector<Colis *> listeColis;
+    return false;
+}
 
-    for(Trajet * tr : listeTrajet) {
-        for (Colis * colie : tr->getListeColis()) {
-            listeColis.push_back(colie);
+bool Chauffeur::delancheLivraison(Trajet *t) {
+
+    if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
+        t->setStatuts(3);
+        return true;
+    }
+
+    return false;
+}
+
+int Chauffeur::indexTrajetDansListe(int idTrajet) {
+    for(int i = 0; i < listeTrajet.size(); i++){
+        if(listeTrajet.at(i)->getIdTrajet() == idTrajet){
+            return i;
         }
     }
 
-    return listeColis;
+    return -1;
 }
+
+int Chauffeur::getNbcoliesLivree() {
+    int sum = 0;
+    for (Colis * colis : this->getAllColis()) {
+        if (colis->getStatut() == 4) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
+vector<Colis *> Chauffeur::getAllColis() {
+    vector<Colis *> resultat;
+
+    for (Trajet * tr : listeTrajet) {
+        for (Colis * colis : tr->getListeColis()) {
+            resultat.push_back(colis);
+        }
+    }
+
+    return resultat;
+}
+
+int Chauffeur::getNbColiesEnCoursLivraison() {
+    int sum = 0;
+    for (Colis * colis : this->getAllColis()) {
+        if (colis->getStatut() == 3) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
+int Chauffeur::getNbColiesEnAttenteLivraison() {
+    int sum = 0;
+    for (Colis * colis : this->getAllColis()) {
+        if (colis->getStatut() == 2) {
+            sum++;
+        }
+    }
+
+    return sum;
+}
+
+
