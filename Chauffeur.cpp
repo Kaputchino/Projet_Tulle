@@ -73,7 +73,7 @@ Trajet * Chauffeur::getTrajetByIndex(int index) {
     return listeTrajet.at(index);
 }
 
-int Chauffeur::getIndexTrajet(string villeArrivee) {
+int Chauffeur::getIndexTrajet(const string& villeArrivee) {
     for (int i = 0; i < listeTrajet.size(); i++)
     {
         if (listeTrajet.at(i)->getVilleArrivee() == villeArrivee) {
