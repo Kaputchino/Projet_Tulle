@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "Chauffeur.h"
-#include "Dispatcher.h"
+#include "core/header/Chauffeur.h"
+#include "core/header/Dispatcher.h"
 
 extern vector<string> listeVille;
 extern vector<Dispatcher *> listeDispatcher;

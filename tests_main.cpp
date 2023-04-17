@@ -1,29 +1,18 @@
 #include <iostream>
-#include <QApplication>
-#include <QPushButton>
 #include <string>
 #include <vector>
 #include "core/header/Chauffeur.h"
 #include "core/header/Dispatcher.h"
 #include "core/header/Trajet.h"
 #include "core/header/Colis.h"
+
 using namespace std;
 
 vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","Nouméa","Arachon","Casablanca","Bonifacio","Colmar","Montparnasse","Narbonne","Strasbourg","Brumath","Hoerdt","Haguenau","Mulhouse","Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Breuschwickersheim","Geispolsheim","Agullana","Lake Mary","Milwaukee"};
 vector<Dispatcher *> listeDispatcher;
 vector<Chauffeur *> listeChauffeur;
 
-int main(int argc, char** argv)
-{
-    QApplication app(argc, argv);
-
-    QPushButton button("Hello world !");
-    button.show();
-
-    return app.exec();
-}
-
-void test() {
+int main(int argc, char** argv) {
     string villeArriveeA = "Tours";
     string villeArriveeB = "Paris";
 
@@ -96,4 +85,6 @@ void test() {
     cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColisDispatchable() << endl;
     cout << "Poids en charge trajetA: " << trajetA.getPoidEnCharge() << endl;
     cout << "Poids en charge trajetB: " << trajetB.getPoidEnCharge() << endl;
+
+    return 1;
 }
