@@ -1,4 +1,6 @@
 #include <iostream>
+#include <QApplication>
+#include <QPushButton>
 #include <string>
 #include <vector>
 #include "Chauffeur.h"
@@ -11,7 +13,18 @@ vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","No
 vector<Dispatcher *> listeDispatcher;
 vector<Chauffeur *> listeChauffeur;
 
-int main(int argc, char const *argv[]) {
+
+int main(int argc, char** argv)
+{
+    QApplication app(argc, argv);
+
+    QPushButton button("Hello world !");
+    button.show();
+
+    return app.exec();
+}
+
+void test() {
     string villeArriveeA = "Tours";
     string villeArriveeB = "Paris";
 
@@ -84,6 +97,4 @@ int main(int argc, char const *argv[]) {
     cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColisDispatchable() << endl;
     cout << "Poids en charge trajetA: " << trajetA.getPoidEnCharge() << endl;
     cout << "Poids en charge trajetB: " << trajetB.getPoidEnCharge() << endl;
-
-    return 0;
 }
