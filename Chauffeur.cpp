@@ -114,7 +114,12 @@ double Chauffeur::poidTotal() {
 
 bool Chauffeur::validerTrajet(Trajet *t) {
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
-        t->setStatuts(3);
+
+        for (Colis * colis : getAllColis()) {
+            colis->setStatut(2);
+        }
+
+        t->setStatuts(2);
         return true;
     }
 
@@ -124,6 +129,11 @@ bool Chauffeur::validerTrajet(Trajet *t) {
 bool Chauffeur::delancheLivraison(Trajet *t) {
 
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
+
+        for (Colis * colis : getAllColis()) {
+            colis->setStatut(3);
+        }
+
         t->setStatuts(3);
         return true;
     }
