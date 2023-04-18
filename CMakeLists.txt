@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
 project(Projet_Tulle)
-project(TESTS)
 
 set(SHARED common.h)
 set(CORE_SRC core/source/Personne.cpp core/source/Chauffeur.cpp core/source/Admin.cpp core/source/Dispatcher.cpp core/source/Trajet.cpp core/source/Colis.cpp)
