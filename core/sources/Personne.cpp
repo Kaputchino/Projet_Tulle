@@ -2,12 +2,13 @@
 
 using namespace std;
 
-Personne::Personne(const string& nom, const string& prenom, const string& adresse, const string& telephone) {
+Personne::Personne(const string& nom, const string& prenom, const string& adresse, const string& telephone, const string& password) {
     this->idPersonne = ++totalPersonne;
     this->adresse = adresse;
     this->prenom = prenom;
     this->nom = nom;
     this->telephone = telephone;
+    this->password = password;
 }
 
 void Personne::setAdresse(const string &adresse) {
@@ -23,6 +24,10 @@ void Personne::setNom(const string &nom) {
 }
 
 void Personne::setTelephone(const string &telephone) {
+    this->telephone = telephone;
+}
+
+void Personne::setPassword(const string &password) {
     this->telephone = telephone;
 }
 
@@ -48,6 +53,10 @@ string Personne::getNom() {
 
 string Personne::getTelephone() {
     return this->telephone;
+}
+
+string Personne::getPassword() {
+    return this->password;
 }
 
 void Personne::afficherPersonne() {

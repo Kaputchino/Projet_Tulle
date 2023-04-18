@@ -13,8 +13,9 @@ class Personne {
         string prenom;
         string adresse;
         string telephone;
+        string password;
     public:
-        Personne(const string& nom, const string& prenom, const string& adresse, const string& telephone);
+        Personne(const string& nom, const string& prenom, const string& adresse, const string& telephone, const string& password);
 
         string getNom();
 
@@ -23,6 +24,8 @@ class Personne {
         string getAdresse();
 
         string getTelephone();
+
+        string getPassword();
 
         int getIdPersonne() const;
 
@@ -33,6 +36,8 @@ class Personne {
         void setAdresse(const string &adresse);
 
         void setTelephone(const string &telephone);
+
+        void setPassword(const string &telephone);
 
         void afficherPersonne();
 

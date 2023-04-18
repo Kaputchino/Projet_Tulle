@@ -2,7 +2,7 @@
 #include "core/headers/Dispatcher.h"
 #include "shared/common.h"
 
-Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
+Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& telephone, const string& password) : Personne(nom, prenom, adresse, telephone, password) {
     this->idDispatcher = getIdPersonne();
 }
 
