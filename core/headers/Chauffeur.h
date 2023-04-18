@@ -24,6 +24,7 @@ public:
     double poidTotal();
     bool validerTrajet(Trajet *t);
     bool delancheLivraison(Trajet *t);
+    bool declareLivraison(Trajet *t);
     int  indexTrajetDansListe(int idTrajet);
     int getNbcoliesLivree();
     int getNbColiesEnCoursLivraison();

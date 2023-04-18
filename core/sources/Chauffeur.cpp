@@ -141,6 +141,21 @@ bool Chauffeur::delancheLivraison(Trajet *t) {
     return false;
 }
 
+bool Chauffeur::declareLivraison(Trajet *t) {
+
+    if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
+
+        for (Colis * colis : getAllColis()) {
+            colis->setStatut(4);
+        }
+
+        t->setStatuts(4);
+        return true;
+    }
+
+    return false;
+}
+
 int Chauffeur::indexTrajetDansListe(int idTrajet) {
     for(int i = 0; i < listeTrajet.size(); i++){
         if(listeTrajet.at(i)->getIdTrajet() == idTrajet){
