@@ -7,7 +7,7 @@ set(CORE_SRC core/source/Personne.cpp core/source/Chauffeur.cpp core/source/Admi
 set(CORE_HEADER core/header/Personne.h core/header/Chauffeur.h core/header/Admin.h core/header/Dispatcher.h core/header/Trajet.h core/header/Colis.h)
 
 # CREATING DIFFERENT EXECUTABLES
-add_executable(Projet_Tulle ${CORE_SRC} ${CORE_HEADER} ${SHARED} main.cpp)
+add_executable(Projet_Tulle main.cpp)
 add_executable(TESTS ${CORE_SRC} ${CORE_HEADER} ${SHARED} tests_main.cpp)
 
 # SETTING UP QT
