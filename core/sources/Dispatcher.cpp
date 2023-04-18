@@ -50,6 +50,7 @@ bool Dispatcher::dispatch() {
 bool Dispatcher::attribueColis(Colis *c) {
 
     if (c->getStatut() != 0) {
+        Errors::appendError("Impossible de charger le colis en vue de son statut");
         return false;
     }
 
