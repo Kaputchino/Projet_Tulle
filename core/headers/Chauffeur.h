@@ -11,7 +11,7 @@ using namespace std;
 
 class Chauffeur : public Personne{
 public:
-    Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& telephone, const string& password);
+    Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password);
     bool ajoutTrajet(Trajet *t);
     bool supprimerTrajet(Trajet *t);
     bool modifierTrajet(const Trajet* t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee, double poids, double prix);
