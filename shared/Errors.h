@@ -8,10 +8,11 @@ using namespace std;
 
 class Errors {
     private:
-        static vector<string> errors;
+        inline static vector<string> errors;
     public:
         static void appendError(string message);
         static string readErrors();
+        static bool hasErrors();
 };
 
 

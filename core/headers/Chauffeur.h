@@ -1,10 +1,10 @@
 #ifndef PROJET_TULLE_CHAUFFEUR_H
 #define PROJET_TULLE_CHAUFFEUR_H
 
-#include "Personne.h"
-#include "Trajet.h"
-#include "Colis.h"
-#include "Errors.h"
+#include "core/headers/Personne.h"
+#include "core/headers/Trajet.h"
+#include "core/headers/Colis.h"
+#include "shared/Errors.h"
 #include <string>
 #include <vector>
 

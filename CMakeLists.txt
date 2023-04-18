@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24)
 set(CMAKE_CXX_STANDARD 17)
 project(Projet_Tulle)
 
-set(SHARED shared/common.h)
+set(SHARED shared/common.h shared/Errors.cpp shared/Errors.h)
 set(CORE_SRC core/sources/Personne.cpp core/sources/Chauffeur.cpp core/sources/Admin.cpp core/sources/Dispatcher.cpp core/sources/Trajet.cpp core/sources/Colis.cpp)
 set(CORE_HEADER core/headers/Personne.h core/headers/Chauffeur.h core/headers/Admin.h core/headers/Dispatcher.h core/headers/Trajet.h core/headers/Colis.h)
 

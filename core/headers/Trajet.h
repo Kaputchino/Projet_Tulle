@@ -1,9 +1,9 @@
 #ifndef PROJET_TULLE_TRAJET_H
 #define PROJET_TULLE_TRAJET_H
 #include <string>
-#include "Colis.h"
+#include "core/headers/Colis.h"
 #include <vector>
-#include "Errors.h"
+#include "shared/Errors.h"
 using namespace std;
 class Trajet {
 private:

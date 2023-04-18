@@ -1,4 +1,4 @@
-#include "core/headers/Errors.h"
+#include "shared/Errors.h"
 
 using namespace std;
 
@@ -15,4 +15,9 @@ string Errors::readErrors() {
         errors.pop_back();
     }
 
+    return res;
+}
+
+bool Errors::hasErrors() {
+    return errors.empty();
 }
