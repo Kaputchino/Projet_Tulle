@@ -13,6 +13,7 @@ class Errors {
         static void appendError(string message);
         static string readErrors();
         static bool hasErrors();
+        static void init();
 };
 
 
