@@ -15,7 +15,7 @@ public:
     bool ajoutTrajet(Trajet *t);
     bool supprimerTrajet(Trajet *t);
     bool modifierTrajet(const Trajet* t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee, double poids, double prix);
-    int getIndexTrajet(string villeArrivee);
+    int getIndexTrajet(const string& villeArrivee);
     Trajet * getTrajetByIndex(int index);
     int getIdChauffeur() const;
     int getNbTrajet();
