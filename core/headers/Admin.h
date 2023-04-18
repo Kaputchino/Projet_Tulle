@@ -4,6 +4,7 @@
 #include "Personne.h"
 #include "Chauffeur.h"
 #include "Dispatcher.h"
+#include "Errors.h"
 
 class Admin : public Personne{
 public:

@@ -4,6 +4,7 @@
 #include "Personne.h"
 #include <vector>
 #include "Colis.h"
+#include "Errors.h"
 using namespace std;
 class Dispatcher : public Personne{
 public:

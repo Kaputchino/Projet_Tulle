@@ -3,6 +3,7 @@
 #include <string>
 #include "Colis.h"
 #include <vector>
+#include "Errors.h"
 using namespace std;
 class Trajet {
 private:
