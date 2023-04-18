@@ -7,8 +7,7 @@
 
 class Admin : public Personne{
 public:
-    Admin();
-    Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone, const string& password);
+    Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone);
     static double gainChauffeur(Chauffeur *c);
     static int coliesLivree(Chauffeur* c);
     static int coliesEnCoursLivraison(Chauffeur* c);
