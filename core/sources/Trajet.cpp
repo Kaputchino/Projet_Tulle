@@ -1,4 +1,4 @@
-#include "core/header/Trajet.h"
+#include "core/headers/Trajet.h"
 #include <iostream>
 
 Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix) {

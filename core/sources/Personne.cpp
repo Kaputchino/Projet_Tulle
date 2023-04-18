@@ -1,4 +1,4 @@
-#include "core/header/Personne.h"
+#include "core/headers/Personne.h"
 
 using namespace std;
 

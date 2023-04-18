@@ -1,9 +1,9 @@
 #ifndef PROJET_TULLE_CHAUFFEUR_H
 #define PROJET_TULLE_CHAUFFEUR_H
 
-#include "core/header/Personne.h"
-#include "core/header/Trajet.h"
-#include "core/header/Colis.h"
+#include "core/headers/Personne.h"
+#include "core/headers/Trajet.h"
+#include "core/headers/Colis.h"
 #include <string>
 #include <vector>
 

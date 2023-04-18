@@ -1,4 +1,4 @@
-#include "core/header/Admin.h"
+#include "core/headers/Admin.h"
 
 Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
     this->idAdmin = getIdPersonne();

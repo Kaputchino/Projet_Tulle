@@ -3,11 +3,9 @@
 
 #include <string>
 #include <vector>
-#include "core/header/Chauffeur.h"
-#include "core/header/Dispatcher.h"
+#include "core/headers/Chauffeur.h"
 
 extern vector<string> listeVille;
-extern vector<Dispatcher *> listeDispatcher;
 extern vector<Chauffeur *> listeChauffeur;
 
 #endif //PROJET_TULLE_COMMON_H

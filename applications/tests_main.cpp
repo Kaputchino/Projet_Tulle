@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "core/header/Chauffeur.h"
-#include "core/header/Dispatcher.h"
-#include "core/header/Trajet.h"
-#include "core/header/Colis.h"
+#include "core/headers/Chauffeur.h"
+#include "core/headers/Dispatcher.h"
+#include "core/headers/Trajet.h"
+#include "core/headers/Colis.h"
 
 using namespace std;
 

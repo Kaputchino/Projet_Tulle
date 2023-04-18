@@ -1,6 +1,6 @@
 #include <random>
-#include "core/header/Dispatcher.h"
-#include "common.h"
+#include "core/headers/Dispatcher.h"
+#include "shared/common.h"
 
 Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
     this->idDispatcher = getIdPersonne();

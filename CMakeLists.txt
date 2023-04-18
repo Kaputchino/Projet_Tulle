@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.24)
 set(CMAKE_CXX_STANDARD 17)
 project(Projet_Tulle)
 
-set(SHARED common.h)
-set(CORE_SRC core/source/Personne.cpp core/source/Chauffeur.cpp core/source/Admin.cpp core/source/Dispatcher.cpp core/source/Trajet.cpp core/source/Colis.cpp)
-set(CORE_HEADER core/header/Personne.h core/header/Chauffeur.h core/header/Admin.h core/header/Dispatcher.h core/header/Trajet.h core/header/Colis.h)
+set(SHARED shared/common.h)
+set(CORE_SRC core/sources/Personne.cpp core/sources/Chauffeur.cpp core/sources/Admin.cpp core/sources/Dispatcher.cpp core/sources/Trajet.cpp core/sources/Colis.cpp)
+set(CORE_HEADER core/headers/Personne.h core/headers/Chauffeur.h core/headers/Admin.h core/headers/Dispatcher.h core/headers/Trajet.h core/headers/Colis.h)
 
 # CREATING DIFFERENT EXECUTABLES
-add_executable(Projet_Tulle main.cpp)
-add_executable(TESTS ${CORE_SRC} ${CORE_HEADER} ${SHARED} tests_main.cpp)
+add_executable(Projet_Tulle applications/mainwindow.cpp)
+add_executable(TESTS ${CORE_SRC} ${CORE_HEADER} ${SHARED} applications/tests_main.cpp)
 
 # SETTING UP QT
 set(CMAKE_AUTOMOC ON)
