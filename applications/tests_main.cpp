@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Chauffeur.h"
-#include "Dispatcher.h"
-#include "Trajet.h"
-#include "Colis.h"
+#include "core/headers/Chauffeur.h"
+#include "core/headers/Dispatcher.h"
+#include "core/headers/Trajet.h"
+#include "core/headers/Colis.h"
+
 using namespace std;
 
 vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","Nouméa","Arachon","Casablanca","Bonifacio","Colmar","Montparnasse","Narbonne","Strasbourg","Brumath","Hoerdt","Haguenau","Mulhouse","Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Breuschwickersheim","Geispolsheim","Agullana","Lake Mary","Milwaukee"};
 vector<Dispatcher *> listeDispatcher;
 vector<Chauffeur *> listeChauffeur;
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char** argv) {
     string villeArriveeA = "Tours";
     string villeArriveeB = "Paris";
 
@@ -85,5 +86,5 @@ int main(int argc, char const *argv[]) {
     cout << "Poids en charge trajetA: " << trajetA.getPoidEnCharge() << endl;
     cout << "Poids en charge trajetB: " << trajetB.getPoidEnCharge() << endl;
 
-    return 0;
+    return 1;
 }
