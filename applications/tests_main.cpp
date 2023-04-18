@@ -22,9 +22,10 @@ int main(int argc, char** argv) {
     string nomA = "Perout";
     string prenomA = "Fred";
     string addrA = "105 Rue Constantinople";
-    string telepA = "0103040506";
-    Chauffeur chauffeurA = Chauffeur(nomA, prenomA, addrA, telepA);
-    Chauffeur chauffeurB = Chauffeur("Benito", "Benoit", "3 place Vandome", "0909997867");
+    string emailA = "email@email.com";
+    string passA = "1234";
+    Chauffeur chauffeurA = Chauffeur(nomA, prenomA, addrA, emailA, passA);
+    Chauffeur chauffeurB = Chauffeur("Benito", "Benoit", "3 place Vandome", "ben@protonmail.org", "ABCD");
     listeChauffeur.push_back(&chauffeurA);
     listeChauffeur.push_back(&chauffeurB);
 
@@ -58,8 +59,8 @@ int main(int argc, char** argv) {
     trajetA.afficherTrajet();
 
     cout << "\n------------\n" << endl;
-    Dispatcher dispatcherA = Dispatcher("Jean", "Pierre", "32 rue esquimot", "09879809");
-    Dispatcher dispatcherB = Dispatcher("Jean2", "Pierre2", "322 rue esquimot2", "02379509");
+    Dispatcher dispatcherA = Dispatcher("Jean", "Pierre", "32 rue esquimot", "pierre.qui.roule@gmail.com", "789");
+    Dispatcher dispatcherB = Dispatcher("Jean2", "Pierre2", "322 rue esquimot2", "pierre2@gmail.com", "234");
     Colis colisA = Colis(villeArriveeA, 10.2);
     cout << "Status colisA: " << colisA.getStatut()  << endl;
     dispatcherA.attribueColis(&colisA);

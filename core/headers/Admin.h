@@ -1,13 +1,14 @@
 #ifndef PROJET_TULLE_ADMIN_H
 #define PROJET_TULLE_ADMIN_H
 
-#include "Personne.h"
-#include "Chauffeur.h"
-#include "Dispatcher.h"
+#include "core/headers/Personne.h"
+#include "core/headers/Chauffeur.h"
+#include "core/headers/Dispatcher.h"
+#include "shared/Errors.h"
 
 class Admin : public Personne{
 public:
-    Admin(const string& nom, const string& prenom, const string& adresse, const string& telephone);
+    Admin(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password);
     static double gainChauffeur(Chauffeur *c);
     static int coliesLivree(Chauffeur* c);
     static int coliesEnCoursLivraison(Chauffeur* c);

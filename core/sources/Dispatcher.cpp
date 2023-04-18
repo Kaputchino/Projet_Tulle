@@ -2,7 +2,7 @@
 #include "core/headers/Dispatcher.h"
 #include "shared/common.h"
 
-Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& telephone) : Personne(nom, prenom, adresse, telephone) {
+Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Dispatcher") {
     this->idDispatcher = getIdPersonne();
 }
 
@@ -50,6 +50,7 @@ bool Dispatcher::dispatch() {
 bool Dispatcher::attribueColis(Colis *c) {
 
     if (c->getStatut() != 0) {
+        Errors::appendError("Impossible de charger le colis en vue de son statut");
         return false;
     }
 
