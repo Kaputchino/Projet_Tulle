@@ -21,14 +21,14 @@ public:
 
     void setStatut(int statut);
 
-    int getPoid() const;
+    double getPoid() const;
 
     void setPoid(double poid);
 
 private:
     int idColis;
     string villeArrivee;
-    int poid;
+    double poid;
     string dateAjoutColis;
     int statut;
     static inline int nbColisTotal = 0;
