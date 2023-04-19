@@ -1,4 +1,5 @@
 #include "core/headers/Colis.h"
+#include "core/headers/Trajet.h"
 #include <QSqlQuery>
 #include <QVariant>
 

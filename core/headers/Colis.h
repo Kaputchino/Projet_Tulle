@@ -2,7 +2,8 @@
 #define PROJET_TULLE_COLIS_H
 #include <string>
 #include "shared/Errors.h"
-#include "Trajet.h"
+
+class Trajet;
 
 using namespace std;
 class Colis {
