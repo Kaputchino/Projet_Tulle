@@ -65,6 +65,7 @@ const string &Colis::getVilleArrivee() const {
 
 void Colis::setVilleArrivee(const string &villeArrivee) {
     Colis::villeArrivee = villeArrivee;
+    updateVille();
 }
 
 const string &Colis::getDateAjoutColis() const {
@@ -73,6 +74,7 @@ const string &Colis::getDateAjoutColis() const {
 
 void Colis::setDateAjoutColis(const string &dateAjoutColis) {
     Colis::dateAjoutColis = dateAjoutColis;
+    updateDate();
 }
 
 int Colis::getStatut() const {
@@ -81,6 +83,7 @@ int Colis::getStatut() const {
 
 void Colis::setStatut(int statut) {
     Colis::statut = statut;
+    updateStatut();
 }
 
 double Colis::getPoid() const {
@@ -89,6 +92,7 @@ double Colis::getPoid() const {
 
 void Colis::setPoid(double poid) {
     Colis::poid = poid;
+    updatePoid();
 }
 
 Colis::Colis(string &villeArrivee, double poid) {
@@ -97,6 +101,7 @@ Colis::Colis(string &villeArrivee, double poid) {
     this->idColis = ++nbColisTotal;
     this->statut = 0;
     this->trajet = nullptr;
+    addIntoDb();
 }
 
 Trajet *Colis::getTrajet() const {
@@ -105,5 +110,6 @@ Trajet *Colis::getTrajet() const {
 
 void Colis::setTrajet(Trajet *trajet) {
     Colis::trajet = trajet;
+    updateTrajet();
 }
 
