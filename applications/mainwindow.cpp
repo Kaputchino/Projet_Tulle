@@ -3,23 +3,29 @@
 #include <QPushButton>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <fstream>
 
 
 using namespace std;
 
+string *readDataBasePath(){
+    ifstream myfile ("../config");
+    string mystring;
+    if ( myfile.is_open() ) {
+        myfile >> mystring;
+        return &mystring;
+    }
+}
+
+
+
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-
     QPushButton button("Hello world !");
     button.show();
-
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("projet_tulle");
-    db.setUserName("root");
-    db.setPort(3306);
-    db.setPassword("");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName(QString::fromStdString(*readDataBasePath()));
     if(!db.open())
     {
         cout << "Can't Connect to DB !";
@@ -38,8 +44,9 @@ int main(int argc, char** argv)
             cout << "Query Executed Successfully !";
         }
     }
-
+    QString
 
 
     return app.exec();
 }
+
