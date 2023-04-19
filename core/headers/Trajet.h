@@ -2,7 +2,7 @@
 #define PROJET_TULLE_TRAJET_H
 #include <string>
 #include <vector>
-#include "shared/Errors.h"
+#include "Errors.h"
 #include "Colis.h"
 using namespace std;
 class Trajet {

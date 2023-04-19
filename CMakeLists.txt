@@ -2,10 +2,12 @@ cmake_minimum_required(VERSION 3.24)
 set(CMAKE_CXX_STANDARD 17)
 project(Projet_Tulle)
 
-set(SHARED
-        shared/common.h
-        shared/Errors.cpp
-        shared/Errors.h
+
+# ----------- CORE ----------------
+set(MISC
+        core/headers/common.h
+        core/sources/Errors.cpp
+        core/headers/Errors.h
         )
 
 set(CORE_SRC
@@ -15,6 +17,7 @@ set(CORE_SRC
         core/sources/Dispatcher.cpp
         core/sources/Trajet.cpp
         core/sources/Colis.cpp
+        core/sources/initDB.cpp
         )
 
 set(CORE_HEADER
@@ -24,8 +27,15 @@ set(CORE_HEADER
         core/headers/Dispatcher.h
         core/headers/Trajet.h
         core/headers/Colis.h
-        )
+        core/headers/initDB.h)
 
+
+set(DATABASE
+        core/headers/initDB.h
+        core/sources/initDB.cpp
+)
+
+# ----------- UI ----------------
 set(LOGIN_UI
         interface/loginscreen.cpp
         interface/loginscreen.h
@@ -42,9 +52,6 @@ find_package(Qt5 COMPONENTS Core Widgets Gui Sql REQUIRED)
 MESSAGE(STATUS "DONT'T FORGET TO SET ~/Qt/[ver]/[compiler]/lib/cmake & ~/Qt/5.15.2/mingw81_64/bin to your PATH.")
 
 # BUNDLING EXECUTABLE FOR UI
-add_executable(Projet_Tulle ${SHARED} ${LOGIN_UI} applications/main.cpp)
+add_executable(Projet_Tulle ${DATABASE} ${MISC} ${LOGIN_UI} main.cpp)
 target_link_libraries(Projet_Tulle Qt5::Core Qt5::Widgets Qt5::Gui Qt5::Sql)
 
-# BUNDLING EXECUTABLE FOR CONSOLE TESTS
-add_executable(TESTS ${CORE_SRC} ${CORE_HEADER} ${SHARED} applications/tests_main.cpp)
-target_link_libraries(TESTS Qt5::Sql)

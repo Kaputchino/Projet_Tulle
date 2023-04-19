@@ -2,7 +2,7 @@
 #define PROJET_TULLE_PERSONNE_H
 #include <string>
 #include <iostream>
-#include "shared/Errors.h"
+#include "Errors.h"
 using namespace std;
 
 class Personne {
