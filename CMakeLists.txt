@@ -15,6 +15,8 @@ set(CORE_SRC
         core/sources/Dispatcher.cpp
         core/sources/Trajet.cpp
         core/sources/Colis.cpp
+        core/sources/initDB.cpp
+
         )
 
 set(CORE_HEADER
@@ -24,7 +26,7 @@ set(CORE_HEADER
         core/headers/Dispatcher.h
         core/headers/Trajet.h
         core/headers/Colis.h
-        )
+        core/headers/initDB.h)
 
 # SETTING UP QT
 set(CMAKE_AUTOMOC ON)
