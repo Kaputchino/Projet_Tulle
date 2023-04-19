@@ -15,7 +15,7 @@ void initDB::linkDB() {
     }else{
         cout << "Connected Successfully to DB !";
         QSqlQuery query;
-        query.prepare("QUERY TO BE SENT TO THE DB");
+        query.prepare("SELECT 2");
         if(!query.exec()){
             cout << "Can't Execute Query !";
         }
@@ -26,7 +26,7 @@ void initDB::linkDB() {
 }
 
 string initDB::readDataBasePath(){
-    ifstream myfile ("../../config");
+    ifstream myfile ("../config");
     string mystring;
     if ( myfile.is_open() ) {
         myfile >> mystring;
