@@ -28,6 +28,12 @@ set(CORE_HEADER
         core/headers/Colis.h
         core/headers/initDB.h)
 
+set(LOGIN_UI
+        interface/loginscreen.cpp
+        interface/loginscreen.h
+        interface/loginscreen.ui
+)
+
 # SETTING UP QT
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -38,7 +44,7 @@ find_package(Qt5 COMPONENTS Core Widgets Gui Sql REQUIRED)
 MESSAGE(STATUS "DONT'T FORGET TO SET ~/Qt/[ver]/[compiler]/lib/cmake & ~/Qt/5.15.2/mingw81_64/bin to your PATH.")
 
 # BUNDLING EXECUTABLE FOR UI
-add_executable(Projet_Tulle ${SHARED} applications/main.cpp)
+add_executable(Projet_Tulle ${SHARED} ${LOGIN_UI} applications/main.cpp)
 target_link_libraries(Projet_Tulle Qt5::Core Qt5::Widgets Qt5::Gui Qt5::Sql)
 
 # BUNDLING EXECUTABLE FOR CONSOLE TESTS
