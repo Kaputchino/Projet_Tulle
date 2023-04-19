@@ -104,11 +104,11 @@ Colis::Colis(string &villeArrivee, double poid) {
     addIntoDb();
 }
 
-Trajet *Colis::getTrajet() const {
+Trajet* Colis::getTrajet() const {
     return trajet;
 }
 
-void Colis::setTrajet(Trajet *tr) {
+void Colis::setTrajet(Trajet *trajet) {
     Colis::trajet = trajet;
     updateTrajet();
 }
