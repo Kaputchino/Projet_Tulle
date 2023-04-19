@@ -28,7 +28,7 @@ void Colis::setStatut(int statut) {
     Colis::statut = statut;
 }
 
-int Colis::getPoid() const {
+double Colis::getPoid() const {
     return poid;
 }
 
