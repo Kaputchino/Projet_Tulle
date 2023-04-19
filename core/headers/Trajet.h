@@ -19,6 +19,7 @@ private:
     vector<Colis *> listeColis;
     static inline int totalTrajets = 0;
 public:
+    bool updateStatut();
     bool updateChauffeur();
     bool updateVilleDepart();
     bool updateVilleArrivee();

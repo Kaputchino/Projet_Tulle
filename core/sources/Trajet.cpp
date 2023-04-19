@@ -15,31 +15,65 @@ Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeA
     this->prix = prix;
     this->statut = 0;
 }
-
+bool Trajet::updateStatut() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET trajet statut=:statut WHERE idTrajet=:idTrajet");
+    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.bindValue(":statut", QVariant(statut));
+    return query.exec();
+}
 bool Trajet::updateChauffeur() {
-    return false;
+    QSqlQuery query;
+    query.prepare("UPDATE SET trajet villeDepart=:villeDepart WHERE idTrajet=:idTrajet");
+    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.bindValue(":idPersonne", QVariant(idChauffeur));
+    return query.exec();
 }
 bool Trajet::updateVilleDepart() {
-    return false;
+    QSqlQuery query;
+    query.prepare("UPDATE SET trajet villeDepart=:villeDepart WHERE idTrajet=:idTrajet");
+    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.bindValue(":villeDepart", QString::fromStdString(villeDepart));
+    return query.exec();
 }
 bool Trajet::updateVilleArrivee() {
-    return false;
+    QSqlQuery query;
+    query.prepare("UPDATE SET trajet villeArivee=:villeArivee WHERE idTrajet=:idTrajet");
+    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.bindValue(":villeArivee", QString::fromStdString(villeArrivee));
+    return query.exec();
 }
 bool Trajet::updateHoraireDepart() {
-    return false;
+    QSqlQuery query;
+    query.prepare("UPDATE SET trajet horaireDepart=:horaireDepart WHERE idTrajet=:idTrajet");
+    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.bindValue(":horaireDepart", QString::fromStdString(horaireDepart));
+    return query.exec();
 }
 bool Trajet::updateHoraireArrivee() {
-    return false;
+    QSqlQuery query;
+    query.prepare("UPDATE SET trajet horaireArrivee=:horaireArrivee WHERE idTrajet=:idTrajet");
+    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.bindValue(":horaireArrivee", QString::fromStdString(horaireArrivee));
+    return query.exec();
 }
 bool Trajet::updatePoid() {
-    return false;
+    QSqlQuery query;
+    query.prepare("UPDATE SET trajet poids=:poids WHERE idTrajet=:idTrajet");
+    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.bindValue(":poids", QVariant(poids));
+    return query.exec();
 }
 bool Trajet::updatePrix(){
-    return false;
+    QSqlQuery query;
+    query.prepare("UPDATE SET trajet prix=:prix WHERE idTrajet=:idTrajet");
+    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.bindValue(":prix", QVariant(prix));
+    return query.exec();
 }
 bool Trajet::addIntoDb() {
     QSqlQuery query;
-    query.prepare("INSERT INTO colis (idTrajet, villeDepart, villeArivee, horaireDepart, horaireArrivee, poids, prix, statut, idPersonne) "
+    query.prepare("INSERT INTO trajet (idTrajet, villeDepart, villeArivee, horaireDepart, horaireArrivee, poids, prix, statut, idPersonne) "
                   "VALUES (:idTrajet, :villeDepart, :villeArivee, :horaireDepart, :horaireArrivee, :poids, :prix, :statut, :idPersonne)");
     query.bindValue(":idTrajet", QVariant(idTrajet));
     query.bindValue(":villeDepart", QString::fromStdString(villeDepart));
