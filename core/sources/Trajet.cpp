@@ -86,6 +86,7 @@ void Trajet::setStatuts(int statuts) {
 void Trajet::ajouterColis(Colis *colis) {
     this->listeColis.push_back(colis);
     this->statuts = 1;
+    colis->setTrajet(this);
 }
 
 bool Trajet::colieAjoutable(Colis *colis) {

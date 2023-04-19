@@ -2,6 +2,7 @@
 #define PROJET_TULLE_COLIS_H
 #include <string>
 #include "shared/Errors.h"
+#include "Trajet.h"
 using namespace std;
 class Colis {
 public:
@@ -25,6 +26,10 @@ public:
 
     void setPoid(double poid);
 
+    Trajet *getTrajet() const;
+
+    void setTrajet(Trajet *trajet);
+
 private:
     int idColis;
     string villeArrivee;
@@ -32,6 +37,8 @@ private:
     string dateAjoutColis;
     int statut;
     static inline int nbColisTotal = 0;
+    bool addIntoDb();
+    Trajet* trajet;
 
 };
 
