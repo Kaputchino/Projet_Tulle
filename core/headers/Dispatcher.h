@@ -1,10 +1,10 @@
 #ifndef PROJET_TULLE_DISPATCHER_H
 #define PROJET_TULLE_DISPATCHER_H
-
-#include "core/headers/Personne.h"
 #include <vector>
-#include "core/headers/Colis.h"
 #include "shared/Errors.h"
+#include "Personne.h"
+#include "Colis.h"
+
 using namespace std;
 class Dispatcher : public Personne{
 public:

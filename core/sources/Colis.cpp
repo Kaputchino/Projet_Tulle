@@ -1,6 +1,6 @@
+#include "core/headers/Colis.h"
 #include <QSqlQuery>
 #include <QVariant>
-#include "core/headers/Colis.h"
 
 
 bool Colis::updateDate() {
@@ -108,7 +108,7 @@ Trajet *Colis::getTrajet() const {
     return trajet;
 }
 
-void Colis::setTrajet(Trajet *trajet) {
+void Colis::setTrajet(Trajet *tr) {
     Colis::trajet = trajet;
     updateTrajet();
 }

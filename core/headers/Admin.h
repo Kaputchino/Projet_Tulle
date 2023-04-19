@@ -1,10 +1,9 @@
 #ifndef PROJET_TULLE_ADMIN_H
 #define PROJET_TULLE_ADMIN_H
-
-#include "core/headers/Personne.h"
-#include "core/headers/Chauffeur.h"
-#include "core/headers/Dispatcher.h"
 #include "shared/Errors.h"
+#include "Personne.h"
+#include "Chauffeur.h"
+#include "Dispatcher.h"
 
 class Admin : public Personne{
 public:

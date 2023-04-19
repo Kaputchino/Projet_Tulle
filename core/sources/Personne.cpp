@@ -1,5 +1,5 @@
-#include <QSqlQuery>
 #include "core/headers/Personne.h"
+#include <QSqlQuery>
 #include <QVariant>
 
 using namespace std;

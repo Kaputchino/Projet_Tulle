@@ -1,5 +1,5 @@
-#include <random>
 #include "core/headers/Dispatcher.h"
+#include <random>
 #include "shared/common.h"
 
 Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Dispatcher") {

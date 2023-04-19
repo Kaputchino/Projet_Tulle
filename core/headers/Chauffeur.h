@@ -1,16 +1,15 @@
 #ifndef PROJET_TULLE_CHAUFFEUR_H
 #define PROJET_TULLE_CHAUFFEUR_H
-
-#include "core/headers/Personne.h"
-#include "core/headers/Trajet.h"
-#include "core/headers/Colis.h"
 #include "shared/Errors.h"
 #include <string>
 #include <vector>
+#include "Personne.h"
+#include "Trajet.h"
+#include "Colis.h"
 
 using namespace std;
 
-class Chauffeur : public Personne{
+class Chauffeur : public Personne {
 public:
     Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password);
     bool ajoutTrajet(Trajet *t);
