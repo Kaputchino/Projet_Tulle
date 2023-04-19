@@ -9,7 +9,6 @@
 using namespace std;
 
 vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle","Valence","Nouméa","Arachon","Casablanca","Bonifacio","Colmar","Montparnasse","Narbonne","Strasbourg","Brumath","Hoerdt","Haguenau","Mulhouse","Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Breuschwickersheim","Geispolsheim","Agullana","Lake Mary","Milwaukee"};
-vector<Dispatcher *> listeDispatcher;
 vector<Chauffeur *> listeChauffeur;
 
 int main(int argc, char** argv) {
@@ -36,9 +35,9 @@ int main(int argc, char** argv) {
 
     cout << "\n------------\n" << endl;
 
-    Trajet trajetA = Trajet(chauffeurA.getIdChauffeur(), "Orlean", listeVille.at(1), "12h20", "15h20", 20, 150);
-    Trajet trajetB = Trajet(chauffeurB.getIdChauffeur(), "Rouen", listeVille.at(1), "10h20", "14h40", 34, 500);
-    Trajet trajetC = Trajet(chauffeurA.getIdChauffeur(), "Charleroi", listeVille.at(2), "2h10", "5h34", 45, 1312);
+    Trajet trajetA = Trajet(chauffeurA.getIdPersonne(), "Orlean", listeVille.at(1), "12h20", "15h20", 20, 150);
+    Trajet trajetB = Trajet(chauffeurB.getIdPersonne(), "Rouen", listeVille.at(1), "10h20", "14h40", 34, 500);
+    Trajet trajetC = Trajet(chauffeurA.getIdPersonne(), "Charleroi", listeVille.at(2), "2h10", "5h34", 45, 1312);
     chauffeurA.ajoutTrajet(&trajetA);
     chauffeurA.ajoutTrajet(&trajetC);
     cout << "Addition de 2 trajets, chauffeurA a " << chauffeurA.getNbTrajet() << " trajets" << endl;
@@ -79,7 +78,7 @@ int main(int argc, char** argv) {
     cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColisDispatchable() << endl;
     cout << "\n------------\n" << endl;
 
-    cout << "Dispatchage automatique des colis en fonction des poids, destinations et statuts." << endl;
+    cout << "Dispatchage automatique des colis en fonction des poids, destinations et statut." << endl;
     dispatcherA.dispatch();
     dispatcherB.dispatch();
     cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColisDispatchable() << endl;

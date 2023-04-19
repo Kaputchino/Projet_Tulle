@@ -1,11 +1,7 @@
 #include "core/headers/Admin.h"
 
 Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Admin") {
-    this->idAdmin = getIdPersonne();
-}
 
-int Admin::getIdAdmin() const {
-    return idAdmin;
 }
 
 int Admin::nombreTrajets(Chauffeur *c) {

@@ -1,9 +1,9 @@
 #ifndef PROJET_TULLE_TRAJET_H
 #define PROJET_TULLE_TRAJET_H
 #include <string>
-#include "core/headers/Colis.h"
 #include <vector>
 #include "shared/Errors.h"
+#include "Colis.h"
 using namespace std;
 class Trajet {
 private:
@@ -15,10 +15,19 @@ private:
     string horaireArrivee;
     double poids;
     double prix;
-    int statuts;
+    int statut;
     vector<Colis *> listeColis;
     static inline int totalTrajets = 0;
 public:
+    bool updateStatut();
+    bool updateChauffeur();
+    bool updateVilleDepart();
+    bool updateVilleArrivee();
+    bool updateHoraireDepart();
+    bool updateHoraireArrivee();
+    bool updatePoid();
+    bool updatePrix();
+    bool addIntoDb();
     Trajet(int idChauffeur, const string &VilleDepart, const string &villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix);
 
     int getIdTrajet() const;
