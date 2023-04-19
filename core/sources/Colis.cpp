@@ -2,6 +2,59 @@
 #include <QVariant>
 #include "core/headers/Colis.h"
 
+
+bool Colis::updateDate() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
+    query.bindValue(":idColis", QVariant(idColis));
+    query.bindValue(":dataAjout", QString::fromStdString(dateAjoutColis));
+    return query.exec();
+}
+
+bool Colis::updateStatut() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
+    query.bindValue(":idColis", QVariant(idColis));
+    query.bindValue(":dataAjout", QVariant(statut));
+    return query.exec();
+}
+
+bool Colis::updateTrajet() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
+    query.bindValue(":idColis", QVariant(idColis));
+    query.bindValue(":dataAjout", QVariant(trajet->getIdTrajet()));
+    return query.exec();
+}
+
+bool Colis::addIntoDb() {
+    QSqlQuery query;
+    query.prepare("INSERT INTO colis (idColis, poids, villeArivee, dataAjout, statut, idTrajet) "
+                  "VALUES (:idColis, :poids, :villeArivee, :dataAjout, :statut, :idTrajet)");
+    query.bindValue(":idColis", QVariant(idColis));
+    query.bindValue(":poids", QVariant(poid));
+    query.bindValue(":villeArivee", QString::fromStdString(villeArrivee));
+    query.bindValue(":dataAjout", QString::fromStdString(dateAjoutColis));
+    query.bindValue(":statut", QVariant(statut));
+    query.bindValue(":idTrajet", QVariant(trajet->getIdTrajet()));
+    return query.exec();
+}
+
+bool Colis::updatePoid() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET colis poids=:poids WHERE idColis=:idColis");
+    query.bindValue(":idColis", QVariant(idColis));
+    query.bindValue(":poids", QVariant(poid));
+    return query.exec();
+}
+bool Colis::updateVille() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET colis poids=:poids WHERE idColis=:idColis");
+    query.bindValue(":idColis", QVariant(idColis));
+    query.bindValue(":poids", QVariant(poid));
+    return query.exec();
+}
+
 int Colis::getIdColis() const {
     return idColis;
 }
@@ -46,34 +99,6 @@ Colis::Colis(string &villeArrivee, double poid) {
     this->trajet = nullptr;
 }
 
-bool Colis::addIntoDb() {
-    QSqlQuery query;
-    query.prepare("INSERT INTO colis (idColis, poids, villeArivee, dataAjout, statut, idTrajet) "
-                  "VALUES (:idColis, :poids, :villeArivee, :dataAjout, :statut, :idTrajet)");
-    query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":poids", QVariant(poid));
-    query.bindValue(":villeArivee", QString::fromStdString(villeArrivee));
-    query.bindValue(":dataAjout", QString::fromStdString(dateAjoutColis));
-    query.bindValue(":statut", QVariant(statut));
-    query.bindValue(":idTrajet", QVariant(trajet->getIdTrajet()));
-    return query.exec();
-}
-
-bool Colis::updatePoid() {
-    QSqlQuery query;
-    query.prepare("UPDATE SET colis poids=:poids WHERE idColis=:idColis");
-    query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":poids", QVariant(poid));
-    return query.exec();
-}
-bool Colis::updateVille() {
-    QSqlQuery query;
-    query.prepare("UPDATE SET colis poids=:poids WHERE idColis=:idColis");
-    query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":poids", QVariant(poid));
-    return query.exec();
-}
-
 Trajet *Colis::getTrajet() const {
     return trajet;
 }
@@ -82,26 +107,3 @@ void Colis::setTrajet(Trajet *trajet) {
     Colis::trajet = trajet;
 }
 
-bool Colis::updateDate() {
-    QSqlQuery query;
-    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
-    query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":dataAjout", QString::fromStdString(dateAjoutColis));
-    return query.exec();
-}
-
-bool Colis::updateStatut() {
-    QSqlQuery query;
-    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
-    query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":dataAjout", QVariant(statut));
-    return query.exec();
-}
-
-bool Colis::updateTrajet() {
-    QSqlQuery query;
-    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
-    query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":dataAjout", QVariant(trajet->getIdTrajet()));
-    return query.exec();
-}
