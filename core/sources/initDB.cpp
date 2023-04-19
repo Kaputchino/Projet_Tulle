@@ -28,11 +28,12 @@ void initDB::linkDB() {
     }
 }
 
-string initDB::readDataBasePath() {
+string initDB::readDataBasePath(){
     ifstream myfile ("../../config");
     string mystring;
     if ( myfile.is_open() ) {
         myfile >> mystring;
         return mystring;
     }
+    throw std::invalid_argument("Impossible de lire le fichier de configuration");
 }
