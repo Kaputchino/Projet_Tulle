@@ -9,7 +9,6 @@ set(SHARED
         shared/conf.h
         )
 
-set(CORE_SRC)
 set(CORE_SRC
         core/sources/Personne.cpp
         core/sources/Chauffeur.cpp
