@@ -1,7 +1,7 @@
 #ifndef PROJET_TULLE_DISPATCHER_H
 #define PROJET_TULLE_DISPATCHER_H
 #include <vector>
-#include "shared/Errors.h"
+#include "Errors.h"
 #include "Personne.h"
 #include "Colis.h"
 

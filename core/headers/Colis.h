@@ -1,7 +1,7 @@
 #ifndef PROJET_TULLE_COLIS_H
 #define PROJET_TULLE_COLIS_H
 #include <string>
-#include "shared/Errors.h"
+#include "Errors.h"
 
 class Trajet;
 

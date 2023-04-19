@@ -1,4 +1,4 @@
-#include "shared/Errors.h"
+#include "core/headers/Errors.h"
 
 using namespace std;
 

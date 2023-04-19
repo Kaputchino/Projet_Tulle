@@ -1,9 +1,11 @@
 #include <QApplication>
 #include <QPushButton>
+#include <QSqlDatabase>
 #include "core/headers/initDB.h"
+
 using namespace std;
 
-
+QSqlDatabase db;
 
 int main(int argc, char** argv)
 {

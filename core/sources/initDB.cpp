@@ -3,11 +3,12 @@
 #include <QSqlQuery>
 #include "core/headers/initDB.h"
 #include "iostream"
+#include "core/headers/common.h"
+
 using namespace std;
 
-
 void initDB::linkDB() {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(QString::fromStdString(readDataBasePath()));
     if(!db.open()){
         cout << "Can't Connect to DB !";
