@@ -14,15 +14,12 @@ public:
     static int coliesEnCoursLivraison(Chauffeur* c);
     static int coliesEnAttenteLivraison(Chauffeur* c);
     static int coliesEnDemandeLivraison(Dispatcher * d);
-    int getIdAdmin() const;
     static int nombreTrajets(Chauffeur* c);
     static double gainMoyenParTrajet(Chauffeur* c);
     static int nombreColis(Chauffeur* c);
     static double colisMoyenParTrajet(Chauffeur* c);
     static double poidTotal(Chauffeur* c);
     static double poidMoyenParTrajet(Chauffeur* c);
-private:
-    int idAdmin;
 };
 
 

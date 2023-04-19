@@ -2,13 +2,13 @@
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
 
-    if (t->getIdChauffeur() != getIdChauffeur()) {
+    if (t->getIdChauffeur() != getIdPersonne()) {
         Errors::appendError("Le Trajet " + to_string(t->getIdTrajet()) + "appartient deja au chauffeur " + to_string(t->getIdChauffeur()));
         return false;
     }
 
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
-        Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + "introuvable pour le chauffeur " + to_string(getIdChauffeur()));
+        Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + "introuvable pour le chauffeur " + to_string(getIdPersonne()));
         return false;
     }
 
@@ -25,7 +25,7 @@ bool Chauffeur::supprimerTrajet(Trajet *t) {
         return true;
     }
 
-    Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + "introuvable pour le chauffeur " + to_string(getIdChauffeur()));
+    Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + "introuvable pour le chauffeur " + to_string(getIdPersonne()));
     return false;
 }
 
@@ -33,14 +33,14 @@ bool
 Chauffeur::modifierTrajet(const Trajet* t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee,
                           double poids, double prix) {
 
-    if (t->getIdChauffeur() != getIdChauffeur()) {
-        Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + "n'appartient pas au chauffeur n " + to_string(getIdChauffeur()));
+    if (t->getIdChauffeur() != getIdPersonne()) {
+        Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + "n'appartient pas au chauffeur n " + to_string(getIdPersonne()));
         return false;
     }
 
     int index = indexTrajetDansListe(t->getIdTrajet());
     if (index == -1) {
-        Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + "introuvable pour le chauffeur " + to_string(getIdChauffeur()));
+        Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + "introuvable pour le chauffeur " + to_string(getIdPersonne()));
         return false;
     }
 
@@ -68,10 +68,6 @@ Chauffeur::modifierTrajet(const Trajet* t, const string& villeDepart, const stri
 }
 
 Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Chauffeur") {
-}
-
-int Chauffeur::getIdChauffeur() const {
-    return idPersonne;
 }
 
 Trajet * Chauffeur::getTrajetByIndex(int index) {
@@ -131,7 +127,7 @@ bool Chauffeur::validerTrajet(Trajet *t) {
         return true;
     }
 
-    Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + " introuvable pour le chauffeur " + to_string(getIdChauffeur()));
+    Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + " introuvable pour le chauffeur " + to_string(getIdPersonne()));
     return false;
 }
 
@@ -147,7 +143,7 @@ bool Chauffeur::delancheLivraison(Trajet *t) {
         return true;
     }
 
-    Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + " introuvable pour le chauffeur " + to_string(getIdChauffeur()));
+    Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + " introuvable pour le chauffeur " + to_string(getIdPersonne()));
     return false;
 }
 
@@ -163,7 +159,7 @@ bool Chauffeur::declareLivraison(Trajet *t) {
         return true;
     }
 
-    Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + " introuvable pour le chauffeur " + to_string(getIdChauffeur()));
+    Errors::appendError("Trajet " + to_string(t->getIdTrajet()) + " introuvable pour le chauffeur " + to_string(getIdPersonne()));
     return false;
 }
 
