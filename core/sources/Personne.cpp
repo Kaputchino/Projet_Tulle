@@ -1,6 +1,71 @@
+#include <QSqlQuery>
 #include "core/headers/Personne.h"
+#include <QVariant>
 
 using namespace std;
+
+bool Personne::updateNom() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET personne nom=:nom WHERE idPersonne=:idPersonne");
+    query.bindValue(":idPersonne", QVariant(idPersonne));
+    query.bindValue(":nom", QString::fromStdString(nom));
+    return query.exec();
+}
+
+bool Personne::updatePrenom() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET personne prenom=:prenom WHERE idPersonne=:idPersonne");
+    query.bindValue(":idPersonne", QVariant(idPersonne));
+    query.bindValue(":prenom", QString::fromStdString(prenom));
+    return query.exec();
+}
+
+bool Personne::updateAdresse() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET personne adresse=:adresse WHERE idPersonne=:idPersonne");
+    query.bindValue(":idPersonne", QVariant(idPersonne));
+    query.bindValue(":adresse", QString::fromStdString(adresse));
+    return query.exec();
+}
+
+bool Personne::updateEmail() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET personne email=:email WHERE idPersonne=:idPersonne");
+    query.bindValue(":idPersonne", QVariant(idPersonne));
+    query.bindValue(":email", QString::fromStdString(email));
+    return query.exec();
+}
+
+bool Personne::updatePassword() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET personne password=:password WHERE idPersonne=:idPersonne");
+    query.bindValue(":idPersonne", QVariant(idPersonne));
+    query.bindValue(":password", QString::fromStdString(password));
+    return query.exec();
+}
+
+bool Personne::updateRole() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET personne role=:role WHERE idPersonne=:idPersonne");
+    query.bindValue(":idPersonne", QVariant(idPersonne));
+    query.bindValue(":role", QString::fromStdString(role));
+    return query.exec();
+}
+
+bool Personne::addIntoDb() {
+    QSqlQuery query;
+    query.prepare("INSERT INTO personne (idPersonne, nom, prenom, adresse, email, password, role) "
+                  "VALUES (:idPersonne, :nom, :prenom, :adresse, :adresse, :email, :password, :role)");
+    query.bindValue(":idPersonne", QVariant(idPersonne));
+    query.bindValue(":nom", QString::fromStdString(nom));
+    query.bindValue(":prenom", QString::fromStdString(prenom));
+    query.bindValue(":adresse", QString::fromStdString(adresse));
+    query.bindValue(":email", QString::fromStdString(email));
+    query.bindValue(":password", QString::fromStdString(password));
+    query.bindValue(":role", QString::fromStdString(role));
+
+    return query.exec();
+}
 
 Personne::Personne(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password, const string& role) {
     this->idPersonne = ++totalPersonne;
@@ -10,26 +75,32 @@ Personne::Personne(const string& nom, const string& prenom, const string& adress
     this->email = email;
     this->password = password;
     this->role = role;
+    addIntoDb();
 }
 
 void Personne::setAdresse(const string &adresse) {
     this->adresse = adresse;
+    updateAdresse();
 }
 
 void Personne::setPrenom(const string &premom) {
     this->prenom = premom;
+    updatePrenom();
 }
 
 void Personne::setNom(const string &nom) {
     this->nom = nom;
+    updateNom();
 }
 
 void Personne::setEmail(const string &email) {
     this->email = email;
+    updateEmail();
 }
 
 void Personne::setPassword(const string &password) {
     this->password = password;
+    updatePassword();
 }
 
 int Personne::getTotalPersonne() {
@@ -68,3 +139,5 @@ void Personne::afficherPersonne() {
     cout << "idPersonne: " << this->idPersonne << endl;
     cout << "Role: " << this->role << endl;
 }
+
+

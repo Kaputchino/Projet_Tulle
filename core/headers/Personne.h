@@ -7,13 +7,20 @@ using namespace std;
 
 class Personne {
     private:
-        static inline  int totalPersonne = 0;
+        static inline int totalPersonne = 0;
         string nom;
         string prenom;
         string adresse;
         string email;
         string password;
         string role;
+        bool updateNom();
+        bool updatePrenom();
+        bool updateAdresse();
+        bool updateEmail();
+        bool updatePassword();
+        bool updateRole();
+        bool addIntoDb();
     public:
     int idPersonne;
 
