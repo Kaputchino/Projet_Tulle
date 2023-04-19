@@ -8,12 +8,12 @@
 
 using namespace std;
 
-string *readDataBasePath(){
+string readDataBasePath(){
     ifstream myfile ("../config");
     string mystring;
     if ( myfile.is_open() ) {
         myfile >> mystring;
-        return &mystring;
+        return mystring;
     }
 }
 
@@ -25,7 +25,7 @@ int main(int argc, char** argv)
     QPushButton button("Hello world !");
     button.show();
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(QString::fromStdString(*readDataBasePath()));
+    db.setDatabaseName(QString::fromStdString(readDataBasePath()));
     if(!db.open())
     {
         cout << "Can't Connect to DB !";
@@ -44,9 +44,6 @@ int main(int argc, char** argv)
             cout << "Query Executed Successfully !";
         }
     }
-    QString
-
-
     return app.exec();
 }
 
