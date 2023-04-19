@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
     cout << "Taille lise colis du dispatcherB: " << dispatcherB.getNombreColisDispatchable() << endl;
     cout << "\n------------\n" << endl;
 
-    cout << "Dispatchage automatique des colis en fonction des poids, destinations et statuts." << endl;
+    cout << "Dispatchage automatique des colis en fonction des poids, destinations et statut." << endl;
     dispatcherA.dispatch();
     dispatcherB.dispatch();
     cout << "Taille lise colis du dispatcherA: " << dispatcherA.getNombreColisDispatchable() << endl;
