@@ -19,6 +19,7 @@ string readDataBasePath(){
 
 
 
+
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
@@ -44,6 +45,7 @@ int main(int argc, char** argv)
             cout << "Query Executed Successfully !";
         }
     }
+
     return app.exec();
 }
 
