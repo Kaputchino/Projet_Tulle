@@ -38,6 +38,11 @@ private:
     int statut;
     static inline int nbColisTotal = 0;
     bool addIntoDb();
+    bool updatePoid();
+    bool updateVille();
+    bool updateDate();
+    bool updateStatut();
+    bool updateTrajet();
     Trajet* trajet;
 
 };
