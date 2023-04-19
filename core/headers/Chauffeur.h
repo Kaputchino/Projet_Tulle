@@ -33,7 +33,6 @@ public:
 
 private:
     vector<Trajet *> listeTrajet;
-    int idChauffeur;
     vector <Colis *> getAllColis();
 };
 

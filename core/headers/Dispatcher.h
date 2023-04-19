@@ -15,7 +15,6 @@ public:
     int getNombreColisDispatchable();
 private:
     vector<Colis *> listeColis;
-    int idDispatcher;
 };
 
 #endif //PROJET_TULLE_DISPATCHER_H

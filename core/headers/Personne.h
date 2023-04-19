@@ -8,7 +8,6 @@ using namespace std;
 class Personne {
     private:
         static inline  int totalPersonne = 0;
-        int idPersonne;
         string nom;
         string prenom;
         string adresse;
@@ -16,7 +15,9 @@ class Personne {
         string password;
         string role;
     public:
-        Personne(const string& nom,
+    int idPersonne;
+
+    Personne(const string& nom,
                  const string& prenom,
                  const string& adresse,
                  const string& email,
