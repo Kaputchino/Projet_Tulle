@@ -1,34 +1,51 @@
 #include <iostream>
 #include <QApplication>
 #include <QPushButton>
-#include <string>
-#include "shared/common.h"
-#include "shared/conf.h"
-#include <vector>
-#include <filesystem>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <fstream>
+
 
 using namespace std;
 
-QSqlDatabase db;
+string readDataBasePath(){
+    ifstream myfile ("../config");
+    string mystring;
+    if ( myfile.is_open() ) {
+        myfile >> mystring;
+        return mystring;
+    }
+}
+
+
+
 
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-
     QPushButton button("Hello world !");
     button.show();
-
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(path_to_main_db);
-
-    if (!db.open())
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName(QString::fromStdString(readDataBasePath()));
+    if(!db.open())
     {
-        qDebug() << "Error: connection with database failed";
+        cout << "Can't Connect to DB !";
     }
     else
     {
-        qDebug() << "Database: connection ok";
+        cout << "Connected Successfully to DB !";
+        QSqlQuery query;
+        query.prepare("QUERY TO BE SENT TO THE DB");
+        if(!query.exec())
+        {
+            cout << "Can't Execute Query !";
+        }
+        else
+        {
+            cout << "Query Executed Successfully !";
+        }
     }
 
     return app.exec();
 }
+
