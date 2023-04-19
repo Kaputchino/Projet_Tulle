@@ -37,7 +37,7 @@ find_package(Qt5 COMPONENTS Core Widgets Gui Sql REQUIRED)
 MESSAGE(STATUS "DONT'T FORGET TO SET ~/Qt/[ver]/[compiler]/lib/cmake & ~/Qt/5.15.2/mingw81_64/bin to your PATH.")
 
 # BUNDLING EXECUTABLE FOR UI
-add_executable(Projet_Tulle ${SHARED} applications/mainwindow.cpp)
+add_executable(Projet_Tulle ${SHARED} applications/main.cpp)
 target_link_libraries(Projet_Tulle Qt5::Core Qt5::Widgets Qt5::Gui Qt5::Sql)
 
 # BUNDLING EXECUTABLE FOR CONSOLE TESTS
