@@ -15,10 +15,9 @@ string readDataBasePath(){
         myfile >> mystring;
         return mystring;
     }
+
+    throw std::invalid_argument("Impossible de lire le fichier de configuration");
 }
-
-
-
 
 int main(int argc, char** argv)
 {
