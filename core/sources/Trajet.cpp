@@ -4,17 +4,7 @@
 #include <QVariant>
 
 
-Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix) {
-    this->idTrajet = ++totalTrajets;
-    this->idChauffeur= idChauffeur;
-    this->villeDepart = villeDepart;
-    this->villeArrivee = villeArrivee;
-    this->horaireDepart = horaireDepart;
-    this->horaireArrivee = horaireArrivee;
-    this->poids = poids;
-    this->prix = prix;
-    this->statut = 0;
-}
+
 bool Trajet::updateStatut() {
     QSqlQuery query;
     query.prepare("UPDATE SET trajet statut=:statut WHERE idTrajet=:idTrajet");
@@ -87,7 +77,18 @@ bool Trajet::addIntoDb() {
     return query.exec();
 }
 
-
+Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix) {
+    this->idTrajet = ++totalTrajets;
+    this->idChauffeur= idChauffeur;
+    this->villeDepart = villeDepart;
+    this->villeArrivee = villeArrivee;
+    this->horaireDepart = horaireDepart;
+    this->horaireArrivee = horaireArrivee;
+    this->poids = poids;
+    this->prix = prix;
+    this->statut = 0;
+    addIntoDb();
+}
 
 int Trajet::getIdTrajet() const {
     return idTrajet;
@@ -99,6 +100,7 @@ int Trajet::getIdChauffeur() const {
 
 void Trajet::setIdChauffeur(int idChauffeur) {
     this->idChauffeur = idChauffeur;
+    updateChauffeur();
 }
 
 const string &Trajet::getVilleDepart() const {
@@ -107,6 +109,7 @@ const string &Trajet::getVilleDepart() const {
 
 void Trajet::setVilleDepart(const string &villeDepart) {
     this->villeDepart = villeDepart;
+    updateVilleDepart();
 }
 
 const string &Trajet::getVilleArrivee() const {
@@ -115,6 +118,7 @@ const string &Trajet::getVilleArrivee() const {
 
 void Trajet::setVilleArrivee(const string &villeArrivee) {
     this->villeArrivee = villeArrivee;
+    updateVilleArrivee();
 }
 
 const string &Trajet::getHoraireDepart() const {
@@ -123,6 +127,7 @@ const string &Trajet::getHoraireDepart() const {
 
 void Trajet::setHoraireDepart(const string &horaireDepart) {
     this->horaireDepart = horaireDepart;
+    updateHoraireDepart();
 }
 
 const string &Trajet::getHoraireArrivee() const {
@@ -131,6 +136,7 @@ const string &Trajet::getHoraireArrivee() const {
 
 void Trajet::setHoraireArrivee(const string &horaireArrivee) {
     this->horaireArrivee = horaireArrivee;
+    updateHoraireArrivee();
 }
 
 double Trajet::getPoids() const {
@@ -139,6 +145,7 @@ double Trajet::getPoids() const {
 
 void Trajet::setPoids(double poids) {
     this->poids = poids;
+    updatePoid();
 }
 
 double Trajet::getPrix() const {
@@ -147,6 +154,7 @@ double Trajet::getPrix() const {
 
 void Trajet::setPrix(double prix) {
     this->prix = prix;
+    updatePrix();
 }
 
 int Trajet::getStatuts() const {
@@ -156,6 +164,7 @@ int Trajet::getStatuts() const {
 void Trajet::setStatuts(int statuts) {
     if(statuts > -1 && statuts < 5){
         this->statut = statuts;
+        updateStatut();
     }
 }
 
