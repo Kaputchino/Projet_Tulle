@@ -6,7 +6,6 @@ set(SHARED
         shared/common.h
         shared/Errors.cpp
         shared/Errors.h
-        shared/conf.h
         )
 
 set(CORE_SRC
