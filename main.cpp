@@ -39,7 +39,6 @@ int main(int argc, char** argv)
 
     LoginScreen loginPage;
     loginPage.show();
-charge trajetB: " << trajetB.getPoidEnCharge() << endl;
 
     return app.exec();
 }
