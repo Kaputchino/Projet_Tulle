@@ -2,6 +2,8 @@
 #include "core/headers/Trajet.h"
 #include <QSqlQuery>
 #include <QVariant>
+#include <iostream>
+#include <utility>
 
 
 bool Colis::updateDate() {
@@ -105,6 +107,17 @@ Colis::Colis(string &villeArrivee, double poid) {
     addIntoDb();
 }
 
+Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet) {
+    this->villeArrivee = villeArivee;
+    this->dateAjoutColis = dateAjout;
+    this->poid = poid;
+    this->idColis = ++nbColisTotal;
+    this->statut = 0;
+    this->trajet = Trajet::findTrajetById(idTrajet);
+}
+
+
+
 Trajet* Colis::getTrajet() const {
     return trajet;
 }
@@ -113,4 +126,24 @@ void Colis::setTrajet(Trajet *trajet) {
     Colis::trajet = trajet;
     updateTrajet();
 }
+ vector<Colis *> Colis::getColisAttente(){
+    QSqlQuery query;
+    vector<Colis*> list;
+    query.prepare( "SELECT * FROM colis WHERE idTrajet is Null " );
+    if(!query.exec() ){
+    }while(query.next()){
+        int idColis = query.value( 0 ).toInt();
+        double poids = query.value( 1 ).toDouble();
+        string villeArrive = query.value(2).toString().toStdString();
+        string date = query.value(3).toString().toStdString();
+        int statut = query.value( 4 ).toInt();
+        int idTrajet = query.value( 5 ).toDouble();
+        Colis c(idColis, poids, villeArrive, date, statut, idTrajet);
+        list.push_back(&c);
+    }
+     return list;
+}
+
+
+
 

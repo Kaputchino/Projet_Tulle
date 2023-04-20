@@ -7,6 +7,7 @@ using namespace std;
 
 class Personne {
     private:
+        string* toHash(string password);
         static inline int totalPersonne = 0;
         string nom;
         string prenom;
@@ -31,6 +32,14 @@ class Personne {
                  const string& password,
                  const string& role
                  );
+    Personne(int id,
+             const string& nom,
+             const string& prenom,
+             const string& adresse,
+             const string& email,
+             const string& password,
+             const string& role
+    );
 
         string getNom();
 
@@ -57,6 +66,10 @@ class Personne {
         void afficherPersonne();
 
         static int getTotalPersonne();
+
+        static Personne* findPersonneById(string email, string password);
+
+    Personne *findPersonneById(int id);
 };
 
 #endif //PROJET_TULLE_PERSONNE_H

@@ -13,6 +13,7 @@ public:
     bool dispatch();
     bool attribueColis(Colis *c);
     int getNombreColisDispatchable();
+    vector<Colis> getColisAttente();
 private:
     vector<Colis *> listeColis;
 };

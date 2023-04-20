@@ -140,4 +140,39 @@ void Personne::afficherPersonne() {
     cout << "Role: " << this->role << endl;
 }
 
+Personne::Personne(int id, const string &nom, const string &prenom, const string &adresse, const string &email,
+                   const string &password, const string &role) {
+    this->idPersonne = id;
+    this->adresse = adresse;
+    this->prenom = prenom;
+    this->nom = nom;
+    this->email = email;
+    this->password = password;
+    this->role = role;
+}
+
+
+Personne *Personne::findPersonneById(int id) {
+    QSqlQuery query;
+    query.prepare( &"SELECT * FROM personne WHERE idPersonne = " [ id] );
+    if(!query.exec() ){
+
+    }
+    if(query.next()){
+        int idPersonne = query.value( 0 ).toInt();
+        string adresse = query.value(1).toString().toStdString();
+        string prenom = query.value(2).toString().toStdString();
+        string nom = query.value(3).toString().toStdString();
+        string email = query.value(4).toString().toStdString();
+        string password = query.value(5).toString().toStdString();
+        string role = query.value(6).toString().toStdString();
+        Personne p(idPersonne,adresse,prenom,nom,email,password,role);
+        return &p;
+    }
+    return nullptr;
+}
+
+
+
+
 

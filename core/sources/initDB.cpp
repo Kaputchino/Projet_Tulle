@@ -11,11 +11,10 @@ void initDB::linkDB() {
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(QString::fromStdString(readDataBasePath()));
     if(!db.open()){
-        cout << "Can't Connect to DB !";
+        throw std::runtime_error("Can't connect to DB.\nMake sure the absolute path in \"config\" is valid.");
     }else{
-        cout << "Connected Successfully to DB !";
         QSqlQuery query;
-        query.prepare("SELECT 2");
+        query.prepare("SELECT * FROM TRAJET");
         if(!query.exec()){
             cout << "Can't Execute Query !";
         }
@@ -32,5 +31,30 @@ string initDB::readDataBasePath(){
         myfile >> mystring;
         return mystring;
     }
-    throw std::invalid_argument("Impossible de lire le fichier de configuration");
+    throw std::invalid_argument("Cannot read the config file.\nDoes the file \"config\" exists?");
+}
+string *initDB::toHash(string password) {
+    return nullptr;
+}
+
+static Personne* findPersonneById(string email, string password){
+    QSqlQuery query;
+    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE email = `" + email + "`"));
+    if(!query.exec() ){
+
+    }
+    if(query.next()){
+        string mdp = query.value(5).toString().toStdString();
+        if(mdp.compare(*initDB::toHash(password)) == 0){
+            int idPersonne = query.value( 0 ).toInt();
+            string adresse = query.value(1).toString().toStdString();
+            string prenom = query.value(2).toString().toStdString();
+            string nom = query.value(3).toString().toStdString();
+            string email = query.value(4).toString().toStdString();
+            string role = query.value(6).toString().toStdString();
+            Personne p(idPersonne,adresse,prenom,nom,email,password,role);
+            return &p;
+        }
+    }
+    return nullptr;
 }

@@ -63,3 +63,5 @@ bool Dispatcher::attribueColis(Colis *c) {
 int Dispatcher::getNombreColisDispatchable() {
     return listeColis.size();
 }
+
+
