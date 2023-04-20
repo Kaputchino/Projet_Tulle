@@ -28,3 +28,19 @@ void LoginScreen::on_connectionButton_clicked()
     }
 }
 
+void LoginScreen::on_resetButton_clicked()
+{
+    ui->emailEdit->clear();
+    ui->passEdit->clear();
+}
+
+void LoginScreen::on_quitButton_clicked()
+{
+    int res = QMessageBox::question(this, "Confirmation", "Souhaitez-vous quitter l'application?", "Oui", "Non");
+
+    if ( res == 0 ) {
+        this->close();
+    }
+}
+
+

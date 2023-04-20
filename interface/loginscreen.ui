@@ -10,10 +10,23 @@
     <height>278</height>
    </rect>
   </property>
+  <property name="cursor">
+   <cursorShape>PointingHandCursor</cursorShape>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Page de connection!</string>
+  </property>
+  <property name="locale">
+   <locale language="French" country="France"/>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>14</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
@@ -24,15 +37,15 @@
      </rect>
     </property>
     <property name="title">
-     <string>S'enregistrer</string>
+     <string>Se connecter</string>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>40</y>
        <width>291</width>
-       <height>41</height>
+       <height>47</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="emailZone">
@@ -41,6 +54,14 @@
       </property>
       <item>
        <widget class="QLabel" name="emailLabel">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>14</pointsize>
+          <bold>false</bold>
+          <strikeout>false</strikeout>
+         </font>
+        </property>
         <property name="text">
          <string>Email</string>
         </property>
@@ -68,7 +89,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>14</width>
+          <width>30</width>
           <height>20</height>
          </size>
         </property>
@@ -76,6 +97,16 @@
       </item>
       <item>
        <widget class="QLineEdit" name="emailEdit">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhEmailCharactersOnly</set>
+        </property>
         <property name="inputMask">
          <string/>
         </property>
@@ -83,18 +114,25 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>130</y>
+       <y>140</y>
        <width>291</width>
-       <height>26</height>
+       <height>32</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="buttonZone">
       <item>
        <widget class="QPushButton" name="connectionButton">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Connection</string>
         </property>
@@ -117,7 +155,14 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="resetButton">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Reset</string>
         </property>
@@ -140,7 +185,14 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="quitButton">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Quitter</string>
         </property>
@@ -148,11 +200,11 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>80</y>
+       <y>90</y>
        <width>291</width>
        <height>41</height>
       </rect>
@@ -163,6 +215,13 @@
       </property>
       <item>
        <widget class="QLabel" name="passLabel">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>14</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Password</string>
         </property>
@@ -187,7 +246,18 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="passEdit"/>
+       <widget class="QLineEdit" name="passEdit">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhHiddenText</set>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
