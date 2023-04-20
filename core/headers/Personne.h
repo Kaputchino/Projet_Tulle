@@ -67,8 +67,6 @@ class Personne {
 
         static int getTotalPersonne();
 
-        static Personne* findPersonneById(string email, string password);
-
     Personne *findPersonneById(int id);
 };
 
