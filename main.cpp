@@ -9,9 +9,6 @@
 #include "core/headers/Chauffeur.h"
 #include <string>
 #include <vector>
-#include "core/headers/Dispatcher.h"
-#include "core/headers/Trajet.h"
-#include "core/headers/Colis.h"
 using namespace std;
 
 //
