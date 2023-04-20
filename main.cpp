@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QWidget>
 #include "core/headers/initDB.h"
+#include "interface/loginscreen.h"
 
 using namespace std;
 
@@ -23,8 +24,10 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    return 0;
-    // return app.exec();
+    LoginScreen loginPage;
+    loginPage.show();
+
+    return app.exec();
 }
 
 
