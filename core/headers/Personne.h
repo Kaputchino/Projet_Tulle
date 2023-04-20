@@ -65,6 +65,8 @@ class Personne {
         void afficherPersonne();
 
         static int getTotalPersonne();
+
+        static Personne* findPersonneById(int id);
 };
 
 #endif //PROJET_TULLE_PERSONNE_H

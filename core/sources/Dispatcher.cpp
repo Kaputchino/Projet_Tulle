@@ -64,22 +64,4 @@ int Dispatcher::getNombreColisDispatchable() {
     return listeColis.size();
 }
 
-vector<Colis> Dispatcher::getColisAttente(){
-    QSqlQuery query;
-    vector<Colis> list;
-    query.prepare( "SELECT * FROM colis WHERE idTrajet is Null " );
-    if(!query.exec() ){
 
-    }while(query.next()){
-        int idColis = query.value( 0 ).toInt();
-        double poids = query.value( 1 ).toDouble();
-        string villeArrive = query.value(2).toString().toStdString();
-        string date = query.value(3).toString().toStdString();
-        int statut = query.value( 4 ).toInt();
-        int idTrajet = query.value( 5 ).toDouble();
-        Colis(string &villeArrivee, double poid);
-
-
-        Colis c(idColis)
-    }
-}

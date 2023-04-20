@@ -34,6 +34,9 @@ public:
 
     void setTrajet(Trajet *trajet);
 
+    static vector<Colis *> getColisAttente();
+
+
 private:
     int idColis;
     string villeArrivee;
@@ -48,6 +51,7 @@ private:
     bool updateStatut();
     bool updateTrajet();
     Trajet* trajet;
+
 };
 
 #endif //PROJET_TULLE_COLIS_H

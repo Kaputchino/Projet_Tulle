@@ -151,4 +151,23 @@ Personne::Personne(int id, const string &nom, const string &prenom, const string
     this->role = role;
 }
 
+Personne *Personne::findPersonneById(int id) {
+    QSqlQuery query;
+    query.prepare( &"SELECT * FROM personne WHERE idPersonne = " [ id] );
+    if(!query.exec() ){
+
+    }
+    if(query.next()){
+        int idColis = query.value( 0 ).toInt();
+        double poids = query.value( 1 ).toDouble();
+        string villeArrive = query.value(2).toString().toStdString();
+        string date = query.value(3).toString().toStdString();
+        int statut = query.value( 4 ).toInt();
+        int idTrajet = query.value( 5 ).toDouble();
+        Colis c(idColis, poids, villeArrive, date, statut, idTrajet);
+    }
+    return nullptr;
+}
+
+
 
