@@ -138,8 +138,8 @@ void Colis::setTrajet(Trajet *trajet) {
         string date = query.value(3).toString().toStdString();
         int statut = query.value( 4 ).toInt();
         int idTrajet = query.value( 5 ).toDouble();
-        Colis c(idColis, poids, villeArrive, date, statut, idTrajet);
-        list.push_back(&c);
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet);
+        list.push_back(c);
     }
      return list;
 }

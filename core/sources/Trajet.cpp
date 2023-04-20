@@ -119,8 +119,8 @@ Trajet *Trajet::findTrajetById(int id) {
         double prix = query.value(5).toDouble();
         int idTrajet = query.value(5).toInt();
         int statut = query.value(5).toInt();
-        Trajet t(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
-        return &t;
+        auto *t = new Trajet(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
+        return t;
     }
     return nullptr;
 }

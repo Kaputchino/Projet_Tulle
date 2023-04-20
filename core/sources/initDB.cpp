@@ -33,12 +33,12 @@ string initDB::readDataBasePath(){
     }
     throw std::invalid_argument("Cannot read the config file.\nDoes the file \"config\" exists?");
 }
-string *initDB::toHash(string password) {
+string *initDB::toHash(const string& password) {
     std::hash <std::string> hash;
     return reinterpret_cast<string *>(hash(password));
 }
 
-static Personne* findPersonneById(string email, string password){
+static Personne* login(string email, string password){
     QSqlQuery query;
     query.prepare(QString::fromStdString("SELECT * FROM personne WHERE email = `" + email + "`"));
     if(!query.exec() ){
@@ -53,8 +53,8 @@ static Personne* findPersonneById(string email, string password){
             string nom = query.value(3).toString().toStdString();
             string email = query.value(4).toString().toStdString();
             string role = query.value(6).toString().toStdString();
-            Personne p(idPersonne,adresse,prenom,nom,email,password,role);
-            return &p;
+            auto* p = new Personne(idPersonne,nom,prenom,adresse,email,password,role);
+            return p;
         }
     }
     return nullptr;
