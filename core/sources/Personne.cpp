@@ -140,4 +140,15 @@ void Personne::afficherPersonne() {
     cout << "Role: " << this->role << endl;
 }
 
+Personne::Personne(int id, const string &nom, const string &prenom, const string &adresse, const string &email,
+                   const string &password, const string &role) {
+    this->idPersonne = id;
+    this->adresse = adresse;
+    this->prenom = prenom;
+    this->nom = nom;
+    this->email = email;
+    this->password = password;
+    this->role = role;
+}
+
 

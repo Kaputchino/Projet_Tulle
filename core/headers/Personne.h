@@ -31,6 +31,14 @@ class Personne {
                  const string& password,
                  const string& role
                  );
+    Personne(int id,
+             const string& nom,
+             const string& prenom,
+             const string& adresse,
+             const string& email,
+             const string& password,
+             const string& role
+    );
 
         string getNom();
 
