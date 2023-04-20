@@ -2,11 +2,16 @@
 #include "ui_loginscreen.h"
 #include <QMessageBox>
 
+
 LoginScreen::LoginScreen(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LoginScreen)
 {
     ui->setupUi(this);
+
+    QObject::connect(ui->connectionButton, &QPushButton::clicked, this, &LoginScreen::connectClicked);
+    QObject::connect(ui->quitButton, &QPushButton::clicked, this, &LoginScreen::quitClicked);
+    QObject::connect(ui->resetButton, &QPushButton::clicked, this, &LoginScreen::resetClicked);
 }
 
 LoginScreen::~LoginScreen()
@@ -14,7 +19,7 @@ LoginScreen::~LoginScreen()
     delete ui;
 }
 
-void LoginScreen::on_connectionButton_clicked()
+void LoginScreen::connectClicked()
 {
     QString email =ui->emailEdit->text();
     QString password =ui->passEdit->text();
@@ -28,13 +33,13 @@ void LoginScreen::on_connectionButton_clicked()
     }
 }
 
-void LoginScreen::on_resetButton_clicked()
+void LoginScreen::resetClicked()
 {
     ui->emailEdit->clear();
     ui->passEdit->clear();
 }
 
-void LoginScreen::on_quitButton_clicked()
+void LoginScreen::quitClicked()
 {
     int res = QMessageBox::question(this, "Confirmation", "Souhaitez-vous quitter l'application?", "Oui", "Non");
 
