@@ -11,7 +11,7 @@ public:
     static Personne* findPersonneById(string email, string password);
 
 
-    static string *toHash(string password);
+    static string *toHash(const string& password);
 };
 
 
