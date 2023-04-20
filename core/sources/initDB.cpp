@@ -38,7 +38,7 @@ string *initDB::toHash(const string& password) {
     return reinterpret_cast<string *>(hash(password));
 }
 
-static Personne* login(string email, string password){
+Personne* initDB::login(string email, string password) {
     QSqlQuery query;
     query.prepare(QString::fromStdString("SELECT * FROM personne WHERE email = `" + email + "`"));
     if(!query.exec() ){

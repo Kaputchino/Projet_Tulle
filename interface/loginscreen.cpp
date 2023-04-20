@@ -1,5 +1,7 @@
 #include "loginscreen.h"
 #include "ui_loginscreen.h"
+#include "core/headers/initDB.h"
+#include "core/headers/Personne.h"
 #include <QMessageBox>
 
 
@@ -24,12 +26,13 @@ void LoginScreen::connectClicked()
     QString email =ui->emailEdit->text();
     QString password =ui->passEdit->text();
 
-    if(email == "test" && password == "test") {
-        QMessageBox::information(this, "Login", "Username & password correct");
+    Personne *personne = initDB::login(email.toStdString(), password.toStdString());
+
+    if(personne != nullptr) {
+        // connection
     } else {
         QMessageBox::warning(this, "Login", "Il semblerait que votre email ou votre mot de passe soit incorrecte."
                                             "\nContactez un administrateur si l'erreur persiste.");
-
     }
 }
 
