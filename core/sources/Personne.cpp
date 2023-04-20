@@ -167,7 +167,7 @@ Personne *Personne::findPersonneById(int id) {
         string email = query.value(4).toString().toStdString();
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
-        unique_ptr<Personne> p = unique_ptr<Personne>(new Personne(idPersonne,nom,prenom,adresse,email,password,role));
+        unique_ptr<Personne> p = std::make_unique<Personne>(idPersonne,nom,prenom,adresse,email,password,role);
         return p.get();
     }
     return nullptr;

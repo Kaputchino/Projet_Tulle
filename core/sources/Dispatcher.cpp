@@ -1,4 +1,5 @@
 #include "core/headers/Dispatcher.h"
+#include <memory>
 #include <random>
 #include "core/headers/common.h"
 
@@ -13,7 +14,7 @@ bool Dispatcher::remplir(int n) {
     uniform_int_distribution<int> randomVille(0, listeVille.size() -1);
 
     for (size_t i = 0; i < n; i++) {
-        unique_ptr<Colis> colis = unique_ptr<Colis>(new Colis(listeVille.at(randomVille(rgen)), randomPoids(rgen)));
+        unique_ptr<Colis> colis = std::make_unique<Colis>(listeVille.at(randomVille(rgen)), randomPoids(rgen));
         colis->setStatut(1);
         listeColis.push_back(
                 colis.get()
