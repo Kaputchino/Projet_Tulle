@@ -1,6 +1,7 @@
 #include "core/headers/Personne.h"
 #include <QSqlQuery>
 #include <QVariant>
+#include <memory>
 
 using namespace std;
 
@@ -166,8 +167,8 @@ Personne *Personne::findPersonneById(int id) {
         string email = query.value(4).toString().toStdString();
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
-        auto* p = new Personne(idPersonne,nom,prenom,adresse,email,password,role);
-        return p;
+        unique_ptr<Personne> p = unique_ptr<Personne>(new Personne(idPersonne,nom,prenom,adresse,email,password,role));
+        return p.get();
     }
     return nullptr;
 }
