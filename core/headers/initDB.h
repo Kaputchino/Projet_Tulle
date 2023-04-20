@@ -9,7 +9,7 @@ public:
     static string readDataBasePath();
     static void linkDB();
     static Personne* login(string email, string password);
-    static string *toHash(const string& password);
+    static string toHash(const string& password);
 };
 
 
