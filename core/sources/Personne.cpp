@@ -158,13 +158,15 @@ Personne *Personne::findPersonneById(int id) {
 
     }
     if(query.next()){
-        int idColis = query.value( 0 ).toInt();
-        double poids = query.value( 1 ).toDouble();
-        string villeArrive = query.value(2).toString().toStdString();
-        string date = query.value(3).toString().toStdString();
-        int statut = query.value( 4 ).toInt();
-        int idTrajet = query.value( 5 ).toDouble();
-        Colis c(idColis, poids, villeArrive, date, statut, idTrajet);
+        int idPersonne = query.value( 0 ).toInt();
+        string adresse = query.value(1).toString().toStdString();
+        string prenom = query.value(2).toString().toStdString();
+        string nom = query.value(3).toString().toStdString();
+        string email = query.value(4).toString().toStdString();
+        string password = query.value(5).toString().toStdString();
+        string role = query.value(6).toString().toStdString();
+        Personne p(idPersonne,adresse,prenom,nom,email,password,role);
+        return &p;
     }
     return nullptr;
 }
