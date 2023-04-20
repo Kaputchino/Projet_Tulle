@@ -10,6 +10,8 @@ class Colis {
 public:
     Colis(string &villeArrivee, double poid);
 
+    Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet);
+
     int getIdColis() const;
 
     const string &getVilleArrivee() const;

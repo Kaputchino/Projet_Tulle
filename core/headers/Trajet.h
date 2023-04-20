@@ -76,6 +76,8 @@ public:
 
     vector<Colis *> getListeColis();
 
+    static Trajet* findTrajetById(int id);
+
 };
 
 #endif //PROJET_TULLE_TRAJET_H

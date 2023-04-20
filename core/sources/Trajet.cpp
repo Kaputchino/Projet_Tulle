@@ -213,4 +213,17 @@ vector<Colis *> Trajet::getListeColis() {
     return listeColis;
 }
 
+Trajet *Trajet::findTrajetById(int id) {
+    QSqlQuery query;
+    vector<Colis> list;
+    query.prepare(&"SELECT * FROM colis WHERE idTrajet = "[id]);
+    if(!query.exec() ){
+
+    }if(query.next()){
+        Trajet trajet;
+        return &trajet;
+    }
+    return nullptr;
+}
+
 

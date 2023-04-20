@@ -3,6 +3,7 @@
 #include <QSqlQuery>
 #include <QVariant>
 #include <iostream>
+#include <utility>
 
 
 bool Colis::updateDate() {
@@ -106,6 +107,17 @@ Colis::Colis(string &villeArrivee, double poid) {
     addIntoDb();
 }
 
+Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet) {
+    this->villeArrivee = villeArivee;
+    this->dateAjoutColis = dateAjout;
+    this->poid = poid;
+    this->idColis = ++nbColisTotal;
+    this->statut = 0;
+    this->trajet = Trajet::findTrajetById(idTrajet);
+}
+
+
+
 Trajet* Colis::getTrajet() const {
     return trajet;
 }
@@ -114,4 +126,6 @@ void Colis::setTrajet(Trajet *trajet) {
     Colis::trajet = trajet;
     updateTrajet();
 }
+
+
 
