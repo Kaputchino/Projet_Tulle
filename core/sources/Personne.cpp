@@ -151,6 +151,7 @@ Personne::Personne(int id, const string &nom, const string &prenom, const string
     this->role = role;
 }
 
+
 Personne *Personne::findPersonneById(int id) {
     QSqlQuery query;
     query.prepare( &"SELECT * FROM personne WHERE idPersonne = " [ id] );
@@ -170,6 +171,8 @@ Personne *Personne::findPersonneById(int id) {
     }
     return nullptr;
 }
+
+
 
 
 

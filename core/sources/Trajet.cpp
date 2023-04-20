@@ -93,7 +93,7 @@ Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeA
 Trajet::Trajet(int idChauffeur, const string &VilleDepart, const string &villeArrivee, const string &horaireDepart,
                const string &horaireArrivee, double poids, double prix, int idTrajet, int statut) {
     this->idTrajet = idTrajet;
-    this->idChauffeur= idChauffeur;
+    this->idChauffeur = idChauffeur;
     this->villeDepart = VilleDepart;
     this->villeArrivee = villeArrivee;
     this->horaireDepart = horaireDepart;
