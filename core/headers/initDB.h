@@ -1,12 +1,17 @@
 #ifndef PROJET_TULLE_INITDB_H
 #define PROJET_TULLE_INITDB_H
 #include <string>
+#include "Personne.h"
 
 using namespace std;
 class initDB {
 public:
     static string readDataBasePath();
     static void linkDB();
+    static Personne* findPersonneById(string email, string password);
+
+
+    static string *toHash(string password);
 };
 
 

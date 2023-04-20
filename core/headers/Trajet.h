@@ -30,6 +30,8 @@ public:
     bool addIntoDb();
     Trajet(int idChauffeur, const string &VilleDepart, const string &villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix);
 
+    Trajet(int idChauffeur, const string &VilleDepart, const string &villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix, int idTrajet, int statut);
+
     int getIdTrajet() const;
 
     int getIdChauffeur() const;
@@ -75,6 +77,8 @@ public:
     void afficherTrajet();
 
     vector<Colis *> getListeColis();
+
+    static Trajet* findTrajetById(int id);
 
 };
 

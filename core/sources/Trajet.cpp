@@ -90,6 +90,41 @@ Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeA
     addIntoDb();
 }
 
+Trajet::Trajet(int idChauffeur, const string &VilleDepart, const string &villeArrivee, const string &horaireDepart,
+               const string &horaireArrivee, double poids, double prix, int idTrajet, int statut) {
+    this->idTrajet = idTrajet;
+    this->idChauffeur = idChauffeur;
+    this->villeDepart = VilleDepart;
+    this->villeArrivee = villeArrivee;
+    this->horaireDepart = horaireDepart;
+    this->horaireArrivee = horaireArrivee;
+    this->poids = poids;
+    this->prix = prix;
+    this->statut = statut;
+}
+
+Trajet *Trajet::findTrajetById(int id) {
+    QSqlQuery query;
+    vector<Colis> list;
+    query.prepare(&"SELECT * FROM trajet WHERE idTrajet = "[id]);
+    if(!query.exec() ){
+
+    }if(query.next()){
+        int idChauffeur = query.value( 0 ).toInt();
+        string VilleDepart = query.value(1).toString().toStdString();
+        string villeArrivee = query.value(2).toString().toStdString();
+        string horaireDepart = query.value(3).toString().toStdString();
+        string horaireArrivee = query.value(4).toString().toStdString();
+        double poid = query.value(5).toDouble();
+        double prix = query.value(5).toDouble();
+        int idTrajet = query.value(5).toInt();
+        int statut = query.value(5).toInt();
+        Trajet t(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
+        return &t;
+    }
+    return nullptr;
+}
+
 int Trajet::getIdTrajet() const {
     return idTrajet;
 }
@@ -212,5 +247,9 @@ void Trajet::afficherTrajet() {
 vector<Colis *> Trajet::getListeColis() {
     return listeColis;
 }
+
+
+
+
 
 
