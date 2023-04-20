@@ -11,11 +11,10 @@ void initDB::linkDB() {
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(QString::fromStdString(readDataBasePath()));
     if(!db.open()){
-        cout << "Can't Connect to DB !";
+        throw std::runtime_error("Can't connect to DB.\nMake sure the absolute path in \"config\" is valid.");
     }else{
-        cout << "Connected Successfully to DB !";
         QSqlQuery query;
-        query.prepare("SELECT 2");
+        query.prepare("SELECT * FROM TRAJET");
         if(!query.exec()){
             cout << "Can't Execute Query !";
         }
@@ -32,5 +31,5 @@ string initDB::readDataBasePath(){
         myfile >> mystring;
         return mystring;
     }
-    throw std::invalid_argument("Impossible de lire le fichier de configuration");
+    throw std::invalid_argument("Cannot read the config file.\nDoes the file \"config\" exists?");
 }

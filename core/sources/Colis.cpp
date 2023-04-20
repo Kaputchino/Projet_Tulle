@@ -2,6 +2,7 @@
 #include "core/headers/Trajet.h"
 #include <QSqlQuery>
 #include <QVariant>
+#include <iostream>
 
 
 bool Colis::updateDate() {

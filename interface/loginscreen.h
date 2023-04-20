@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::LoginScreen *ui;
+
+private slots:
+    void on_connectionButton_clicked();
 };
 
 #endif // LOGINSCREEN_H
