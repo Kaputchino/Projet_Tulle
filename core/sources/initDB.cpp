@@ -34,7 +34,8 @@ string initDB::readDataBasePath(){
     throw std::invalid_argument("Cannot read the config file.\nDoes the file \"config\" exists?");
 }
 string *initDB::toHash(string password) {
-    return nullptr;
+    std::hash <std::string> hash;
+    return reinterpret_cast<string *>(hash(password));
 }
 
 static Personne* findPersonneById(string email, string password){
