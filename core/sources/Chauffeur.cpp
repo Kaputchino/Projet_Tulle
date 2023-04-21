@@ -1,6 +1,7 @@
 #include <QSqlQuery>
 #include <QtSql>
 #include "core/headers/Chauffeur.h"
+#include "core/headers/common.h"
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
 
@@ -122,10 +123,10 @@ bool Chauffeur::validerTrajet(Trajet *t) {
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
 
         for (Colis * colis : getAllColis()) {
-            colis->setStatut(2);
+            colis->setStatut(COLIS_VALIDATION_LIVRAISON);
         }
 
-        t->setStatuts(2);
+        t->setStatuts(TRAJET_VALIDATION);
         return true;
     }
 
@@ -138,10 +139,10 @@ bool Chauffeur::delancheLivraison(Trajet *t) {
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
 
         for (Colis * colis : getAllColis()) {
-            colis->setStatut(3);
+            colis->setStatut(COLIS_LIVRAISON_EN_COURS);
         }
 
-        t->setStatuts(3);
+        t->setStatuts(TRAJET_LIVRAISON_EN_COURS);
         return true;
     }
 
@@ -154,10 +155,10 @@ bool Chauffeur::declareLivraison(Trajet *t) {
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
 
         for (Colis * colis : getAllColis()) {
-            colis->setStatut(4);
+            colis->setStatut(COLIS_LIVRAISON_FAITE);
         }
 
-        t->setStatuts(4);
+        t->setStatuts(TRAJET_LIVRAISON_FAITE);
         return true;
     }
 
@@ -178,7 +179,7 @@ int Chauffeur::indexTrajetDansListe(int idTrajet) {
 int Chauffeur::getNbcoliesLivree() {
     int sum = 0;
     for (Colis * colis : this->getAllColis()) {
-        if (colis->getStatut() == 4) {
+        if (colis->getStatut() == COLIS_LIVRAISON_FAITE) {
             sum++;
         }
     }
@@ -201,7 +202,7 @@ vector<Colis *> Chauffeur::getAllColis() {
 int Chauffeur::getNbColiesEnCoursLivraison() {
     int sum = 0;
     for (Colis * colis : this->getAllColis()) {
-        if (colis->getStatut() == 3) {
+        if (colis->getStatut() == COLIS_LIVRAISON_EN_COURS) {
             sum++;
         }
     }
@@ -212,7 +213,7 @@ int Chauffeur::getNbColiesEnCoursLivraison() {
 int Chauffeur::getNbColiesEnAttenteLivraison() {
     int sum = 0;
     for (Colis * colis : this->getAllColis()) {
-        if (colis->getStatut() == 2) {
+        if (colis->getStatut() == COLIS_VALIDATION_LIVRAISON) {
             sum++;
         }
     }

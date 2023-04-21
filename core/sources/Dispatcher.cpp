@@ -16,7 +16,7 @@ bool Dispatcher::remplir(int n) {
 
     for (size_t i = 0; i < n; i++) {
         unique_ptr<Colis> colis = std::make_unique<Colis>(listeVille.at(randomVille(rgen)), randomPoids(rgen));
-        colis->setStatut(1);
+        colis->setStatut(COLIS_SOLICITATION_LIVRAISON);
         listeColis.push_back(
                 colis.get()
         );
@@ -36,7 +36,7 @@ bool Dispatcher::dispatch() {
             if (indexTrajet != -1) {
                 Trajet * trajet = ch->getTrajetByIndex(indexTrajet);
                 if (trajet->colieAjoutable(colis)) {
-                    colis->setStatut(2);
+                    colis->setStatut(COLIS_VALIDATION_LIVRAISON);
                     trajet->ajouterColis(colis);
                     unattributed.pop_back();
                     break;
@@ -51,12 +51,12 @@ bool Dispatcher::dispatch() {
 
 bool Dispatcher::attribueColis(Colis *c) {
 
-    if (c->getStatut() != 0) {
+    if (c->getStatut() != COLIS_CREATION) {
         Errors::appendError("Impossible de charger le colis en vue de son statut");
         return false;
     }
 
-    c->setStatut(1);
+    c->setStatut(COLIS_SOLICITATION_LIVRAISON);
     listeColis.push_back(c);
 
     return true;

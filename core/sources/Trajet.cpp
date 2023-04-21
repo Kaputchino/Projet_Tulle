@@ -1,9 +1,8 @@
 #include "core/headers/Trajet.h"
+#include "core/headers/common.h"
 #include <iostream>
 #include <QSqlQuery>
 #include <QVariant>
-
-
 
 bool Trajet::updateStatut() {
     QSqlQuery query;
@@ -86,7 +85,7 @@ Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeA
     this->horaireArrivee = horaireArrivee;
     this->poids = poids;
     this->prix = prix;
-    this->statut = 0;
+    this->statut = TRAJET_CREATION;
     addIntoDb();
 }
 
@@ -205,13 +204,13 @@ void Trajet::setStatuts(int statuts) {
 
 void Trajet::ajouterColis(Colis *colis) {
     this->listeColis.push_back(colis);
-    this->statut = 1;
+    this->statut = TRAJET_SOLICITATION;
     colis->setTrajet(this);
 }
 
 bool Trajet::colieAjoutable(Colis *colis) {
     double prochainPoid = (colis->getPoid() + getPoidEnCharge());
-    if (prochainPoid <= poids && this->statut <= 1) {
+    if (prochainPoid <= poids && this->statut <= TRAJET_SOLICITATION) {
          return true;
     }
 
