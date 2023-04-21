@@ -1,6 +1,7 @@
 #include <QSqlDatabase>
 #include <fstream>
 #include <QSqlQuery>
+#include <QtSql>
 #include "core/headers/initDB.h"
 #include "iostream"
 #include "core/headers/common.h"
@@ -67,63 +68,4 @@ string initDB::getRoleFromId(int id) {
 
     query.next();
     return query.value("role").toString().toStdString();
-}
-
-Admin initDB::constructAdminFromId(int id) {
-    QSqlQuery query;
-
-    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
-    query.bindValue(":idPersonne", id);
-    query.exec();
-
-    query.next();
-    int idPersonne = query.value( 0 ).toInt();
-    string adresse = query.value(1).toString().toStdString();
-    string prenom = query.value(2).toString().toStdString();
-    string nom = query.value(3).toString().toStdString();
-    string email = query.value(4).toString().toStdString();
-    string password = query.value(5).toString().toStdString();
-    Admin admin = Admin(nom,prenom,adresse,email,password);
-    admin.setIdPersonne(idPersonne);
-    return admin;
-}
-
-Chauffeur initDB::constructChauffeurFromId(int id) {
-    QSqlQuery query;
-
-    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
-    query.bindValue(":idPersonne", id);
-    query.exec();
-
-    query.next();
-    int idPersonne = query.value( 0 ).toInt();
-    string adresse = query.value(1).toString().toStdString();
-    string prenom = query.value(2).toString().toStdString();
-    string nom = query.value(3).toString().toStdString();
-    string email = query.value(4).toString().toStdString();
-    string password = query.value(5).toString().toStdString();
-    Chauffeur chauffeur = Chauffeur(nom,prenom,adresse,email,password);
-    chauffeur.setIdPersonne(idPersonne);
-
-    return chauffeur;
-}
-
-Dispatcher initDB::constructDispatcherFromId(int id) {
-    QSqlQuery query;
-
-    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
-    query.bindValue(":idPersonne", id);
-    query.first();
-
-    query.next();
-    int idPersonne = query.value( 0 ).toInt();
-    string adresse = query.value(1).toString().toStdString();
-    string prenom = query.value(2).toString().toStdString();
-    string nom = query.value(3).toString().toStdString();
-    string email = query.value(4).toString().toStdString();
-    string password = query.value(5).toString().toStdString();
-    Dispatcher dispatcher = Dispatcher(nom,prenom,adresse,email,password);
-    dispatcher.setIdPersonne(idPersonne);
-
-    return dispatcher;
 }

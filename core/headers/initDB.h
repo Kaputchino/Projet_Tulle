@@ -13,9 +13,6 @@ public:
     static void linkDB();
     static int getIdFromLogin(string email, string password);
     static string getRoleFromId(int id);
-    static Admin constructAdminFromId(int id);
-    static Chauffeur constructChauffeurFromId(int id);
-    static Dispatcher constructDispatcherFromId(int id);
     static string toHash(const string& password);
 };
 
