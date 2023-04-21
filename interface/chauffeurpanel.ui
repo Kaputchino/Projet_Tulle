@@ -36,6 +36,12 @@
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
@@ -79,26 +85,26 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QTimeEdit" name="timeEdit"/>
+       <widget class="QTimeEdit" name="endField"/>
       </item>
       <item row="2" column="1">
-       <widget class="QTimeEdit" name="timeEdit_2"/>
+       <widget class="QTimeEdit" name="beginField"/>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="comboBox"/>
+       <widget class="QComboBox" name="toField"/>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox_2"/>
+       <widget class="QComboBox" name="fromField"/>
       </item>
       <item row="4" column="1">
        <widget class="QSpinBox" name="spinBox"/>
       </item>
       <item row="5" column="1">
-       <widget class="QComboBox" name="comboBox_3"/>
+       <widget class="QComboBox" name="statusField"/>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -109,21 +115,21 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="addTraButton">
         <property name="text">
          <string>Ajouter</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="editTraButton">
         <property name="text">
          <string>Modifier</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="delTraButton">
         <property name="text">
          <string>Supprimer</string>
         </property>
@@ -144,7 +150,7 @@
     <property name="title">
      <string>Trajets</string>
     </property>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="trajectList">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -167,7 +173,7 @@
     <property name="title">
      <string>Colies</string>
     </property>
-    <widget class="QTableWidget" name="tableWidget_2">
+    <widget class="QTableWidget" name="packageList">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -189,14 +195,14 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="deliverPackageButton">
        <property name="text">
         <string>Commencer livraison</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="markDeliveredButton">
        <property name="text">
         <string>Finir livraison</string>
        </property>
