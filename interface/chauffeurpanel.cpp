@@ -1,14 +1,14 @@
 #include "chauffeurpanel.h"
 #include "ui_chauffeurpanel.h"
 
-chauffeurPanel::chauffeurPanel(QWidget *parent) :
+ChauffeurPanel::ChauffeurPanel(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::chauffeurPanel)
+    ui(new Ui::ChauffeurPanel)
 {
     ui->setupUi(this);
 }
 
-chauffeurPanel::~chauffeurPanel()
+ChauffeurPanel::~ChauffeurPanel()
 {
     delete ui;
 }

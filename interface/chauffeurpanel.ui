@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>chauffeurPanel</class>
- <widget class="QMainWindow" name="chauffeurPanel">
+ <class>ChauffeurPanel</class>
+ <widget class="QMainWindow" name="ChauffeurPanel">
   <property name="geometry">
    <rect>
     <x>0</x>

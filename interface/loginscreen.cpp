@@ -4,6 +4,7 @@
 #include "core/headers/Personne.h"
 #include "adminpanel.h"
 #include "chauffeurpanel.h"
+#include "dispatcherpanel.h"
 #include <QMessageBox>
 
 
@@ -41,10 +42,13 @@ void LoginScreen::connectClicked()
         } else if (role == "Chauffeur") {
             Chauffeur chauffeur = Chauffeur::constructChauffeurFromId(id);
             hide();
-            chauffeurPanel * chauffeurUI = new chauffeurPanel();
+            ChauffeurPanel * chauffeurUI = new ChauffeurPanel();
             chauffeurUI->show();
         } else if (role == "Dispatcher") {
             Dispatcher dispatcher = Dispatcher::constructDispatcherFromId(id);
+            hide();
+            DispatcherPanel * dispatcherUi = new DispatcherPanel();
+            dispatcherUi->show();
             // do the stuff
         } else {
             QMessageBox::information(this, "Woopps!", "Vous avez un role non prevu! Woopsy.");

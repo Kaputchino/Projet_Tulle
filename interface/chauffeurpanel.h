@@ -4,19 +4,19 @@
 #include <QMainWindow>
 
 namespace Ui {
-class chauffeurPanel;
+class ChauffeurPanel;
 }
 
-class chauffeurPanel : public QMainWindow
+class ChauffeurPanel : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit chauffeurPanel(QWidget *parent = nullptr);
-    ~chauffeurPanel();
+    explicit ChauffeurPanel(QWidget *parent = nullptr);
+    ~ChauffeurPanel();
 
 private:
-    Ui::chauffeurPanel *ui;
+    Ui::ChauffeurPanel *ui;
 };
 
 #endif // CHAUFFEURPANEL_H
