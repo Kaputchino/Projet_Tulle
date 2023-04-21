@@ -1,3 +1,5 @@
+#include <QSqlQuery>
+#include <QtSql>
 #include "core/headers/Admin.h"
 
 Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Admin") {
@@ -60,3 +62,21 @@ int Admin::coliesEnDemandeLivraison(Dispatcher * d) {
     return d->getNombreColisDispatchable();
 }
 
+Admin Admin::constructAdminFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", QVariant(id));
+    query.exec();
+
+    query.next();
+    int idPersonne = query.value( 0 ).toInt();
+    string adresse = query.value(1).toString().toStdString();
+    string prenom = query.value(2).toString().toStdString();
+    string nom = query.value(3).toString().toStdString();
+    string email = query.value(4).toString().toStdString();
+    string password = query.value(5).toString().toStdString();
+    Admin admin = Admin(nom,prenom,adresse,email,password);
+    admin.setIdPersonne(idPersonne);
+    return admin;
+}

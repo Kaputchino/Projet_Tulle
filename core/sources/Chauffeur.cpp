@@ -1,3 +1,5 @@
+#include <QSqlQuery>
+#include <QtSql>
 #include "core/headers/Chauffeur.h"
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
@@ -217,5 +219,26 @@ int Chauffeur::getNbColiesEnAttenteLivraison() {
 
     return sum;
 }
+
+Chauffeur Chauffeur::constructChauffeurFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", QVariant(id));
+    query.exec();
+
+    query.next();
+    int idPersonne = query.value( 0 ).toInt();
+    string adresse = query.value(1).toString().toStdString();
+    string prenom = query.value(2).toString().toStdString();
+    string nom = query.value(3).toString().toStdString();
+    string email = query.value(4).toString().toStdString();
+    string password = query.value(5).toString().toStdString();
+    Chauffeur chauffeur = Chauffeur(nom,prenom,adresse,email,password);
+    chauffeur.setIdPersonne(idPersonne);
+
+    return chauffeur;
+}
+
 
 

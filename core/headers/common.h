@@ -4,7 +4,7 @@
 
 #include <string>
 #include <vector>
-#include <QtSql>
+#include <QSqlDatabase>
 #include "core/headers/Chauffeur.h"
 
 using namespace std;

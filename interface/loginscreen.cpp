@@ -33,18 +33,18 @@ void LoginScreen::connectClicked()
         string role = initDB::getRoleFromId(id);
 
         if (role == "Admin") {
-            Admin admin = initDB::constructAdminFromId(id);
+            Admin admin = Admin::constructAdminFromId(id);
             hide();
             AdminPanel * adminUI = new AdminPanel();
             adminUI->setLoggedUser(&admin);
             adminUI->show();
         } else if (role == "Chauffeur") {
-            Chauffeur chauffeur = initDB::constructChauffeurFromId(id);
+            Chauffeur chauffeur = Chauffeur::constructChauffeurFromId(id);
             hide();
             chauffeurPanel * chauffeurUI = new chauffeurPanel();
             chauffeurUI->show();
         } else if (role == "Dispatcher") {
-            Dispatcher dispatcher = initDB::constructDispatcherFromId(id);
+            Dispatcher dispatcher = Dispatcher::constructDispatcherFromId(id);
             // do the stuff
         } else {
             QMessageBox::information(this, "Woopps!", "Vous avez un role non prevu! Woopsy.");
