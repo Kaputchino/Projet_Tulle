@@ -48,6 +48,12 @@ set(ADMIN_UI
         interface/adminpanel.ui
         )
 
+set(CHAUFFEUR_UI
+        interface/chauffeurpanel.cpp
+        interface/chauffeurpanel.h
+        interface/chauffeurpanel.ui
+        )
+
 # SETTING UP QT
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -58,6 +64,5 @@ find_package(Qt5 COMPONENTS Core Widgets Gui Sql REQUIRED)
 MESSAGE(STATUS "DONT'T FORGET TO SET ~/Qt/[ver]/[compiler]/lib/cmake & ~/Qt/5.15.2/mingw81_64/bin to your PATH.")
 
 # BUNDLING EXECUTABLE FOR UI
-add_executable(Projet_Tulle ${DATABASE} ${MISC} ${ADMIN_UI} ${LOGIN_UI} ${CORE_HEADER} ${CORE_SRC} main.cpp)
+add_executable(Projet_Tulle ${DATABASE} ${MISC} ${ADMIN_UI} ${CHAUFFEUR_UI} ${LOGIN_UI} ${CORE_HEADER} ${CORE_SRC} main.cpp)
 target_link_libraries(Projet_Tulle Qt5::Core Qt5::Widgets Qt5::Gui Qt5::Sql)
-
