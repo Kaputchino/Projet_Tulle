@@ -95,6 +95,7 @@ Chauffeur initDB::constructChauffeurFromId(int id) {
     query.bindValue(":idPersonne", id);
     query.exec();
 
+    query.next();
     int idPersonne = query.value( 0 ).toInt();
     string adresse = query.value(1).toString().toStdString();
     string prenom = query.value(2).toString().toStdString();
@@ -114,6 +115,7 @@ Dispatcher initDB::constructDispatcherFromId(int id) {
     query.bindValue(":idPersonne", id);
     query.first();
 
+    query.next();
     int idPersonne = query.value( 0 ).toInt();
     string adresse = query.value(1).toString().toStdString();
     string prenom = query.value(2).toString().toStdString();

@@ -3,6 +3,7 @@
 #include "core/headers/initDB.h"
 #include "core/headers/Personne.h"
 #include "adminpanel.h"
+#include "chauffeurpanel.h"
 #include <QMessageBox>
 
 
@@ -30,16 +31,18 @@ void LoginScreen::connectClicked()
     int id = initDB::getIdFromLogin(email.toStdString(), password.toStdString());
     if(id != -1) {
         string role = initDB::getRoleFromId(id);
-        cout << "Qdq" << endl;
+
         if (role == "Admin") {
             Admin admin = initDB::constructAdminFromId(id);
             hide();
-            AdminPanel * adminPanel = new AdminPanel();
-            adminPanel->setLoggedUser(&admin);
-            adminPanel->show();
+            AdminPanel * adminUI = new AdminPanel();
+            adminUI->setLoggedUser(&admin);
+            adminUI->show();
         } else if (role == "Chauffeur") {
             Chauffeur chauffeur = initDB::constructChauffeurFromId(id);
-            // do the stuff
+            hide();
+            chauffeurPanel * chauffeurUI = new chauffeurPanel();
+            chauffeurUI->show();
         } else if (role == "Dispatcher") {
             Dispatcher dispatcher = initDB::constructDispatcherFromId(id);
             // do the stuff
