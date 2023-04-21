@@ -38,25 +38,90 @@ string initDB::toHash(const string& password) {
     return to_string(hash(password));
 }
 
-Personne* initDB::login(string email, string password) {
+int initDB::getIdFromLogin(string email, string password) {
     QSqlQuery query;
-    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE email = :email"));
-    query.bindValue(":email", QString::fromStdString(email));
-    if(!query.exec() ){
 
+    query.prepare(QString::fromStdString("SELECT idPersonne FROM personne WHERE email = :email AND password = :password"));
+    query.bindValue(":email", QString::fromStdString(email));
+    query.bindValue(":password", QString::fromStdString(toHash(password)));
+    query.exec();
+
+    if (query.next()) {
+        return query.value("idPersonne").toInt();
+    } else {
+        return -1;
     }
-    if(query.next()){
-        string mdp = query.value(5).toString().toStdString();
-        if(mdp == initDB::toHash(password)){
-            int idPersonne = query.value( 0 ).toInt();
-            string adresse = query.value(1).toString().toStdString();
-            string prenom = query.value(2).toString().toStdString();
-            string nom = query.value(3).toString().toStdString();
-            string email = query.value(4).toString().toStdString();
-            string role = query.value(6).toString().toStdString();
-            unique_ptr<Personne> p = std::make_unique<Personne>(idPersonne,nom,prenom,adresse,email,password,role);
-            return p.get();
-        }
+
+}
+
+string initDB::getRoleFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT role FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", QVariant(id));
+
+    if ( !query.exec() ) {
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors de la connection");
     }
-    return nullptr;
+
+    query.next();
+    return query.value("role").toString().toStdString();
+}
+
+Admin initDB::constructAdminFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", id);
+    query.exec();
+
+    query.next();
+    int idPersonne = query.value( 0 ).toInt();
+    string adresse = query.value(1).toString().toStdString();
+    string prenom = query.value(2).toString().toStdString();
+    string nom = query.value(3).toString().toStdString();
+    string email = query.value(4).toString().toStdString();
+    string password = query.value(5).toString().toStdString();
+    Admin admin = Admin(nom,prenom,adresse,email,password);
+    admin.setIdPersonne(idPersonne);
+    return admin;
+}
+
+Chauffeur initDB::constructChauffeurFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", id);
+    query.exec();
+
+    int idPersonne = query.value( 0 ).toInt();
+    string adresse = query.value(1).toString().toStdString();
+    string prenom = query.value(2).toString().toStdString();
+    string nom = query.value(3).toString().toStdString();
+    string email = query.value(4).toString().toStdString();
+    string password = query.value(5).toString().toStdString();
+    Chauffeur chauffeur = Chauffeur(nom,prenom,adresse,email,password);
+    chauffeur.setIdPersonne(idPersonne);
+
+    return chauffeur;
+}
+
+Dispatcher initDB::constructDispatcherFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", id);
+    query.first();
+
+    int idPersonne = query.value( 0 ).toInt();
+    string adresse = query.value(1).toString().toStdString();
+    string prenom = query.value(2).toString().toStdString();
+    string nom = query.value(3).toString().toStdString();
+    string email = query.value(4).toString().toStdString();
+    string password = query.value(5).toString().toStdString();
+    Dispatcher dispatcher = Dispatcher(nom,prenom,adresse,email,password);
+    dispatcher.setIdPersonne(idPersonne);
+
+    return dispatcher;
 }

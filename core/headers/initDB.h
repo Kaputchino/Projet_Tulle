@@ -2,13 +2,20 @@
 #define PROJET_TULLE_INITDB_H
 #include <string>
 #include "Personne.h"
+#include "Admin.h"
+#include "Chauffeur.h"
+#include "Dispatcher.h"
 
 using namespace std;
 class initDB {
 public:
     static string readDataBasePath();
     static void linkDB();
-    static Personne* login(string email, string password);
+    static int getIdFromLogin(string email, string password);
+    static string getRoleFromId(int id);
+    static Admin constructAdminFromId(int id);
+    static Chauffeur constructChauffeurFromId(int id);
+    static Dispatcher constructDispatcherFromId(int id);
     static string toHash(const string& password);
 };
 

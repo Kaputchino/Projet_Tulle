@@ -51,6 +51,8 @@ class Personne {
 
         string getPassword();
 
+        string getRole();
+
         int getIdPersonne() const;
 
         void setNom(const string &nom);
@@ -62,6 +64,8 @@ class Personne {
         void setEmail(const string &email);
 
         void setPassword(const string &email);
+
+        void setIdPersonne(int id);
 
         void afficherPersonne();
 

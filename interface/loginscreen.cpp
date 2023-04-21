@@ -2,6 +2,7 @@
 #include "ui_loginscreen.h"
 #include "core/headers/initDB.h"
 #include "core/headers/Personne.h"
+#include "adminpanel.h"
 #include <QMessageBox>
 
 
@@ -26,10 +27,26 @@ void LoginScreen::connectClicked()
     QString email =ui->emailEdit->text();
     QString password =ui->passEdit->text();
 
-    Personne *personne = initDB::login(email.toStdString(), password.toStdString());
-
-    if(personne != nullptr) {
-        // connection
+    int id = initDB::getIdFromLogin(email.toStdString(), password.toStdString());
+    if(id != -1) {
+        string role = initDB::getRoleFromId(id);
+        cout << "Qdq" << endl;
+        if (role == "Admin") {
+            Admin admin = initDB::constructAdminFromId(id);
+            hide();
+            AdminPanel * adminPanel = new AdminPanel();
+            adminPanel->setLoggedUser(&admin);
+            adminPanel->show();
+        } else if (role == "Chauffeur") {
+            Chauffeur chauffeur = initDB::constructChauffeurFromId(id);
+            // do the stuff
+        } else if (role == "Dispatcher") {
+            Dispatcher dispatcher = initDB::constructDispatcherFromId(id);
+            // do the stuff
+        } else {
+            QMessageBox::information(this, "Woopps!", "Vous avez un role non prevu! Woopsy.");
+            this->close();
+        }
     } else {
         QMessageBox::warning(this, "Login", "Il semblerait que votre email ou votre mot de passe soit incorrecte."
                                             "\nContactez un administrateur si l'erreur persiste.");

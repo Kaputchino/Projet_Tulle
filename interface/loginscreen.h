@@ -2,6 +2,7 @@
 #define LOGINSCREEN_H
 
 #include <QMainWindow>
+#include "core/headers/Admin.h"
 
 namespace Ui {
 class LoginScreen;

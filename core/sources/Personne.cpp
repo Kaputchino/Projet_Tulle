@@ -132,6 +132,10 @@ string Personne::getPassword() {
     return this->password;
 }
 
+string Personne::getRole() {
+    return this->role;
+}
+
 void Personne::afficherPersonne() {
     cout << "Nom: " << this->nom << endl;
     cout << "Prenom: " << this->prenom <<endl;
@@ -171,6 +175,10 @@ Personne *Personne::findPersonneById(int id) {
         return p.get();
     }
     return nullptr;
+}
+
+void Personne::setIdPersonne(int id) {
+    this->idPersonne = id;
 }
 
 
