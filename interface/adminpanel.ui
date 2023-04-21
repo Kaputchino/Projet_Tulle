@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Interface Adminitrateur</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox_2">
@@ -26,7 +26,7 @@
     <property name="title">
      <string>Chauffeurs</string>
     </property>
-    <widget class="QListWidget" name="listWidget">
+    <widget class="QListWidget" name="listChauffeurs">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -49,7 +49,7 @@
     <property name="title">
      <string>Trajets</string>
     </property>
-    <widget class="QListWidget" name="listWidget_2">
+    <widget class="QListWidget" name="listTrajets">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -72,7 +72,7 @@
     <property name="title">
      <string>Statistiques sur le chauffeur</string>
     </property>
-    <widget class="QPlainTextEdit" name="plainTextEdit">
+    <widget class="QPlainTextEdit" name="statChauffeur">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -95,7 +95,7 @@
     <property name="title">
      <string>Statistiques sur le trajet</string>
     </property>
-    <widget class="QPlainTextEdit" name="plainTextEdit_2">
+    <widget class="QPlainTextEdit" name="statTrajet">
      <property name="geometry">
       <rect>
        <x>0</x>
