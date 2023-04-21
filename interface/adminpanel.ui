@@ -1,24 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>AdminPanel</class>
  <widget class="QMainWindow" name="AdminPanel">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1185</width>
+    <height>677</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menubar"/>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>361</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Chauffeurs</string>
+    </property>
+    <widget class="QListWidget" name="listWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>361</width>
+       <height>621</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>20</y>
+      <width>351</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Trajets</string>
+    </property>
+    <widget class="QListWidget" name="listWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>351</width>
+       <height>621</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>20</y>
+      <width>431</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Statistiques sur le chauffeur</string>
+    </property>
+    <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>431</width>
+       <height>271</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>320</y>
+      <width>431</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Statistiques sur le trajet</string>
+    </property>
+    <widget class="QPlainTextEdit" name="plainTextEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>431</width>
+       <height>321</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>
