@@ -1,7 +1,6 @@
 #include <QMessageBox>
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
-#include "core/headers/adminPanelInfo.h"
 #include "core/headers/common.h"
 
 AdminPanel::AdminPanel(QWidget *parent) :
@@ -14,6 +13,9 @@ AdminPanel::AdminPanel(QWidget *parent) :
 
     QObject::connect(ui->addUsrButton, &QPushButton::clicked, this, &AdminPanel::addPlayerButton);
     QObject::connect(ui->resetUserButton, &QPushButton::clicked, this, &AdminPanel::clearButton);
+
+
+
 }
 
 AdminPanel::~AdminPanel()
@@ -41,6 +43,7 @@ void AdminPanel::addPlayerButton() {
         ui->passField->clear();
         ui->firstnameField->clear();
         ui->addrField->clear();
+        QMessageBox::information(this, "Ajout reussi!", "Bravo! Vous avez creer la vie.");
     }
 }
 
