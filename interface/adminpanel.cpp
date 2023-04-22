@@ -11,6 +11,8 @@ AdminPanel::AdminPanel(QWidget *parent) :
 
     ui->roleField->addItems({ROLE_ADMIN, ROLE_DISPATCHER, ROLE_CHAUFFEUR});
 
+
+
     QObject::connect(ui->addUsrButton, &QPushButton::clicked, this, &AdminPanel::addPlayerButton);
     QObject::connect(ui->resetUserButton, &QPushButton::clicked, this, &AdminPanel::clearButton);
 
@@ -21,6 +23,9 @@ AdminPanel::AdminPanel(QWidget *parent) :
     ui->statChauffeur->setReadOnly(true);
     ui->statDispatcher->setReadOnly(true);
     ui->statTrajet->setReadOnly(true);
+
+    ui->givePacketButton->setDisabled(true);
+    ui->takebackPacketButton->setDisabled(true);
 
     AdminPanelInfo::init();
     loadChauffeurList();
@@ -45,6 +50,8 @@ void AdminPanel::selectDispacher() {
     AdminPanelInfo::setDispacher(ui->selectDispatcher->currentIndex());
     loadColisDispacher();
     updateStatDispacher();
+    ui->givePacketButton->setDisabled(true);
+    ui->takebackPacketButton->setDisabled(true);
 }
 
 
@@ -80,7 +87,7 @@ void AdminPanel::loadTrajetList() {
 void AdminPanel::loadColisDispacher() {
     for(Colis * cl : AdminPanelInfo::currDispacher()->getListColis()) {
         QString label = QString::fromStdString("Vers: " + cl->getVilleArrivee() + ", Poids: " + to_string(cl->getPoid()) + ", du " + cl->getDateAjoutColis());
-        ui->unattributedPacketList->addItem(label);
+        ui->packetQueue->addItem(label);
     }
 }
 
@@ -90,7 +97,6 @@ void AdminPanel::loadListeColis() {
         ui->unattributedPacketList->addItem(label);
     }
 }
-
 
 AdminPanel::~AdminPanel()
 {
@@ -154,6 +160,14 @@ void AdminPanel::updateStatTrajet() {
 }
 
 void AdminPanel::selectColisDispatcher() {
+
+}
+
+void AdminPanel::retirerColisBoutton() {
+
+}
+
+void AdminPanel::attribuerColisBoutton() {
 
 }
 

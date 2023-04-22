@@ -34,11 +34,14 @@ private:
 
 private slots:
     void addPlayerButton();
+    void attribuerColisBoutton();
+    void retirerColisBoutton();
     void clearButton();
     void selectChauffeur();
     void selectTrajet();
     void selectColisDispatcher();
     void selectDispacher();
+
 };
 
 #endif // ADMINPANEL_H
