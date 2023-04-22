@@ -266,6 +266,7 @@ bool Chauffeur::loadTrajetFromDB() {
         int statut = query.value(7).toInt();
         auto *t = new Trajet(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
         listeTrajet.push_back(t);
+        t->loadColisOfTrajetFromDB();
     }
     return true;
 }
