@@ -56,6 +56,7 @@ private:
     Trajet* trajet;
     Dispatcher* dispatcher;
 
+    bool updateDispatcher();
 };
 
 #endif //PROJET_TULLE_COLIS_H

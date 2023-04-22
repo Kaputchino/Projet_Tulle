@@ -1,5 +1,7 @@
 #include "core/headers/Colis.h"
 #include "core/headers/Trajet.h"
+#include "core/headers/Dispatcher.h"
+
 #include "core/headers/common.h"
 #include <QtSql>
 
@@ -14,19 +16,27 @@ bool Colis::updateDate() {
 
 bool Colis::updateStatut() {
     QSqlQuery query;
-    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
+    query.prepare("UPDATE SET colis statut=:statut WHERE idColis=:idColis");
     query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":dataAjout", QVariant(statut));
+    query.bindValue(":statut", QVariant(statut));
     return query.exec();
 }
 
 bool Colis::updateTrajet() {
     QSqlQuery query;
-    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
+    query.prepare("UPDATE SET colis idTrajet=:idTrajet WHERE idColis=:idColis");
     query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":dataAjout", QVariant(trajet->getIdTrajet()));
+    query.bindValue(":idTrajet", QVariant(trajet->getIdTrajet()));
     return query.exec();
 }
+bool Colis::updateDispatcher() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET colis idDispatcher=:idDispatcher WHERE idColis=:idColis");
+    query.bindValue(":idColis", QVariant(idColis));
+    query.bindValue(":idDispatcher", QVariant(dispatcher->getIdPersonne()));
+    return query.exec();
+}
+
 
 bool Colis::addIntoDb() {
     QSqlQuery query;
@@ -50,9 +60,9 @@ bool Colis::updatePoid() {
 }
 bool Colis::updateVille() {
     QSqlQuery query;
-    query.prepare("UPDATE SET colis poids=:poids WHERE idColis=:idColis");
+    query.prepare("UPDATE SET colis villeArivee=:villeArivee WHERE idColis=:idColis");
     query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":poids", QVariant(poid));
+    query.bindValue(":villeArivee", QString::fromStdString(villeArrivee));
     return query.exec();
 }
 
@@ -148,6 +158,7 @@ Dispatcher *Colis::getDispatcher() const {
 
 void Colis::setDispatcher(Dispatcher *dispatcher) {
     Colis::dispatcher = dispatcher;
+    updateDispatcher();
 }
 
 
