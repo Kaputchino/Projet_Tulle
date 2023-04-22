@@ -87,6 +87,7 @@ Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
     string password = query.value(5).toString().toStdString();
     Dispatcher * dispatcher = new Dispatcher(nom,prenom,adresse,email,password);
     dispatcher->setIdPersonne(idPersonne);
+    dispatcher->loadColisOfDispatcherFromDB();
 
     return dispatcher;
 }
@@ -110,6 +111,7 @@ vector<Dispatcher *> Dispatcher::getListAllDispatcher() {
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
         auto* d = new Dispatcher(idPersonne,nom,prenom,adresse,email,password);
+        d->loadColisOfDispatcherFromDB();
         list.push_back(d);
     }
     return list;
