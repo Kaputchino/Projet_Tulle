@@ -1,4 +1,7 @@
+#include <QSqlQuery>
+#include <QtSql>
 #include "core/headers/Chauffeur.h"
+#include "core/headers/common.h"
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
 
@@ -67,7 +70,7 @@ Chauffeur::modifierTrajet(const Trajet* t, const string& villeDepart, const stri
     return true;
 }
 
-Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Chauffeur") {
+Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, ROLE_CHAUFFEUR) {
 }
 
 Trajet * Chauffeur::getTrajetByIndex(int index) {
@@ -120,10 +123,10 @@ bool Chauffeur::validerTrajet(Trajet *t) {
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
 
         for (Colis * colis : getAllColis()) {
-            colis->setStatut(2);
+            colis->setStatut(COLIS_VALIDATION_LIVRAISON);
         }
 
-        t->setStatuts(2);
+        t->setStatuts(TRAJET_VALIDATION);
         return true;
     }
 
@@ -136,10 +139,10 @@ bool Chauffeur::delancheLivraison(Trajet *t) {
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
 
         for (Colis * colis : getAllColis()) {
-            colis->setStatut(3);
+            colis->setStatut(COLIS_LIVRAISON_EN_COURS);
         }
 
-        t->setStatuts(3);
+        t->setStatuts(TRAJET_LIVRAISON_EN_COURS);
         return true;
     }
 
@@ -152,10 +155,10 @@ bool Chauffeur::declareLivraison(Trajet *t) {
     if (indexTrajetDansListe(t->getIdTrajet()) != -1) {
 
         for (Colis * colis : getAllColis()) {
-            colis->setStatut(4);
+            colis->setStatut(COLIS_LIVRAISON_FAITE);
         }
 
-        t->setStatuts(4);
+        t->setStatuts(TRAJET_LIVRAISON_FAITE);
         return true;
     }
 
@@ -176,7 +179,7 @@ int Chauffeur::indexTrajetDansListe(int idTrajet) {
 int Chauffeur::getNbcoliesLivree() {
     int sum = 0;
     for (Colis * colis : this->getAllColis()) {
-        if (colis->getStatut() == 4) {
+        if (colis->getStatut() == COLIS_LIVRAISON_FAITE) {
             sum++;
         }
     }
@@ -199,7 +202,7 @@ vector<Colis *> Chauffeur::getAllColis() {
 int Chauffeur::getNbColiesEnCoursLivraison() {
     int sum = 0;
     for (Colis * colis : this->getAllColis()) {
-        if (colis->getStatut() == 3) {
+        if (colis->getStatut() == COLIS_LIVRAISON_EN_COURS) {
             sum++;
         }
     }
@@ -210,12 +213,33 @@ int Chauffeur::getNbColiesEnCoursLivraison() {
 int Chauffeur::getNbColiesEnAttenteLivraison() {
     int sum = 0;
     for (Colis * colis : this->getAllColis()) {
-        if (colis->getStatut() == 2) {
+        if (colis->getStatut() == COLIS_VALIDATION_LIVRAISON) {
             sum++;
         }
     }
 
     return sum;
 }
+
+Chauffeur * Chauffeur::constructChauffeurFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", QVariant(id));
+    query.exec();
+
+    query.next();
+    int idPersonne = query.value( 0 ).toInt();
+    string adresse = query.value(1).toString().toStdString();
+    string prenom = query.value(2).toString().toStdString();
+    string nom = query.value(3).toString().toStdString();
+    string email = query.value(4).toString().toStdString();
+    string password = query.value(5).toString().toStdString();
+    Chauffeur * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
+    chauffeur->setIdPersonne(idPersonne);
+
+    return chauffeur;
+}
+
 
 

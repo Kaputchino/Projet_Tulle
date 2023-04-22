@@ -1,0 +1,32 @@
+#ifndef ADMINPANEL_H
+#define ADMINPANEL_H
+
+#include <QMainWindow>
+#include <QVariant>
+#include "core/headers/Admin.h"
+#include "core/headers/adminPanelInfo.h"
+#include <QSettings>
+
+
+namespace Ui {
+    class AdminPanel;
+}
+
+class AdminPanel : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit AdminPanel(QWidget *parent = nullptr);
+    ~AdminPanel();
+    AdminPanelInfo data;
+
+private:
+    Ui::AdminPanel *ui;
+
+private slots:
+    void addPlayerButton();
+    void clearButton();
+};
+
+#endif // ADMINPANEL_H

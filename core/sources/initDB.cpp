@@ -1,6 +1,5 @@
-#include <QSqlDatabase>
 #include <fstream>
-#include <QSqlQuery>
+#include <QtSql>
 #include "core/headers/initDB.h"
 #include "iostream"
 #include "core/headers/common.h"
@@ -33,29 +32,38 @@ string initDB::readDataBasePath(){
     }
     throw std::invalid_argument("Cannot read the config file.\nDoes the file \"config\" exists?");
 }
-string *initDB::toHash(const string& password) {
+string initDB::toHash(const string& password) {
     std::hash <std::string> hash;
-    return reinterpret_cast<string *>(hash(password));
+    return to_string(hash(password));
 }
 
-static Personne* login(string email, string password){
+int initDB::getIdFromLogin(string email, string password) {
     QSqlQuery query;
-    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE email = `" + email + "`"));
-    if(!query.exec() ){
 
+    query.prepare(QString::fromStdString("SELECT idPersonne FROM personne WHERE email = :email AND password = :password"));
+    query.bindValue(":email", QString::fromStdString(email));
+    query.bindValue(":password", QString::fromStdString(toHash(password)));
+    query.exec();
+
+    if (query.next()) {
+        return query.value("idPersonne").toInt();
+    } else {
+        return -1;
     }
-    if(query.next()){
-        string mdp = query.value(5).toString().toStdString();
-        if(mdp.compare(*initDB::toHash(password)) == 0){
-            int idPersonne = query.value( 0 ).toInt();
-            string adresse = query.value(1).toString().toStdString();
-            string prenom = query.value(2).toString().toStdString();
-            string nom = query.value(3).toString().toStdString();
-            string email = query.value(4).toString().toStdString();
-            string role = query.value(6).toString().toStdString();
-            auto* p = new Personne(idPersonne,nom,prenom,adresse,email,password,role);
-            return p;
-        }
+
+}
+
+string initDB::getRoleFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT role FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", QVariant(id));
+
+    if ( !query.exec() ) {
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors de la connection");
     }
-    return nullptr;
+
+    query.next();
+    return query.value("role").toString().toStdString();
 }

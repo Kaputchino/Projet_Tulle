@@ -1,9 +1,7 @@
 #include "core/headers/Colis.h"
 #include "core/headers/Trajet.h"
-#include <QSqlQuery>
-#include <QVariant>
-#include <iostream>
-#include <utility>
+#include "core/headers/common.h"
+#include <QtSql>
 
 
 bool Colis::updateDate() {
@@ -102,7 +100,7 @@ Colis::Colis(string &villeArrivee, double poid) {
     this->villeArrivee = villeArrivee;
     this->poid = poid;
     this->idColis = ++nbColisTotal;
-    this->statut = 0;
+    this->statut = COLIS_CREATION;
     this->trajet = nullptr;
     addIntoDb();
 }
@@ -112,7 +110,7 @@ Colis::Colis(int id, double poid, const string& villeArivee, const string& dateA
     this->dateAjoutColis = dateAjout;
     this->poid = poid;
     this->idColis = ++nbColisTotal;
-    this->statut = 0;
+    this->statut = COLIS_CREATION;
     this->trajet = Trajet::findTrajetById(idTrajet);
 }
 
@@ -136,7 +134,7 @@ void Colis::setTrajet(Trajet *trajet) {
         double poids = query.value( 1 ).toDouble();
         string villeArrive = query.value(2).toString().toStdString();
         string date = query.value(3).toString().toStdString();
-        int statut = query.value( 4 ).toInt();
+        int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
         int idTrajet = query.value( 5 ).toDouble();
         auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet);
         list.push_back(c);

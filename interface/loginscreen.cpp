@@ -1,5 +1,11 @@
 #include "loginscreen.h"
 #include "ui_loginscreen.h"
+#include "core/headers/initDB.h"
+#include "core/headers/Personne.h"
+#include "core/headers/common.h"
+#include "adminpanel.h"
+#include "chauffeurpanel.h"
+#include "dispatcherpanel.h"
 #include <QMessageBox>
 
 
@@ -24,12 +30,34 @@ void LoginScreen::connectClicked()
     QString email =ui->emailEdit->text();
     QString password =ui->passEdit->text();
 
-    if(email == "test" && password == "test") {
-        QMessageBox::information(this, "Login", "Username & password correct");
+    int id = initDB::getIdFromLogin(email.toStdString(), password.toStdString());
+    if(id != -1) {
+        string role = initDB::getRoleFromId(id);
+
+        if (role == ROLE_ADMIN) {
+            hide();
+            AdminPanel * adminUI = new AdminPanel();
+            AdminPanelInfo::setLogged(id);
+            adminUI->show();
+            close();
+        } else if (role == ROLE_CHAUFFEUR) {
+            hide();
+            ChauffeurPanel * chauffeurUI = new ChauffeurPanel();
+            chauffeurUI->show();
+            close();
+        } else if (role == ROLE_DISPATCHER) {
+            hide();
+            DispatcherPanel * dispatcherUi = new DispatcherPanel();
+            dispatcherUi->show();
+            // do the stuff
+            close();
+        } else {
+            QMessageBox::information(this, "Woopps!", "Vous avez un role non prevu! Woopsy.");
+            this->close();
+        }
     } else {
         QMessageBox::warning(this, "Login", "Il semblerait que votre email ou votre mot de passe soit incorrecte."
                                             "\nContactez un administrateur si l'erreur persiste.");
-
     }
 }
 

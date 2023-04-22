@@ -1,6 +1,7 @@
 #include "core/headers/Personne.h"
-#include <QSqlQuery>
-#include <QVariant>
+#include "core/headers/initDB.h"
+#include <QtSql>
+#include <memory>
 
 using namespace std;
 
@@ -131,6 +132,10 @@ string Personne::getPassword() {
     return this->password;
 }
 
+string Personne::getRole() {
+    return this->role;
+}
+
 void Personne::afficherPersonne() {
     cout << "Nom: " << this->nom << endl;
     cout << "Prenom: " << this->prenom <<endl;
@@ -154,9 +159,11 @@ Personne::Personne(int id, const string &nom, const string &prenom, const string
 
 Personne *Personne::findPersonneById(int id) {
     QSqlQuery query;
-    query.prepare( &"SELECT * FROM personne WHERE idPersonne = " [ id] );
-    if(!query.exec() ){
+    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id");
+    query.bindValue(":id", QVariant(id));
 
+    if(!query.exec() ){
+        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
     }
     if(query.next()){
         int idPersonne = query.value( 0 ).toInt();
@@ -166,11 +173,66 @@ Personne *Personne::findPersonneById(int id) {
         string email = query.value(4).toString().toStdString();
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
-        auto* p = new Personne(idPersonne,nom,prenom,adresse,email,password,role);
-        return p;
+        unique_ptr<Personne> p = std::make_unique<Personne>(idPersonne,nom,prenom,adresse,email,password,role);
+        return p.get();
     }
     return nullptr;
 }
+
+void Personne::setIdPersonne(int id) {
+    this->idPersonne = id;
+}
+
+bool Personne::checkIfEmailAlreadyExists(string email) {
+    QSqlQuery query;
+    query.prepare( "SELECT idPersonne FROM personne WHERE email = :email");
+    query.bindValue(":email", QString::fromStdString(email));
+
+    if ( !query.exec() ) {
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique survenu lors d'une requete.");
+    }
+
+    if ( query.first() ) {
+        return true;
+    }
+
+    return false;
+}
+
+bool Personne::addUserToDb(const string &nom, const string &prenom, const string &adresse, const string &email,
+                       const string &password, const string &role) {
+
+    if (nom.empty() || prenom.empty() || email.empty() || password.empty() || role.empty()) {
+        Errors::appendError("L'un de vos champ est vide.");
+        return false;
+    }
+
+    if (Personne::checkIfEmailAlreadyExists(email)) {
+        Errors::appendError("Email deja en base. Veuillez utiliser une autre email.");
+        return false;
+    }
+
+    QSqlQuery query;
+    query.prepare("INSERT INTO personne (nom, prenom, adresse, email, password, role) "
+                  "VALUES (:nom, :prenom, :adresse, :email, :password, :role)");
+    query.bindValue(":nom", QString::fromStdString(nom));
+    query.bindValue(":prenom", QString::fromStdString(prenom));
+    query.bindValue(":adresse", QString::fromStdString(adresse));
+    query.bindValue(":email", QString::fromStdString(email));
+    query.bindValue(":password", QString::fromStdString(initDB::toHash(password)));
+    query.bindValue(":role", QString::fromStdString(role));
+
+    if ( !query.exec() ) {
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique survenu lors d'une requete.");
+    }
+
+    return query.lastInsertId().toInt();
+}
+
+
+
 
 
 

@@ -51,6 +51,8 @@ class Personne {
 
         string getPassword();
 
+        string getRole();
+
         int getIdPersonne() const;
 
         void setNom(const string &nom);
@@ -63,13 +65,21 @@ class Personne {
 
         void setPassword(const string &email);
 
+        void setIdPersonne(int id);
+
         void afficherPersonne();
 
         static int getTotalPersonne();
 
-        static Personne* findPersonneById(string email, string password);
+        Personne *findPersonneById(int id);
 
-    Personne *findPersonneById(int id);
+        static bool checkIfEmailAlreadyExists(string email);
+        static bool addUserToDb(const string& nom,
+                            const string& prenom,
+                            const string& adresse,
+                            const string& email,
+                            const string& password,
+                            const string& role);
 };
 
 #endif //PROJET_TULLE_PERSONNE_H

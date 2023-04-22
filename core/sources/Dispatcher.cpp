@@ -1,8 +1,10 @@
 #include "core/headers/Dispatcher.h"
+#include <memory>
 #include <random>
+#include <QtSql>
 #include "core/headers/common.h"
 
-Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Dispatcher") {
+Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, ROLE_DISPATCHER) {
 
 }
 
@@ -13,10 +15,10 @@ bool Dispatcher::remplir(int n) {
     uniform_int_distribution<int> randomVille(0, listeVille.size() -1);
 
     for (size_t i = 0; i < n; i++) {
-        Colis * colis = new Colis(listeVille.at(randomVille(rgen)), randomPoids(rgen));
-        colis->setStatut(1);
+        unique_ptr<Colis> colis = std::make_unique<Colis>(listeVille.at(randomVille(rgen)), randomPoids(rgen));
+        colis->setStatut(COLIS_SOLICITATION_LIVRAISON);
         listeColis.push_back(
-                colis
+                colis.get()
         );
     }
 
@@ -34,7 +36,7 @@ bool Dispatcher::dispatch() {
             if (indexTrajet != -1) {
                 Trajet * trajet = ch->getTrajetByIndex(indexTrajet);
                 if (trajet->colieAjoutable(colis)) {
-                    colis->setStatut(2);
+                    colis->setStatut(COLIS_VALIDATION_LIVRAISON);
                     trajet->ajouterColis(colis);
                     unattributed.pop_back();
                     break;
@@ -49,12 +51,12 @@ bool Dispatcher::dispatch() {
 
 bool Dispatcher::attribueColis(Colis *c) {
 
-    if (c->getStatut() != 0) {
+    if (c->getStatut() != COLIS_CREATION) {
         Errors::appendError("Impossible de charger le colis en vue de son statut");
         return false;
     }
 
-    c->setStatut(1);
+    c->setStatut(COLIS_SOLICITATION_LIVRAISON);
     listeColis.push_back(c);
 
     return true;
@@ -62,6 +64,26 @@ bool Dispatcher::attribueColis(Colis *c) {
 
 int Dispatcher::getNombreColisDispatchable() {
     return listeColis.size();
+}
+
+Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
+    QSqlQuery query;
+
+    query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
+    query.bindValue(":idPersonne", QVariant(id));
+    query.first();
+
+    query.next();
+    int idPersonne = query.value( 0 ).toInt();
+    string adresse = query.value(1).toString().toStdString();
+    string prenom = query.value(2).toString().toStdString();
+    string nom = query.value(3).toString().toStdString();
+    string email = query.value(4).toString().toStdString();
+    string password = query.value(5).toString().toStdString();
+    Dispatcher * dispatcher = new Dispatcher(nom,prenom,adresse,email,password);
+    dispatcher->setIdPersonne(idPersonne);
+
+    return dispatcher;
 }
 
 
