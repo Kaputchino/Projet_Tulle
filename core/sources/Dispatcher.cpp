@@ -62,6 +62,7 @@ bool Dispatcher::attribueColis(Colis *c) {
     c->setStatut(COLIS_SOLICITATION_LIVRAISON);
     listeColis.push_back(c);
 
+
     return true;
 }
 

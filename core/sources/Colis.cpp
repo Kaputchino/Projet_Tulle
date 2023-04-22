@@ -142,6 +142,14 @@ vector<Colis *> Colis::getColisAttente(){
      return list;
 }
 
+Dispatcher *Colis::getDispatcher() const {
+    return dispatcher;
+}
+
+void Colis::setDispatcher(Dispatcher *dispatcher) {
+    Colis::dispatcher = dispatcher;
+}
+
 
 
 

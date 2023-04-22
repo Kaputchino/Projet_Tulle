@@ -4,7 +4,7 @@
 #include "Errors.h"
 
 class Trajet;
-
+class Dispatcher;
 using namespace std;
 class Colis {
 public:
@@ -36,6 +36,9 @@ public:
 
     static vector<Colis *> getColisAttente();
 
+    Dispatcher *getDispatcher() const;
+
+    void setDispatcher(Dispatcher *dispatcher);
 
 private:
     int idColis;
@@ -51,6 +54,7 @@ private:
     bool updateStatut();
     bool updateTrajet();
     Trajet* trajet;
+    Dispatcher* dispatcher;
 
 };
 
