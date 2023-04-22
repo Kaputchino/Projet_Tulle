@@ -124,7 +124,7 @@ void Colis::setTrajet(Trajet *trajet) {
     Colis::trajet = trajet;
     updateTrajet();
 }
- vector<Colis *> Colis::getColisAttente(){
+vector<Colis *> Colis::getColisAttente(){
     QSqlQuery query;
     vector<Colis*> list;
     query.prepare( "SELECT * FROM colis WHERE idTrajet is Null " );
