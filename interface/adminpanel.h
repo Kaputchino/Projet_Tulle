@@ -25,10 +25,12 @@ private:
     Ui::AdminPanel *ui;
     void updateChauffeurList();
     void updateDispatcherList();
+    void updateTrajet();
 
 private slots:
     void addPlayerButton();
     void clearButton();
+    void selectChauffeur();
 };
 
 #endif // ADMINPANEL_H

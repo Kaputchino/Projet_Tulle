@@ -254,15 +254,15 @@ bool Chauffeur::loadTrajetFromDB() {
     }
 
     while(query.next()){
-        int idChauffeur = query.value( 0 ).toInt();
+        int idTrajet = query.value( 0 ).toInt();
         string VilleDepart = query.value(1).toString().toStdString();
         string villeArrivee = query.value(2).toString().toStdString();
         string horaireDepart = query.value(3).toString().toStdString();
         string horaireArrivee = query.value(4).toString().toStdString();
         double poid = query.value(5).toDouble();
-        double prix = query.value(5).toDouble();
-        int idTrajet = query.value(5).toInt();
-        int statut = query.value(5).toInt();
+        double prix = query.value(6).toDouble();
+        int idChauffeur = query.value(8).toInt();
+        int statut = query.value(7).toInt();
         auto *t = new Trajet(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
         listeTrajet.push_back(t);
     }
@@ -293,6 +293,10 @@ vector<Chauffeur *> Chauffeur::getListAllChauffeur() {
     }
 
     return list;
+}
+
+vector<Trajet *> Chauffeur::getListTrajets() {
+    return listeTrajet;
 }
 
 

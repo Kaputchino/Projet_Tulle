@@ -33,3 +33,19 @@ void AdminPanelInfo::init() {
    listeChauffeurs = Chauffeur::getListAllChauffeur();
    listeDispatchers = Dispatcher::getListAllDispatcher();
 }
+
+void AdminPanelInfo::setSelectedChauffeurId(int id) {
+    selectedChauffeurId = id;
+}
+
+void AdminPanelInfo::setSelectedTrajatId(int id) {
+    selectedTrajetId = id;
+}
+
+int AdminPanelInfo::getSelectedTrajatId() {
+    return selectedTrajetId;
+}
+
+int AdminPanelInfo::getSelectedChauffeurId() {
+    return selectedChauffeurId;
+}

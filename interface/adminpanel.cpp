@@ -14,22 +14,40 @@ AdminPanel::AdminPanel(QWidget *parent) :
     QObject::connect(ui->addUsrButton, &QPushButton::clicked, this, &AdminPanel::addPlayerButton);
     QObject::connect(ui->resetUserButton, &QPushButton::clicked, this, &AdminPanel::clearButton);
 
+    QObject::connect(ui->listChauffeurs, &QListWidget::itemSelectionChanged, this, &AdminPanel::selectChauffeur);
+
     AdminPanelInfo::init();
     updateChauffeurList();
     updateDispatcherList();
 }
 
+void AdminPanel::selectChauffeur() {
+    AdminPanelInfo::setSelectedChauffeurId(AdminPanelInfo::getListeChauffeurs().at(ui->listChauffeurs->currentRow())->getIdPersonne());
+    updateTrajet();
+}
+
 void AdminPanel::updateChauffeurList() {
+    ui->listChauffeurs->clear();
     for (Chauffeur * chauffeur : AdminPanelInfo::getListeChauffeurs()) {
         QString label = QString::fromStdString(chauffeur->getNom() + " " + chauffeur->getPrenom() + " " + to_string(chauffeur->getIdPersonne()) );
         ui->listChauffeurs->addItem(label);
     }
 }
-
 void AdminPanel::updateDispatcherList() {
+    ui->selectDispatcher->clear();
     for (Dispatcher * dispatcher : AdminPanelInfo::getListeDispatchers()) {
         QString label = QString::fromStdString(dispatcher->getNom() + " " + dispatcher->getPrenom() + " " + to_string(dispatcher->getIdPersonne()) );
         ui->selectDispatcher->addItem(label);
+    }
+}
+
+void AdminPanel::updateTrajet() {
+    ui->listTrajets->clear();
+    Chauffeur * ch = Chauffeur::constructChauffeurFromId(AdminPanelInfo::getSelectedChauffeurId());
+    ch->loadTrajetFromDB();
+
+    for (Trajet * tr : ch->getListTrajets()) {
+        ui->listTrajets->addItem(QString::fromStdString(to_string(tr->getIdTrajet())));
     }
 }
 
@@ -77,4 +95,5 @@ void AdminPanel::clearButton() {
         ui->firstnameField->clear();
         ui->addrField->clear();
 }
+
 
