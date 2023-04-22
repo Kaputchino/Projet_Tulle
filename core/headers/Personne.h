@@ -71,10 +71,10 @@ class Personne {
 
         static int getTotalPersonne();
 
-        Personne *findPersonneById(int id);
+        static Personne *findPersonneById(int id);
 
         static bool checkIfEmailAlreadyExists(string email);
-        static bool addUserToDb(const string& nom,
+        static int addUserToDb(const string& nom,
                             const string& prenom,
                             const string& adresse,
                             const string& email,
