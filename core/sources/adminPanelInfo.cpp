@@ -32,6 +32,7 @@ vector<Dispatcher *> AdminPanelInfo::getListeDispatchers() {
 void AdminPanelInfo::init() {
    listeChauffeurs = Chauffeur::getListAllChauffeur();
    listeDispatchers = Dispatcher::getListAllDispatcher();
+   colisEnAttente = Colis::getColisAttente();
 }
 
 void AdminPanelInfo::setChauffeur(int index) {
@@ -60,6 +61,10 @@ Trajet *AdminPanelInfo::currTrajet() {
 
 void AdminPanelInfo::resetTrajet() {
     selectedTrajet = nullptr;
+}
+
+vector<Colis *> AdminPanelInfo::getColisEnAttente() {
+    return colisEnAttente;
 }
 
 

@@ -17,11 +17,11 @@ public:
     bool dispatch();
     bool attribueColis(Colis *c);
     int getNombreColisDispatchable();
-    vector<Colis> getColisAttente();
     static Dispatcher* constructDispatcherFromId(int id);
     static vector<Dispatcher *> getListAllDispatcher();
     vector<Colis *> loadColisOfDispatcherFromDB();
     static Dispatcher *findDispatcherById(int id);
+    vector<Colis *> getListColis();
 
 private:
     vector<Colis *> listeColis;

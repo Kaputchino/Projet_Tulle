@@ -131,7 +131,7 @@ vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
         double poids = query.value( 1 ).toDouble();
         string villeArrive = query.value(2).toString().toStdString();
         string date = query.value(3).toString().toStdString();
-        int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
+        int statut = query.value( 4 ).toInt();
         int idTrajet = query.value( 5 ).toDouble();
         int idDispatcher = query.value( 6 ).toInt();
         auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
@@ -166,4 +166,8 @@ Dispatcher *Dispatcher::findDispatcherById(int id) {
         Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
     }
     return nullptr;
+}
+
+vector<Colis *> Dispatcher::getListColis() {
+    return listeColis;
 }
