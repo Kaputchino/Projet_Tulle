@@ -89,10 +89,21 @@ double Admin::poidTotalDispatcher(Dispatcher *d){
     }
     return sum;
 }
+double Admin::poidMoyenDispatcher(Dispatcher *d){
+    double poid = poidTotalDispatcher(d);
+    if(poid != 0){
+        poid = poid / coliesEnDemandeLivraison(d);
+    }
+    return 0;
+}
 
 string Admin::printInfoDispatcher(Dispatcher *c) {
+    string str = c->printPersonne();
+    str += "nombre de colis: " + to_string(coliesEnDemandeLivraison(c)) +"\n";
+    str += "poid total des colis: " + to_string(poidTotalDispatcher(c)) +"\n";
+    str += "poid moyen des colis: " + to_string(poidMoyenDispatcher(c)) +"\n";
 
-    return "Sample info dispatcher \n oui oui.";
+    return str;
 }
 
 string Admin::printInfoTrajet(Trajet *t) {

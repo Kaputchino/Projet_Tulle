@@ -27,6 +27,8 @@ public:
     static string printInfoTrajet(Trajet * t);
 
     static double poidTotalDispatcher(Dispatcher *d);
+
+    static double poidMoyenDispatcher(Dispatcher *d);
 };
 
 
