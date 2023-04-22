@@ -87,12 +87,11 @@ Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
     string password = query.value(5).toString().toStdString();
     Dispatcher * dispatcher = new Dispatcher(nom,prenom,adresse,email,password);
     dispatcher->setIdPersonne(idPersonne);
-    dispatcher->loadColisOfDispatcherFromDB();
 
     return dispatcher;
 }
 
-vector<Dispatcher *> Dispatcher::getListAllDispatcher() {
+vector<Dispatcher *> Dispatcher::getListAllDispatcherAndLoad() {
     vector<Dispatcher *> list;
     QSqlQuery query;
     query.prepare( "SELECT * FROM personne WHERE role = :role");

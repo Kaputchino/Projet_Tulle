@@ -84,7 +84,7 @@ Admin * Admin::constructAdminFromId(int id) {
 
 double Admin::poidTotalDispatcher(Dispatcher *d){
     double sum = 0;
-    for(auto i : d->getListeColis()){
+    for(auto i : d->getListColis()){
         sum += i->getPoid();
     }
     return sum;
