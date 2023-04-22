@@ -29,6 +29,10 @@ public:
     static double poidTotalDispatcher(Dispatcher *d);
 
     static double poidMoyenDispatcher(Dispatcher *d);
+
+    static double poidTotal(Trajet *t);
+
+    static double poidMoyenParTrajet(Trajet *t);
 };
 
 

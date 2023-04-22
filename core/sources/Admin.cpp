@@ -90,11 +90,11 @@ double Admin::poidTotalDispatcher(Dispatcher *d){
     return sum;
 }
 double Admin::poidMoyenDispatcher(Dispatcher *d){
-    double poid = poidTotalDispatcher(d);
-    if(poid != 0){
-        poid = poid / coliesEnDemandeLivraison(d);
+    double nb = coliesEnDemandeLivraison(d);
+    if(coliesEnDemandeLivraison(d) != 0){
+        nb = poidTotalDispatcher(d) / nb;
     }
-    return 0;
+    return nb;
 }
 
 string Admin::printInfoDispatcher(Dispatcher *c) {
@@ -105,9 +105,28 @@ string Admin::printInfoDispatcher(Dispatcher *c) {
 
     return str;
 }
+double Admin::poidTotal(Trajet* t){
+    double sum = 0;
+    for(int i = 0;  i < t->nbColis(); i++){
+        sum += t->getListeColis().at(i)->getPoid();
+    }
+    return sum;
+}
+
+double Admin::poidMoyenParTrajet(Trajet *t) {
+    double nb = t->nbColis();
+    if(nb != 0){
+        nb = poidTotal(t) / nb;
+    }
+    return nb;
+}
 
 string Admin::printInfoTrajet(Trajet *t) {
-    return "Sample info trajet \n oui oui.";
+    string str = t->printTrajet();
+    str += "nombre de colis: " + to_string(t->nbColis()) +"\n";
+    str += "poid moyen par trajet: "+ to_string(poidMoyenParTrajet(t)) + "\n";
+    str += "poid total: "+ to_string(poidTotal(t)) + "\n";
+    return str;
 }
 
 string Admin::printInfoChauffeur(Chauffeur *c) {
