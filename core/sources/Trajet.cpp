@@ -258,7 +258,8 @@ vector<Colis *> Trajet::loadColisOfTrajetFromDB(){
         string date = query.value(3).toString().toStdString();
         int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
         int idTrajet = query.value( 5 ).toDouble();
-        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet);
+        int idDispatcher = query.value( 6 ).toInt();
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
         list.push_back(c);
     }
     return list;

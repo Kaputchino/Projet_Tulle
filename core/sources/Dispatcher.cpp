@@ -125,8 +125,30 @@ vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
         string date = query.value(3).toString().toStdString();
         int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
         int idTrajet = query.value( 5 ).toDouble();
-        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet);
+        int idDispatcher = query.value( 6 ).toInt();
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
         list.push_back(c);
     }
     return list;
+}
+Dispatcher *Dispatcher::findDispatcherById(int id) {
+    QSqlQuery query;
+    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id and statut = `dispatcher`");
+    query.bindValue(":id", QVariant(id));
+
+    if(!query.exec() ){
+        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
+    }
+    if(query.next()){
+        int idPersonne = query.value( 0 ).toInt();
+        string adresse = query.value(1).toString().toStdString();
+        string prenom = query.value(2).toString().toStdString();
+        string nom = query.value(3).toString().toStdString();
+        string email = query.value(4).toString().toStdString();
+        string password = query.value(5).toString().toStdString();
+        string role = query.value(6).toString().toStdString();
+        unique_ptr<Dispatcher> p = std::make_unique<Dispatcher>(idPersonne,nom,prenom,adresse,email,password);
+        return p.get();
+    }
+    return nullptr;
 }

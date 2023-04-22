@@ -112,16 +112,19 @@ Colis::Colis(string &villeArrivee, double poid) {
     this->idColis = ++nbColisTotal;
     this->statut = COLIS_CREATION;
     this->trajet = nullptr;
+    this->dispatcher = nullptr;
+
     addIntoDb();
 }
 
-Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet) {
+Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet, int idDispatcher) {
     this->villeArrivee = villeArivee;
     this->dateAjoutColis = dateAjout;
     this->poid = poid;
     this->idColis = ++nbColisTotal;
     this->statut = COLIS_CREATION;
     this->trajet = Trajet::findTrajetById(idTrajet);
+    this->dispatcher = Dispatcher::findDispatcherById(idDispatcher);
 }
 
 
@@ -146,7 +149,8 @@ vector<Colis *> Colis::getColisAttente(){
         string date = query.value(3).toString().toStdString();
         int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
         int idTrajet = query.value( 5 ).toDouble();
-        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet);
+        int idDispatcher = query.value( 6 ).toInt();
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
         list.push_back(c);
     }
      return list;
