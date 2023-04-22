@@ -76,7 +76,7 @@ Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
 
     query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
     query.bindValue(":idPersonne", QVariant(id));
-    query.first();
+    query.exec();
 
     query.next();
     int idPersonne = query.value( 0 ).toInt();
@@ -94,16 +94,18 @@ Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
 vector<Dispatcher *> Dispatcher::getListAllDispatcher() {
     vector<Dispatcher *> list;
     QSqlQuery query;
-    query.prepare( "SELECT * FROM personne WHERE statut = 'dispatcher'");
+    query.prepare( "SELECT * FROM personne WHERE role = :role");
+    query.bindValue(":role", QString::fromStdString(ROLE_DISPATCHER));
 
     if(!query.exec() ){
-        Errors::appendError("Pas de dispatcher ");
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }
     while(query.next()){
         int idPersonne = query.value( 0 ).toInt();
-        string adresse = query.value(1).toString().toStdString();
+        string nom = query.value(1).toString().toStdString();
         string prenom = query.value(2).toString().toStdString();
-        string nom = query.value(3).toString().toStdString();
+        string adresse = query.value(3).toString().toStdString();
         string email = query.value(4).toString().toStdString();
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
@@ -118,8 +120,11 @@ vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
     vector<Colis*> list;
     query.prepare( "SELECT * FROM colis WHERE idDispatcher = :id" );
     query.bindValue(":id", QVariant(idPersonne));
+
     if(!query.exec() ){
-    }while(query.next()){
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
+    } while(query.next()){
         int idColis = query.value( 0 ).toInt();
         double poids = query.value( 1 ).toDouble();
         string villeArrive = query.value(2).toString().toStdString();
@@ -130,26 +135,33 @@ vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
         auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
         list.push_back(c);
     }
+
     return list;
 }
 Dispatcher *Dispatcher::findDispatcherById(int id) {
     QSqlQuery query;
-    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id and statut = `dispatcher`");
+    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id and role = :role");
     query.bindValue(":id", QVariant(id));
+    query.bindValue(":role", QString::fromStdString(ROLE_DISPATCHER));
 
     if(!query.exec() ){
-        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }
+
     if(query.next()){
+        cout << "qwdqw" << endl;
         int idPersonne = query.value( 0 ).toInt();
-        string adresse = query.value(1).toString().toStdString();
+        string nom = query.value(1).toString().toStdString();
         string prenom = query.value(2).toString().toStdString();
-        string nom = query.value(3).toString().toStdString();
+        string adresse = query.value(3).toString().toStdString();
         string email = query.value(4).toString().toStdString();
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
         unique_ptr<Dispatcher> p = std::make_unique<Dispatcher>(idPersonne,nom,prenom,adresse,email,password);
         return p.get();
+    } else {
+        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
     }
     return nullptr;
 }

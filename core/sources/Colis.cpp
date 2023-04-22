@@ -129,8 +129,6 @@ Colis::Colis(int id, double poid, const string& villeArivee, const string& dateA
     this->dispatcher = Dispatcher::findDispatcherById(idDispatcher);
 }
 
-
-
 Trajet* Colis::getTrajet() const {
     return trajet;
 }
@@ -144,6 +142,8 @@ vector<Colis *> Colis::getColisAttente(){
     vector<Colis*> list;
     query.prepare( "SELECT * FROM colis WHERE idTrajet is Null " );
     if(!query.exec() ){
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }while(query.next()){
         int idColis = query.value( 0 ).toInt();
         double poids = query.value( 1 ).toDouble();

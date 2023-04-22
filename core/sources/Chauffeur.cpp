@@ -232,9 +232,9 @@ Chauffeur * Chauffeur::constructChauffeurFromId(int id) {
 
     query.next();
     int idPersonne = query.value( 0 ).toInt();
-    string adresse = query.value(1).toString().toStdString();
+    string nom = query.value(1).toString().toStdString();
     string prenom = query.value(2).toString().toStdString();
-    string nom = query.value(3).toString().toStdString();
+    string adresse = query.value(3).toString().toStdString();
     string email = query.value(4).toString().toStdString();
     string password = query.value(5).toString().toStdString();
     auto * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
@@ -249,9 +249,10 @@ bool Chauffeur::loadTrajetFromDB() {
     query.bindValue(":id", QVariant(idPersonne));
 
     if(!query.exec() ){
-        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(idPersonne));
-        return false;
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }
+
     while(query.next()){
         int idChauffeur = query.value( 0 ).toInt();
         string VilleDepart = query.value(1).toString().toStdString();
@@ -271,22 +272,26 @@ bool Chauffeur::loadTrajetFromDB() {
 vector<Chauffeur *> Chauffeur::getListAllChauffeur() {
     vector<Chauffeur *> list;
     QSqlQuery query;
-    query.prepare( "SELECT * FROM personne WHERE statut = 'chauffeur'");
+    query.prepare( "SELECT * FROM personne WHERE role = :role");
+    query.bindValue(":role", QString::fromStdString(ROLE_CHAUFFEUR));
 
     if(!query.exec() ){
-        Errors::appendError("Pas de chauffeur");
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }
+
     while(query.next()){
         int idPersonne = query.value( 0 ).toInt();
-        string adresse = query.value(1).toString().toStdString();
+        string nom = query.value(1).toString().toStdString();
         string prenom = query.value(2).toString().toStdString();
-        string nom = query.value(3).toString().toStdString();
+        string adresse = query.value(3).toString().toStdString();
         string email = query.value(4).toString().toStdString();
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
         auto* c = new Chauffeur(idPersonne,nom,prenom,adresse,email,password);
         list.push_back(c);
     }
+
     return list;
 }
 
