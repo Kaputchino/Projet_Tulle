@@ -200,7 +200,7 @@ bool Personne::checkIfEmailAlreadyExists(string email) {
     return false;
 }
 
-bool Personne::addUserToDb(const string &nom, const string &prenom, const string &adresse, const string &email,
+int Personne::addUserToDb(const string &nom, const string &prenom, const string &adresse, const string &email,
                        const string &password, const string &role) {
 
     if (nom.empty() || prenom.empty() || email.empty() || password.empty() || role.empty()) {

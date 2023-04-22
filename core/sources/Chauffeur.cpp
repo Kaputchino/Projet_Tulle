@@ -291,6 +291,7 @@ vector<Chauffeur *> Chauffeur::getListAllChauffeur() {
         auto* c = new Chauffeur(idPersonne,nom,prenom,adresse,email,password);
         list.push_back(c);
     }
+
     return list;
 }
 

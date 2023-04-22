@@ -129,8 +129,6 @@ Colis::Colis(int id, double poid, const string& villeArivee, const string& dateA
     this->dispatcher = Dispatcher::findDispatcherById(idDispatcher);
 }
 
-
-
 Trajet* Colis::getTrajet() const {
     return trajet;
 }

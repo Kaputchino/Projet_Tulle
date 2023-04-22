@@ -76,7 +76,7 @@ Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
 
     query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
     query.bindValue(":idPersonne", QVariant(id));
-    query.first();
+    query.exec();
 
     query.next();
     int idPersonne = query.value( 0 ).toInt();
@@ -140,7 +140,7 @@ vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
 }
 Dispatcher *Dispatcher::findDispatcherById(int id) {
     QSqlQuery query;
-    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id and role = :role`");
+    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id and role = :role");
     query.bindValue(":id", QVariant(id));
     query.bindValue(":role", QString::fromStdString(ROLE_DISPATCHER));
 
@@ -150,6 +150,7 @@ Dispatcher *Dispatcher::findDispatcherById(int id) {
     }
 
     if(query.next()){
+        cout << "qwdqw" << endl;
         int idPersonne = query.value( 0 ).toInt();
         string nom = query.value(1).toString().toStdString();
         string prenom = query.value(2).toString().toStdString();

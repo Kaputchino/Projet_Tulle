@@ -23,6 +23,8 @@ public:
 
 private:
     Ui::AdminPanel *ui;
+    void updateChauffeurList();
+    void updateDispatcherList();
 
 private slots:
     void addPlayerButton();

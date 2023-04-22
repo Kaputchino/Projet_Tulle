@@ -24,13 +24,13 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
       <string>Chauffeurs</string>
      </attribute>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="groupChauffeurs">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -53,7 +53,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox">
+     <widget class="QGroupBox" name="groupTrajet">
       <property name="geometry">
        <rect>
         <x>380</x>
@@ -76,7 +76,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QGroupBox" name="groupStatChauffeur">
       <property name="geometry">
        <rect>
         <x>740</x>
@@ -99,7 +99,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_4">
+     <widget class="QGroupBox" name="groupStatTrajet">
       <property name="geometry">
        <rect>
         <x>740</x>
