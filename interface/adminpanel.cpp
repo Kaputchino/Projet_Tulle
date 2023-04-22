@@ -41,26 +41,32 @@ void AdminPanel::selectTrajet() {
 
 
 void AdminPanel::loadChauffeurList() {
+    int prev = ui->listChauffeurs->currentRow();
     ui->listChauffeurs->clear();
     for (Chauffeur * chauffeur : AdminPanelInfo::getListeChauffeurs()) {
         QString label = QString::fromStdString(chauffeur->getNom() + " " + chauffeur->getPrenom() + " " + to_string(chauffeur->getIdPersonne()) );
         ui->listChauffeurs->addItem(label);
     }
+    ui->listChauffeurs->setCurrentRow(prev);
 }
 void AdminPanel::loadDispatcherList() {
+    int prev = ui->selectDispatcher->currentIndex();
     ui->selectDispatcher->clear();
     for (Dispatcher * dispatcher : AdminPanelInfo::getListeDispatchers()) {
         QString label = QString::fromStdString(dispatcher->getNom() + " " + dispatcher->getPrenom() + " " + to_string(dispatcher->getIdPersonne()) );
         ui->selectDispatcher->addItem(label);
     }
+    ui->selectDispatcher->setCurrentIndex(prev);
 }
 
 void AdminPanel::loadTrajetList() {
+    int prev = ui->listTrajets->currentRow();
     Chauffeur * ch = AdminPanelInfo::currChauffeur();
 
     for (Trajet * tr : ch->getListTrajets()) {
         ui->listTrajets->addItem(QString::fromStdString(to_string(tr->getIdTrajet()) + " - " + tr->getVilleDepart() + " vers " + tr->getVilleArrivee() + " de " + tr->getHoraireDepart() + " a " + tr->getHoraireArrivee() + " | Statut: " + to_string(tr->getStatuts())));
     }
+    ui->listTrajets->setCurrentRow(prev);
 }
 
 AdminPanel::~AdminPanel()
