@@ -145,6 +145,16 @@ void Personne::afficherPersonne() {
     cout << "Role: " << this->role << endl;
 }
 
+string Personne::printPersonne() {
+    string str = "";
+    str += "Nom: " + this->nom +"\n";
+    str += "Prenom: " + this->prenom +"\n";
+    str += "Adresse: " + this->adresse +"\n";
+    str += "Email: " + this->email +"\n";
+    str += "idPersonne: " + to_string(this->idPersonne) +"\n";
+    str += "Role: " + this->role +"\n";
+}
+
 Personne::Personne(int id, const string &nom, const string &prenom, const string &adresse, const string &email,
                    const string &password, const string &role) {
     this->idPersonne = id;

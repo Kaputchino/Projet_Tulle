@@ -82,7 +82,16 @@ Admin * Admin::constructAdminFromId(int id) {
     return admin;
 }
 
+double Admin::poidTotalDispatcher(Dispatcher *d){
+    double sum = 0;
+    for(auto i : d->getListeColis()){
+        sum += i->getPoid();
+    }
+    return sum;
+}
+
 string Admin::printInfoDispatcher(Dispatcher *c) {
+
     return "Sample info dispatcher \n oui oui.";
 }
 
@@ -91,5 +100,19 @@ string Admin::printInfoTrajet(Trajet *t) {
 }
 
 string Admin::printInfoChauffeur(Chauffeur *c) {
+    string str = "";
+    c->afficherPersonne();
+    cout<<"nombre de trajet:"<<c->getNbTrajet()<<endl;
+    cout<<"nombre de colis: "<<c->nbColis()<<endl;
+    cout<<"poid total des colis: "<<c->poidTotal()<<endl;
+    cout<<"gain total: "<<c->gain()<<endl;
+    cout<<"colis en attente: "<<c->getNbColiesEnAttenteLivraison()<<endl;
+    cout<<"colis en cours: "<<c->getNbColiesEnCoursLivraison()<<endl;
+    cout<<"colis livrés: "<<c->getNbcoliesLivree();
+    cout<<"nombre de colis moyen par trajet: "<<Admin::colisMoyenParTrajet(c)<<endl;
+    cout<<"gain moyen par trajet: "<<Admin::gainMoyenParTrajet(c)<<endl;
+    cout<<"poid moyen par trajet: "<<Admin::poidMoyenParTrajet(c)<<endl;
     return "Sample info chauffeur \n oui oui.";
 }
+
+

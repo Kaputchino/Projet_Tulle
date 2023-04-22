@@ -166,6 +166,13 @@ Dispatcher *Dispatcher::findDispatcherById(int id) {
         Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
     }
     return nullptr;
+}
+void Dispatcher::afficherDispatcher(){
+    this->afficherPersonne();
+    cout<<"nombre de colis: "<<this->listeColis.size()<<endl;
 
+}
 
+const vector<Colis *> &Dispatcher::getListeColis() const {
+    return listeColis;
 }
