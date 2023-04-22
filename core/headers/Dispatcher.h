@@ -21,10 +21,7 @@ public:
     static vector<Dispatcher *> getListAllDispatcher();
     vector<Colis *> loadColisOfDispatcherFromDB();
     static Dispatcher *findDispatcherById(int id);
-    void afficherDispatcher();
-
-    const vector<Colis *> &getListeColis() const;
-
+    vector<Colis *> getListColis();
 
 private:
     vector<Colis *> listeColis;

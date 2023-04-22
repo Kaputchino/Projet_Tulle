@@ -30,8 +30,8 @@ vector<Dispatcher *> AdminPanelInfo::getListeDispatchers() {
 }
 
 void AdminPanelInfo::init() {
-   listeChauffeurs = Chauffeur::getListAllChauffeur();
-   listeDispatchers = Dispatcher::getListAllDispatcher();
+   listeChauffeurs = Chauffeur::getListAllChauffeurAndLoad();
+   listeDispatchers = Dispatcher::getListAllDispatcherAndLoad();
    colisEnAttente = Colis::getColisAttente();
 }
 

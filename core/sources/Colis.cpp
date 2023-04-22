@@ -37,7 +37,6 @@ bool Colis::updateDispatcher() {
     return query.exec();
 }
 
-
 bool Colis::addIntoDb() {
     QSqlQuery query;
     query.prepare("INSERT INTO colis (idColis, poids, villeArivee, dataAjout, statut, idTrajet, idDispatcher) "
@@ -124,9 +123,17 @@ Colis::Colis(int id, double poid, const string& villeArivee, const string& dateA
     this->dateAjoutColis = dateAjout;
     this->poid = poid;
     this->idColis = ++nbColisTotal;
-    this->statut = COLIS_CREATION;
+    this->statut = statut;
     this->trajet = Trajet::findTrajetById(idTrajet);
-    this->dispatcher = Dispatcher::findDispatcherById(idDispatcher);
+    this->dispatcher = Dispatcher::constructDispatcherFromId(idDispatcher);
+}
+
+Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut) {
+    this->villeArrivee = villeArivee;
+    this->dateAjoutColis = dateAjout;
+    this->poid = poid;
+    this->idColis = ++nbColisTotal;
+    this->statut = statut;
 }
 
 Trajet* Colis::getTrajet() const {
@@ -150,9 +157,7 @@ vector<Colis *> Colis::getColisAttente(){
         string villeArrive = query.value(2).toString().toStdString();
         string date = query.value(3).toString().toStdString();
         int statut = query.value( 4 ).toInt();
-        int idTrajet = query.value( 5 ).toDouble();
-        int idDispatcher = query.value( 6 ).toInt();
-        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut);
         list.push_back(c);
     }
      return list;

@@ -167,13 +167,7 @@ Dispatcher *Dispatcher::findDispatcherById(int id) {
     }
     return nullptr;
 }
-void Dispatcher::afficherDispatcher(){
-    this->afficherPersonne();
-    cout<<"nombre de colis: "<<this->listeColis.size()<<endl;
 
-}
-
-const vector<Colis *> &Dispatcher::getListeColis() const {
-
+vector<Colis *> Dispatcher::getListColis() {
     return listeColis;
 }
