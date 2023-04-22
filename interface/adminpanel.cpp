@@ -27,11 +27,13 @@ void AdminPanel::selectChauffeur() {
 }
 
 void AdminPanel::updateChauffeurList() {
+    int prev = ui->listChauffeurs->currentRow();
     ui->listChauffeurs->clear();
     for (Chauffeur * chauffeur : AdminPanelInfo::getListeChauffeurs()) {
         QString label = QString::fromStdString(chauffeur->getNom() + " " + chauffeur->getPrenom() + " " + to_string(chauffeur->getIdPersonne()) );
         ui->listChauffeurs->addItem(label);
     }
+    ui->listChauffeurs->setCurrentRow(prev);
 }
 void AdminPanel::updateDispatcherList() {
     ui->selectDispatcher->clear();
@@ -42,6 +44,7 @@ void AdminPanel::updateDispatcherList() {
 }
 
 void AdminPanel::updateTrajet() {
+    int prev = ui->listTrajets->currentRow();
     ui->listTrajets->clear();
     Chauffeur * ch = Chauffeur::constructChauffeurFromId(AdminPanelInfo::getSelectedChauffeurId());
     ch->loadTrajetFromDB();
@@ -49,6 +52,7 @@ void AdminPanel::updateTrajet() {
     for (Trajet * tr : ch->getListTrajets()) {
         ui->listTrajets->addItem(QString::fromStdString(to_string(tr->getIdTrajet())));
     }
+    ui->listTrajets->setCurrentRow(prev);
 }
 
 AdminPanel::~AdminPanel()
@@ -78,12 +82,14 @@ void AdminPanel::addPlayerButton() {
         ui->addrField->clear();
         QMessageBox::information(this, "Ajout reussi!", "Bravo! Vous avez creer la vie.");
 
+
         if (role == ROLE_CHAUFFEUR) {
             AdminPanelInfo::addChauffeurToList(Chauffeur::constructChauffeurFromId(successfullyAddUser));
             updateChauffeurList();
         } else if (role == ROLE_DISPATCHER) {
             AdminPanelInfo::addDispatcherToList(Dispatcher::constructDispatcherFromId(successfullyAddUser));
             updateDispatcherList();
+
         }
     }
 }
