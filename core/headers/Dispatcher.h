@@ -9,14 +9,22 @@ using namespace std;
 class Dispatcher : public Personne{
 public:
     Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password);
+
+    Dispatcher(int id, const string &nom, const string &prenom, const string &adresse, const string &email,
+               const string &password);
+
     bool remplir(int n);
     bool dispatch();
     bool attribueColis(Colis *c);
     int getNombreColisDispatchable();
     vector<Colis> getColisAttente();
     static Dispatcher* constructDispatcherFromId(int id);
+    static vector<Dispatcher *> getListAllDispatcher();
+
 private:
     vector<Colis *> listeColis;
+
+
 };
 
 #endif //PROJET_TULLE_DISPATCHER_H
