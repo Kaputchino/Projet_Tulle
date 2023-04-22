@@ -1,6 +1,4 @@
-#include <QSqlDatabase>
 #include <fstream>
-#include <QSqlQuery>
 #include <QtSql>
 #include "core/headers/initDB.h"
 #include "iostream"

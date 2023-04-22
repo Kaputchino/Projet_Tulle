@@ -71,7 +71,15 @@ class Personne {
 
         static int getTotalPersonne();
 
-    Personne *findPersonneById(int id);
+        Personne *findPersonneById(int id);
+
+        static bool checkIfEmailAlreadyExists(string email);
+        static bool addUserToDb(const string& nom,
+                            const string& prenom,
+                            const string& adresse,
+                            const string& email,
+                            const string& password,
+                            const string& role);
 };
 
 #endif //PROJET_TULLE_PERSONNE_H

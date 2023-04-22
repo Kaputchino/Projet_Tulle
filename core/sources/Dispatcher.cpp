@@ -66,7 +66,7 @@ int Dispatcher::getNombreColisDispatchable() {
     return listeColis.size();
 }
 
-Dispatcher Dispatcher::constructDispatcherFromId(int id) {
+Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
     QSqlQuery query;
 
     query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
@@ -80,8 +80,8 @@ Dispatcher Dispatcher::constructDispatcherFromId(int id) {
     string nom = query.value(3).toString().toStdString();
     string email = query.value(4).toString().toStdString();
     string password = query.value(5).toString().toStdString();
-    Dispatcher dispatcher = Dispatcher(nom,prenom,adresse,email,password);
-    dispatcher.setIdPersonne(idPersonne);
+    Dispatcher * dispatcher = new Dispatcher(nom,prenom,adresse,email,password);
+    dispatcher->setIdPersonne(idPersonne);
 
     return dispatcher;
 }

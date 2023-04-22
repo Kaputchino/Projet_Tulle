@@ -1,10 +1,7 @@
 #include "core/headers/Colis.h"
 #include "core/headers/Trajet.h"
 #include "core/headers/common.h"
-#include <QSqlQuery>
-#include <QVariant>
-#include <iostream>
-#include <utility>
+#include <QtSql>
 
 
 bool Colis::updateDate() {

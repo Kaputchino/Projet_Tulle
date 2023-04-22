@@ -20,7 +20,7 @@ public:
     static double colisMoyenParTrajet(Chauffeur* c);
     static double poidTotal(Chauffeur* c);
     static double poidMoyenParTrajet(Chauffeur* c);
-    static Admin constructAdminFromId(int id);
+    static Admin * constructAdminFromId(int id);
 };
 
 

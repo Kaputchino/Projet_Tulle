@@ -2,10 +2,14 @@
 #define ADMINPANEL_H
 
 #include <QMainWindow>
+#include <QVariant>
 #include "core/headers/Admin.h"
+#include "core/headers/adminPanelInfo.h"
+#include <QSettings>
+
 
 namespace Ui {
-class AdminPanel;
+    class AdminPanel;
 }
 
 class AdminPanel : public QMainWindow
@@ -15,11 +19,14 @@ class AdminPanel : public QMainWindow
 public:
     explicit AdminPanel(QWidget *parent = nullptr);
     ~AdminPanel();
-    void setLoggedUser(Admin * adm);
+    AdminPanelInfo data;
 
 private:
     Ui::AdminPanel *ui;
-    Admin * loggedUser;
+
+private slots:
+    void addPlayerButton();
+    void clearButton();
 };
 
 #endif // ADMINPANEL_H

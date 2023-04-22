@@ -1,8 +1,7 @@
 #include "core/headers/Trajet.h"
 #include "core/headers/common.h"
 #include <iostream>
-#include <QSqlQuery>
-#include <QVariant>
+#include <QtSql>
 
 bool Trajet::updateStatut() {
     QSqlQuery query;

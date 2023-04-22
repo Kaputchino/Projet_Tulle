@@ -1,4 +1,3 @@
-#include <QSqlQuery>
 #include <QtSql>
 #include "core/headers/Admin.h"
 
@@ -62,7 +61,7 @@ int Admin::coliesEnDemandeLivraison(Dispatcher * d) {
     return d->getNombreColisDispatchable();
 }
 
-Admin Admin::constructAdminFromId(int id) {
+Admin * Admin::constructAdminFromId(int id) {
     QSqlQuery query;
 
     query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
@@ -71,12 +70,13 @@ Admin Admin::constructAdminFromId(int id) {
 
     query.next();
     int idPersonne = query.value( 0 ).toInt();
-    string adresse = query.value(1).toString().toStdString();
+    string nom = query.value(1).toString().toStdString();
     string prenom = query.value(2).toString().toStdString();
-    string nom = query.value(3).toString().toStdString();
+    string adresse = query.value(3).toString().toStdString();
     string email = query.value(4).toString().toStdString();
     string password = query.value(5).toString().toStdString();
-    Admin admin = Admin(nom,prenom,adresse,email,password);
-    admin.setIdPersonne(idPersonne);
+    Admin * admin = new Admin(nom,prenom,adresse,email,password);
+    admin->setIdPersonne(idPersonne);
+
     return admin;
 }

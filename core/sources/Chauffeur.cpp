@@ -221,7 +221,7 @@ int Chauffeur::getNbColiesEnAttenteLivraison() {
     return sum;
 }
 
-Chauffeur Chauffeur::constructChauffeurFromId(int id) {
+Chauffeur * Chauffeur::constructChauffeurFromId(int id) {
     QSqlQuery query;
 
     query.prepare(QString::fromStdString("SELECT * FROM personne WHERE idPersonne = :idPersonne"));
@@ -235,8 +235,8 @@ Chauffeur Chauffeur::constructChauffeurFromId(int id) {
     string nom = query.value(3).toString().toStdString();
     string email = query.value(4).toString().toStdString();
     string password = query.value(5).toString().toStdString();
-    Chauffeur chauffeur = Chauffeur(nom,prenom,adresse,email,password);
-    chauffeur.setIdPersonne(idPersonne);
+    Chauffeur * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
+    chauffeur->setIdPersonne(idPersonne);
 
     return chauffeur;
 }

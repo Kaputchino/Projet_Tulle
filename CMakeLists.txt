@@ -46,6 +46,8 @@ set(ADMIN_UI
         interface/adminpanel.cpp
         interface/adminpanel.h
         interface/adminpanel.ui
+        core/headers/adminPanelInfo.h
+        core/sources/adminPanelInfo.cpp
         )
 
 set(CHAUFFEUR_UI
