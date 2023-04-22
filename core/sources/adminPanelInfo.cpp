@@ -33,3 +33,34 @@ void AdminPanelInfo::init() {
    listeChauffeurs = Chauffeur::getListAllChauffeur();
    listeDispatchers = Dispatcher::getListAllDispatcher();
 }
+
+void AdminPanelInfo::setChauffeur(int index) {
+    selectedChauffeur = listeChauffeurs.at(index);
+}
+
+void AdminPanelInfo::setDispacher(int index) {
+    selectedDispatcher = listeDispatchers.at(index);
+}
+
+void AdminPanelInfo::setTrajet(int index) {
+    selectedTrajet = selectedChauffeur->getListTrajets().at(index);
+}
+
+Chauffeur * AdminPanelInfo::currChauffeur() {
+    return selectedChauffeur;
+}
+
+Dispatcher *AdminPanelInfo::currDispacher() {
+    return selectedDispatcher;
+}
+
+Trajet *AdminPanelInfo::currTrajet() {
+    return selectedTrajet;
+}
+
+void AdminPanelInfo::resetTrajet() {
+    selectedTrajet = nullptr;
+}
+
+
+

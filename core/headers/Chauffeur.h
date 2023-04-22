@@ -15,7 +15,7 @@ public:
 
     Chauffeur(int idChauffeur, const string &nom, const string &prenom, const string &adresse, const string &email,
               const string &password);
-
+    
     bool ajoutTrajet(Trajet *t);
     bool supprimerTrajet(Trajet *t);
     bool modifierTrajet(const Trajet* t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee, double poids, double prix);
@@ -35,6 +35,7 @@ public:
     static Chauffeur* constructChauffeurFromId(int id);
     bool loadTrajetFromDB();
     static vector<Chauffeur*> getListAllChauffeur();
+    vector<Trajet *> getListTrajets();
 private:
     vector<Trajet *> listeTrajet;
     vector <Colis *> getAllColis();
