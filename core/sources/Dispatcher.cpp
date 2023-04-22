@@ -98,7 +98,8 @@ vector<Dispatcher *> Dispatcher::getListAllDispatcher() {
     query.bindValue(":role", QString::fromStdString(ROLE_DISPATCHER));
 
     if(!query.exec() ){
-        Errors::appendError("Pas de dispatcher ");
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }
     while(query.next()){
         int idPersonne = query.value( 0 ).toInt();
@@ -119,8 +120,11 @@ vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
     vector<Colis*> list;
     query.prepare( "SELECT * FROM colis WHERE idDispatcher = :id" );
     query.bindValue(":id", QVariant(idPersonne));
+
     if(!query.exec() ){
-    }while(query.next()){
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
+    } while(query.next()){
         int idColis = query.value( 0 ).toInt();
         double poids = query.value( 1 ).toDouble();
         string villeArrive = query.value(2).toString().toStdString();
@@ -131,6 +135,7 @@ vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
         auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
         list.push_back(c);
     }
+
     return list;
 }
 Dispatcher *Dispatcher::findDispatcherById(int id) {
@@ -140,8 +145,10 @@ Dispatcher *Dispatcher::findDispatcherById(int id) {
     query.bindValue(":role", QString::fromStdString(ROLE_DISPATCHER));
 
     if(!query.exec() ){
-        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }
+
     if(query.next()){
         int idPersonne = query.value( 0 ).toInt();
         string nom = query.value(1).toString().toStdString();
@@ -152,6 +159,8 @@ Dispatcher *Dispatcher::findDispatcherById(int id) {
         string role = query.value(6).toString().toStdString();
         unique_ptr<Dispatcher> p = std::make_unique<Dispatcher>(idPersonne,nom,prenom,adresse,email,password);
         return p.get();
+    } else {
+        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
     }
     return nullptr;
 }

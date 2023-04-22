@@ -249,9 +249,10 @@ bool Chauffeur::loadTrajetFromDB() {
     query.bindValue(":id", QVariant(idPersonne));
 
     if(!query.exec() ){
-        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(idPersonne));
-        return false;
+        qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }
+
     while(query.next()){
         int idChauffeur = query.value( 0 ).toInt();
         string VilleDepart = query.value(1).toString().toStdString();
@@ -275,10 +276,10 @@ vector<Chauffeur *> Chauffeur::getListAllChauffeur() {
     query.bindValue(":role", QString::fromStdString(ROLE_CHAUFFEUR));
 
     if(!query.exec() ){
-        Errors::appendError("Pas de chauffeur");
-        cout << "Pas de chauffeur" << endl;
         qDebug() << query.lastError();
+        throw std::runtime_error("Erreur critique lors d'une requete");
     }
+
     while(query.next()){
         int idPersonne = query.value( 0 ).toInt();
         string nom = query.value(1).toString().toStdString();
