@@ -80,6 +80,8 @@ class Personne {
                             const string& email,
                             const string& password,
                             const string& role);
+
+    string printPersonne();
 };
 
 #endif //PROJET_TULLE_PERSONNE_H

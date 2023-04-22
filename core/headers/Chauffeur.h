@@ -36,9 +36,12 @@ public:
     bool loadTrajetFromDB();
     static vector<Chauffeur*> getListAllChauffeurAndLoad();
     vector<Trajet *> getListTrajets();
+    void afficherChauffeur();
+
 private:
     vector<Trajet *> listeTrajet;
     vector <Colis *> getAllColis();
+
 };
 
 #endif //PROJET_TULLE_CHAUFFEUR_H

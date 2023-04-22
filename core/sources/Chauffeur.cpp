@@ -1,6 +1,8 @@
 #include <QSqlQuery>
 #include <QtSql>
 #include "core/headers/Chauffeur.h"
+#include "core/headers/Admin.h"
+
 #include "core/headers/common.h"
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
@@ -299,6 +301,20 @@ vector<Chauffeur *> Chauffeur::getListAllChauffeurAndLoad() {
 
 vector<Trajet *> Chauffeur::getListTrajets() {
     return listeTrajet;
+}
+void Chauffeur::afficherChauffeur(){
+    this->afficherPersonne();
+    cout<<"nombre de trajet:"<<this->getNbTrajet()<<endl;
+    cout<<"nombre de colis: "<<this->nbColis()<<endl;
+    cout<<"poid total des colis: "<<this->poidTotal()<<endl;
+    cout<<"gain total: "<<this->gain()<<endl;
+    cout<<"colis en attente: "<<this->getNbColiesEnAttenteLivraison()<<endl;
+    cout<<"colis en cours: "<<this->getNbColiesEnCoursLivraison()<<endl;
+    cout<<"colis livrés: "<<this->getNbcoliesLivree();
+    cout<<"nombre de colis moyen par trajet: "<<Admin::colisMoyenParTrajet(this)<<endl;
+    cout<<"gain moyen par trajet: "<<Admin::gainMoyenParTrajet(this)<<endl;
+    cout<<"poid moyen par trajet: "<<Admin::poidMoyenParTrajet(this)<<endl;
+
 }
 
 

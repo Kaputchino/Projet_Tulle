@@ -81,6 +81,8 @@ public:
     static Trajet* findTrajetById(int id);
 
     vector<Colis *> loadColisOfTrajetFromDB();
+
+    string printTrajet();
 };
 
 #endif //PROJET_TULLE_TRAJET_H
