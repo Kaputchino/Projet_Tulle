@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS "colis" (
 									   "dataAjout"	TEXT NOT NULL,
 									   "statut"	INTEGER NOT NULL,
 									   "idTrajet"	INTEGER,
+                                       "idDispatcher"	INTEGER,
 									   CONSTRAINT "colis_PK" PRIMARY KEY("idColis")
 	CONSTRAINT "trajet_colis_FK" FOREIGN KEY("idTrajet") REFERENCES "trajet"("idTrajet")
+    CONSTRAINT "dispatcher_colis_FK" FOREIGN KEY("idDispatcher") REFERENCES "personne"("idPersonne")
 	);
