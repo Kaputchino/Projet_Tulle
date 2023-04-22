@@ -166,4 +166,6 @@ Dispatcher *Dispatcher::findDispatcherById(int id) {
         Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
     }
     return nullptr;
+
+
 }
