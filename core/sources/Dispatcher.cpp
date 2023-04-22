@@ -94,16 +94,17 @@ Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
 vector<Dispatcher *> Dispatcher::getListAllDispatcher() {
     vector<Dispatcher *> list;
     QSqlQuery query;
-    query.prepare( "SELECT * FROM personne WHERE statut = 'dispatcher'");
+    query.prepare( "SELECT * FROM personne WHERE role = :role");
+    query.bindValue(":role", QString::fromStdString(ROLE_DISPATCHER));
 
     if(!query.exec() ){
         Errors::appendError("Pas de dispatcher ");
     }
     while(query.next()){
         int idPersonne = query.value( 0 ).toInt();
-        string adresse = query.value(1).toString().toStdString();
+        string nom = query.value(1).toString().toStdString();
         string prenom = query.value(2).toString().toStdString();
-        string nom = query.value(3).toString().toStdString();
+        string adresse = query.value(3).toString().toStdString();
         string email = query.value(4).toString().toStdString();
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
@@ -134,17 +135,18 @@ vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
 }
 Dispatcher *Dispatcher::findDispatcherById(int id) {
     QSqlQuery query;
-    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id and statut = `dispatcher`");
+    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id and role = :role`");
     query.bindValue(":id", QVariant(id));
+    query.bindValue(":role", QString::fromStdString(ROLE_DISPATCHER));
 
     if(!query.exec() ){
         Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
     }
     if(query.next()){
         int idPersonne = query.value( 0 ).toInt();
-        string adresse = query.value(1).toString().toStdString();
+        string nom = query.value(1).toString().toStdString();
         string prenom = query.value(2).toString().toStdString();
-        string nom = query.value(3).toString().toStdString();
+        string adresse = query.value(3).toString().toStdString();
         string email = query.value(4).toString().toStdString();
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();

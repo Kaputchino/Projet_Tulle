@@ -14,7 +14,10 @@ AdminPanel::AdminPanel(QWidget *parent) :
     QObject::connect(ui->addUsrButton, &QPushButton::clicked, this, &AdminPanel::addPlayerButton);
     QObject::connect(ui->resetUserButton, &QPushButton::clicked, this, &AdminPanel::clearButton);
 
-
+    for (Chauffeur * chauffeur : Chauffeur::getListAllChauffeur()) {
+        QString label = QString::fromStdString(chauffeur->getNom());
+        ui->listChauffeurs->addItem(label);
+    }
 
 }
 
