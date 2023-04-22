@@ -17,7 +17,6 @@ public:
     bool dispatch();
     bool attribueColis(Colis *c);
     int getNombreColisDispatchable();
-    vector<Colis> getColisAttente();
     static Dispatcher* constructDispatcherFromId(int id);
     static vector<Dispatcher *> getListAllDispatcher();
     vector<Colis *> loadColisOfDispatcherFromDB();
@@ -25,6 +24,7 @@ public:
     void afficherDispatcher();
 
     const vector<Colis *> &getListeColis() const;
+
 
 private:
     vector<Colis *> listeColis;

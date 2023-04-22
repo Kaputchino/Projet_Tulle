@@ -25,6 +25,8 @@ private:
     Ui::AdminPanel *ui;
     void loadChauffeurList();
     void loadDispatcherList();
+    void loadColisDispacher();
+    void loadListeColis();
     void loadTrajetList();
     void updateStatChauffeur();
     void updateStatTrajet();
@@ -35,6 +37,8 @@ private slots:
     void clearButton();
     void selectChauffeur();
     void selectTrajet();
+    void selectColisDispatcher();
+    void selectDispacher();
 };
 
 #endif // ADMINPANEL_H

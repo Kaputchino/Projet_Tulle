@@ -10,6 +10,7 @@ class AdminPanelInfo {
 private:
     inline static vector<Chauffeur *> listeChauffeurs;
     inline static vector<Dispatcher *> listeDispatchers;
+    inline static vector<Colis *> colisEnAttente;
     inline static Admin * logged = nullptr;
     inline static Chauffeur * selectedChauffeur = nullptr;
     inline static Trajet * selectedTrajet = nullptr;
@@ -30,5 +31,6 @@ public:
     static Dispatcher * currDispacher();
     static Trajet * currTrajet();
     static void resetTrajet();
+    static vector<Colis *> getColisEnAttente();
 };
 #endif //PROJET_TULLE_ADMINPANELINFO_H

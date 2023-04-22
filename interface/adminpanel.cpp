@@ -16,6 +16,7 @@ AdminPanel::AdminPanel(QWidget *parent) :
 
     QObject::connect(ui->listChauffeurs, &QListWidget::itemClicked, this, &AdminPanel::selectChauffeur);
     QObject::connect(ui->listTrajets, &QListWidget::itemClicked, this, &AdminPanel::selectTrajet);
+    QObject::connect(ui->selectDispatcher, &QComboBox::textActivated, this, &AdminPanel::selectDispacher);
 
     ui->statChauffeur->setReadOnly(true);
     ui->statDispatcher->setReadOnly(true);
@@ -24,6 +25,7 @@ AdminPanel::AdminPanel(QWidget *parent) :
     AdminPanelInfo::init();
     loadChauffeurList();
     loadDispatcherList();
+    loadListeColis();
 }
 
 void AdminPanel::selectChauffeur() {
@@ -37,6 +39,12 @@ void AdminPanel::selectChauffeur() {
 void AdminPanel::selectTrajet() {
     AdminPanelInfo::setTrajet(ui->listTrajets->currentRow());
     updateStatTrajet();
+}
+
+void AdminPanel::selectDispacher() {
+    AdminPanelInfo::setDispacher(ui->selectDispatcher->currentIndex());
+    loadColisDispacher();
+    updateStatDispacher();
 }
 
 
@@ -68,6 +76,21 @@ void AdminPanel::loadTrajetList() {
     }
     ui->listTrajets->setCurrentRow(prev);
 }
+
+void AdminPanel::loadColisDispacher() {
+    for(Colis * cl : AdminPanelInfo::currDispacher()->getListColis()) {
+        QString label = QString::fromStdString("Vers: " + cl->getVilleArrivee() + ", Poids: " + to_string(cl->getPoid()) + ", du " + cl->getDateAjoutColis());
+        ui->unattributedPacketList->addItem(label);
+    }
+}
+
+void AdminPanel::loadListeColis() {
+    for(Colis * cl : AdminPanelInfo::getColisEnAttente()) {
+        QString label = QString::fromStdString("Vers: " + cl->getVilleArrivee() + ", Poids: " + to_string(cl->getPoid()) + ", du " + cl->getDateAjoutColis());
+        ui->unattributedPacketList->addItem(label);
+    }
+}
+
 
 AdminPanel::~AdminPanel()
 {
@@ -128,6 +151,10 @@ void AdminPanel::updateStatDispacher() {
 void AdminPanel::updateStatTrajet() {
     QString stats = QString::fromStdString(Admin::printInfoTrajet(AdminPanelInfo::currTrajet()));
     ui->statTrajet->setPlainText(stats);
+}
+
+void AdminPanel::selectColisDispatcher() {
+
 }
 
 
