@@ -20,14 +20,13 @@ AdminPanel::AdminPanel(QWidget *parent) :
     ui->statDispatcher->setReadOnly(true);
     ui->statTrajet->setReadOnly(true);
 
-
     AdminPanelInfo::init();
     updateChauffeurList();
     updateDispatcherList();
 }
 
 void AdminPanel::selectChauffeur() {
-    AdminPanelInfo::setSelectedChauffeurId(AdminPanelInfo::getListeChauffeurs().at(ui->listChauffeurs->currentRow())->getIdPersonne());
+    AdminPanelInfo::setChauffeur(ui->listChauffeurs->currentRow());
     updateTrajet();
 }
 
@@ -53,8 +52,7 @@ void AdminPanel::updateDispatcherList() {
 void AdminPanel::updateTrajet() {
     int prev = ui->listTrajets->currentRow();
     ui->listTrajets->clear();
-    Chauffeur * ch = Chauffeur::constructChauffeurFromId(AdminPanelInfo::getSelectedChauffeurId());
-    ch->loadTrajetFromDB();
+    Chauffeur * ch = AdminPanelInfo::currChauffeur();
 
     for (Trajet * tr : ch->getListTrajets()) {
         ui->listTrajets->addItem(
@@ -109,6 +107,18 @@ void AdminPanel::clearButton() {
         ui->passField->clear();
         ui->firstnameField->clear();
         ui->addrField->clear();
+}
+
+void AdminPanel::updateStatChauffeur() {
+    // QString stats = QString::toStdString(Admin::printInfoChauffeur());
+}
+
+void AdminPanel::updateStatDispacher() {
+    // QString stats = QString::toStdString(Admin::printInfoDispatcher());
+}
+
+void AdminPanel::updateStatTrajet() {
+    // QString stats = QString::toStdString(Admin::printInfoTrajet());
 }
 
 

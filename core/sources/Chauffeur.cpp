@@ -239,6 +239,7 @@ Chauffeur * Chauffeur::constructChauffeurFromId(int id) {
     string password = query.value(5).toString().toStdString();
     auto * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
     chauffeur->setIdPersonne(idPersonne);
+    chauffeur->loadTrajetFromDB();
 
     return chauffeur;
 }
@@ -290,6 +291,7 @@ vector<Chauffeur *> Chauffeur::getListAllChauffeur() {
         string role = query.value(6).toString().toStdString();
         auto* c = new Chauffeur(idPersonne,nom,prenom,adresse,email,password);
         list.push_back(c);
+        c->loadTrajetFromDB();
     }
 
     return list;

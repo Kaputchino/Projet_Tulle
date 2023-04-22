@@ -11,8 +11,9 @@ private:
     inline static vector<Chauffeur *> listeChauffeurs;
     inline static vector<Dispatcher *> listeDispatchers;
     inline static Admin * logged = nullptr;
-    inline static int selectedChauffeurId;
-    inline static int selectedTrajetId;
+    inline static Chauffeur * selectedChauffeur = nullptr;
+    inline static Trajet * selectedTrajet = nullptr;
+    inline static Dispatcher * selectedDispatcher = nullptr;
 public:
     static void setLogged(int id);
     static void removeChauffeurFromList(int index);
@@ -22,9 +23,11 @@ public:
     static vector<Chauffeur *> getListeChauffeurs();
     static vector<Dispatcher *> getListeDispatchers();
     static void init();
-    static void setSelectedChauffeurId(int id);
-    static void setSelectedTrajatId(int id);
-    static int getSelectedTrajatId();
-    static int getSelectedChauffeurId();
+    static void setChauffeur(int index);
+    static void setDispacher(int index);
+    static void setTrajet(int index);
+    static Chauffeur * currChauffeur();
+    static Dispatcher * currDispacher();
+    static Trajet * currTrajet();
 };
 #endif //PROJET_TULLE_ADMINPANELINFO_H

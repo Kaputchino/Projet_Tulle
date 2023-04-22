@@ -26,6 +26,9 @@ private:
     void updateChauffeurList();
     void updateDispatcherList();
     void updateTrajet();
+    void updateStatChauffeur();
+    void updateStatTrajet();
+    void updateStatDispacher();
 
 private slots:
     void addPlayerButton();
