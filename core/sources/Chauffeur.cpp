@@ -235,11 +235,37 @@ Chauffeur * Chauffeur::constructChauffeurFromId(int id) {
     string nom = query.value(3).toString().toStdString();
     string email = query.value(4).toString().toStdString();
     string password = query.value(5).toString().toStdString();
-    Chauffeur * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
+    auto * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
     chauffeur->setIdPersonne(idPersonne);
 
     return chauffeur;
 }
+
+bool Chauffeur::loadTrajetFromDB() {
+    QSqlQuery query;
+    query.prepare( "SELECT * FROM trajet WHERE idPersonne = :id");
+    query.bindValue(":id", QVariant(idPersonne));
+
+    if(!query.exec() ){
+        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(idPersonne));
+        return false;
+    }
+    while(query.next()){
+        int idChauffeur = query.value( 0 ).toInt();
+        string VilleDepart = query.value(1).toString().toStdString();
+        string villeArrivee = query.value(2).toString().toStdString();
+        string horaireDepart = query.value(3).toString().toStdString();
+        string horaireArrivee = query.value(4).toString().toStdString();
+        double poid = query.value(5).toDouble();
+        double prix = query.value(5).toDouble();
+        int idTrajet = query.value(5).toInt();
+        int statut = query.value(5).toInt();
+        auto *t = new Trajet(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
+        listeTrajet.push_back(t);
+    }
+    return true;
+}
+
 
 
 
