@@ -5,6 +5,7 @@
 #include "Personne.h"
 #include "Chauffeur.h"
 #include "Dispatcher.h"
+#include "Trajet.h"
 
 class Admin : public Personne{
 public:
@@ -21,6 +22,9 @@ public:
     static double poidTotal(Chauffeur* c);
     static double poidMoyenParTrajet(Chauffeur* c);
     static Admin * constructAdminFromId(int id);
+    static string printInfoChauffeur(Chauffeur * c);
+    static string printInfoDispatcher(Dispatcher * c);
+    static string printInfoTrajet(Trajet * t);
 };
 
 

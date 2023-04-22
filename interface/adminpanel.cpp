@@ -16,6 +16,11 @@ AdminPanel::AdminPanel(QWidget *parent) :
 
     QObject::connect(ui->listChauffeurs, &QListWidget::itemSelectionChanged, this, &AdminPanel::selectChauffeur);
 
+    ui->statChauffeur->setReadOnly(true);
+    ui->statDispatcher->setReadOnly(true);
+    ui->statTrajet->setReadOnly(true);
+
+
     AdminPanelInfo::init();
     updateChauffeurList();
     updateDispatcherList();

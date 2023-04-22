@@ -81,3 +81,15 @@ Admin * Admin::constructAdminFromId(int id) {
 
     return admin;
 }
+
+string Admin::printInfoDispatcher(Dispatcher *c) {
+    return "Sample info dispatcher \n oui oui.";
+}
+
+string Admin::printInfoTrajet(Trajet *t) {
+    return "Sample info trajet \n oui oui.";
+}
+
+string Admin::printInfoChauffeur(Chauffeur *c) {
+    return "Sample info chauffeur \n oui oui.";
+}
