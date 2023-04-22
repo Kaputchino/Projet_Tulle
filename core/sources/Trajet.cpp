@@ -264,6 +264,21 @@ vector<Colis *> Trajet::loadColisOfTrajetFromDB(){
     }
     return list;
 }
+string Trajet::printTrajet(){
+    string str;
+    str += "idTrajet: " + to_string(this->idTrajet) + "\n";
+    str += "idChauffeur: " + to_string(this->idChauffeur) + "\n";
+    str += "poid: " + to_string(this->poids) + "\n";
+    str += "statut: " + to_string(this->statut) + "\n";
+    str += "prix: " + to_string(this->prix) + "\n";
+
+    str += "villeDepart: " + this->villeDepart + "\n";
+    str += "villeArrivee: " + this->villeArrivee + "\n";
+    str += "horaireDepart: " + this->horaireDepart + "\n";
+    str += "horaireArrivee: " + this->horaireArrivee + "\n";
+
+    return str;
+}
 
 
 
