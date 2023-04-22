@@ -95,7 +95,7 @@ vector<Dispatcher *> Dispatcher::getListAllDispatcher() {
     query.prepare( "SELECT * FROM personne WHERE statut = 'dispatcher'");
 
     if(!query.exec() ){
-        Errors::appendError("Pas de chauffeur");
+        Errors::appendError("Pas de dispatcher ");
     }
     while(query.next()){
         int idPersonne = query.value( 0 ).toInt();
@@ -107,6 +107,25 @@ vector<Dispatcher *> Dispatcher::getListAllDispatcher() {
         string role = query.value(6).toString().toStdString();
         auto* d = new Dispatcher(idPersonne,nom,prenom,adresse,email,password);
         list.push_back(d);
+    }
+    return list;
+}
+
+vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
+    QSqlQuery query;
+    vector<Colis*> list;
+    query.prepare( "SELECT * FROM colis WHERE idDispatcher = :id" );
+    query.bindValue(":id", QVariant(idPersonne));
+    if(!query.exec() ){
+    }while(query.next()){
+        int idColis = query.value( 0 ).toInt();
+        double poids = query.value( 1 ).toDouble();
+        string villeArrive = query.value(2).toString().toStdString();
+        string date = query.value(3).toString().toStdString();
+        int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
+        int idTrajet = query.value( 5 ).toDouble();
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet);
+        list.push_back(c);
     }
     return list;
 }

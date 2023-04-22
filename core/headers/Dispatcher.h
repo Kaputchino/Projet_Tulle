@@ -20,6 +20,7 @@ public:
     vector<Colis> getColisAttente();
     static Dispatcher* constructDispatcherFromId(int id);
     static vector<Dispatcher *> getListAllDispatcher();
+    vector<Colis *> loadColisOfDispatcherFromDB();
 
 private:
     vector<Colis *> listeColis;

@@ -245,7 +245,7 @@ void Trajet::afficherTrajet() {
 vector<Colis *> Trajet::getListeColis() {
     return listeColis;
 }
-vector<Colis *> Trajet::loadColisFromDB(){
+vector<Colis *> Trajet::loadColisOfTrajetFromDB(){
     QSqlQuery query;
     vector<Colis*> list;
     query.prepare( "SELECT * FROM colis WHERE idTrajet = :id" );
