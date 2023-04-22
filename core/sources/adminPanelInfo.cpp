@@ -58,5 +58,9 @@ Trajet *AdminPanelInfo::currTrajet() {
     return selectedTrajet;
 }
 
+void AdminPanelInfo::resetTrajet() {
+    selectedTrajet = nullptr;
+}
+
 
 

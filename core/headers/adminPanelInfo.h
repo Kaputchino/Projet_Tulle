@@ -29,5 +29,6 @@ public:
     static Chauffeur * currChauffeur();
     static Dispatcher * currDispacher();
     static Trajet * currTrajet();
+    static void resetTrajet();
 };
 #endif //PROJET_TULLE_ADMINPANELINFO_H

@@ -265,8 +265,8 @@ bool Chauffeur::loadTrajetFromDB() {
         int idChauffeur = query.value(8).toInt();
         int statut = query.value(7).toInt();
         auto *t = new Trajet(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
-        listeTrajet.push_back(t);
         t->loadColisOfTrajetFromDB();
+        listeTrajet.push_back(t);
     }
     return true;
 }
@@ -291,8 +291,8 @@ vector<Chauffeur *> Chauffeur::getListAllChauffeur() {
         string password = query.value(5).toString().toStdString();
         string role = query.value(6).toString().toStdString();
         auto* c = new Chauffeur(idPersonne,nom,prenom,adresse,email,password);
-        list.push_back(c);
         c->loadTrajetFromDB();
+        list.push_back(c);
     }
 
     return list;
