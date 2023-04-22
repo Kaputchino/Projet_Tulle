@@ -128,6 +128,15 @@ Colis::Colis(int id, double poid, const string& villeArivee, const string& dateA
     this->dispatcher = Dispatcher::constructDispatcherFromId(idDispatcher);
 }
 
+Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idDispatcher) {
+    this->villeArrivee = villeArivee;
+    this->dateAjoutColis = dateAjout;
+    this->poid = poid;
+    this->idColis = ++nbColisTotal;
+    this->statut = statut;
+    this->dispatcher = Dispatcher::constructDispatcherFromId(idDispatcher);
+}
+
 Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut) {
     this->villeArrivee = villeArivee;
     this->dateAjoutColis = dateAjout;

@@ -20,7 +20,6 @@ public:
     static Dispatcher* constructDispatcherFromId(int id);
     static vector<Dispatcher *> getListAllDispatcherAndLoad();
     vector<Colis *> loadColisOfDispatcherFromDB();
-    static Dispatcher *findDispatcherById(int id);
     vector<Colis *> getListColis();
 
 private:
