@@ -25,6 +25,14 @@ public:
     static string printInfoChauffeur(Chauffeur * c);
     static string printInfoDispatcher(Dispatcher * c);
     static string printInfoTrajet(Trajet * t);
+
+    static double poidTotalDispatcher(Dispatcher *d);
+
+    static double poidMoyenDispatcher(Dispatcher *d);
+
+    static double poidTotal(Trajet *t);
+
+    static double poidMoyenParTrajet(Trajet *t);
 };
 
 
