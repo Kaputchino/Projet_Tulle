@@ -34,7 +34,7 @@ public:
     int getNbColiesEnAttenteLivraison();
     static Chauffeur* constructChauffeurFromId(int id);
     bool loadTrajetFromDB();
-    static vector<Chauffeur*> getListAllChauffeur();
+    static vector<Chauffeur*> getListAllChauffeurAndLoad();
     vector<Trajet *> getListTrajets();
 private:
     vector<Trajet *> listeTrajet;

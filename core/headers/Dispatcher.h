@@ -18,9 +18,8 @@ public:
     bool attribueColis(Colis *c);
     int getNombreColisDispatchable();
     static Dispatcher* constructDispatcherFromId(int id);
-    static vector<Dispatcher *> getListAllDispatcher();
+    static vector<Dispatcher *> getListAllDispatcherAndLoad();
     vector<Colis *> loadColisOfDispatcherFromDB();
-    static Dispatcher *findDispatcherById(int id);
     vector<Colis *> getListColis();
 
 private:

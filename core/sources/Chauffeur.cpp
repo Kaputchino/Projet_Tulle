@@ -239,7 +239,6 @@ Chauffeur * Chauffeur::constructChauffeurFromId(int id) {
     string password = query.value(5).toString().toStdString();
     auto * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
     chauffeur->setIdPersonne(idPersonne);
-    chauffeur->loadTrajetFromDB();
 
     return chauffeur;
 }
@@ -271,7 +270,7 @@ bool Chauffeur::loadTrajetFromDB() {
     return true;
 }
 
-vector<Chauffeur *> Chauffeur::getListAllChauffeur() {
+vector<Chauffeur *> Chauffeur::getListAllChauffeurAndLoad() {
     vector<Chauffeur *> list;
     QSqlQuery query;
     query.prepare( "SELECT * FROM personne WHERE role = :role");
