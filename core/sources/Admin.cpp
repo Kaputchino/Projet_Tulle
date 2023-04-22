@@ -100,19 +100,23 @@ string Admin::printInfoTrajet(Trajet *t) {
 }
 
 string Admin::printInfoChauffeur(Chauffeur *c) {
-    string str = "";
-    c->afficherPersonne();
-    cout<<"nombre de trajet:"<<c->getNbTrajet()<<endl;
-    cout<<"nombre de colis: "<<c->nbColis()<<endl;
-    cout<<"poid total des colis: "<<c->poidTotal()<<endl;
-    cout<<"gain total: "<<c->gain()<<endl;
-    cout<<"colis en attente: "<<c->getNbColiesEnAttenteLivraison()<<endl;
-    cout<<"colis en cours: "<<c->getNbColiesEnCoursLivraison()<<endl;
-    cout<<"colis livrés: "<<c->getNbcoliesLivree();
-    cout<<"nombre de colis moyen par trajet: "<<Admin::colisMoyenParTrajet(c)<<endl;
-    cout<<"gain moyen par trajet: "<<Admin::gainMoyenParTrajet(c)<<endl;
-    cout<<"poid moyen par trajet: "<<Admin::poidMoyenParTrajet(c)<<endl;
-    return "Sample info chauffeur \n oui oui.";
+    string str = c->printPersonne();
+    str += "nombre de trajet: " + to_string(c->getNbTrajet()) +"\n";
+    str += "nombre de colis: " + to_string(c->nbColis()) +"\n";
+
+    str += "poid total des colis: " + to_string(c->poidTotal()) +"\n";
+    str += "gain total: " + to_string(c->gain()) +"\n";
+
+    str += "colis en attente: " + to_string(c->getNbColiesEnAttenteLivraison()) +"\n";
+    str += "colis en cours: " + to_string(c->getNbColiesEnCoursLivraison()) +"\n";
+
+    str += "colis livrés: " + to_string(c->getNbcoliesLivree()) +"\n";
+    str += "nombre de colis moyen par trajet: " + to_string(colisMoyenParTrajet(c)) +"\n";
+
+    str += "gain moyen par trajet: " + to_string(gainMoyenParTrajet(c)) +"\n";
+    str += "poid moyen par trajet: " + to_string(poidMoyenParTrajet(c)) +"\n";
+
+    return str;
 }
 
 

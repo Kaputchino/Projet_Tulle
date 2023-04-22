@@ -146,13 +146,14 @@ void Personne::afficherPersonne() {
 }
 
 string Personne::printPersonne() {
-    string str = "";
+    string str;
     str += "Nom: " + this->nom +"\n";
     str += "Prenom: " + this->prenom +"\n";
     str += "Adresse: " + this->adresse +"\n";
     str += "Email: " + this->email +"\n";
     str += "idPersonne: " + to_string(this->idPersonne) +"\n";
     str += "Role: " + this->role +"\n";
+    return str;
 }
 
 Personne::Personne(int id, const string &nom, const string &prenom, const string &adresse, const string &email,
