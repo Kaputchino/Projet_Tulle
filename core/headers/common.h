@@ -13,6 +13,11 @@
 #define TRAJET_LIVRAISON_EN_COURS 3
 #define TRAJET_LIVRAISON_FAITE 4
 
+#define ROLE_ADMIN "Admin"
+#define ROLE_DISPATCHER "Dispatcher"
+#define ROLE_CHAUFFEUR "Chauffeur"
+
+
 #include <string>
 #include <vector>
 #include <QSqlDatabase>

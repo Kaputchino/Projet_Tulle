@@ -2,6 +2,7 @@
 #include "ui_loginscreen.h"
 #include "core/headers/initDB.h"
 #include "core/headers/Personne.h"
+#include "core/headers/common.h"
 #include "adminpanel.h"
 #include "chauffeurpanel.h"
 #include "dispatcherpanel.h"
@@ -33,18 +34,18 @@ void LoginScreen::connectClicked()
     if(id != -1) {
         string role = initDB::getRoleFromId(id);
 
-        if (role == "Admin") {
+        if (role == ROLE_ADMIN) {
             hide();
             AdminPanel * adminUI = new AdminPanel();
             AdminPanelInfo::setLogged(id);
             adminUI->show();
             close();
-        } else if (role == "Chauffeur") {
+        } else if (role == ROLE_CHAUFFEUR) {
             hide();
             ChauffeurPanel * chauffeurUI = new ChauffeurPanel();
             chauffeurUI->show();
             close();
-        } else if (role == "Dispatcher") {
+        } else if (role == ROLE_DISPATCHER) {
             hide();
             DispatcherPanel * dispatcherUi = new DispatcherPanel();
             dispatcherUi->show();

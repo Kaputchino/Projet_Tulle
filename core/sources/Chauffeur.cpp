@@ -70,7 +70,7 @@ Chauffeur::modifierTrajet(const Trajet* t, const string& villeDepart, const stri
     return true;
 }
 
-Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Chauffeur") {
+Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, ROLE_CHAUFFEUR) {
 }
 
 Trajet * Chauffeur::getTrajetByIndex(int index) {

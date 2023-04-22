@@ -1,7 +1,8 @@
 #include <QtSql>
 #include "core/headers/Admin.h"
+#include "core/headers/common.h"
 
-Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, "Admin") {
+Admin::Admin(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, ROLE_ADMIN) {
 
 }
 

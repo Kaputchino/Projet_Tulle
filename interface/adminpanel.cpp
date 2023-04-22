@@ -2,6 +2,7 @@
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "core/headers/adminPanelInfo.h"
+#include "core/headers/common.h"
 
 AdminPanel::AdminPanel(QWidget *parent) :
     QMainWindow(parent),
@@ -9,7 +10,7 @@ AdminPanel::AdminPanel(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->roleField->addItems({"Admin", "Chauffeur", "Dispacher"});
+    ui->roleField->addItems({ROLE_ADMIN, ROLE_DISPATCHER, ROLE_CHAUFFEUR});
 
     QObject::connect(ui->addUsrButton, &QPushButton::clicked, this, &AdminPanel::addPlayerButton);
     QObject::connect(ui->resetUserButton, &QPushButton::clicked, this, &AdminPanel::clearButton);
@@ -44,12 +45,10 @@ void AdminPanel::addPlayerButton() {
 }
 
 void AdminPanel::clearButton() {
-
         ui->emailField->clear();
         ui->nameField->clear();
         ui->passField->clear();
         ui->firstnameField->clear();
         ui->addrField->clear();
-        ui->emailField->setText(QString::fromStdString(AdminPanelInfo::logged->getEmail()));
 }
 
