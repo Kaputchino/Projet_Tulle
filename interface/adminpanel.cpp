@@ -36,11 +36,13 @@ void AdminPanel::updateChauffeurList() {
     ui->listChauffeurs->setCurrentRow(prev);
 }
 void AdminPanel::updateDispatcherList() {
+    int prev = ui->selectDispatcher->currentIndex();
     ui->selectDispatcher->clear();
     for (Dispatcher * dispatcher : AdminPanelInfo::getListeDispatchers()) {
         QString label = QString::fromStdString(dispatcher->getNom() + " " + dispatcher->getPrenom() + " " + to_string(dispatcher->getIdPersonne()) );
         ui->selectDispatcher->addItem(label);
     }
+    ui->selectDispatcher->setCurrentIndex(prev);
 }
 
 void AdminPanel::updateTrajet() {
@@ -50,7 +52,9 @@ void AdminPanel::updateTrajet() {
     ch->loadTrajetFromDB();
 
     for (Trajet * tr : ch->getListTrajets()) {
-        ui->listTrajets->addItem(QString::fromStdString(to_string(tr->getIdTrajet())));
+        ui->listTrajets->addItem(
+                QString::fromStdString(to_string(tr->getIdTrajet()) + " - " + tr->getVilleDepart() + " vers " + tr->getVilleArrivee() + " de " + tr->getHoraireDepart() + " a " + tr->getHoraireArrivee() + " | Statut: " + to_string(tr->getStatuts()))
+                );
     }
     ui->listTrajets->setCurrentRow(prev);
 }
