@@ -40,14 +40,16 @@ bool Colis::updateDispatcher() {
 
 bool Colis::addIntoDb() {
     QSqlQuery query;
-    query.prepare("INSERT INTO colis (idColis, poids, villeArivee, dataAjout, statut, idTrajet) "
-                  "VALUES (:idColis, :poids, :villeArivee, :dataAjout, :statut, :idTrajet)");
+    query.prepare("INSERT INTO colis (idColis, poids, villeArivee, dataAjout, statut, idTrajet, idDispatcher) "
+                  "VALUES (:idColis, :poids, :villeArivee, :dataAjout, :statut, :idTrajet, :idDispatcher)");
     query.bindValue(":idColis", QVariant(idColis));
     query.bindValue(":poids", QVariant(poid));
     query.bindValue(":villeArivee", QString::fromStdString(villeArrivee));
     query.bindValue(":dataAjout", QString::fromStdString(dateAjoutColis));
     query.bindValue(":statut", QVariant(statut));
     query.bindValue(":idTrajet", QVariant(trajet->getIdTrajet()));
+    query.bindValue(":idDispatcher", QVariant(dispatcher->getIdPersonne()));
+
     return query.exec();
 }
 
