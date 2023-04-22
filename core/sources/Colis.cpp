@@ -128,6 +128,15 @@ Colis::Colis(int id, double poid, const string& villeArivee, const string& dateA
     this->dispatcher = Dispatcher::constructDispatcherFromId(idDispatcher);
 }
 
+Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idDispatcher) {
+    this->villeArrivee = villeArivee;
+    this->dateAjoutColis = dateAjout;
+    this->poid = poid;
+    this->idColis = ++nbColisTotal;
+    this->statut = statut;
+    this->dispatcher = Dispatcher::constructDispatcherFromId(idDispatcher);
+}
+
 Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut) {
     this->villeArrivee = villeArivee;
     this->dateAjoutColis = dateAjout;
@@ -147,7 +156,7 @@ void Colis::setTrajet(Trajet *trajet) {
 vector<Colis *> Colis::getColisAttente(){
     QSqlQuery query;
     vector<Colis*> list;
-    query.prepare( "SELECT * FROM colis WHERE idDispatcher IS NULL AND idTrajet IS NULL" );
+    query.prepare( "SELECT * FROM colis WHERE idDispatcher IS NULL" );
     if(!query.exec() ){
         qDebug() << query.lastError();
         throw std::runtime_error("Erreur critique lors d'une requete");

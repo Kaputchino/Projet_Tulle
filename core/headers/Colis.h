@@ -12,6 +12,7 @@ public:
 
     Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet, int idDispatcher);
     Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut);
+    Colis(int id, double poid, const string &villeArivee, const string &dateAjout, int statut, int idDispatcher);
 
     int getIdColis() const;
 
