@@ -23,6 +23,7 @@ bool Dispatcher::remplir(int n) {
         listeColis.push_back(
                 colis.get()
         );
+        colis->setDispatcher(this);
     }
 
     return true;
