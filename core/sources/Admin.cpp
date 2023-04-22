@@ -76,7 +76,7 @@ Admin * Admin::constructAdminFromId(int id) {
     string adresse = query.value(3).toString().toStdString();
     string email = query.value(4).toString().toStdString();
     string password = query.value(5).toString().toStdString();
-    Admin * admin = new Admin(nom,prenom,adresse,email,password);
+    auto * admin = new Admin(nom,prenom,adresse,email,password);
     admin->setIdPersonne(idPersonne);
 
     return admin;

@@ -12,6 +12,10 @@ using namespace std;
 class Chauffeur : public Personne {
 public:
     Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password);
+
+    Chauffeur(int idChauffeur, const string &nom, const string &prenom, const string &adresse, const string &email,
+              const string &password);
+
     bool ajoutTrajet(Trajet *t);
     bool supprimerTrajet(Trajet *t);
     bool modifierTrajet(const Trajet* t, const string& villeDepart, const string& villeArrivee, const string& horaireDepart, const string& horaireArrivee, double poids, double prix);
@@ -29,7 +33,8 @@ public:
     int getNbColiesEnCoursLivraison();
     int getNbColiesEnAttenteLivraison();
     static Chauffeur* constructChauffeurFromId(int id);
-
+    bool loadTrajetFromDB();
+    static vector<Chauffeur*> getListAllChauffeur();
 private:
     vector<Trajet *> listeTrajet;
     vector <Colis *> getAllColis();

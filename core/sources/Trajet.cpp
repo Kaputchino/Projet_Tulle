@@ -245,6 +245,25 @@ void Trajet::afficherTrajet() {
 vector<Colis *> Trajet::getListeColis() {
     return listeColis;
 }
+vector<Colis *> Trajet::loadColisOfTrajetFromDB(){
+    QSqlQuery query;
+    vector<Colis*> list;
+    query.prepare( "SELECT * FROM colis WHERE idTrajet = :id" );
+    query.bindValue(":id", QVariant(idTrajet));
+    if(!query.exec() ){
+    }while(query.next()){
+        int idColis = query.value( 0 ).toInt();
+        double poids = query.value( 1 ).toDouble();
+        string villeArrive = query.value(2).toString().toStdString();
+        string date = query.value(3).toString().toStdString();
+        int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
+        int idTrajet = query.value( 5 ).toDouble();
+        int idDispatcher = query.value( 6 ).toInt();
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
+        list.push_back(c);
+    }
+    return list;
+}
 
 
 

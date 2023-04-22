@@ -4,13 +4,13 @@
 #include "Errors.h"
 
 class Trajet;
-
+class Dispatcher;
 using namespace std;
 class Colis {
 public:
     Colis(string &villeArrivee, double poid);
 
-    Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet);
+    Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet, int idDispatcher);
 
     int getIdColis() const;
 
@@ -36,6 +36,9 @@ public:
 
     static vector<Colis *> getColisAttente();
 
+    Dispatcher *getDispatcher() const;
+
+    void setDispatcher(Dispatcher *dispatcher);
 
 private:
     int idColis;
@@ -51,7 +54,9 @@ private:
     bool updateStatut();
     bool updateTrajet();
     Trajet* trajet;
+    Dispatcher* dispatcher;
 
+    bool updateDispatcher();
 };
 
 #endif //PROJET_TULLE_COLIS_H

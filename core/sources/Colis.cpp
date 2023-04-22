@@ -1,5 +1,7 @@
 #include "core/headers/Colis.h"
 #include "core/headers/Trajet.h"
+#include "core/headers/Dispatcher.h"
+
 #include "core/headers/common.h"
 #include <QtSql>
 
@@ -14,30 +16,40 @@ bool Colis::updateDate() {
 
 bool Colis::updateStatut() {
     QSqlQuery query;
-    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
+    query.prepare("UPDATE SET colis statut=:statut WHERE idColis=:idColis");
     query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":dataAjout", QVariant(statut));
+    query.bindValue(":statut", QVariant(statut));
     return query.exec();
 }
 
 bool Colis::updateTrajet() {
     QSqlQuery query;
-    query.prepare("UPDATE SET colis dataAjout=:dataAjout WHERE idColis=:idColis");
+    query.prepare("UPDATE SET colis idTrajet=:idTrajet WHERE idColis=:idColis");
     query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":dataAjout", QVariant(trajet->getIdTrajet()));
+    query.bindValue(":idTrajet", QVariant(trajet->getIdTrajet()));
+    return query.exec();
+}
+bool Colis::updateDispatcher() {
+    QSqlQuery query;
+    query.prepare("UPDATE SET colis idDispatcher=:idDispatcher WHERE idColis=:idColis");
+    query.bindValue(":idColis", QVariant(idColis));
+    query.bindValue(":idDispatcher", QVariant(dispatcher->getIdPersonne()));
     return query.exec();
 }
 
+
 bool Colis::addIntoDb() {
     QSqlQuery query;
-    query.prepare("INSERT INTO colis (idColis, poids, villeArivee, dataAjout, statut, idTrajet) "
-                  "VALUES (:idColis, :poids, :villeArivee, :dataAjout, :statut, :idTrajet)");
+    query.prepare("INSERT INTO colis (idColis, poids, villeArivee, dataAjout, statut, idTrajet, idDispatcher) "
+                  "VALUES (:idColis, :poids, :villeArivee, :dataAjout, :statut, :idTrajet, :idDispatcher)");
     query.bindValue(":idColis", QVariant(idColis));
     query.bindValue(":poids", QVariant(poid));
     query.bindValue(":villeArivee", QString::fromStdString(villeArrivee));
     query.bindValue(":dataAjout", QString::fromStdString(dateAjoutColis));
     query.bindValue(":statut", QVariant(statut));
     query.bindValue(":idTrajet", QVariant(trajet->getIdTrajet()));
+    query.bindValue(":idDispatcher", QVariant(dispatcher->getIdPersonne()));
+
     return query.exec();
 }
 
@@ -50,9 +62,9 @@ bool Colis::updatePoid() {
 }
 bool Colis::updateVille() {
     QSqlQuery query;
-    query.prepare("UPDATE SET colis poids=:poids WHERE idColis=:idColis");
+    query.prepare("UPDATE SET colis villeArivee=:villeArivee WHERE idColis=:idColis");
     query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":poids", QVariant(poid));
+    query.bindValue(":villeArivee", QString::fromStdString(villeArrivee));
     return query.exec();
 }
 
@@ -102,16 +114,19 @@ Colis::Colis(string &villeArrivee, double poid) {
     this->idColis = ++nbColisTotal;
     this->statut = COLIS_CREATION;
     this->trajet = nullptr;
+    this->dispatcher = nullptr;
+
     addIntoDb();
 }
 
-Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet) {
+Colis::Colis(int id, double poid, const string& villeArivee, const string& dateAjout, int statut, int idTrajet, int idDispatcher) {
     this->villeArrivee = villeArivee;
     this->dateAjoutColis = dateAjout;
     this->poid = poid;
     this->idColis = ++nbColisTotal;
     this->statut = COLIS_CREATION;
     this->trajet = Trajet::findTrajetById(idTrajet);
+    this->dispatcher = Dispatcher::findDispatcherById(idDispatcher);
 }
 
 
@@ -124,7 +139,7 @@ void Colis::setTrajet(Trajet *trajet) {
     Colis::trajet = trajet;
     updateTrajet();
 }
- vector<Colis *> Colis::getColisAttente(){
+vector<Colis *> Colis::getColisAttente(){
     QSqlQuery query;
     vector<Colis*> list;
     query.prepare( "SELECT * FROM colis WHERE idTrajet is Null " );
@@ -136,10 +151,20 @@ void Colis::setTrajet(Trajet *trajet) {
         string date = query.value(3).toString().toStdString();
         int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
         int idTrajet = query.value( 5 ).toDouble();
-        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet);
+        int idDispatcher = query.value( 6 ).toInt();
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
         list.push_back(c);
     }
      return list;
+}
+
+Dispatcher *Colis::getDispatcher() const {
+    return dispatcher;
+}
+
+void Colis::setDispatcher(Dispatcher *dispatcher) {
+    Colis::dispatcher = dispatcher;
+    updateDispatcher();
 }
 
 

@@ -72,6 +72,8 @@ Chauffeur::modifierTrajet(const Trajet* t, const string& villeDepart, const stri
 
 Chauffeur::Chauffeur(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, ROLE_CHAUFFEUR) {
 }
+Chauffeur::Chauffeur(int idChauffeur, const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(idChauffeur, nom, prenom, adresse, email, password, ROLE_CHAUFFEUR) {
+}
 
 Trajet * Chauffeur::getTrajetByIndex(int index) {
     return listeTrajet.at(index);
@@ -235,11 +237,59 @@ Chauffeur * Chauffeur::constructChauffeurFromId(int id) {
     string nom = query.value(3).toString().toStdString();
     string email = query.value(4).toString().toStdString();
     string password = query.value(5).toString().toStdString();
-    Chauffeur * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
+    auto * chauffeur = new Chauffeur(nom,prenom,adresse,email,password);
     chauffeur->setIdPersonne(idPersonne);
 
     return chauffeur;
 }
+
+bool Chauffeur::loadTrajetFromDB() {
+    QSqlQuery query;
+    query.prepare( "SELECT * FROM trajet WHERE idPersonne = :id");
+    query.bindValue(":id", QVariant(idPersonne));
+
+    if(!query.exec() ){
+        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(idPersonne));
+        return false;
+    }
+    while(query.next()){
+        int idChauffeur = query.value( 0 ).toInt();
+        string VilleDepart = query.value(1).toString().toStdString();
+        string villeArrivee = query.value(2).toString().toStdString();
+        string horaireDepart = query.value(3).toString().toStdString();
+        string horaireArrivee = query.value(4).toString().toStdString();
+        double poid = query.value(5).toDouble();
+        double prix = query.value(5).toDouble();
+        int idTrajet = query.value(5).toInt();
+        int statut = query.value(5).toInt();
+        auto *t = new Trajet(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
+        listeTrajet.push_back(t);
+    }
+    return true;
+}
+
+vector<Chauffeur *> Chauffeur::getListAllChauffeur() {
+    vector<Chauffeur *> list;
+    QSqlQuery query;
+    query.prepare( "SELECT * FROM personne WHERE statut = 'chauffeur'");
+
+    if(!query.exec() ){
+        Errors::appendError("Pas de chauffeur");
+    }
+    while(query.next()){
+        int idPersonne = query.value( 0 ).toInt();
+        string adresse = query.value(1).toString().toStdString();
+        string prenom = query.value(2).toString().toStdString();
+        string nom = query.value(3).toString().toStdString();
+        string email = query.value(4).toString().toStdString();
+        string password = query.value(5).toString().toStdString();
+        string role = query.value(6).toString().toStdString();
+        auto* c = new Chauffeur(idPersonne,nom,prenom,adresse,email,password);
+        list.push_back(c);
+    }
+    return list;
+}
+
 
 
 

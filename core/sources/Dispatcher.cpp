@@ -7,6 +7,9 @@
 Dispatcher::Dispatcher(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(nom, prenom, adresse, email, password, ROLE_DISPATCHER) {
 
 }
+Dispatcher::Dispatcher(int id, const string& nom, const string& prenom, const string& adresse, const string& email, const string& password) : Personne(id,nom, prenom, adresse, email, password, ROLE_DISPATCHER) {
+
+}
 
 bool Dispatcher::remplir(int n) {
     random_device rseed;
@@ -20,6 +23,7 @@ bool Dispatcher::remplir(int n) {
         listeColis.push_back(
                 colis.get()
         );
+        colis->setDispatcher(this);
     }
 
     return true;
@@ -59,6 +63,7 @@ bool Dispatcher::attribueColis(Colis *c) {
     c->setStatut(COLIS_SOLICITATION_LIVRAISON);
     listeColis.push_back(c);
 
+
     return true;
 }
 
@@ -86,4 +91,65 @@ Dispatcher * Dispatcher::constructDispatcherFromId(int id) {
     return dispatcher;
 }
 
+vector<Dispatcher *> Dispatcher::getListAllDispatcher() {
+    vector<Dispatcher *> list;
+    QSqlQuery query;
+    query.prepare( "SELECT * FROM personne WHERE statut = 'dispatcher'");
 
+    if(!query.exec() ){
+        Errors::appendError("Pas de dispatcher ");
+    }
+    while(query.next()){
+        int idPersonne = query.value( 0 ).toInt();
+        string adresse = query.value(1).toString().toStdString();
+        string prenom = query.value(2).toString().toStdString();
+        string nom = query.value(3).toString().toStdString();
+        string email = query.value(4).toString().toStdString();
+        string password = query.value(5).toString().toStdString();
+        string role = query.value(6).toString().toStdString();
+        auto* d = new Dispatcher(idPersonne,nom,prenom,adresse,email,password);
+        list.push_back(d);
+    }
+    return list;
+}
+
+vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
+    QSqlQuery query;
+    vector<Colis*> list;
+    query.prepare( "SELECT * FROM colis WHERE idDispatcher = :id" );
+    query.bindValue(":id", QVariant(idPersonne));
+    if(!query.exec() ){
+    }while(query.next()){
+        int idColis = query.value( 0 ).toInt();
+        double poids = query.value( 1 ).toDouble();
+        string villeArrive = query.value(2).toString().toStdString();
+        string date = query.value(3).toString().toStdString();
+        int statut = query.value( COLIS_LIVRAISON_FAITE ).toInt();
+        int idTrajet = query.value( 5 ).toDouble();
+        int idDispatcher = query.value( 6 ).toInt();
+        auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
+        list.push_back(c);
+    }
+    return list;
+}
+Dispatcher *Dispatcher::findDispatcherById(int id) {
+    QSqlQuery query;
+    query.prepare( "SELECT * FROM personne WHERE idPersonne = :id and statut = `dispatcher`");
+    query.bindValue(":id", QVariant(id));
+
+    if(!query.exec() ){
+        Errors::appendError("Pas d'utilisateur avec l'id: " + to_string(id));
+    }
+    if(query.next()){
+        int idPersonne = query.value( 0 ).toInt();
+        string adresse = query.value(1).toString().toStdString();
+        string prenom = query.value(2).toString().toStdString();
+        string nom = query.value(3).toString().toStdString();
+        string email = query.value(4).toString().toStdString();
+        string password = query.value(5).toString().toStdString();
+        string role = query.value(6).toString().toStdString();
+        unique_ptr<Dispatcher> p = std::make_unique<Dispatcher>(idPersonne,nom,prenom,adresse,email,password);
+        return p.get();
+    }
+    return nullptr;
+}
