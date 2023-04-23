@@ -14,23 +14,18 @@ AdminPanel::AdminPanel(QWidget *parent) :
 
     QObject::connect(ui->addUsrButton, &QPushButton::clicked, this, &AdminPanel::addPlayerButton);
     QObject::connect(ui->resetUserButton, &QPushButton::clicked, this, &AdminPanel::clearButton);
-
     QObject::connect(ui->listChauffeurs, &QListWidget::itemClicked, this, &AdminPanel::selectChauffeur);
     QObject::connect(ui->listTrajets, &QListWidget::itemClicked, this, &AdminPanel::selectTrajet);
     QObject::connect(ui->selectDispatcher, &QComboBox::textActivated, this, &AdminPanel::selectDispacher);
-
     QObject::connect(ui->packetQueue, &QListWidget::itemClicked, this, &AdminPanel::selectColisDispatcher);
     QObject::connect(ui->unattributedPacketList, &QListWidget::itemClicked, this, &AdminPanel::selectColis);
-
     QObject::connect(ui->givePacketButton, &QPushButton::clicked, this, &AdminPanel::attribuerColisBoutton);
 
     ui->statChauffeur->setReadOnly(true);
     ui->statDispatcher->setReadOnly(true);
     ui->statTrajet->setReadOnly(true);
-
     ui->givePacketButton->setDisabled(true);
 
-    AdminPanelInfo::init();
     loadChauffeurList();
     loadDispatcherList();
     loadListeColis();

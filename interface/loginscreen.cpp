@@ -37,6 +37,7 @@ void LoginScreen::connectClicked()
         if (role == ROLE_ADMIN) {
             hide();
             AdminPanelInfo::setLogged(id);
+            AdminPanelInfo::init();
             AdminPanel * adminUI = new AdminPanel();
             adminUI->show();
             close();
