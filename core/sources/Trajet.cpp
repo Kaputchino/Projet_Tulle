@@ -319,6 +319,21 @@ string Trajet::translateStatus(int status) {
     return -1;
 }
 
+bool Trajet::removeFromDB(){
+    QSqlQuery query;
+    query.prepare( "DELETE FROM trajet WHERE idTrajet = :id" );
+    query.bindValue(":id", QVariant(idTrajet));
+    if(query.exec() ){
+        for(int i = 0; i < listeColis.size(); i++){
+            listeColis.at(i)->setTrajet(nullptr);
+            listeColis.at(i)->setStatut(COLIS_CREATION);
+        }
+        listeColis.clear();
+        return true;
+    }
+    return false;
+}
+
 
 
 
