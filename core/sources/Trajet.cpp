@@ -73,8 +73,6 @@ bool Trajet::addIntoDb() {
     query.bindValue(":idPersonne", QVariant(idChauffeur));
     query.exec();
 
-    qDebug() << query.lastError();
-
     this->idTrajet = query.lastInsertId().toInt();
     return true;
 }
