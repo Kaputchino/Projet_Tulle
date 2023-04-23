@@ -17,7 +17,7 @@ using namespace std;
 //
 
 vector<string> listeVille = {"Tours","St-Pierre-Des-Corps","Tulle", "Strasbourg","Mulhouse",
-                             "Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Breuschwickersheim","Geispolsheim","Agullana"};
+                             "Breuschwickersheim","Illkirch-Graffenstaden","Oberschaeffolsheim","Souffelweyersheim","Wickerschwihr","Geispolsheim","Agullana"};
 vector<Chauffeur *> listeChauffeur;
 
 QSqlDatabase db;
