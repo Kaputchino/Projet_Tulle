@@ -6,9 +6,12 @@
 class ChauffeurPanelInfo {
 private:
     inline static Chauffeur * logged;
+    inline static Trajet * selectedTrajet;
 public:
     static Chauffeur * getLogged();
     static void setLogged(int idChauffeur);
+    static Trajet * getSelelectedTrajet();
+    static Trajet * setSelectedTrajet(Trajet * trajet);
 };
 
 

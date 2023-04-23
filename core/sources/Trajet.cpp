@@ -248,7 +248,6 @@ vector<Colis *> Trajet::getListeColis() {
 }
 vector<Colis *> Trajet::loadColisOfTrajetFromDB(){
     QSqlQuery query;
-    vector<Colis*> list;
     query.prepare( "SELECT * FROM colis WHERE idTrajet = :id" );
     query.bindValue(":id", QVariant(idTrajet));
     if(!query.exec() ){
@@ -261,9 +260,9 @@ vector<Colis *> Trajet::loadColisOfTrajetFromDB(){
         int idTrajet = query.value( 5 ).toDouble();
         int idDispatcher = query.value( 6 ).toInt();
         auto* c = new Colis(idColis, poids, villeArrive, date, statut, idTrajet, idDispatcher);
-        list.push_back(c);
+        listeColis.push_back(c);
     }
-    return list;
+    return listeColis;
 }
 string Trajet::printTrajet(){
     string str;

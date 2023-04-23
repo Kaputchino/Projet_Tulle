@@ -173,7 +173,7 @@
     <property name="title">
      <string>Colies</string>
     </property>
-    <widget class="QListView" name="listColis">
+    <widget class="QListWidget" name="listColis">
      <property name="geometry">
       <rect>
        <x>0</x>

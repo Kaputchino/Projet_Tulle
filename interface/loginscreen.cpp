@@ -43,6 +43,7 @@ void LoginScreen::connectClicked()
             close();
         } else if (role == ROLE_CHAUFFEUR) {
             hide();
+            ChauffeurPanelInfo::setLogged(id);
             ChauffeurPanel * chauffeurUI = new ChauffeurPanel();
             chauffeurUI->show();
             close();

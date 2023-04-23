@@ -2,6 +2,7 @@
 #define CHAUFFEURPANEL_H
 
 #include <QMainWindow>
+#include "core/headers/chauffeurPanelInfo.h"
 
 namespace Ui {
 class ChauffeurPanel;
@@ -24,7 +25,6 @@ private slots:
     void ajouterTrajet();
     void modifierTrajet();
     void supprimmerTrajet();
-    void selectionnerColis();
     void selectionnerTrajet();
     void commencerLivraison();
     void finirLivraison();
