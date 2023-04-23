@@ -54,6 +54,8 @@ set(CHAUFFEUR_UI
         interface/chauffeurpanel.cpp
         interface/chauffeurpanel.h
         interface/chauffeurpanel.ui
+        core/headers/chauffeurPanelInfo.h
+        core/sources/chauffeurPanelInfo.cpp
         )
 
 set(DISPATCHER_UI
