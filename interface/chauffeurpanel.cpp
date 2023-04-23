@@ -16,6 +16,7 @@ ChauffeurPanel::ChauffeurPanel(QWidget *parent) :
     QObject::connect(ui->validateTrajetButton, &QPushButton::clicked, this, &ChauffeurPanel::validerTrajet);
     QObject::connect(ui->addTraButton, &QPushButton::clicked, this, &ChauffeurPanel::ajouterTrajet);
     QObject::connect(ui->editTraButton, &QPushButton::clicked, this, &ChauffeurPanel::modifierTrajet);
+    QObject::connect(ui->delTraButton, &QPushButton::clicked, this, &ChauffeurPanel::supprimmerTrajet);
 
     setStateButtons();
 
