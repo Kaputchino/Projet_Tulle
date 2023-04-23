@@ -13,7 +13,7 @@ void initDB::linkDB() {
         throw std::runtime_error("Can't connect to DB.\nMake sure the absolute path in \"config\" is valid.");
     }else{
         QSqlQuery query;
-        query.prepare("SELECT * FROM TRAJET");
+        query.prepare("SELECT * FROM trajet");
         if(!query.exec()){
             cout << "Can't Execute Query !";
         }

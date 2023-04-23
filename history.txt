@@ -1,0 +1,1780 @@
+commit 21f6560ec6247f2dcd0c709d7761d04fe25f596e
+Merge: 23bedac b9ddb97
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 22 23:24:59 2023 +0200
+
+    Merge pull request #42 from Kaputchino/main
+    
+    fix
+
+commit b9ddb97c7aeccb4f4acf789d421557aa638abc2c
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 23:23:09 2023 +0200
+
+    fix
+
+commit 23bedac1043173b1aa7df193f6d1b8560f085576
+Merge: 0d65fb6 1d61c3f
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 22 23:19:23 2023 +0200
+
+    Merge pull request #41 from Kaputchino/main
+    
+    merge
+
+commit 1d61c3f21cbba44f5843105022ac02509ccc710b
+Merge: 0d04bf6 7733759
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 23:15:05 2023 +0200
+
+    Merge remote-tracking branch 'origin/main'
+    
+    # Conflicts:
+    #       core/headers/Dispatcher.h
+    #       core/sources/Dispatcher.cpp
+
+commit 0d04bf6ed9072978faa7bdab5ab632becb67ee31
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 23:12:23 2023 +0200
+
+    clarification
+
+commit 7733759893d4e138ceda5690a2c24ca03b66f9a7
+Merge: d29312d 0d65fb6
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 22 23:08:45 2023 +0200
+
+    Merge pull request #40 from Kaputchino/andreasDev
+    
+    merge Andreas dev
+
+commit 0d65fb6e81f697ec3957e71f9114e235d2a54b0f
+Merge: 5cd5f30 d29312d
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 22 23:08:28 2023 +0200
+
+    Merge branch 'main' into andreasDev
+
+commit 5cd5f3009f546d5160987d8e14e0e3e50ea4f243
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 23:06:37 2023 +0200
+
+    print 6
+
+commit ddefe0ac9f31a9474eb8e975473b5acddfe2b40c
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 22:59:23 2023 +0200
+
+    print 4
+
+commit d29312d68fb7eecd5ad7a46f68d131165c56f46f
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 22:58:52 2023 +0200
+
+    fix trajet
+
+commit a89fb79693ea8834b5b1e092314befb5d01a69a8
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 22:55:51 2023 +0200
+
+    print 3
+
+commit 041639413ceaf4ff5da40b93b15c272e4ac2f1ce
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 22:50:53 2023 +0200
+
+    print 2
+
+commit d7fd04dbed20b3448e886cb85ff989c6cbb18d65
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 22:46:03 2023 +0200
+
+    print 1
+
+commit d141b9e4c2d8c6f9e47ecebc4b6c8bda033244d6
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 22:38:48 2023 +0200
+
+    Revert "remove dead code"
+    
+    This reverts commit f157267ba13a82de145b50ffa641a8c7cafda885.
+
+commit f157267ba13a82de145b50ffa641a8c7cafda885
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 22:36:25 2023 +0200
+
+    remove dead code
+
+commit d7fed3217d15c9f773eb2a9f79113ee7f9e52e55
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 22:35:43 2023 +0200
+
+    ww
+
+commit 01c7025f5d0ca854756998defdb134487f5735b6
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 22:35:10 2023 +0200
+
+    affichage chauffeur
+
+commit b682db6047366ac6c926a1e27081c2157a27007c
+Merge: fd96307 df50d9a
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 22:25:47 2023 +0200
+
+    Merge branch 'main' into andreasDev
+
+commit df50d9ae9f5ae1a1d03a3d5d1d8f8579c5d529e1
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 21:59:16 2023 +0200
+
+    fix db / dispatcher.cpp
+
+commit aa61fdf8eced1e00c97e3937dffc5afe91920fae
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 21:45:27 2023 +0200
+
+    remembers selected chauffeurs
+
+commit cfb90c13e5bc28f54b6f4e0a331e3fe963a34b31
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 21:41:05 2023 +0200
+
+    fixed crash
+
+commit b255d714107c6807f92b967daec9ed59f92991c5
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 20:37:44 2023 +0200
+
+    loading colis object
+
+commit 5b251c0997d41dc606bfb1aedd62abbf943e1d23
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 20:35:35 2023 +0200
+
+    loading chauffeur object
+
+commit 4246cd3d38a1d87bb637b85a8e70611a4b30b49a
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 20:10:35 2023 +0200
+
+    add prototypes
+
+commit 92df5a23d7944346dae15381382e1cf002dc0527
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 20:04:00 2023 +0200
+
+    full index memory
+
+commit 96d11942b962b1f403d32dd830f7fb4670086923
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 19:58:54 2023 +0200
+
+    keep last select item
+
+commit 4051ff3730edf511d4183cca6bc1165f96cc08ff
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 19:52:15 2023 +0200
+
+    quelques update
+
+commit fd963074d994face8762a0046b1b36fec9fd529f
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 19:34:03 2023 +0200
+
+    test
+
+commit 2693cd34d610897a212ecbc0785b095dcfebb5e9
+Merge: f9e5107 68289ed
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 22 19:32:35 2023 +0200
+
+    Merge pull request #38 from Kaputchino/main
+    
+    merge
+
+commit 68289ed252e3f13d196def2266bf12d360620567
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 17:44:31 2023 +0200
+
+    updating lists
+
+commit 801f4502c81d9776a109b8c5148a5c2b45682edc
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 17:04:49 2023 +0200
+
+    fix requetes
+
+commit 97f0ab4a4eaf7f41701c8e4f9fad07d05a16cdad
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 16:59:47 2023 +0200
+
+    petits fixs
+
+commit 729a9cde43011188043fbc859e948d2707ab5500
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 16:36:45 2023 +0200
+
+    fix AA & DB
+
+commit 47fd86d14f962d39fe37f4ecb9f36436a1a6c35d
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 16:35:46 2023 +0200
+
+    fix AA
+
+commit 0cd92c5e973cbdd16fffd65c01c1a6c19030f374
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 22 15:29:17 2023 +0200
+
+    Update README.md
+
+commit 1d57a0a0677197073e66c4503efeababa28c66b2
+Merge: 126bd63 f9e5107
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 22 15:25:26 2023 +0200
+
+    Merge pull request #37 from Kaputchino/andreasDev
+    
+    plein de modif
+
+commit f9e51077f5292d21bf76a778e59d7555227d5786
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 15:24:04 2023 +0200
+
+    update dispatcher
+
+commit bf9e5566093b1fa8f04ae1b2b7f2a590ff08726c
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 15:20:20 2023 +0200
+
+    microptimisation + correction update
+
+commit c34592159c5802466334bcada0b6ac9070cbc8a0
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 15:18:56 2023 +0200
+
+    correction colis
+
+commit a3711464dd3df709ac1ddce6f57c8001cf1acda2
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 15:12:36 2023 +0200
+
+    updateDIspatcher et corection d'update into db
+
+commit 6e1930c89c9e34db755385a8f07a135e224cd709
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 15:07:42 2023 +0200
+
+    ajout dispatcher
+
+commit 6e01f3e0ddbb19ee2b3322be1dbc352e27d14ca8
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 15:05:46 2023 +0200
+
+    supression ancienne image
+
+commit f0f57d8a56bb5fa88268351c7547cc3884eee423
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 14:59:57 2023 +0200
+
+    dispatcher get list colis
+
+commit 0ef4ac13bc93b401cd32a918a90f78ab080d251a
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 14:55:49 2023 +0200
+
+    dispatcher constructeur et dispatcher import
+
+commit b6c44e1f8b5af226db86c28990dbfbe8d3e6ea02
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 14:42:40 2023 +0200
+
+    mise a jours db
+
+commit 492f62c6ef1e911904977c1f663e95712c251c23
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 14:40:39 2023 +0200
+
+    script sql ajout idDispatcher
+
+commit 9e38825298a18be16b542c0f428dd49fead28d45
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 12:42:41 2023 +0200
+
+    load colis from bd
+
+commit 8960c11b5ba2bbe11ec08f0d9a09b96b00d51601
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 12:30:43 2023 +0200
+
+    liste de tout les chauffeurs + constructeur chauffeur avec id
+
+commit b35fbe414e7b7ef7f4727f4cd9a852b67997ad89
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 22 12:19:26 2023 +0200
+
+    supression bd,  mircoptimisation et loadTrajet
+
+commit 2cf6e11fff083040bde1a90a3cf1957809ffa4a6
+Merge: 3f29076 126bd63
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 22 12:06:40 2023 +0200
+
+    Merge pull request #36 from Kaputchino/main
+    
+    merge
+
+commit 126bd63d225829af53b66dcdd1dbc0715a8d93b9
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 04:29:06 2023 +0200
+
+    new sql
+
+commit 74f7178fd594a7675eb765cb448db8b6d3507359
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 04:23:40 2023 +0200
+
+    woops
+
+commit b114b6277063435416c917633c65f288a12beec4
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 04:16:55 2023 +0200
+
+    update db
+
+commit ff49b0f5963a8398f05a1a43a32499031cd2f7fe
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 03:34:16 2023 +0200
+
+    macros
+
+commit 9746ad2825f928a3b32735779b0ecec38bad699a
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 22 03:29:43 2023 +0200
+
+    ajout de gens.....
+
+commit c556fbbed587785c2cabe7098add922a976b2930
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 23:20:35 2023 +0200
+
+    ajout constante
+
+commit fc046f777fc1cf8825d98b8fb3c078dc5f60af34
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 20:06:34 2023 +0200
+
+    dead code
+
+commit 60a8bc2ee5af414ac12540b4b0cf248212cf6f3d
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 19:13:43 2023 +0200
+
+    dernieres liens
+
+commit 76a88e8492fb8d613f1273ab629160316ae3c27a
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 19:08:59 2023 +0200
+
+    ajout derniere ui
+
+commit 2fa9cd03721fa31e32734d78d65068c990205caf
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 19:02:06 2023 +0200
+
+    modif ui + sql
+
+commit c1ff6a1f75576daffa4ceb862b8c9896df4d882a
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 18:54:12 2023 +0200
+
+    modif ui
+
+commit 9ef7c9b4ddcf7f72fbd59e3c9fd3cf7481f3c3a5
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 05:21:58 2023 +0200
+
+    interface chauffeur
+
+commit dcc1feaf9f132533fe34f70428719bc939571024
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 05:17:32 2023 +0200
+
+    interface chauffeur (a renommer)
+
+commit 48cac5077118a233e8ba32497d6061144b0ae46a
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 04:39:33 2023 +0200
+
+    changement ui
+
+commit db3f7cb60e83cb66552f180bed691ad31c146435
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 04:31:57 2023 +0200
+
+    ui admin :(
+
+commit ef06e852c96c82b3a2f8e23ffd58132b609bcc10
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 21 03:45:55 2023 +0200
+
+    :(
+
+commit a3345e0173498709697906fda46d07da755bcfa5
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 23:44:21 2023 +0200
+
+    fixed hashing / added loging
+
+commit 664c8f128041b81503088b6c62939d953cd8b50b
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 23:20:27 2023 +0200
+
+    unique ptr
+
+commit 83c039ae01cfef73eb757e55ad116187aad71827
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 23:18:51 2023 +0200
+
+    connection
+
+commit 9759e80736e227f2747b9381169c1fe77f72b5a1
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 23:09:47 2023 +0200
+
+    quick clean up
+
+commit ce32f580143fa9920aa07b9db6287a197d4f5ec0
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 23:06:33 2023 +0200
+
+    fixed another memory leak!
+
+commit d2f1ee15c94807060bcd7db8cbeaa94c5e99d037
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 23:03:55 2023 +0200
+
+    fixed another memory leak
+
+commit e30edd736b467b4096fd231e1f8a3df3c2c59a1e
+Merge: 067b7ac e0aca47
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 23:00:26 2023 +0200
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 067b7ac105e63482260db6c73f6098b7ae42133f
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 23:00:19 2023 +0200
+
+    fixed memory leak
+
+commit e0aca470ecc81fb8e1fe7334e0f00d861d5269a0
+Merge: e620560 3f29076
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Thu Apr 20 22:56:33 2023 +0200
+
+    Merge pull request #35 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit 3f290761995587f72e716c7fb36874d54515f098
+Merge: 0f28120 7724711
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 22:55:48 2023 +0200
+
+    Merge branch 'andreasDev' of https://github.com/Kaputchino/Projet_Tulle into andreasDev
+
+commit 0f2812086921d8618e9193ecac542278eb29b0f8
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 22:55:45 2023 +0200
+
+    correction pointeur
+
+commit 7724711a477df87781cb02fe132673e8619ebcfa
+Merge: a8ae159 e620560
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Thu Apr 20 22:42:13 2023 +0200
+
+    Merge pull request #34 from Kaputchino/main
+    
+    h
+
+commit e62056091a2778d473c6dafc48dfeba357867250
+Merge: 301e125 fe78d41
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 22:36:31 2023 +0200
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 301e1253e7349450a023ae94f3c054eea49a07f6
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 22:36:22 2023 +0200
+
+    proper use of connect
+
+commit fe78d413ad1e2491536fdacc8e4512e4a81c5b4a
+Merge: adc529f a8ae159
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Thu Apr 20 20:39:05 2023 +0200
+
+    Merge pull request #33 from Kaputchino/andreasDev
+    
+    plein d'ajout sql
+
+commit a8ae159fcb301adee5b4c301321d523acba8191d
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 20:36:42 2023 +0200
+
+    hashing
+
+commit 6c940d6d6750a7f1fc262b4972fd9f69ecb23866
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 20:31:57 2023 +0200
+
+    login
+
+commit cbbd6916b5d60641a8f054dbd85360e3d02a6dd4
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 20:17:30 2023 +0200
+
+    trajet
+
+commit 1462311e4fdc1814bd5e66db035582b8a8dd7692
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 20:06:35 2023 +0200
+
+    deplacement
+
+commit 5b17e5a323c655a9669cc16923e2b94f4ef5ee42
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 19:57:46 2023 +0200
+
+    constructeur personne
+
+commit 0942d3e10c1a5482c433559013a67838228b8f89
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 19:26:10 2023 +0200
+
+    sql 1
+
+commit adc529f8967f586d76ef967322dc197bc00af12a
+Merge: 12d4fa4 d84f05b
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Thu Apr 20 18:55:49 2023 +0200
+
+    Merge pull request #31 from Kaputchino/andreasDev
+    
+    bug de merge
+
+commit d84f05b7be5acec62147882f3f322dd6cf541dcd
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Thu Apr 20 18:55:32 2023 +0200
+
+    correction
+
+commit ffe739cdc26fa261874a3315ea4023adf2923a20
+Merge: 1403ff2 12d4fa4
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Thu Apr 20 18:54:16 2023 +0200
+
+    Merge pull request #30 from Kaputchino/main
+    
+    merge
+
+commit 12d4fa4c7baf9495aad4bd5db5a29a549281aefc
+Merge: fd4995b 1403ff2
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Thu Apr 20 18:54:11 2023 +0200
+
+    Merge branch 'andreasDev' into main
+
+commit fd4995bbea59f37e51a6dd11155d5872c3af83b3
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 18:29:10 2023 +0200
+
+    clean up
+
+commit cd776412dba772fcb6b281705668a6e5296a698f
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 18:08:55 2023 +0200
+
+    c'est moche
+
+commit b8c396f0ecff14c1e6152ddd00c3a190a7f23414
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 17:23:34 2023 +0200
+
+    show login page
+
+commit 05c1c9516618a5047f5b741fc4c03ad1e8570f8b
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Thu Apr 20 17:13:33 2023 +0200
+
+    gestion errors db
+
+commit 1403ff25fc98ad3a87a2828c79504974140a35c6
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 23:34:38 2023 +0200
+
+    jpp
+    
+    c++ go to hell man
+
+commit 66d79f09fdc82c385e4403227649c11fe98ddc09
+Merge: 0af8334 a17ecf7
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 23:18:52 2023 +0200
+
+    Merge pull request #29 from Kaputchino/andreasDev
+    
+    correction test
+
+commit a17ecf71b0320b2e95388797ca016cf97cbb92dc
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 23:18:12 2023 +0200
+
+    correction test
+
+commit 0af833433e16aeae6bb03e4312adb335def48837
+Merge: d906974 835a706
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 23:10:34 2023 +0200
+
+    Merge pull request #28 from Kaputchino/andreasDev
+    
+    méthode pour se connecter
+
+commit 835a70640c79bba3ba55dcc65b1e84a3fa2ccb45
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 23:08:37 2023 +0200
+
+    commentaire ancien main
+
+commit d89d7a42c2e2b17766bfc517a11bf68cc7f1161f
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 23:04:04 2023 +0200
+
+    fixed
+
+commit 38026bf17cb1e06c515800941d9d1eaf0bc957ab
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 22:39:40 2023 +0200
+
+    supression
+
+commit 6eda4a5957db6cd8b364140438f3dba119236edf
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 19:59:44 2023 +0200
+
+    supression de commentaire inutile
+
+commit 16b4a6ac80b067c49d45c101857527e098c81fe6
+Merge: dc4eb09 ac8b75c
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 19:58:47 2023 +0200
+
+    Merge branch 'andreasDev' of https://github.com/Kaputchino/Projet_Tulle into andreasDev
+
+commit dc4eb09778002a83fbb0b3617ffe536b23107ec0
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 19:58:36 2023 +0200
+
+    ajout du systeme d'erreur
+
+commit ac8b75c608845494572552d36eddf8b1c4876b11
+Merge: 1e8fa00 d906974
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 19:57:58 2023 +0200
+
+    Merge branch 'main' into andreasDev
+
+commit 1e8fa00b8a9afa551cfbfcbc4ed7ffa1944d91b4
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 19:55:30 2023 +0200
+
+    méthode pour se connecter
+    
+    j'ai besoin d'aide
+
+commit d906974f64068115a9af2faf8f66fe03ddbb265f
+Merge: 177b373 8b54e33
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 19:09:48 2023 +0200
+
+    Merge pull request #27 from Kaputchino/andreasDev
+    
+    j'ai pas encore tester donc je le merge pas tout de suite
+
+commit 8b54e3368e7495c296f4d434d18c7ccaac39b06d
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 19:08:23 2023 +0200
+
+    god damn yes fuck ursel c++
+
+commit 66a6cdb22c786c75aaab69809a7d574d967b7bec
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 19:05:29 2023 +0200
+
+    go fuck urself c++
+
+commit 40dd79b8aecd241378daaca3ae1c2058b3d61f31
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 18:25:04 2023 +0200
+
+    woops x3
+
+commit 7b57db99b1cf94c5f03347ab8dfae657a6ab987e
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 18:20:57 2023 +0200
+
+    harmo import
+
+commit 6b25d95d6d601c4ab99716ed6a151c221549202f
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 18:04:54 2023 +0200
+
+    remove conf.h
+
+commit 5b65260b687f96f34d158868e1a920e4028b3d59
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 17:52:09 2023 +0200
+
+    fix id
+
+commit 5e97677e1de25d74c61c05cd9adaa44df4e44705
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 17:05:43 2023 +0200
+
+    ajout personne db
+
+commit 4ce1d6bc583d2e468345cf8889d3ce10538acfc2
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:51:40 2023 +0200
+
+    fusion idPersonne idChauffeur
+
+commit a6ef9998f1a4d406f8b6997b1aa5dbf96ef1d2d4
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:47:17 2023 +0200
+
+    add update
+
+commit fd163beda5f5bc703634b14f2b01842d58c9695a
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:45:18 2023 +0200
+
+    config trajet db
+
+commit 5902cc61dcd117d8f5025661f1b9e306fd2750bd
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:35:43 2023 +0200
+
+    add into and correction de faute  d'ortho
+
+commit 72c3620485a1c4d608040e0405ff81d76c17ba8d
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:21:33 2023 +0200
+
+    ajout des updates
+
+commit 062103db7516ef446879ce2b2f901b166c27898b
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:20:01 2023 +0200
+
+    reorga
+
+commit 177b373ab3a04bcf6f62b8c47715f0a2c90c15dd
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 16:19:47 2023 +0200
+
+    a
+
+commit eee3fcdfa4887682be11680a8450c44164007acc
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:19:07 2023 +0200
+
+    ajout update
+
+commit dfb40c4c0757da2551cdf32092db7f2ff9ad6e19
+Merge: afe117d dcb71af
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:09:18 2023 +0200
+
+    Merge branch 'andreasDev' of https://github.com/Kaputchino/Projet_Tulle into andreasDev
+
+commit dcb71afc68f0868b370468f5fbd0b471288e12b8
+Merge: 6d0e399 2c484be
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 16:09:02 2023 +0200
+
+    Merge pull request #26 from Kaputchino/main
+    
+    rename
+
+commit afe117d9bc710940a0da3088cdaaf732381fbb77
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 16:08:29 2023 +0200
+
+    can add colis into db
+
+commit 2c484be0c72bedd8b4d2d487070ab1eb620d2d0d
+Merge: 9d8e1e2 13cc99e
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 16:06:21 2023 +0200
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 9d8e1e2626b2c8eb252c7d0c6a871df849eab547
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 16:00:18 2023 +0200
+
+    renamed main
+
+commit 13cc99e7c434da4f3ca1c8fffff2c626fa416070
+Merge: ac3b88a 6d0e399
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 15:49:51 2023 +0200
+
+    Merge pull request #25 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit 6d0e39978ec1d17fe8df06dffb38bb14e1348edd
+Merge: 204fea9 ac3b88a
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 15:49:34 2023 +0200
+
+    Merge branch 'main' into andreasDev
+
+commit 204fea9db5f5cdef9870f6da9d637d7746e8902a
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 15:47:49 2023 +0200
+
+    connection valide
+
+commit c45cfa827b0c60154bceda7a69837fab347be46b
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 15:46:05 2023 +0200
+
+    config file
+
+commit ac3b88a173908a84890c2bd22670433bad29eb5c
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 15:38:13 2023 +0200
+
+    fix cmake
+
+commit 1c629ee57d861694636697b3f85d52d8afe4b4ec
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 15:37:12 2023 +0200
+
+    push
+
+commit 41d104f621f53bc6ec8dc0511252cf4a38a6200b
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 15:31:43 2023 +0200
+
+    direction sqlite
+
+commit ed54a70be046fde892c615676fcf09c21de06521
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 15:10:42 2023 +0200
+
+    oust
+
+commit 4cd9f17cca0e58ad19ea2785087ba6b4db2d2971
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 15:09:59 2023 +0200
+
+    nique le sql
+
+commit a479c917eca12260624b9cbb8ec979b4bc7ac1f5
+Merge: 6e782ce c03b465
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 12:26:55 2023 +0200
+
+    Merge pull request #24 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit c03b4656636d62321aad973a499f2cc9dfe1a9a6
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 12:26:24 2023 +0200
+
+    modification poid
+    
+    int -> double
+
+commit 3121f638ffd31e989d8586d9bbc9d0bf1fc86dbe
+Merge: 7dccbb1 6e782ce
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 12:23:31 2023 +0200
+
+    Merge pull request #23 from Kaputchino/main
+    
+    image
+
+commit 6e782ce36e5ac4eec189024f561187faed290a57
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 12:22:37 2023 +0200
+
+    ajout  schéma
+
+commit 3675c3728c9bd6bc566e0876465a852d29e7df40
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Wed Apr 19 12:21:24 2023 +0200
+
+    design de la base de donnée
+
+commit 7dccbb1753727f8180b31540f537951428f70b06
+Merge: 7be7053 6b90d50
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Wed Apr 19 12:02:53 2023 +0200
+
+    Merge pull request #22 from Kaputchino/main
+    
+    merge
+
+commit 6b90d50be7958628d2644c01a20b022bd46e32ba
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 01:11:38 2023 +0200
+
+    cmake
+
+commit 00c4d8d78a1785a77f1b8a17740848e464aeaab5
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 00:35:26 2023 +0200
+
+    reverted back to sql
+
+commit 0e2d9801ff9f4ff547e5c5fe851305343827d74f
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Wed Apr 19 00:20:02 2023 +0200
+
+    begone qt mysql
+
+commit 8fc4795e18153d3178feab55fe8ea0dc211cd71c
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 23:41:34 2023 +0200
+
+    import sql drivers
+
+commit 7be7053c120345e0c9a18a03770ea273f13dd140
+Merge: 3009507 2fcfcdf
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Tue Apr 18 23:27:42 2023 +0200
+
+    Merge pull request #21 from Kaputchino/main
+    
+    merge
+
+commit 2fcfcdf4a8a2856c1233828c2d1ebc2c769bfecd
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 23:24:03 2023 +0200
+
+    init errors.
+
+commit 7925dd606f7b9f1201921c9e0bf06ea069f8e28b
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 22:55:49 2023 +0200
+
+    clarification + fixed header / makefile
+
+commit 3a2e63260f256f2352a94eccf3492d04833db7c4
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 22:44:51 2023 +0200
+
+    ajout d'erreurs
+
+commit 0989b6ae3385757b47d9e0657bb6b3c06cb436eb
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 22:33:23 2023 +0200
+
+    harmonized imports + imported Errors
+
+commit 600bb621ca8921bee6b63320ac42b0360a69e0a7
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 22:28:55 2023 +0200
+
+    creating errors static class
+
+commit 149532ca3f3793d8295fadb3c58fed2198874188
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 18:53:34 2023 +0200
+
+    fix email / password + role
+
+commit 500ffddff33c1cec53e61eb9a6756dd3ebf40fc3
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 18:38:08 2023 +0200
+
+    ajout declare livraison
+
+commit d1b88de85e1ec6be0c2e841e63ac68ff748fc4bc
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 18:25:47 2023 +0200
+
+    fix merge
+
+commit 7ce36a43787f0bb94c5dc07e2703a388f698cf3c
+Merge: f9d40ec 82265ce
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 18:23:03 2023 +0200
+
+    Merge remote-tracking branch 'origin/main'
+    
+    # Conflicts:
+    #       core/headers/Admin.h
+
+commit f9d40eca0e1971f10f7c224cc5a27147917bba26
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 18:21:07 2023 +0200
+
+    ajout password
+
+commit 3009507415270f9d369779fd81989de31654369f
+Merge: 869abbe 82265ce
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Tue Apr 18 18:11:40 2023 +0200
+
+    Merge pull request #20 from Kaputchino/main
+    
+    merge
+
+commit 82265ce9de3bb75ff084aa02c1a011a20892330c
+Merge: 212b7cb 869abbe
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Tue Apr 18 18:11:24 2023 +0200
+
+    Merge branch 'andreasDev'
+
+commit 212b7cbcf0cfa03886a0531dca27ef2b0f4dae24
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 17:57:35 2023 +0200
+
+    reorg
+
+commit ece658ea47546f1a1fa4bf851986a6366eb6bae4
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 17:47:16 2023 +0200
+
+    change cmake
+
+commit 8a743d0d1721f34fd76f71939dc0b332970de39c
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 17:33:28 2023 +0200
+
+    fixed cmakelist
+
+commit f2599a2877f439c180b7c8245b68201110bb158b
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 17:29:17 2023 +0200
+
+    version clash
+
+commit 78c907003b6058a6f7fad5adcd16626cf486a27a
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 18 17:24:40 2023 +0200
+
+    cleanup
+
+commit 9567b10986b9128f50ba7c4957d472139a18ff7b
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Mon Apr 17 15:22:07 2023 -0700
+
+    refractor + multiple exe
+
+commit 44f12021ebd8546f0d267d6ddf86d3304041df62
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Mon Apr 17 15:03:49 2023 -0700
+
+    bleh
+
+commit 1d4863fe5b8df706b38dd23264d94cad491dc008
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Mon Apr 17 13:22:33 2023 -0700
+
+    fixed ma merde
+
+commit 7f4fad86bdb79832768a72c9a25b72d427bfe932
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Mon Apr 17 13:17:59 2023 -0700
+
+    renomage main
+
+commit 8eae657b5df8d8faa7ae7b7f3b947cfd9edab2cd
+Author: Gabey <gabriel.berthel@etu.univ-tours.fr>
+Date:   Mon Apr 17 13:03:20 2023 -0700
+
+    status
+
+commit 869abbe43e9170e6eb62e84c0d54da990cf5650c
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Mon Apr 17 21:52:52 2023 +0200
+
+    microptimisation
+
+commit 3879c63b604759c119e6f0a778b64a3557b672de
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Mon Apr 17 21:39:47 2023 +0200
+
+    supression constructeur inutile
+
+commit b1adb9eea78042c497339fa0a293e4f6e8dbb1d1
+Merge: a12e019 d64097c
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 15 14:12:00 2023 +0200
+
+    Merge pull request #18 from Kaputchino/main
+    
+    merge
+
+commit d64097c54bfc770f9bfe143e6cb2ccd7c87753fa
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 14:03:53 2023 +0200
+
+    update gitignore
+
+commit fe0a898dfe088f730b2b10577200fd3444e0e9e5
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 13:55:38 2023 +0200
+
+    clean gitignore
+
+commit 76c1367e7dd169bfa7656745f7d46444ef602886
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 13:54:51 2023 +0200
+
+    clean gitignore
+
+commit 40ada90ff15e88324730eddaed201a0e9261101f
+Author: Gabriel <60087391+g4bey@users.noreply.github.com>
+Date:   Fri Apr 14 13:52:33 2023 +0200
+
+    Update .gitignore
+
+commit ed72039de7bbb57d9d626a8a63494fa567942755
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 13:48:49 2023 +0200
+
+    improved no generation + implemented some warnings
+
+commit 4c292002dcbb8d20f23c7e51c89c001eba3263b6
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 13:24:38 2023 +0200
+
+    Maj de secu / Plus d'encapsulation
+
+commit 7b8cb04873fe0b78191ff4d60748d339b6e708d1
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 13:11:52 2023 +0200
+
+    petit refractor, harmoniasation, ajout verif status + main
+
+commit 71b9ad32fa51438dab33f1813b0326d4efa38081
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 12:35:41 2023 +0200
+
+    fixed main
+
+commit 5fc97bb73115d7953c40cce7c4bcef1dae4107e8
+Merge: f72abc6 d0aae09
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 12:31:32 2023 +0200
+
+    Merge remote-tracking branch 'origin/main'
+
+commit f72abc61c5a4e801348eeaae99a4f0db09e6d006
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Fri Apr 14 12:31:18 2023 +0200
+
+    Ajout + de conditions
+
+commit d0aae0969e2a59f419b0ce30c7322a77f8188a5e
+Merge: 5a71e99 a12e019
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Tue Apr 11 23:27:22 2023 +0200
+
+    Merge pull request #17 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit a12e019a6f22f49957c20e080387ea340819b257
+Merge: e9cc671 214524f
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Tue Apr 11 23:26:52 2023 +0200
+
+    Merge branch 'andreasDev' of https://github.com/Kaputchino/Projet_Tulle into andreasDev
+
+commit 214524f96e3a5ec56cbe06aa56e125d498874636
+Merge: 1327250 5a71e99
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Tue Apr 11 23:25:51 2023 +0200
+
+    Merge pull request #16 from Kaputchino/main
+    
+    merge
+
+commit 9fdeee4d06f23250daf78f6fa4dc5b747abc4396
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 22:10:04 2023 +0200
+
+    Status >= si dans un trajet.
+
+commit 5a71e995aa42e45092be3e0714db7015ca8808b3
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 21:55:32 2023 +0200
+
+    statut colis dispatachage
+
+commit c702f2249d90f725d387d43d6d3bab73dfa57206
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 21:54:12 2023 +0200
+
+    Finition admin
+
+commit bb0a38669af89999b859e8e4c20b730812d9d433
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 17:36:11 2023 +0200
+
+    fixed random generation
+
+commit 5364ac3fd8e724677008f658a85997e211643592
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 17:35:06 2023 +0200
+
+    renamed sharedVariables
+
+commit ac6b472e7159a5d630609baa40655427c9314cfd
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 17:03:43 2023 +0200
+
+    add sahredVariables
+
+commit c8d875fe45b3ee49db185695a9b745d39b7e093f
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 17:00:29 2023 +0200
+
+    update gitignore
+
+commit 3e608eea883dbcaf60cb1e8a9802cfc9c0e22d8a
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 16:59:17 2023 +0200
+
+    update gitignore
+
+commit e69e72aec3387f3d5630ff7c48106956b51d126c
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 16:58:00 2023 +0200
+
+    + de villes
+
+commit 6a55da7d23214112bbfbd3c2f7a96e3025af371e
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 16:53:12 2023 +0200
+
+    Dispatchage fixed!
+
+commit d131e2d047c1600068a558645cdcc59e191b5160
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 16:07:38 2023 +0200
+
+    fix passage trajet pointeur partiel
+
+commit 87d90cdd8c8b438fa2a3947b5ba8c4bc874e3b7a
+Merge: 0316af2 2c9fb65
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 15:56:48 2023 +0200
+
+    Merge remote-tracking branch 'origin/main'
+    
+    # Conflicts:
+    #       Admin.h
+
+commit 0316af261146c40956ca2f3519c999d55c35ead1
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Tue Apr 11 15:56:18 2023 +0200
+
+    increment avant assignation
+
+commit e9cc6719bb4b43474070f7e2e5a1de81bfc09ad3
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 14:36:17 2023 +0200
+
+    correction faute d'orthographe
+
+commit 2c9fb65c302f882d290c19e3dfc23c8e63aa6235
+Merge: 2d198e1 1327250
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sun Apr 9 14:35:23 2023 +0200
+
+    Merge pull request #15 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit 132725037cfa66fc98208578bdf33d9822521d6e
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 14:34:05 2023 +0200
+
+    ajout de ville, retrait de truc n'existant pas
+
+commit 9fdc0a2c75018bd2478f7e5a9e3701ba9fe92a75
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 14:26:51 2023 +0200
+
+    supression constructeur useless
+
+commit acc66fea6331c3becae1a1c78b8e8301368868b3
+Merge: af15d7e 2d198e1
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sun Apr 9 14:24:03 2023 +0200
+
+    Merge pull request #14 from Kaputchino/main
+    
+    merge
+
+commit 2d198e12b547d01c5df6a16327c70b78ccdb81be
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 14:08:21 2023 +0200
+
+    increment avant assignation
+
+commit fc19406c1a499963277a122210102230a99cb9d0
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 14:02:48 2023 +0200
+
+    made static variables extern
+
+commit ca7d3104cc268399479b832b4eefcc4fe756d9bb
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 13:51:29 2023 +0200
+
+    inline to avoid multiple def
+
+commit c04dea28ba248eecd056956a4f65587cd1ab830f
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 13:46:16 2023 +0200
+
+    missing return type
+
+commit 34d209c7ab7e67831ffef8ddffd21dfd9ff236b3
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 13:15:58 2023 +0200
+
+    Update .gitignore
+
+commit aee56b68b3d4786abf408e45731352c14de75dce
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 13:11:30 2023 +0200
+
+    include guard fix
+
+commit 08c816b03266153b54e311565c8579b0d1a8911d
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 13:08:07 2023 +0200
+
+    fix includes
+
+commit 9733b4ab119f2a58d9fa3644f9453ce81efe5d59
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:58:29 2023 +0200
+
+    harmonisation ref
+
+commit d68e736836286f6b3a441fef8df64cc1679352dd
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:45:41 2023 +0200
+
+    references
+
+commit 2ac1cb5887996d1b061d9e1b2cbbe10a8816b661
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:21:17 2023 +0200
+
+    fix coquille
+
+commit 2e019a836a7f1f4abcdc6439261e4bc080afd137
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:20:35 2023 +0200
+
+    Update main.cpp
+
+commit 4be3a6268971777e5bd8d57a0400f6c4a1a8cfb9
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:19:48 2023 +0200
+
+    debut test main
+
+commit af15d7e51771cca8693991e16ce0709f31807cdb
+Merge: b30cbb6 02aa645
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sun Apr 9 12:14:13 2023 +0200
+
+    Merge pull request #13 from Kaputchino/main
+    
+    merge
+
+commit b30cbb60f5bf20a396f0e8ea3b1862d9b634cbf5
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 12:13:40 2023 +0200
+
+    Update README.md
+
+commit 02aa6451eb4c20c04859333db2962fa63d6922b2
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:06:51 2023 +0200
+
+    Plus de main dans trajet
+
+commit e9f0b820e4674d0cb03bcc069d691bb28597da08
+Merge: 764dd9d c34cd3f
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:06:27 2023 +0200
+
+    Merge branch 'main' of https://github.com/Kaputchino/Projet_Tulle
+
+commit 764dd9d899be6a40db96059951c28613eb730429
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:04:52 2023 +0200
+
+    coquille
+
+commit c34cd3f96e31878c9e5896bfe93146f13f7461fa
+Merge: 91c5ea5 3c23b96
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sun Apr 9 12:03:39 2023 +0200
+
+    Merge pull request #12 from Kaputchino/andreasDev
+    
+    opti
+
+commit 3c23b96b65f056f1750a5aa1505da22d14ddb890
+Merge: 099a8c6 9fe4cbc
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 12:03:16 2023 +0200
+
+    Merge branch 'andreasDev' of https://github.com/Kaputchino/Projet_Tulle into andreasDev
+
+commit 099a8c6d04d6315040ff84225534905691d10bec
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 12:03:09 2023 +0200
+
+    optimisation
+
+commit 91c5ea524e2fc16cc7d66eebbdb2640d52a37491
+Merge: b1bde3d f269035
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:02:25 2023 +0200
+
+    Merge branch 'main' of https://github.com/Kaputchino/Projet_Tulle
+
+commit b1bde3db88546f46f5054452063ad409ab3d6fa7
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 12:02:23 2023 +0200
+
+    ajout vrai constructeur
+
+commit f2690358e4ea76c2c44713d920b1ed03cdff2d01
+Merge: f7931af 9fe4cbc
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sun Apr 9 11:57:59 2023 +0200
+
+    Merge pull request #11 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit 9fe4cbc17f0bdc774cbdea55b391d255b91bb4ef
+Merge: cea1ebf f7931af
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sun Apr 9 11:57:53 2023 +0200
+
+    Merge branch 'main' into andreasDev
+
+commit f7931af6c60e8ef6ae8d542e9c8d6219097bb482
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 11:57:15 2023 +0200
+
+    idT rajet incrementation
+
+commit cea1ebf178f986c571a28e4c6ea795e7b6dc56ba
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 11:55:51 2023 +0200
+
+    ajout de stat
+
+commit e7c8fe3debd61ac0f13ca69a4cb46056216688a1
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 11:53:50 2023 +0200
+
+    fix ajout trajet
+
+commit 52922b870b35d9bc1f2a285f8ddbce4b4cd18bd3
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 11:44:23 2023 +0200
+
+    admin part 1
+
+commit 9e134615782509ece9b97570129ca78d0e7d5586
+Merge: 13f48e1 567809a
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sun Apr 9 11:36:27 2023 +0200
+
+    Merge pull request #10 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit 567809a7484fe9f33352dc5b3041c925aecc4318
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sun Apr 9 11:36:02 2023 +0200
+
+    ajout modifier supprimer trajet
+
+commit d02d5cf766a02e78ab7c54a5f976595778489184
+Merge: 0fcf7d6 13f48e1
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sun Apr 9 11:17:42 2023 +0200
+
+    Merge pull request #9 from Kaputchino/main
+    
+    merge
+
+commit 13f48e17f0ad6c6a256b09358859214fc10e4a20
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 00:43:54 2023 +0200
+
+    woops
+
+commit f09939239f44a0cf0122baaf705a2037a3874a91
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 00:42:11 2023 +0200
+
+    dispatcher
+
+commit 28af05d647ce7c023322cdaad7e646123fe801c3
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 00:17:53 2023 +0200
+
+    broke down methods
+
+commit ced5862fd8615a4f569052583032ec0580f5d0df
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sun Apr 9 00:06:59 2023 +0200
+
+    ajouterColis
+
+commit d13a0952cfdecd2d0c188682c2d84dfa6a5289d4
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 23:53:09 2023 +0200
+
+    :3
+
+commit 09630f36ddc3637dac6fafa9ff89cfb6bf982560
+Merge: 7b04db3 0fcf7d6
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 23:43:36 2023 +0200
+
+    Merge pull request #8 from Kaputchino/andreasDev
+    
+    ajout getter Andreas dev
+
+commit 0fcf7d60091274d7b16cc5fbbe53a43a415e481c
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 23:43:20 2023 +0200
+
+    ajout getter
+
+commit 7b04db3aac2d2ffecf63045d3209fbee767521cd
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 23:38:04 2023 +0200
+
+    remplir
+
+commit 8a71309c70e1e4f5c1d70f98390482529a3f5206
+Merge: b15b8b1 0f315a5
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 23:31:43 2023 +0200
+
+    Merge pull request #7 from Kaputchino/main
+    
+    update
+
+commit 0f315a5b6951d07bc7fbe624149d947f96502f81
+Merge: f9590bd 078dd39
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 23:31:05 2023 +0200
+
+    Merge branch 'main' of https://github.com/Kaputchino/Projet_Tulle
+
+commit f9590bd63ef334ad6068989ca8bca36fba227233
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 23:31:03 2023 +0200
+
+    yes
+
+commit 078dd39a5b27ecc39c8e295d3746af09604e423f
+Merge: f455e90 b15b8b1
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 23:25:08 2023 +0200
+
+    Merge pull request #6 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit b15b8b1ba5c9f7a4e549c9e7057888504f110f41
+Merge: 39c9394 e0a0efb
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 23:24:47 2023 +0200
+
+    Merge branch 'andreasDev' of https://github.com/Kaputchino/Projet_Tulle into andreasDev
+
+commit 39c939421cac3629465a6623ab0838f67ae244b6
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 23:24:38 2023 +0200
+
+    correction bug minim
+
+commit e0a0efb7b407d94c08bdf8d4fd2c4f6a7b427e4b
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 23:21:07 2023 +0200
+
+    Create README.md
+
+commit f455e902c0db3082079c3177f2b1704fc9bd12c6
+Merge: 2ebeace 075a216
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 23:20:44 2023 +0200
+
+    Merge pull request #5 from Kaputchino/andreasDev
+    
+    Andreas dev
+
+commit 075a2169cf3ea5770b07eb27bde788becba9c8d6
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 23:20:26 2023 +0200
+
+    ajout de liste static de sauvegarde
+
+commit 47c41671deed135a2474285ebb53083a596bd688
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 23:17:13 2023 +0200
+
+    merge
+
+commit cb24fdf9b634a27dfea741926cd4b683af7a5dd7
+Merge: 8d04f77 2ebeace
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 23:14:01 2023 +0200
+
+    Merge pull request #4 from Kaputchino/main
+    
+    merge
+
+commit 2ebeace6b522e76b0e9f2ed6fd7cfcda3f133979
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 23:13:35 2023 +0200
+
+    Update Admin.h
+
+commit 4b912278d90472c58a5a1ad56345d6c627df1f26
+Merge: 076e79b e20b10a
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 23:12:58 2023 +0200
+
+    Merge branch 'main' of https://github.com/Kaputchino/Projet_Tulle
+
+commit 076e79b8a7c2bc32041b27feef83488c776e136e
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 23:12:42 2023 +0200
+
+    harmonisation
+
+commit e20b10afdfd80d47a99783af337da4ad1b7232f0
+Merge: a504be7 8d04f77
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 23:03:50 2023 +0200
+
+    Merge pull request #3 from Kaputchino/andreasDev
+    
+    merge adminAndreas dev
+
+commit 8d04f77b8c8db319b13caf8e5a42a4f2fe962cb4
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 23:03:32 2023 +0200
+
+    ajout personne
+
+commit 50de89db9b21a4c682c8c0acdb374defb4efe4ee
+Merge: acbce31 a504be7
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 23:00:12 2023 +0200
+
+    Merge pull request #2 from Kaputchino/main
+    
+    merge
+
+commit a504be72a9c61b943c052d41484263068b9b6764
+Merge: 5ee3f57 acbce31
+Author: Kaputchino <61330453+Kaputchino@users.noreply.github.com>
+Date:   Sat Apr 8 22:59:27 2023 +0200
+
+    Merge pull request #1 from Kaputchino/andreasDev
+    
+    verif
+
+commit acbce317ddc3091f8c7099e112908bc1f4be4575
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 22:59:09 2023 +0200
+
+    verif
+
+commit 5ee3f57027005c019cc594b4ddfe0d3d24214d35
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 22:58:28 2023 +0200
+
+    iostream
+
+commit e94f04156b7ff28a578235f083b6a73666195b6b
+Merge: 7476401 0428280
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 22:57:40 2023 +0200
+
+    Merge branch 'main' of https://github.com/Kaputchino/Projet_Tulle
+
+commit 74764016a30c2342198512594ecfd0947301dc94
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 22:57:02 2023 +0200
+
+    classe personne
+
+commit 0428280ac4f91a8ed294aad8b0745021b702b4e9
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 22:54:09 2023 +0200
+
+    retrait commentaire
+
+commit a919de433ec98c97a674dc4693b8138aa07395e2
+Merge: f3a13a8 0058d11
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 22:50:39 2023 +0200
+
+    Merge branch 'main' of https://github.com/Kaputchino/Projet_Tulle
+
+commit f3a13a89488ab0943566f904650892cd867332ce
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 22:50:28 2023 +0200
+
+    ajout des méthodes
+
+commit 0058d11a6f6968d7f4374814afb0883ad0fe569b
+Author: Gabriel <gabriel.berthel@etu.univ-tours.fr>
+Date:   Sat Apr 8 22:45:01 2023 +0200
+
+    header classe personne
+
+commit f055c2711d6cefaccf903cfe46fa6adf275195bc
+Author: Kaputchino <andreasmulard@gmail.com>
+Date:   Sat Apr 8 22:20:08 2023 +0200
+
+    Initial commit
