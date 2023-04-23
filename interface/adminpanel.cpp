@@ -1,4 +1,5 @@
 #include <QMessageBox>
+#include <iostream>
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "core/headers/common.h"
@@ -11,8 +12,6 @@ AdminPanel::AdminPanel(QWidget *parent) :
 
     ui->roleField->addItems({ROLE_ADMIN, ROLE_DISPATCHER, ROLE_CHAUFFEUR});
 
-
-
     QObject::connect(ui->addUsrButton, &QPushButton::clicked, this, &AdminPanel::addPlayerButton);
     QObject::connect(ui->resetUserButton, &QPushButton::clicked, this, &AdminPanel::clearButton);
 
@@ -20,12 +19,16 @@ AdminPanel::AdminPanel(QWidget *parent) :
     QObject::connect(ui->listTrajets, &QListWidget::itemClicked, this, &AdminPanel::selectTrajet);
     QObject::connect(ui->selectDispatcher, &QComboBox::textActivated, this, &AdminPanel::selectDispacher);
 
+    QObject::connect(ui->packetQueue, &QListWidget::itemClicked, this, &AdminPanel::selectColisDispatcher);
+    QObject::connect(ui->unattributedPacketList, &QListWidget::itemClicked, this, &AdminPanel::selectColis);
+
+    QObject::connect(ui->givePacketButton, &QPushButton::clicked, this, &AdminPanel::attribuerColisBoutton);
+
     ui->statChauffeur->setReadOnly(true);
     ui->statDispatcher->setReadOnly(true);
     ui->statTrajet->setReadOnly(true);
 
     ui->givePacketButton->setDisabled(true);
-    ui->takebackPacketButton->setDisabled(true);
 
     AdminPanelInfo::init();
     loadChauffeurList();
@@ -48,12 +51,33 @@ void AdminPanel::selectTrajet() {
 
 void AdminPanel::selectDispacher() {
     AdminPanelInfo::setDispacher(ui->selectDispatcher->currentIndex());
+    ui->packetQueue->clear();
     loadColisDispacher();
     updateStatDispacher();
-    ui->givePacketButton->setDisabled(true);
-    ui->takebackPacketButton->setDisabled(true);
+
 }
 
+void AdminPanel::selectColisDispatcher() {
+    ui->givePacketButton->setDisabled(true);
+}
+
+void AdminPanel::attribuerColisBoutton() {
+    int index = ui->unattributedPacketList->currentRow();
+    Colis * cl = AdminPanelInfo::getColisEnAttente().at(index);
+    AdminPanelInfo::removeColisEnAttente(index);
+    AdminPanelInfo::currDispacher()->attribueColis(cl);
+    ui->unattributedPacketList->clear();
+    ui->packetQueue->clear();
+    loadColisDispacher();
+    loadListeColis();
+    ui->givePacketButton->setDisabled(true);
+}
+
+void AdminPanel::selectColis() {
+    if (ui->selectDispatcher->currentText() != "") {
+        ui->givePacketButton->setDisabled(false);
+    }
+}
 
 void AdminPanel::loadChauffeurList() {
     int prev = ui->listChauffeurs->currentRow();
@@ -158,17 +182,4 @@ void AdminPanel::updateStatTrajet() {
     QString stats = QString::fromStdString(Admin::printInfoTrajet(AdminPanelInfo::currTrajet()));
     ui->statTrajet->setPlainText(stats);
 }
-
-void AdminPanel::selectColisDispatcher() {
-
-}
-
-void AdminPanel::retirerColisBoutton() {
-
-}
-
-void AdminPanel::attribuerColisBoutton() {
-
-}
-
 

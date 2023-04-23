@@ -42,6 +42,8 @@ public:
 
     void setDispatcher(Dispatcher *dispatcher);
 
+    static string currentDate();
+
 private:
     int idColis;
     string villeArrivee;

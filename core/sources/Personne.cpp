@@ -7,7 +7,7 @@ using namespace std;
 
 bool Personne::updateNom() {
     QSqlQuery query;
-    query.prepare("UPDATE SET personne nom=:nom WHERE idPersonne=:idPersonne");
+    query.prepare("UPDATE personne SET nom = :nom WHERE idPersonne = :idPersonne");
     query.bindValue(":idPersonne", QVariant(idPersonne));
     query.bindValue(":nom", QString::fromStdString(nom));
     return query.exec();
@@ -15,7 +15,7 @@ bool Personne::updateNom() {
 
 bool Personne::updatePrenom() {
     QSqlQuery query;
-    query.prepare("UPDATE SET personne prenom=:prenom WHERE idPersonne=:idPersonne");
+    query.prepare("UPDATE personne SET  prenom = :prenom WHERE idPersonne = :idPersonne");
     query.bindValue(":idPersonne", QVariant(idPersonne));
     query.bindValue(":prenom", QString::fromStdString(prenom));
     return query.exec();
@@ -23,7 +23,7 @@ bool Personne::updatePrenom() {
 
 bool Personne::updateAdresse() {
     QSqlQuery query;
-    query.prepare("UPDATE SET personne adresse=:adresse WHERE idPersonne=:idPersonne");
+    query.prepare("UPDATE personne SET adresse = :adresse WHERE idPersonne = :idPersonne");
     query.bindValue(":idPersonne", QVariant(idPersonne));
     query.bindValue(":adresse", QString::fromStdString(adresse));
     return query.exec();
@@ -31,7 +31,7 @@ bool Personne::updateAdresse() {
 
 bool Personne::updateEmail() {
     QSqlQuery query;
-    query.prepare("UPDATE SET personne email=:email WHERE idPersonne=:idPersonne");
+    query.prepare("UPDATE personne SET  email = :email WHERE idPersonne = :idPersonne");
     query.bindValue(":idPersonne", QVariant(idPersonne));
     query.bindValue(":email", QString::fromStdString(email));
     return query.exec();
@@ -39,7 +39,7 @@ bool Personne::updateEmail() {
 
 bool Personne::updatePassword() {
     QSqlQuery query;
-    query.prepare("UPDATE SET personne password=:password WHERE idPersonne=:idPersonne");
+    query.prepare("UPDATE personne SET password = :password WHERE idPersonne = :idPersonne");
     query.bindValue(":idPersonne", QVariant(idPersonne));
     query.bindValue(":password", QString::fromStdString(password));
     return query.exec();
@@ -47,7 +47,7 @@ bool Personne::updatePassword() {
 
 bool Personne::updateRole() {
     QSqlQuery query;
-    query.prepare("UPDATE SET personne role=:role WHERE idPersonne=:idPersonne");
+    query.prepare("UPDATE personne SET role = :role WHERE idPersonne = :idPersonne");
     query.bindValue(":idPersonne", QVariant(idPersonne));
     query.bindValue(":role", QString::fromStdString(role));
     return query.exec();
@@ -55,27 +55,26 @@ bool Personne::updateRole() {
 
 bool Personne::addIntoDb() {
     QSqlQuery query;
-    query.prepare("INSERT INTO personne (idPersonne, nom, prenom, adresse, email, password, role) "
-                  "VALUES (:idPersonne, :nom, :prenom, :adresse, :adresse, :email, :password, :role)");
-    query.bindValue(":idPersonne", QVariant(idPersonne));
+    query.prepare("INSERT INTO personne (nom, prenom, adresse, email, password, role) "
+                  "VALUES (:nom, :prenom, :adresse, :adresse, :email, :password, :role)");
     query.bindValue(":nom", QString::fromStdString(nom));
     query.bindValue(":prenom", QString::fromStdString(prenom));
     query.bindValue(":adresse", QString::fromStdString(adresse));
     query.bindValue(":email", QString::fromStdString(email));
     query.bindValue(":password", QString::fromStdString(password));
     query.bindValue(":role", QString::fromStdString(role));
-
+    this->idPersonne = query.lastInsertId().toInt();
     return query.exec();
 }
 
 Personne::Personne(const string& nom, const string& prenom, const string& adresse, const string& email, const string& password, const string& role) {
-    this->idPersonne = ++totalPersonne;
     this->adresse = adresse;
     this->prenom = prenom;
     this->nom = nom;
     this->email = email;
     this->password = password;
     this->role = role;
+    totalPersonne++;
     addIntoDb();
 }
 

@@ -60,6 +60,8 @@ set(DISPATCHER_UI
         interface/dispatcherpanel.cpp
         interface/dispatcherpanel.h
         interface/dispatcherpanel.ui
+        core/headers/dispatcherPanelInfo.h
+        core/sources/dispatcherPanelInfo.cpp
         )
 
 # SETTING UP QT

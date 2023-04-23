@@ -36,8 +36,8 @@ void LoginScreen::connectClicked()
 
         if (role == ROLE_ADMIN) {
             hide();
-            AdminPanel * adminUI = new AdminPanel();
             AdminPanelInfo::setLogged(id);
+            AdminPanel * adminUI = new AdminPanel();
             adminUI->show();
             close();
         } else if (role == ROLE_CHAUFFEUR) {
@@ -47,9 +47,9 @@ void LoginScreen::connectClicked()
             close();
         } else if (role == ROLE_DISPATCHER) {
             hide();
+            DispatcherPanelInfo::setLogged(id);
             DispatcherPanel * dispatcherUi = new DispatcherPanel();
             dispatcherUi->show();
-            // do the stuff
             close();
         } else {
             QMessageBox::information(this, "Woopps!", "Vous avez un role non prevu! Woopsy.");
