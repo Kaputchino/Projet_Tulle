@@ -20,6 +20,8 @@ private:
     Ui::ChauffeurPanel *ui;
     void loaderListeTrajet();
     void loaderListeColis();
+    void setStateListeColis();
+    void setStateButtons();
 
 private slots:
     void ajouterTrajet();
@@ -28,6 +30,7 @@ private slots:
     void selectionnerTrajet();
     void commencerLivraison();
     void finirLivraison();
+    void validerTrajet();
 };
 
 #endif // CHAUFFEURPANEL_H

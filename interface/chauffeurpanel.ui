@@ -179,8 +179,21 @@
        <x>0</x>
        <y>20</y>
        <width>321</width>
-       <height>511</height>
+       <height>491</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="validateTrajetButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>520</y>
+       <width>301</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Valider trajet</string>
      </property>
     </widget>
    </widget>

@@ -83,6 +83,8 @@ public:
     vector<Colis *> loadColisOfTrajetFromDB();
 
     string printTrajet();
+
+    static string translateStatus(int status);
 };
 
 #endif //PROJET_TULLE_TRAJET_H

@@ -12,10 +12,9 @@ ChauffeurPanel::ChauffeurPanel(QWidget *parent) :
     QObject::connect(ui->listTrajets, &QListWidget::clicked, this, &ChauffeurPanel::selectionnerTrajet);
     QObject::connect(ui->deliverPackageButton, &QPushButton::clicked, this, &ChauffeurPanel::commencerLivraison);
     QObject::connect(ui->markDeliveredButton, &QPushButton::clicked, this, &ChauffeurPanel::finirLivraison);
-    ui->editTraButton->setEnabled(false);
-    ui->delTraButton->setEnabled(false);
-    ui->deliverPackageButton->setEnabled(false);
-    ui->markDeliveredButton->setEnabled(false);
+    QObject::connect(ui->validateTrajetButton, &QPushButton::clicked, this, &ChauffeurPanel::validerTrajet);
+
+    setStateButtons();
 }
 
 ChauffeurPanel::~ChauffeurPanel()
@@ -25,7 +24,7 @@ ChauffeurPanel::~ChauffeurPanel()
 
 void ChauffeurPanel::loaderListeTrajet() {
     for (Trajet * tr : ChauffeurPanelInfo::getLogged()->getListTrajets()) {
-        QString label = QString::fromStdString(to_string(tr->getIdTrajet()) + " - " + tr->getVilleDepart() + " vers " + tr->getVilleArrivee() + " de " + tr->getHoraireDepart() + " a " + tr->getHoraireArrivee() + " | Statut: " + to_string(tr->getStatuts()));
+        QString label = QString::fromStdString(to_string(tr->getIdTrajet()) + " - " + tr->getVilleDepart() + " vers " + tr->getVilleArrivee() + " de " + tr->getHoraireDepart() + " a " + tr->getHoraireArrivee() + " | Statut: " + Trajet::translateStatus(tr->getStatuts()));
         ui->listTrajets->addItem(label);
     }
 }
@@ -52,35 +51,66 @@ void ChauffeurPanel::supprimmerTrajet() {
 
 
 void ChauffeurPanel::selectionnerTrajet() {
-    ui->deliverPackageButton->setEnabled(false);
-    ui->markDeliveredButton->setEnabled(false);
-
     int index = ui->listTrajets->currentRow();
     ChauffeurPanelInfo::setSelectedTrajet(ChauffeurPanelInfo::getLogged()->getListTrajets().at(index));
-    ui->editTraButton->setEnabled(true);
-    ui->delTraButton->setEnabled(true);
-
-    if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() <= TRAJET_VALIDATION) {
-        ui->deliverPackageButton->setEnabled(true);
-    } else if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_LIVRAISON_EN_COURS) {
-        ui->markDeliveredButton->setEnabled(true);
-    }
-
+    setStateButtons();
+    setStateListeColis();
     ui->listColis->clear();
     loaderListeColis();
 }
 
 void ChauffeurPanel::commencerLivraison() {
-    ui->deliverPackageButton->setEnabled(false);
-    ui->markDeliveredButton->setEnabled(true);
-    ChauffeurPanelInfo::getSelelectedTrajet()->setStatuts(3);
+    ChauffeurPanelInfo::getLogged()->delancheLivraison(ChauffeurPanelInfo::getSelelectedTrajet());
+    setStateButtons();
+    ui->listTrajets->clear();
+    setStateListeColis();
     loaderListeTrajet();
-    loaderListeColis();
 }
 
 void ChauffeurPanel::finirLivraison() {
-    ui->markDeliveredButton->setEnabled(false);
-    ChauffeurPanelInfo::getSelelectedTrajet()->setStatuts(4);
+    ChauffeurPanelInfo::getLogged()->declareLivraison(ChauffeurPanelInfo::getSelelectedTrajet());
+    ui->listTrajets->clear();
+    setStateButtons();
+    setStateListeColis();
     loaderListeTrajet();
-    loaderListeColis();
 }
+
+void ChauffeurPanel::validerTrajet() {
+    ChauffeurPanelInfo::getLogged()->validerTrajet(ChauffeurPanelInfo::getSelelectedTrajet());
+    ui->listTrajets->clear();
+    setStateButtons();
+    setStateListeColis();
+    loaderListeTrajet();
+}
+
+void ChauffeurPanel::setStateListeColis() {
+    if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() >= TRAJET_LIVRAISON_EN_COURS) {
+        ui->listColis->setDisabled(true);
+    } else {
+        ui->listColis->setDisabled(false);
+    }
+}
+
+void ChauffeurPanel::setStateButtons() {
+    ui->deliverPackageButton->setEnabled(false);
+    ui->validateTrajetButton->setEnabled(false);
+    ui->markDeliveredButton->setEnabled(false);
+    ui->editTraButton->setEnabled(false);
+    ui->delTraButton->setEnabled(false);
+
+    if (ChauffeurPanelInfo::getSelelectedTrajet() != nullptr) {
+        if (!ChauffeurPanelInfo::getSelelectedTrajet()->getListeColis().empty()) {
+            if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_VALIDATION) {
+                ui->deliverPackageButton->setEnabled(true);
+                ui->editTraButton->setEnabled(true);
+                ui->delTraButton->setEnabled(true);
+                ui->validateTrajetButton->setEnabled(false);
+            } else if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_SOLICITATION) {
+                ui->validateTrajetButton->setEnabled(true);
+            } else if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_LIVRAISON_EN_COURS) {
+                ui->markDeliveredButton->setEnabled(true);
+            }
+        }
+    }
+}
+

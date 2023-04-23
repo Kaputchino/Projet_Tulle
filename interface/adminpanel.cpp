@@ -65,6 +65,7 @@ void AdminPanel::attribuerColisBoutton() {
     ui->packetQueue->clear();
     loadColisDispacher();
     loadListeColis();
+    updateStatDispacher();
     ui->givePacketButton->setDisabled(true);
 }
 
