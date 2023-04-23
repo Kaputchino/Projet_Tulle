@@ -125,7 +125,12 @@ void ChauffeurPanel::modifierTrajet() {
 }
 
 void ChauffeurPanel::supprimmerTrajet() {
-
+    ChauffeurPanelInfo::getLogged()->removeTrajet(ChauffeurPanelInfo::getSelelectedTrajet());
+    ui->listTrajets->clear();
+    ui->listColis->clear();
+    ChauffeurPanelInfo::setSelectedTrajet(nullptr);
+    loaderListeTrajet();
+    setStateButtons();
 }
 
 void ChauffeurPanel::selectionnerTrajet() {
