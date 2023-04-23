@@ -232,7 +232,6 @@ double Trajet::getPoidEnCharge() {
     return poids;
 }
 
-
 int Trajet::nbColis() {
     return listeColis.size();
 }
