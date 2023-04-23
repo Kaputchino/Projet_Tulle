@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Dispatcher Interface</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
@@ -26,7 +26,7 @@
     <property name="title">
      <string>File d'attente</string>
     </property>
-    <widget class="QListWidget" name="listeColisButton">
+    <widget class="QListWidget" name="listeColis">
      <property name="geometry">
       <rect>
        <x>0</x>

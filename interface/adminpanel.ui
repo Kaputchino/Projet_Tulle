@@ -219,19 +219,6 @@
        <string>Attribuer colis</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="takebackPacketButton">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>360</y>
-        <width>391</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Retirer colis</string>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">

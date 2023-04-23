@@ -67,5 +67,9 @@ vector<Colis *> AdminPanelInfo::getColisEnAttente() {
     return colisEnAttente;
 }
 
+void AdminPanelInfo::removeColisEnAttente(int index) {
+    colisEnAttente.erase(colisEnAttente.begin() + index);
+}
+
 
 

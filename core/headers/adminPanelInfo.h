@@ -32,5 +32,6 @@ public:
     static Trajet * currTrajet();
     static void resetTrajet();
     static vector<Colis *> getColisEnAttente();
+    static void removeColisEnAttente(int index);
 };
 #endif //PROJET_TULLE_ADMINPANELINFO_H

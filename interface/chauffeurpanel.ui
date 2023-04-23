@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1043</width>
+    <width>815</width>
     <height>621</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Chauffeur Interface</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
@@ -97,7 +97,7 @@
        <widget class="QComboBox" name="fromField"/>
       </item>
       <item row="4" column="1">
-       <widget class="QSpinBox" name="spinBox"/>
+       <widget class="QSpinBox" name="poidsField"/>
       </item>
       <item row="5" column="1">
        <widget class="QComboBox" name="statusField"/>
@@ -142,21 +142,21 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>0</y>
       <width>461</width>
-      <height>291</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="title">
      <string>Trajets</string>
     </property>
-    <widget class="QTableWidget" name="trajectList">
+    <widget class="QListWidget" name="listTrajets">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>441</width>
-       <height>251</height>
+       <x>0</x>
+       <y>20</y>
+       <width>461</width>
+       <height>281</height>
       </rect>
      </property>
     </widget>
@@ -165,22 +165,35 @@
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>10</y>
-      <width>551</width>
-      <height>591</height>
+      <y>0</y>
+      <width>321</width>
+      <height>601</height>
      </rect>
     </property>
     <property name="title">
      <string>Colies</string>
     </property>
-    <widget class="QTableWidget" name="packageList">
+    <widget class="QListWidget" name="listColis">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>321</width>
+       <height>491</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="validateTrajetButton">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
-       <width>531</width>
-       <height>501</height>
+       <y>520</y>
+       <width>301</width>
+       <height>24</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>Valider trajet</string>
      </property>
     </widget>
    </widget>
@@ -189,7 +202,7 @@
      <rect>
       <x>490</x>
       <y>550</y>
-      <width>531</width>
+      <width>301</width>
       <height>41</height>
      </rect>
     </property>
