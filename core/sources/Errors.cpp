@@ -19,7 +19,7 @@ string Errors::readErrors() {
 }
 
 bool Errors::hasErrors() {
-    return errors.empty();
+    return !errors.empty();
 }
 
 void Errors::init() {

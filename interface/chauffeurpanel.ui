@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>310</y>
+      <y>320</y>
       <width>461</width>
-      <height>291</height>
+      <height>281</height>
      </rect>
     </property>
     <property name="title">
@@ -30,7 +30,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>35</y>
+       <y>30</y>
        <width>441</width>
        <height>191</height>
       </rect>
@@ -49,12 +49,18 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="fromField"/>
+      </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Ville d'arrivee</string>
         </property>
        </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="toField"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_3">
@@ -63,12 +69,18 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="1">
+       <widget class="QTimeEdit" name="beginField"/>
+      </item>
       <item row="3" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
          <string>Heure fin</string>
         </property>
        </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QTimeEdit" name="endField"/>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="label_5">
@@ -80,27 +92,15 @@
       <item row="5" column="0">
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Statut</string>
+         <string>Prix</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="QTimeEdit" name="endField"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="QTimeEdit" name="beginField"/>
-      </item>
-      <item row="1" column="1">
-       <widget class="QComboBox" name="toField"/>
-      </item>
-      <item row="0" column="1">
-       <widget class="QComboBox" name="fromField"/>
+      <item row="5" column="1">
+       <widget class="QDoubleSpinBox" name="prixField"/>
       </item>
       <item row="4" column="1">
-       <widget class="QSpinBox" name="poidsField"/>
-      </item>
-      <item row="5" column="1">
-       <widget class="QComboBox" name="statusField"/>
+       <widget class="QDoubleSpinBox" name="poidsField"/>
       </item>
      </layout>
     </widget>
@@ -108,7 +108,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>240</y>
+       <y>230</y>
        <width>441</width>
        <height>41</height>
       </rect>
@@ -144,7 +144,7 @@
       <x>10</x>
       <y>0</y>
       <width>461</width>
-      <height>301</height>
+      <height>311</height>
      </rect>
     </property>
     <property name="title">
@@ -156,7 +156,7 @@
        <x>0</x>
        <y>20</y>
        <width>461</width>
-       <height>281</height>
+       <height>291</height>
       </rect>
      </property>
     </widget>
