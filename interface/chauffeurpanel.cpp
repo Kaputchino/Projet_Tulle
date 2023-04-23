@@ -1,3 +1,4 @@
+#include <QMessageBox>
 #include "chauffeurpanel.h"
 #include "ui_chauffeurpanel.h"
 #include "core/headers/chauffeurPanelInfo.h"
@@ -13,8 +14,17 @@ ChauffeurPanel::ChauffeurPanel(QWidget *parent) :
     QObject::connect(ui->deliverPackageButton, &QPushButton::clicked, this, &ChauffeurPanel::commencerLivraison);
     QObject::connect(ui->markDeliveredButton, &QPushButton::clicked, this, &ChauffeurPanel::finirLivraison);
     QObject::connect(ui->validateTrajetButton, &QPushButton::clicked, this, &ChauffeurPanel::validerTrajet);
+    QObject::connect(ui->addTraButton, &QPushButton::clicked, this, &ChauffeurPanel::ajouterTrajet);
 
     setStateButtons();
+
+    for (string str : listeVille) {
+        ui->fromField->addItem(QString::fromStdString(str));
+        ui->toField->addItem(QString::fromStdString(str));
+    }
+
+    ui->poidsField->setMaximum(1000000);
+    ui->prixField->setMaximum(1000000);
 }
 
 ChauffeurPanel::~ChauffeurPanel()
@@ -37,7 +47,42 @@ void ChauffeurPanel::loaderListeColis() {
 }
 
 void ChauffeurPanel::ajouterTrajet() {
+    Errors::init();
+    string villeDepart = ui->fromField->currentText().toStdString();
+    string villeArrivee = ui->toField->currentText().toStdString();
+    string heureDepart = ui->beginField->text().toStdString();
+    string heureArrivee = ui->endField->text().toStdString();
+    double poids = ui->poidsField->value();
+    double prix = ui->prixField->value();
 
+    if (heureDepart == heureArrivee) {
+        Errors::appendError("L'heure de depart ne peut etre egal a l'heure d'arrivee");
+    }
+
+    if (poids <= 0) {
+        Errors::appendError("Le poids doit etre positif.");
+    }
+
+    if (prix <= 0) {
+        Errors::appendError("Le prix ne peut etre negatif.");
+    }
+
+    if (Errors::hasErrors()) {
+        QMessageBox::warning(this, "Ajout Trajet", QString::fromStdString(Errors::readErrors()));
+    } else {
+        Trajet * trajet = new Trajet(
+                ChauffeurPanelInfo::getLogged()->getIdPersonne(),
+                villeDepart, villeArrivee, heureDepart, heureArrivee, poids, prix
+        );
+        ChauffeurPanelInfo::getLogged()->ajoutTrajet(trajet);
+        ui->listTrajets->clear();
+        setStateButtons();
+        loaderListeTrajet();
+        ui->beginField->update(0, 0, 0, 0);
+        ui->endField->update(0, 0, 0, 0);
+        ui->poidsField->setValue(0);
+        ui->prixField->setValue(0);
+    }
 }
 
 void ChauffeurPanel::modifierTrajet() {

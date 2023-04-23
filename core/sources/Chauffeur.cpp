@@ -2,7 +2,6 @@
 #include <QtSql>
 #include "core/headers/Chauffeur.h"
 #include "core/headers/Admin.h"
-
 #include "core/headers/common.h"
 
 bool Chauffeur::ajoutTrajet(Trajet *t) {
@@ -17,6 +16,8 @@ bool Chauffeur::ajoutTrajet(Trajet *t) {
         return false;
     }
 
+    t->setIdChauffeur(this->idPersonne);
+    t->setStatuts(TRAJET_SOLICITATION);
     listeTrajet.push_back(t);
     return true;
 }
@@ -81,15 +82,16 @@ Trajet * Chauffeur::getTrajetByIndex(int index) {
     return listeTrajet.at(index);
 }
 
-int Chauffeur::getIndexTrajet(const string& villeArrivee) {
-    for (int i = 0; i < listeTrajet.size(); i++)
-    {
-        if (listeTrajet.at(i)->getVilleArrivee() == villeArrivee) {
-            return i;
+vector<Trajet *> Chauffeur::getIndexTrajet(const string& villeArrivee) {
+    vector<Trajet *> res;
+
+    for(Trajet * tr : listeTrajet) {
+        if (tr->getVilleArrivee() == villeArrivee) {
+            res.push_back(tr);
         }
     }
 
-    return -1;
+    return res;
 }
 
 int Chauffeur::getNbTrajet() {
@@ -263,8 +265,8 @@ bool Chauffeur::loadTrajetFromDB() {
         string horaireArrivee = query.value(4).toString().toStdString();
         double poid = query.value(5).toDouble();
         double prix = query.value(6).toDouble();
-        int idChauffeur = query.value(8).toInt();
         int statut = query.value(7).toInt();
+        int idChauffeur = query.value(8).toInt();
         auto *t = new Trajet(idChauffeur,VilleDepart, villeArrivee, horaireDepart, horaireArrivee, poid, prix, idTrajet, statut);
         t->loadColisOfTrajetFromDB();
         listeTrajet.push_back(t);

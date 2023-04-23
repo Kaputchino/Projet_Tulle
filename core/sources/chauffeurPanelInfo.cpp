@@ -13,6 +13,6 @@ Trajet * ChauffeurPanelInfo::getSelelectedTrajet() {
     return selectedTrajet;
 }
 
-Trajet *ChauffeurPanelInfo::setSelectedTrajet(Trajet *trajet) {
+void ChauffeurPanelInfo::setSelectedTrajet(Trajet *trajet) {
     selectedTrajet = trajet;
 }
