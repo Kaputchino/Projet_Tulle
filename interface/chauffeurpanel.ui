@@ -97,7 +97,7 @@
        <widget class="QComboBox" name="fromField"/>
       </item>
       <item row="4" column="1">
-       <widget class="QSpinBox" name="spinBox"/>
+       <widget class="QSpinBox" name="poidsField"/>
       </item>
       <item row="5" column="1">
        <widget class="QComboBox" name="statusField"/>
