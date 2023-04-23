@@ -1,20 +1,20 @@
 BEGIN TRANSACTION;
 DROP TABLE IF EXISTS "personne";
 CREATE TABLE IF NOT EXISTS "personne" (
-										  "idPersonne"	INTEGER NOT NULL,
-										  "nom"	Varchar(50) NOT NULL,
+	"idPersonne"	INTEGER NOT NULL,
+	"nom"	Varchar(50) NOT NULL,
 	"prenom"	Varchar(50) NOT NULL,
 	"adresse"	Varchar(250) NOT NULL,
 	"email"	Varchar(50) NOT NULL,
 	"password"	Varchar(264) NOT NULL,
 	"role"	Varchar(264) NOT NULL,
 	CONSTRAINT "personne_PK" PRIMARY KEY("idPersonne" AUTOINCREMENT)
-	);
+);
 DROP TABLE IF EXISTS "colis";
 CREATE TABLE IF NOT EXISTS "colis" (
-									   "idColis"	INTEGER NOT NULL,
-									   "poids"	Double NOT NULL,
-									   "villeArivee"	Varchar(264) NOT NULL,
+	"idColis"	INTEGER NOT NULL,
+	"poids"	Double NOT NULL,
+	"villeArivee"	Varchar(264) NOT NULL,
 	"dataAjout"	Varchar(50) NOT NULL,
 	"statut"	Smallint NOT NULL,
 	"idTrajet"	Int,
@@ -22,11 +22,11 @@ CREATE TABLE IF NOT EXISTS "colis" (
 	CONSTRAINT "colis_PK" PRIMARY KEY("idColis" AUTOINCREMENT),
 	FOREIGN KEY("idDispatcher") REFERENCES "personne"("idPersonne"),
 	CONSTRAINT "colis_trajet_FK" FOREIGN KEY("idTrajet") REFERENCES "trajet"("idTrajet")
-	);
+);
 DROP TABLE IF EXISTS "trajet";
 CREATE TABLE IF NOT EXISTS "trajet" (
-										"idTrajet"	INTEGER NOT NULL,
-										"villeDepart"	Varchar(264) NOT NULL,
+	"idTrajet"	INTEGER NOT NULL,
+	"villeDepart"	Varchar(264) NOT NULL,
 	"villeArrivee"	Varchar(264) NOT NULL,
 	"horaireDepart"	Varchar(264) NOT NULL,
 	"horaireArrivee"	Varchar(264) NOT NULL,
@@ -36,5 +36,8 @@ CREATE TABLE IF NOT EXISTS "trajet" (
 	"idPersonne"	Int,
 	CONSTRAINT "trajet_PK" PRIMARY KEY("idTrajet" AUTOINCREMENT),
 	CONSTRAINT "trajet_personne_FK" FOREIGN KEY("idPersonne") REFERENCES "personne"("idPersonne")
-	);
+);
+INSERT INTO "personne" VALUES (1,'root','root','root','root','18029476052510536322','Admin'),
+ (2,'Charles','Lacroix','67 Rue Delacroix, 37000 Tours','charles.delacroix@ymail.com','3663726644998027833','Chauffeur'),
+ (3,'Pierric','Ilcourt','Avenue De La Celerite, 37100, Tours','perric.ilcourt@vi.te','3663726644998027833','Dispatcher');
 COMMIT;
