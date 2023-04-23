@@ -17,6 +17,17 @@ public:
 
 private:
     Ui::ChauffeurPanel *ui;
+    void loaderListeTrajet();
+    void loaderListeColis();
+
+private slots:
+    void ajouterTrajet();
+    void modifierTrajet();
+    void supprimmerTrajet();
+    void selectionnerColis();
+    void selectionnerTrajet();
+    void commencerLivraison();
+    void finirLivraison();
 };
 
 #endif // CHAUFFEURPANEL_H
