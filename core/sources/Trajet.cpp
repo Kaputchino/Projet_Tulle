@@ -40,7 +40,7 @@ bool Trajet::updateHoraireDepart() {
 }
 bool Trajet::updateHoraireArrivee() {
     QSqlQuery query;
-    query.prepare("UPDATE trajet SET horaireArrive e= :horaireArrivee WHERE idTrajet = :idTrajet");
+    query.prepare("UPDATE trajet SET horaireArrivee = :horaireArrivee WHERE idTrajet = :idTrajet");
     query.bindValue(":idTrajet", QVariant(idTrajet));
     query.bindValue(":horaireArrivee", QString::fromStdString(horaireArrivee));
     return query.exec();
