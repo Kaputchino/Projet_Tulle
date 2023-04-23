@@ -304,6 +304,15 @@ string Trajet::translateStatus(int status) {
     return "";
 }
 
+ int Trajet::findCityIndex(const string& str){
+    for(int i = 0; i < listeVille.size(); i++){
+        if(listeVille.at(i) == str){
+            return i;
+        }
+    }
+    return -1;
+}
+
 
 
 

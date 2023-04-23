@@ -85,6 +85,8 @@ public:
     string printTrajet();
 
     static string translateStatus(int status);
+
+    static int findCityIndex(const string& str);
 };
 
 #endif //PROJET_TULLE_TRAJET_H
