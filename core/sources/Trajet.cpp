@@ -12,7 +12,7 @@ bool Trajet::updateStatut() {
 }
 bool Trajet::updateChauffeur() {
     QSqlQuery query;
-    query.prepare("UPDATE trajet SET villeDepart = :villeDepart WHERE idTrajet = :idTrajet");
+    query.prepare("UPDATE trajet SET idPersonne = :idPersonne WHERE idTrajet = :idTrajet");
     query.bindValue(":idTrajet", QVariant(idTrajet));
     query.bindValue(":idPersonne", QVariant(idChauffeur));
     return query.exec();
@@ -61,22 +61,26 @@ bool Trajet::updatePrix(){
 }
 bool Trajet::addIntoDb() {
     QSqlQuery query;
-    query.prepare("INSERT INTO trajet (idTrajet, villeDepart, villeArivee, horaireDepart, horaireArrivee, poids, prix, statut, idPersonne) "
-                  "VALUES (:idTrajet, :villeDepart, :villeArivee, :horaireDepart, :horaireArrivee, :poids, :prix, :statut, :idPersonne)");
-    query.bindValue(":idTrajet", QVariant(idTrajet));
+    query.prepare("INSERT INTO trajet (villeDepart, villeArrivee, horaireDepart, horaireArrivee, poids, prix, statut, idPersonne) "
+                  "VALUES (:villeDepart, :villeArrivee, :horaireDepart, :horaireArrivee, :poids, :prix, :statut, :idPersonne)");
     query.bindValue(":villeDepart", QString::fromStdString(villeDepart));
-    query.bindValue(":villeArivee", QString::fromStdString(villeArrivee));
+    query.bindValue(":villeArrivee", QString::fromStdString(villeArrivee));
     query.bindValue(":horaireDepart", QString::fromStdString(horaireDepart));
     query.bindValue(":horaireArrivee", QString::fromStdString(horaireArrivee));
     query.bindValue(":poids", QVariant(poids));
     query.bindValue(":prix", QVariant(prix));
     query.bindValue(":statut", QVariant(statut));
     query.bindValue(":idPersonne", QVariant(idChauffeur));
-    return query.exec();
+    query.exec();
+
+    qDebug() << query.lastError();
+
+    this->idTrajet = query.lastInsertId().toInt();
+    return true;
 }
 
 Trajet::Trajet(int idChauffeur, const string &villeDepart, const string & villeArrivee, const string &horaireDepart, const string &horaireArrivee, double poids, double prix) {
-    this->idTrajet = ++totalTrajets;
+    ++totalTrajets;
     this->idChauffeur= idChauffeur;
     this->villeDepart = villeDepart;
     this->villeArrivee = villeArrivee;
@@ -99,6 +103,7 @@ Trajet::Trajet(int idChauffeur, const string &VilleDepart, const string &villeAr
     this->poids = poids;
     this->prix = prix;
     this->statut = statut;
+    ++totalTrajets;
 }
 
 Trajet *Trajet::findTrajetById(int id) {
@@ -204,12 +209,13 @@ void Trajet::setStatuts(int statuts) {
 
 void Trajet::ajouterColis(Colis *colis) {
     this->listeColis.push_back(colis);
-    this->statut = TRAJET_SOLICITATION;
+    this->setStatuts(TRAJET_SOLICITATION);
     colis->setTrajet(this);
 }
 
 bool Trajet::colieAjoutable(Colis *colis) {
     double prochainPoid = (colis->getPoid() + getPoidEnCharge());
+
     if (prochainPoid <= poids && this->statut <= TRAJET_SOLICITATION) {
          return true;
     }

@@ -36,12 +36,11 @@ bool Dispatcher::dispatch() {
     for(Colis * colis : listeColis) {
         unattributed.push_back(colis);
         for (Chauffeur * ch : Chauffeur::getListAllChauffeurAndLoad()) {
-            int indexTrajet = ch->getIndexTrajet(colis->getVilleArrivee());
-            if (indexTrajet != -1) {
-                Trajet * trajet = ch->getTrajetByIndex(indexTrajet);
-                if (trajet->colieAjoutable(colis)) {
+            vector<Trajet *> trajets = ch->getIndexTrajet(colis->getVilleArrivee());
+            for (Trajet * tr : trajets) {
+                if (tr->colieAjoutable(colis)) {
                     colis->setStatut(COLIS_VALIDATION_LIVRAISON);
-                    trajet->ajouterColis(colis);
+                    tr->ajouterColis(colis);
                     unattributed.pop_back();
                     break;
                 }

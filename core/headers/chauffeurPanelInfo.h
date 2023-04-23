@@ -11,7 +11,7 @@ public:
     static Chauffeur * getLogged();
     static void setLogged(int idChauffeur);
     static Trajet * getSelelectedTrajet();
-    static Trajet * setSelectedTrajet(Trajet * trajet);
+    static void setSelectedTrajet(Trajet * trajet);
 };
 
 
