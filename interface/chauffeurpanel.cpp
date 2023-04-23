@@ -15,6 +15,7 @@ ChauffeurPanel::ChauffeurPanel(QWidget *parent) :
     QObject::connect(ui->markDeliveredButton, &QPushButton::clicked, this, &ChauffeurPanel::finirLivraison);
     QObject::connect(ui->validateTrajetButton, &QPushButton::clicked, this, &ChauffeurPanel::validerTrajet);
     QObject::connect(ui->addTraButton, &QPushButton::clicked, this, &ChauffeurPanel::ajouterTrajet);
+    QObject::connect(ui->editTraButton, &QPushButton::clicked, this, &ChauffeurPanel::modifierTrajet);
 
     setStateButtons();
 
@@ -86,14 +87,45 @@ void ChauffeurPanel::ajouterTrajet() {
 }
 
 void ChauffeurPanel::modifierTrajet() {
+    Errors::init();
+    string villeDepart = ui->fromField->currentText().toStdString();
+    string villeArrivee = ui->toField->currentText().toStdString();
+    string heureDepart = ui->beginField->text().toStdString();
+    string heureArrivee = ui->endField->text().toStdString();
+    double poids = ui->poidsField->value();
+    double prix = ui->prixField->value();
 
+    if (heureDepart == heureArrivee) {
+        Errors::appendError("L'heure de depart ne peut etre egal a l'heure d'arrivee");
+    }
+
+    if (poids <= 0) {
+        Errors::appendError("Le poids doit etre positif.");
+    }
+
+    if (prix <= 0) {
+        Errors::appendError("Le prix ne peut etre negatif.");
+    }
+
+    if (Errors::hasErrors()) {
+        QMessageBox::warning(this, "Modification Trajet", QString::fromStdString(Errors::readErrors()));
+    } else {
+        Trajet * tr = ChauffeurPanelInfo::getSelelectedTrajet();
+        tr->setHoraireArrivee(heureArrivee);
+        tr->setVilleArrivee(villeArrivee);
+        tr->setHoraireDepart(heureDepart);
+        tr->setHoraireArrivee(heureArrivee);
+        tr->setPoids(poids);
+        tr->setPrix(prix);
+        ui->listTrajets->clear();
+        setStateButtons();
+        loaderListeTrajet();
+    }
 }
 
 void ChauffeurPanel::supprimmerTrajet() {
 
 }
-
-
 
 void ChauffeurPanel::selectionnerTrajet() {
     int index = ui->listTrajets->currentRow();
@@ -102,6 +134,7 @@ void ChauffeurPanel::selectionnerTrajet() {
     setStateListeColis();
     ui->listColis->clear();
     loaderListeColis();
+    afficherInfoTrajet();
 }
 
 void ChauffeurPanel::commencerLivraison() {
@@ -147,15 +180,31 @@ void ChauffeurPanel::setStateButtons() {
         if (!ChauffeurPanelInfo::getSelelectedTrajet()->getListeColis().empty()) {
             if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_VALIDATION) {
                 ui->deliverPackageButton->setEnabled(true);
-                ui->editTraButton->setEnabled(true);
-                ui->delTraButton->setEnabled(true);
                 ui->validateTrajetButton->setEnabled(false);
             } else if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_SOLICITATION) {
                 ui->validateTrajetButton->setEnabled(true);
             } else if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_LIVRAISON_EN_COURS) {
                 ui->markDeliveredButton->setEnabled(true);
             }
+        } else {
+            if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_SOLICITATION) {
+                ui->editTraButton->setEnabled(true);
+                ui->delTraButton->setEnabled(true);
+            }
         }
     }
+}
+
+void ChauffeurPanel::afficherInfoTrajet() {
+    Trajet * tr = ChauffeurPanelInfo::getSelelectedTrajet();
+
+    ui->beginField->setSpecialValueText(QString::fromStdString(tr->getHoraireDepart()));
+    ui->endField->setSpecialValueText(QString::fromStdString(tr->getHoraireArrivee()));
+
+    ui->fromField->setCurrentIndex(Trajet::findCityIndex(tr->getVilleDepart()));
+    ui->toField->setCurrentIndex(Trajet::findCityIndex(tr->getVilleArrivee()));
+
+    ui->poidsField->setValue(tr->getPoids());
+    ui->prixField->setValue(tr->getPrix());
 }
 

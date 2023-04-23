@@ -22,6 +22,7 @@ private:
     void loaderListeColis();
     void setStateListeColis();
     void setStateButtons();
+    void afficherInfoTrajet();
 
 private slots:
     void ajouterTrajet();
