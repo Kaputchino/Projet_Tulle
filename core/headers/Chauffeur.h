@@ -42,6 +42,7 @@ private:
     vector<Trajet *> listeTrajet;
     vector <Colis *> getAllColis();
 
+    bool removeTrajet(Trajet *t);
 };
 
 #endif //PROJET_TULLE_CHAUFFEUR_H

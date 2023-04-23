@@ -87,6 +87,8 @@ public:
     static string translateStatus(int status);
 
     static int findCityIndex(const string& str);
+
+    bool removeFromDB();
 };
 
 #endif //PROJET_TULLE_TRAJET_H

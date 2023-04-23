@@ -318,7 +318,10 @@ void Chauffeur::afficherChauffeur(){
     cout<<"poid moyen par trajet: "<<Admin::poidMoyenParTrajet(this)<<endl;
 
 }
-
+bool Chauffeur::removeTrajet(Trajet* t){
+    listeTrajet.erase(std::remove(listeTrajet.begin(), listeTrajet.end(), t), listeTrajet.end());
+    return t->removeFromDB();
+}
 
 
 
