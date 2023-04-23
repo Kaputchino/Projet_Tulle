@@ -110,7 +110,7 @@ vector<Dispatcher *> Dispatcher::getListAllDispatcherAndLoad() {
 
 vector<Colis *> Dispatcher::loadColisOfDispatcherFromDB(){
     QSqlQuery query;
-    query.prepare( "SELECT * FROM colis WHERE idDispatcher = :id" );
+    query.prepare( "SELECT * FROM colis WHERE idDispatcher = :id AND idTrajet is NULL" );
     query.bindValue(":id", QVariant(idPersonne));
 
     if(!query.exec() ){

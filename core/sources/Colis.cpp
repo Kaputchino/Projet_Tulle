@@ -25,16 +25,24 @@ bool Colis::updateStatut() {
 
 bool Colis::updateTrajet() {
     QSqlQuery query;
-    query.prepare("UPDATE colis SET idTrajet = :idTrajet WHERE idColis = :idColis");
+    if (trajet == nullptr) {
+        query.prepare("UPDATE colis SET idTrajet = NULL WHERE idColis = :idColis");
+    } else {
+        query.prepare("UPDATE colis SET idTrajet = :idTrajet WHERE idColis = :idColis");
+        query.bindValue(":idTrajet", QVariant(trajet->getIdTrajet()));
+    }
     query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":idTrajet", QVariant(trajet->getIdTrajet()));
     return query.exec();
 }
 bool Colis::updateDispatcher() {
     QSqlQuery query;
-    query.prepare("UPDATE colis SET idDispatcher = :idDispatcher WHERE idColis = :idColis");
+    if (dispatcher == nullptr) {
+        query.prepare("UPDATE colis SET idDispatcher = NULL WHERE idColis = :idColis");
+    } else {
+        query.prepare("UPDATE colis SET idDispatcher = :idDispatcher WHERE idColis = :idColis");
+        query.bindValue(":idDispatcher", QVariant(dispatcher->getIdPersonne()));
+    }
     query.bindValue(":idColis", QVariant(idColis));
-    query.bindValue(":idDispatcher", QVariant(dispatcher->getIdPersonne()));
     return query.exec();
 }
 
