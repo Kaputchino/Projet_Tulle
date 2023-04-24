@@ -324,6 +324,7 @@ bool Trajet::removeFromDB(){
         for(int i = 0; i < listeColis.size(); i++){
             listeColis.at(i)->setTrajet(nullptr);
             listeColis.at(i)->setStatut(COLIS_CREATION);
+            listeColis.at(i)->setDispatcher(nullptr);
         }
         listeColis.clear();
         return true;

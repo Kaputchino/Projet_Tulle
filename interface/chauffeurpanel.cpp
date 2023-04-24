@@ -192,11 +192,14 @@ void ChauffeurPanel::setStateButtons() {
             } else if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_LIVRAISON_EN_COURS) {
                 ui->markDeliveredButton->setEnabled(true);
             }
-        } else {
+
             if (ChauffeurPanelInfo::getSelelectedTrajet()->getStatuts() == TRAJET_SOLICITATION) {
                 ui->editTraButton->setEnabled(true);
                 ui->delTraButton->setEnabled(true);
             }
+        } else {
+            ui->editTraButton->setEnabled(true);
+            ui->delTraButton->setEnabled(true);
         }
     }
 }
